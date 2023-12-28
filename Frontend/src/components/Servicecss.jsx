@@ -4,12 +4,13 @@ const Servicecss = () => {
   return (
     <style jsx>{`
       .services {
-        width:95%;
+        width:90%;
         // background-color: red;
         display: flex;
         flex-wrap: wrap;
         // flex:1;
         justify-content: center;
+        align-items:center;
         margin:0 auto;
       }
     
@@ -73,7 +74,7 @@ const Servicecss = () => {
         }
 
         .service-card {
-          width: 100%; /* Make the cards take 100% width on small devices */
+          width: 88%; /* Make the cards take 100% width on small devices */
         }
       }
     `}</style>

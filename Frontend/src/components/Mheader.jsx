@@ -19,45 +19,46 @@ const Mheader = () => {
     }
   ]
   return (
-    <div className='w-[89%] mx-auto py-4'>
+    <div className='w-[90%] flex flex-col w-auto py-4'>
         <div className=" items-center ">
           <h1 className=" text-center text-4xl font-sans">
             <br></br>
             Benefits of Buying Text <br></br> Resume Services with <br></br>{" "}
             Doledge India
           </h1>
+
           <br></br>
-          <div className=" w-692">
-            <h2 className=" text-center text-xl text-gray-500 ">
-              Rank higher in recruiter searches, Get instant relevant Jobs and{" "}
-              <br></br> reach out to recruiters to increase your chances of
-              getting a call
-            </h2>
-            <div className="flex justify-between w-5/6 mx-auto font-bold font-sans pt-2 ">
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                Visibility
-              </button>
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                Professional
-              </button>
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                StandOut
-              </button>
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                Recruiter Friendly
-              </button>
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                Error Free
-              </button>
-              <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mr-6">
-                Assurity
-              </button>
-            </div>
+          
+          <div className="w-[100%] px-5">
+              <h2 className="text-center text-xl text-gray-500">
+                Rank higher in recruiter searches, Get instant relevant Jobs and <br /> reach out to recruiters to increase your chances of getting a call
+              </h2>
+              <div className="font-bold font-sans pt-4 pb-4 sm:flex flex-row items-center justify-center md:flex md:flex-wrap md:justify-center">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                  Visibility
+                </button>
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                  Professional
+                </button>
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                  StandOut
+                </button>
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                  Recruiter Friendly
+                </button>
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                  Error Free
+                </button>
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mb-4 md:mr-4">
+                  Assurity
+                </button>
+              </div>
           </div>
         </div>
+
         <div className="w-5/6 mx-auto py-4">
-        <div className=" h-[411px] md:flex items-center justify-between border-[3px] lg:rounded border-gray-200 md:h-411 md:flex-row flex-col">
-        <div className="md:w-[82%] w-full py-6 px-8  text-gray-900 text-center md:text-left">
+        <div className="md:flex items-center justify-between border-[3px] lg:rounded border-gray-200 md:h-411 md:flex-row flex-col">
+        <div className="md:w-[90%] w-full py-6 px-8  text-gray-900 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left"> Unlocking Career Opportunities: The Benefits of Text Resume Services</h1>
           <h1 className="text-xl text-left md:text-2xl font-semibold mb-4 font-sans text-gray-500">
           </h1>
@@ -77,6 +78,7 @@ const Mheader = () => {
         </div>
       </div>
       </div>
+      
       <div className='w-5/6 mx-auto py-2' >
         <div className="border-[3px] lg:rounded border-gray-200 h-411 w-1176 items-center justify-center text-center py-4">
           <h1 className="font-bold text-3xl py-2 px-2 font-sans">
@@ -111,21 +113,23 @@ const Mheader = () => {
         </div>
         </div>
         <div className='w-5/6 mx-auto py-4' >
-        <div className="border-[3px] lg:rounded border-gray-200 h-411 w-1176 items-center justify-center text-center py-4">
+        <div className=" border-[3px] lg:rounded border-gray-200 h-411 w-1176 items-center justify-center text-center p-4">
           <h2 className="text-3xl py-2 px-2 font-sans font-light">
             View ready-made samples for Text Resume, Visual Resume, Cover
             Letters
           </h2>
+          
           <br />
           <br></br>
-          <div className="flex max-w-[1185px] mx-auto justify-center gap-[100px]">
-            <button className="w-56 bg-blue-700 text-white py-2 px-6 rounded-full">
+
+          <div className="flex flex-row justify-evenly">
+            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
               Text Resume
             </button>
-            <button className="w-56 bg-blue-700 text-white py-2 px-6 rounded-full">
+            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
               Visual Resume
             </button>
-            <button className="w-56 bg-blue-700 text-white py-2 px-6 rounded-full">
+            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
               Cover Letter
             </button>
           </div>

@@ -9,6 +9,7 @@
 /* Navbar styles for larger devices */
 .navbar {
   display: flex;
+  flex-flow: row;
   align-items: center;
   justify-content: space-between;
   background-color: rgba(247, 245, 245, 0.50);
@@ -20,7 +21,7 @@
   width: 189px;
   height: 85px;
   margin-left: 13px;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 /* Hamburger menu styles */
@@ -29,7 +30,8 @@
   flex-direction: column;
   cursor: pointer;
   padding: 10px;
-  z-index: 2;
+  margin-right: 10px;
+  /* z-index: 2; */
 }
 
 .bar {
@@ -72,33 +74,36 @@
   text-decoration: none;
   /* color: #000; */
   color: 'black';
-font-size: 15px;
-font-family: 'Poppins';
-/* font-weight: 600; */
-word-wrap: 'break-word'
+  font-size: 15px;
+  font-family: 'Poppins';
+  /* font-weight: 600; */
+  word-wrap: 'break-word'
 }
 
 .navbar-nav{
   /* background-color: rebeccapurple; */
+  display: flex;
+  flex-flow: row;
   color: 'black';
-font-size: 15px;
+  font-size: 15px;
  font-family: 'Inter';
-font-weight: 400;
-word-wrap:break-word; 
+  font-weight: 400;
+  word-wrap:break-word; 
 
 }
 
 /* Buttons for larger devices */
 .register-button,
 .login-button {
-  padding: 10px 40px;
+  padding: 5px 20px;
   margin-top: 30px;
   
 }
 
 .login-button {
   color: #000;
-  /* padding: 15px 40px; */
+  
+  /* width: 120px; */
   border: 2px solid #000;
   border-radius: 20px;
   background: none;
@@ -150,7 +155,7 @@ word-wrap:break-word;
 }
 
 /* Restyle the hamburger menu positioning for small screens */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .navbar {
     padding: 10px;
     background-color: transparent;
@@ -164,12 +169,12 @@ word-wrap:break-word;
     display: none;
     flex-direction: column;
     text-align: left;
-    position: absolute;
+    position: relative;
     top: 100px;
     left: 0;
     width: 100%;
     background-color: rgba(247, 245, 245, 0.50);
-    z-index: 1;
+    /* z-index: 1; */
   }
 
   .navbar-links.open {
@@ -208,17 +213,20 @@ word-wrap:break-word;
     margin-top: 8px;
   }
 }
+
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #ffffff; /* Change to your preferred background color */
-  min-width: 160px;
+  width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 10;
   border: 1px solid #ccc; /* Add a border */
   opacity: 0;
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
   transition: opacity 0.3s, transform 0.3s;
+  border-radius: 10px;
 }
 
 .dropdown-content a {
@@ -235,10 +243,9 @@ word-wrap:break-word;
 
 .nav-link{
   color: 'black';
-font-size: 15;
-font-weight: '400';
-word-wrap: 'break-word';
-  
+  font-size: 15;
+  font-weight: '400';
+  word-wrap: 'break-word';
   font-family: 'Inter,Arial,sans-serif',
 }
 
@@ -246,9 +253,56 @@ word-wrap: 'break-word';
   margin-left: 5px; /* Adjust spacing */
 }
 
-/* Show dropdown on hover */
-.nav-item:hover .dropdown-content {
+
+
+  /* ------------------------------- Shehab fekry - added styles -------------------------------------- */
+
+
+
+/* Show Home dropdown on hover */
+.nav-item:hover .home-alignment {
   display: block;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(60px);
+}
+
+
+/* Show sideBar dropdown on hover */
+.nav-item:hover .sidebar-alignment {
+  display: block;
+  opacity: 1;
+  transform: translate(-250px, -10px) !important;
+  /* transform: translateX(-290px) !important; */
+}
+
+.nav-item-home {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link-sidebar {
+  display: flex;
+  flex-flow: row;
+  padding: 10px;
+  color: 'black';
+  font-size: 15;
+  font-weight: '400';
+  word-wrap: 'break-word';
+  font-family: 'Inter,Arial,sans-serif',
+}
+
+.nav-link-sidebar:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  
+}
+
+.icon{
+  width: 20%;
+  /* background-color: red; */
+}
+
+.title{
+  width: 80%;
+  /* background-color: red; */
 }

@@ -7,13 +7,15 @@ const Banner_services = () => {
       <br></br>
 
       <Servicecss />
-      <div className="bg-indigo-900 w-[100%] text-white h-20 md:h-28 px-4 md:px-48 flex justify-center items-center leading-3 ">
-        <div className="text-center p-2 leading-10 font-sans text-xl md:text-4xl">
+      <div className="bg-indigo-900 w-[100%] text-white md:h-28 px-4 md:px-48 flex justify-center items-center leading-3 ">
+        <div className="text-center p-2 leading-10 font-sans text-xl xl:text-4xl lr:text-3xl md:text-3xl sm:text-2xl">
           Elevate your career prospects and stand out to <br></br> employers with our personalized resume services
         </div>
       </div>
+
       <br></br>
       <br></br>
+      
       <div className="services">
         <div className="service-card">
           <div

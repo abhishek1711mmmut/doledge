@@ -2,10 +2,11 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-[74%] mt-5" style={{margin:'0 auto',display:'flex',
+    // h-[411px]
+    <div className="w-[80%] mt-5" style={{margin:'0 auto',display:'flex',
     flexWrap:'wrap'}}>
-      <div className=" h-[411px] md:flex items-center justify-between border-[3px] lg:rounded border-gray-200 md:h-411 md:flex-row flex-col">
-        <div className="md:w-1/2 w-full py-6 px-8  text-gray-900 text-center md:text-left">
+      <div className="md:h-1/2 flex items-center justify-between border-[3px] md: md:flex-row flex-col lg:rounded border-gray-200">
+        <div className="md:w-1/2 w-full py-6 px-8  text-gray-900 text-left">
           <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left" style={{
             // borderRadius:'20px',
             color: '#6B6B6B',
@@ -51,9 +52,11 @@ const Header = () => {
           />
         </div>
       </div>
+
       <br />
-      <div className=" h-[411px] mt-8 md:flex items-center justify-between border-[3px] lg:rounded border-gray-200 md:h-411 md:flex-row flex-col">
-        <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-left">
+
+      <div className="mt-8 mb-5 md:flex flex-row items-center justify-between border-[3px] lg:rounded border-gray-200">
+        <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-right">
           <img
             src={require("../images/textresume.png")}
             className="mx-auto md:mx-0"
@@ -65,7 +68,7 @@ const Header = () => {
             Plan starts from Rs. 670/month
           </p>
         </div>
-        <div className="md:w-1/2 w-full py-6 px-8 text-gray-900 text-center md:text-right">
+        <div className="md:w-1/2 w-full py-6 px-8 text-gray-900 text-left">
           <h1 className="text-2xl text-left md:text-4xl font-sans mb-4">
             Unlock your future career
           </h1>

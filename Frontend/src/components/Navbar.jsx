@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Dropdown from './Dropdown';
 import '../css/Navbar.css'
 import "@fontsource/poppins"
 
+import SideBar from '../UI/SideBar/SideBar.jsx';
+
 const Navbar = () => {
+  let [active, setActive] = useState(false);
+
+  const sideBarHandler = (type) => {
+    if(type == 'close'){
+      setActive(false);
+      console.log(active)
+
+    }
+    else if( type == 'toggle'){
+      let reverse = !active;
+      console.log(active)
+      setActive(reverse);
+
+    }
+  }
+
  return (
     <>
       <Container fluid className="px-0">
@@ -17,11 +35,12 @@ const Navbar = () => {
             />
           </Link>
 
-          <button className="navbar-toggler" type="button">
+          <button className="navbar-toggler" type="button" onClick={() => sideBarHandler('toggle')}>
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>
           </button>
+          <SideBar active={active} onClick={sideBarHandler}/>
 
           <div className="navbar-links">
             <ul className="navbar-nav mt-4">
@@ -29,8 +48,8 @@ const Navbar = () => {
                 <Link className="nav-link" to='/'>
                  Home
                 </Link>
-              </li>
-              <Dropdown />
+              </li> 
+              <Dropdown/>
             </ul>
 
             <ul className="navbar-nav navigation-btn">
@@ -56,7 +75,7 @@ const Navbar = () => {
                     fontWeight: '400',
                     wordWrap: 'break-word'
                  }}>
-                    RECRUITER LOGIN
+                    LOGIN
                  </a>
                 </div>
               </li>

@@ -3,27 +3,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../css/Navbar.css'
 
-const Dropdown = () => {
+const Dropdown = (props) => {
     const Dropdown = ({ title, items }) => {
-        const isOpen = true
-    
-        return (
-          <li className="nav-item z-10">
-          <div className="nav-link cursor-pointer" href={`#${title}`}>
-            {title} <FontAwesomeIcon icon={faChevronDown} style={{ color: '#000000' }} />
+    const isOpen = true
+
+      return (
+        <li className={`${props.type == 'sideBar' ? null : 'nav-item-home'} nav-item  z-10`}>
+        <div className={`${props.type == 'sideBar' ? 'nav-link-sidebar' : 'nav-link'} cursor-pointer`} href={`#${title}`}>
+          <div className={`${props.type == 'sideBar' && 'title'}`}>{title}</div> 
+          <div className={`${props.type == 'sideBar' && 'icon'}`}>
+            <FontAwesomeIcon icon={faChevronDown} style={{ color: '#000000' }} />
           </div>
-          {isOpen && (
-            <div className="dropdown-content">
-              {items.map((item, index) => (
-                <a key={index} href={`/${item.replace(/ /g, '-')}`}>
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
+        </div>
+        {isOpen && (
+          <div className={`${props.type == 'sideBar' ? 'sidebar-alignment' : 'home-alignment'} dropdown-content`}>
+            {items.map((item, index) => (
+              <a key={index} href={`/${item.replace(/ /g, '-')}`}>
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
         </li>
-        );
-      };
+      )};
+
+
         return (
             <>
                 <Dropdown
