@@ -30,7 +30,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light">
           <Link to='/' className="navbar-brand">
             <img
-              src={require('../images/logo.png')}
+              src={require('../images/logo-removed.png')}
               alt="Logo"
             />
           </Link>
