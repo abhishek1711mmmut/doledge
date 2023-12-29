@@ -220,13 +220,13 @@
   position: absolute;
   background-color: #ffffff; /* Change to your preferred background color */
   width: 300px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 10;
   border: 1px solid #ccc; /* Add a border */
   opacity: 0;
   /* transform: translateY(-10px); */
   transition: opacity 0.3s, transform 0.3s;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .dropdown-content a {
@@ -264,14 +264,19 @@
   display: block;
   opacity: 1;
   transform: translateY(60px);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 
 /* Show sideBar dropdown on hover */
 .nav-item:hover .sidebar-alignment {
+  position: relative;
+  bottom: 0px;
+  width: 100%;  
   display: block;
   opacity: 1;
-  transform: translate(-250px, -10px) !important;
+  border: 0px 1px solid black;
+  /* transform: translate(-250px, -10px) !important; */
   /* transform: translateX(-290px) !important; */
 }
 
