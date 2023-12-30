@@ -5,7 +5,7 @@ const Header = () => {
     // h-[411px]
     <div className="w-[80%] mt-5" style={{margin:'0 auto',display:'flex',
     flexWrap:'wrap'}}>
-      <div className="flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
+      <div className="w-full flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
       md:flex-row">
         <div className="md:w-1/2 w-full py-6 px-8  text-gray-900 text-left">
           <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left" style={{
@@ -56,7 +56,7 @@ const Header = () => {
 
       <br />
 
-      <div className="flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
+      <div className="w-full flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
       md:flex-row mt-5 mb-5">
         <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-right">
           <img
