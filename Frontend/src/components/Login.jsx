@@ -11,6 +11,7 @@ const Login = () => {
             sm:w-[80%]
             md:w-[70%]
             lg:w-[55%]">
+                {/* Form Inputs */}
                 <h4 className="mb-5 mt-1 text-left">Find a job & grow your career</h4>
                 <div className="w-full flex flex-col
                 sm:flex-row sm:justify-center sm:items-center">

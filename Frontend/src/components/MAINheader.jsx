@@ -16,6 +16,7 @@ const MAINheader = () => {
         <Contact/>
         <Mheader/>
         <Blog/>
+        <Footer/>
     </div>
   )
 }

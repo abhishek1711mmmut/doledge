@@ -1,188 +1,200 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
     <>
       <div className="w-[100%]">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div className=" h-[126px] w-[100%] bg-opacity-20 border-2  lg-rounded">
-            <br></br>
-            <div className="flex justify-flex-end">
-              <div className="w-[687px] text-black text-[22px] font-bold leading-[31px] tracking-[3.74px]" style={{
-                color: 'black',
-                fontSize: '22px',
-                fontFamily: 'Inter,Arial,sans-serif',
-                fontWeight: '700',
-                wordWrap: 'break-word'
-              }}>
-                Purchase securely with Doledgeindia.com{" "}
-                <div className="w-[49vw] text-black text-xl text-left ml-12 font-light tracking-wider mt-2" style={{
-                  color: 'black',
-                  fontSize: 20,
-                  fontFamily: 'Inter,Arial,sans-serif',
-                  fontWeight: '300',
-                  letterSpacing: 1.60,
-
-                }}>
-                  Support secure payment method
-                </div>
-              </div>
-
-
-              <img
-                className="w-[50vw] h-[54px]"
-                alt="payment"
-                src={require("../images/payment.png")}
-              />
-
-
-
-            </div>
-            {/* <div className="w-[49vw] text-black text-xl text-left ml-12 font-light tracking-wider" style={{
+        {/* Payment Section */}
+        <div className="w-[100%] border-t-2 border-b-2 py-3 mt-5">
+          <div className="w-full">
+            <div className="w-full text-black leading-[31px] tracking-[3.74px]" style={{
               color: 'black',
-              fontSize: 20,
+              fontSize: '22px',
+              fontFamily: 'Inter,Arial,sans-serif',
+              fontWeight: '700',
+              wordWrap: 'break-word',
+              // border: '1px solid black'
+            }}>
+              Purchase securely with Doledgeindia.com
+            </div>
+
+            <div className="w-full text-black text-xl text-center my-2 mb-4" style={{
+              fontSize: '20px',
               fontFamily: 'Inter,Arial,sans-serif',
               fontWeight: '300',
               letterSpacing: 1.60,
-              
-            }}>
-              Support secure payment method
-            </div> */}
+              // border: '1px solid black'
+              }}>
+                Support secure payment method
+            </div>
+          </div>
+            
+          <div className="w-full flex justify-center">
+            <img
+              className="w-[100%] h-[60px] px-3
+              sm:w-[70%]
+              md:w-[50%]"
+              alt="payment"
+              src={require("../images/payment.png")}
+              // style={{border: '1px solid black'}}
+            />
           </div>
         </div>
-        <br></br>
-        <div className="ml-12 justify-between py-8 flex">
-          <div className="text-black text-[15px] font-light leading-[31px] tracking-[2.55px] text-left" style={{
-            color: 'black',
-            fontSize: 15,
-            fontFamily: 'Inter,Arial,sans-serif',
-            fontWeight: '300',
-            letterSpacing: 2.55,
-            wordWrap: 'break-word'
-          }}>
-            Resume Writing
-            <br />
-            Text Resume
-            <br />
-            Visual Resume
-            <br />
-            Resume Critique
-            <br />
-            Resume Quality Score
-            <br />
-            Resume Samples
-            <br />
-            Cover Letter Samples
-            <br />
-            Job Letter Samples
-          </div>
-          <div className="text-black text-[15px] font-light font-['Inter'] leading-[31px] tracking-[2.55px] text-left" style={{
-            color: 'black',
-            fontSize: 15,
-            fontFamily: 'Inter,Arial,sans-serif',
-            fontWeight: '300',
-            letterSpacing: 2.55,
-            wordWrap: 'break-word'
-          }}
 
-          >
-            Recruiter Reach
-            <br />
-            Resume Display
-            <br />
-            RecruiterConnection
-            <br />
-            Priority Applicant
-            <br />
-            Certification Highlighter
-          </div>
-          <div className="text-black text-[15px] font-light font-['Inter'] leading-[31px] tracking-[2.55px] text-left" style={{
-            color: 'black',
-            fontSize: 15,
-            fontFamily: 'Inter,Arial,sans-serif',
-            fontWeight: '300',
-            letterSpacing: 2.55,
-            wordWrap: 'break-word'
-          }}>
-            Register / Login
-            <br />
-            Job Search
-            <br />
-            Create Free Job Alert
-            <br />
-            Job Assistance Services
-            <br />
-            Courses
-            <br />
-            Fraud Alert
-          </div>
-          <div>
-            <div className="text-black text-lg font-light font-['Inter'] leading-[31px] tracking-[3.06px]" style={{
+        {/* Footer Information */}
+        <div className="flex flex-row justify-evenly items-center px-0 pt-4" style={{borderBottom: '2px solid #ccc'}}>
+          {/* section 1 */}
+          <div className="flex flex-col
+          lg:flex lg:flex-row">
+            {/* Col 1 */}
+            <div className="m-2 p-2 text-black text-[15px] font-light font-['Inter'] leading-[31px] tracking-[2.55px] text-left
+            h-[300px]" style={{
               color: 'black',
               fontSize: 15,
               fontFamily: 'Inter,Arial,sans-serif',
               fontWeight: '300',
               letterSpacing: 2.55,
-              wordWrap: 'break-word'
+              wordWrap: 'break-word',
+              // border: '1px solid black'
             }}>
-              Download Doledge App from:
+              Resume Writing
+              <br />
+              Text Resume
+              <br />
+              Visual Resume
+              <br />
+              Resume Critique
+              <br />
+              Resume Quality Score
+              <br />
+              Resume Samples
+              <br />
+              Cover Letter Samples
+              <br />
+              Job Letter Samples
             </div>
-            <br></br>
-            <div className="flex items-center justify-center w-[300px] h-14 bg-white rounded-[20px] border-2 border-zinc-400">
-              <div className="w-[155px] text-black text-sm font-light font-['Inter'] leading-[31px] tracking-widest" style={{
-                color: 'black',
-                fontSize: 14,
-                fontFamily: 'Inter,Arial,sans-serif',
-                fontWeight: '300',
-                // lineHeight: 31;
-                letterSpacing: 2.38,
-                wordWrap: 'break-word'
-
-              }}>
-                Google Play Store
-              </div>
-              <img
-                className="w-10 h-[43px] ml-[10%]"
-                alt="play"
-                src={require("../images/play.png")}
-              />
-            </div>
-            <br></br>
-            <div className="flex items-center justify-center w-[300px] h-14 bg-white rounded-[20px] border-2 border-zinc-400">
-              <div className="w-[155px] text-left text-sm font-light font-['Inter'] tracking-widest" style={{
-                color: 'black',
-                fontSize: 14,
-                fontFamily: 'Inter,Arial,sans-serif',
-                fontWeight: '300',
-                // lineHeight: 31;
-                letterSpacing: 2.38,
-                wordWrap: 'break-word'
-              }}>
-                App Store
-              </div>
-              <img
-                className="w-10 h-[43px] ml-[10%]"
-                alt="play"
-                src={require("../images/apple.png")}
-              />
+            
+            {/* Col 2 */}
+            <div className="m-2 p-2 text-black text-[15px] font-light font-['Inter'] leading-[31px] tracking-[2.55px] text-left
+            h-[300px]" style={{
+              color: 'black',
+              fontSize: 15,
+              fontFamily: 'Inter,Arial,sans-serif',
+              fontWeight: '300',
+              letterSpacing: 2.55,
+              wordWrap: 'break-word',
+              // border: '1px solid black'
+            }}>
+              Recruiter Reach
+              <br />
+              Resume Display
+              <br />
+              RecruiterConnection
+              <br />
+              Priority Applicant
+              <br />
+              Certification Highlighter
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-center">
-          <img
-            className="w-[157px] h-[49px] flex "
-            alt="ji"
-            src={require("../images/tweet.png")}
-          />
+
+          <div className="flex flex-col
+          lg:flex lg:flex-row">
+            {/* Col 3 */}
+            <div className="m-2 p-2 text-black text-[15px] font-light font-['Inter'] leading-[31px] tracking-[2.55px] text-left
+            h-[300px]" style={{
+              color: 'black',
+              fontSize: 15,
+              fontFamily: 'Inter,Arial,sans-serif',
+              fontWeight: '300',
+              letterSpacing: 2.55,
+              wordWrap: 'break-word',
+              // border: '1px solid black'
+            }}>
+              Register / Login
+              <br />
+              Job Search
+              <br />
+              Create Free Job Alert
+              <br />
+              Job Assistance Services
+              <br />
+              Courses
+              <br />
+              Fraud Alert
+            </div>
+            
+            {/* Download */}
+            <div className="m-2 p-2 h-[300px]" style={{border: '0px solid black'}}>
+              <div className="text-black text-lg font-light font-['Inter'] tracking-[3.06px]" style={{
+                color: 'black',
+                fontSize: 15,
+                fontFamily: 'Inter,Arial,sans-serif',
+                fontWeight: '700',
+                letterSpacing: 2.55,
+                wordWrap: 'break-word'
+              }}>
+                Download Doledge App:
+              </div>
+          
+          
+          <div className="flex items-center justify-center p-1 mt-2 bg-white rounded-[20px] border-2 border-[#ccc]">
+            <div className="text-black text-sm font-light font-['Inter']" style={{
+              color: 'black',
+              fontSize: 14,
+              fontFamily: 'Inter,Arial,sans-serif',
+              fontWeight: '300',
+              // lineHeight: 31;
+              letterSpacing: 2.38,
+              wordWrap: 'break-word'
+
+            }}>
+              Play Store
+            </div>
+            <img
+              className="h-[30px] w-[30px] ml-2"
+              alt="play"
+              src={require("../images/play.png")}
+            />
+          </div>
+
+          <div className="flex items-center justify-center p-1 mt-2 bg-white rounded-[20px] border-2 border-[#ccc]">
+            <div className="text-left text-sm font-light font-['Inter']" style={{
+              color: 'black',
+              fontSize: 14,
+              fontFamily: 'Inter,Arial,sans-serif',
+              fontWeight: '300',
+              // lineHeight: 31;
+              letterSpacing: 2.38,
+              wordWrap: 'break-word'
+            }}>
+              App Store
+            </div>
+            <img
+              className="h-[30px] w-[30px] ml-2"
+              alt="play"
+              src={require("../images/apple.png")}
+            />
+          </div>
+          </div>
         </div>
       </div>
-    </>
+
+      {/* Social Networks */}
+      <div className="flex items-center justify-center items-center py-2">
+        <img
+          className="w-[25px] h-[25px] mx-1"
+          src={require("../images/social-facebook.png")}/>
+          <img
+          className="w-[25px] h-[25px] mx-1"
+          src={require("../images/social-instagram.png")}/>
+          <img
+          className="w-[25px] h-[25px] mx-1"
+          src={require("../images/social-twitter.png")}/>
+      </div>
+    </div>
+  </>
   );
 };
 

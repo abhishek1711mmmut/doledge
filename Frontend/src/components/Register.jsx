@@ -47,7 +47,7 @@ const Register = () => {
                 error={'Password is required'}/>
 
                 <InputElement
-                type={'number'}
+                type={'tel'}
                 label={'Mobile Number'}
                 placeholder={'Mobile Number'}
                 error={'Please enter your mobile number'}/>
