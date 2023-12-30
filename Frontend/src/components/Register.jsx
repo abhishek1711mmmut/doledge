@@ -84,17 +84,17 @@ const Register = () => {
                 </div>
 
                 {/* WhatsApp Checkbox */}
-                <div className="whatsappCheckbox flex flex-row items-center text-center ml-2">
+                <div className="whatsappCheckbox flex flex-row items-center text-center ml-2 my-3">
                     <input type="checkbox"/>
-                    <p className="flex flex-row mt-3 ml-2">
+                    <p className="flex flex-row mt-0 ml-2">
                         Send me important updates on<img className="mx-1 w-[20px] h-[20px]" src={require('../images/whatsapp.png')}/>WhatsApp
                     </p>
                 </div>
 
                 {/* Submit Button */}
-                <div className="submitWrapper flex flex-col text-left">
+                <div className="submitWrapper flex flex-col text-left mt-2">
                     <p className="gray13px">By clicking Register, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
-                    <button className="submit text-left">Register Now</button>
+                    <button className="submit text-left mt-2">Register Now</button>
                 </div>
             </form>
         </div>

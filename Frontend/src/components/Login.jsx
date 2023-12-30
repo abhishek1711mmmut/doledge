@@ -40,9 +40,9 @@ const Login = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="submitWrapper flex flex-col text-left">
+                <div className="submitWrapper flex flex-col text-left mt-2">
                     <p className="gray13px">By clicking Sign in, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
-                    <button className="submit text-left">Sign in</button>
+                    <button className="submit text-left mt-2">Sign in</button>
                 </div>
             </form>
         </div>
