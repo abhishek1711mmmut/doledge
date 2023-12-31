@@ -5,8 +5,18 @@ const InputElement = (props) => {
     return (
         <div className="InputElement flex flex-col text-left m-1">
             <label className="font-bold">{props.label}</label>
-            <input className="px-3 py-2 my-1" type={props.type} placeholder={props.placeholder}/>
-            <p className="error">{props.error}</p>
+            
+            <input className="px-3 py-2 my-1" style={{border: props.valid ? '1px solid #ccc' : '1px solid #F58634'}}
+            type={props.type} 
+            placeholder={props.placeholder}
+            value={props.value}
+            onChange={(e) => props.onChange(e, props.type)}/>
+            
+            <p className="error" style={{
+                visibility: props.valid ? 'hidden' : 'visible',
+            }}>
+                {props.error}
+            </p>
         </div>
     )
 }

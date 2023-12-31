@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/Register.css';
 
 import InputElement from "../UI/InputElement/InputElement";
-import SelectionCard from '../UI/Card/SelectionCard';
 
 const Login = () => {
+    let [overAllValid, setOverAllValid] = useState(false)
+    let [inputs, setInputs] = useState({
+        email: {
+            value: '',
+            isValid: false,
+        },
+        password: {
+            value: '',
+            isValid: false,
+        },
+    })
+
+    const changeHandler = (event, type) => {
+        let value = event.target.value;
+        let updatedInputs = {...inputs};
+        
+        if(!value || value.length == 0)
+        updatedInputs[type].isValid = false;
+        else
+        updatedInputs[type].isValid = true;
+
+        updatedInputs[type].value = value;
+        setInputs(updatedInputs);
+        overAllValidity()
+    }
+
+    const overAllValidity = () => {
+        let {email, password} = inputs;
+        if(email.value && password.value)
+        setOverAllValid(true)
+        else 
+        setOverAllValid(false)
+    }
+
     return (
         <div className='Register w-full flex flex-col justify-center items-center'>
             <form className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
@@ -18,16 +51,22 @@ const Login = () => {
                     <div className="w-[100%] mr-3
                     sm:w-[70%]">
                         <InputElement
-                        type={'text'}
-                        label={'Full Name'}
-                        placeholder={'Whats your name?'}
-                        error={'Full name is required'}/>
+                        type={'email'}
+                        label={'Email ID'}
+                        placeholder={'Tell us your Email ID'}
+                        error={'Email ID is required'}
+                        value={inputs.email.value}
+                        valid={inputs.email.isValid}
+                        onChange={changeHandler}/>
 
                         <InputElement
                         type={'password'}
                         label={'Password'}
                         placeholder={'Create a password for your account'}
-                        error={'Password is required'}/>
+                        error={'Password is required'}
+                        value={inputs.password.value}
+                        valid={inputs.password.isValid}
+                        onChange={changeHandler}/>
                     </div>
                     {/* Google Register */}
                     <div className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
@@ -43,7 +82,9 @@ const Login = () => {
                 {/* Submit Button */}
                 <div className="submitWrapper flex flex-col text-left mt-2">
                     <p className="gray13px">By clicking Sign in, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
-                    <button className="submit text-left mt-2">Sign in</button>
+                    <button className="submit text-left mt-2"
+                    disabled={overAllValid ? false : true}
+                    style={{backgroundColor: !overAllValid && '#ccc'}}>Sign in</button>
                 </div>
             </form>
         </div>
