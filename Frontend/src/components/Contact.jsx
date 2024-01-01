@@ -18,7 +18,7 @@ const Contact = () => {
 
     <div className="w-[100%] p-8 flex-1 w-1/2 bg-gray-100 flex flex-col justify-center items-center">
   
-      <div className="text-left">
+      <div className="w-[100%] text-left">
         <h4 className="font-extrabold text-2xl ">CONTACT US</h4>
         <p style={{fontFamily:"monospace"}} className="text-sm text-gray-700 mb-4">Our executive will get in touch with you soon</p>
         <form>

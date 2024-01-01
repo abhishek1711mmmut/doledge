@@ -3,9 +3,11 @@ import React from "react";
 const Header = () => {
   return (
     // h-[411px]
-    <div className="w-[80%] mt-5" style={{margin:'0 auto',display:'flex',
-    flexWrap:'wrap'}}>
-      <div className="flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
+    <div className="w-[80%] mt-5" style={{
+      margin: '0 auto', display: 'flex',
+      flexWrap: 'wrap'
+    }}>
+      <div className="w-full flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
       md:flex-row">
         <div className="md:w-1/2 w-full py-6 px-8  text-gray-900 text-left">
           <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left" style={{
@@ -17,11 +19,11 @@ const Header = () => {
             letterSpacing: 2.16,
             wordWrap: 'break-word'
           }}>Text Resume</h1>
-          <h1 className="text-xl text-left md:text-xl font-semibold mb-4 mt-5 text-black-600" 
-          style={{
-            fontFamily:'Poppins'
-          }}
-        
+          <h1 className="text-xl text-left md:text-xl font-semibold mb-4 mt-5 text-black-600"
+            style={{
+              fontFamily: 'Poppins'
+            }}
+
           >
             Unlock opportunities and captivate employers with our professional
             text resume services.
@@ -56,7 +58,7 @@ const Header = () => {
 
       <br />
 
-      <div className="flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
+      <div className="w-full flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
       md:flex-row mt-5 mb-5">
         <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-right">
           <img

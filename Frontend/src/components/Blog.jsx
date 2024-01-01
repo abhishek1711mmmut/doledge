@@ -46,15 +46,15 @@ const Blog = () => {
     <div className='w-[78%] mx-auto pb-4'>
       <section className="pt-[16px]">
         <div className="container">
-          <div className="flex flex-wrap justify-center mx-4">
+          <div className="flex flex-wrap justify-center -mx-4">
             <div className="w-full px-4">
               <div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
                 <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
                   Latest Blogs
                 </h2>
                 {/* <p className="text-body-color text-lg">
-                These are the latest news of our company.<br></br> You can find more on our blog page.
-                </p> */}
+            These are the latest news of our company.<br></br> You can find more on our blog page.
+          </p> */}
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Blog = () => {
                         {b.BlogTitle}
                       </a>
                     </h3>
-                    <p className="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary" style={{ fontSize: '18px'}}>
+                    <p className="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary" style={{ fontSize: '18px' }}>
                       {b.Description}
 
                     </p>

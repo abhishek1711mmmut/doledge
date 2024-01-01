@@ -1,318 +1,203 @@
-import React, { useState } from "react";
-import Customcss from "./Customcss";
-import axios from "axios";
-import swal from "sweetalert";
+import React, { useEffect, useState } from "react";
+import '../css/Register.css';
+
+import InputElement from "../UI/InputElement/InputElement";
+import SelectionCard from '../UI/Card/SelectionCard';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const Register = () => {
-  const [signUpMode, setSignUpMode] = useState(false);
-  const [showSmallDeviceContent, setShowSmallDeviceContent] = useState(false);
+  let [overAllValid, setOverAllValid] = useState(false)
+  let [workStatus, setWorkStatus] = useState('');
+  let [file, setFile] = useState(null);
+  let [inputs, setInputs] = useState({
+    text: {
+      value: '',
+      isValid: true,
+    },
+    email: {
+      value: '',
+      isValid: true,
+    },
+    password: {
+      value: '',
+      isValid: true,
+    },
+    tel: {
+      value: '',
+      isValid: true,
+    },
+    whatsApp: {
+      value: false,
+    },
+  })
 
+  const workStstusHandler = (status) => {
+    if (status == "I'm experienced")
+      setWorkStatus("I'm experienced");
+    else
+      setWorkStatus("I'm fresher")
+  }
 
+  const fileHandler = async (event, action) => {
+    const filePDF = await event?.target.files[0];
 
-  const toggleSignUpMode = () => {
-    setSignUpMode(!signUpMode);
-  };
+    if (action == 'add')
+      setFile(filePDF)
+    else
+      setFile(false)
+  }
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-  const handleInput = (event) => {
-    setUser({
-      ...user,
-      [event.target.name]: event.target.value,
-    });
-  };
-  const handleSignIn = async (event) => {
-    event.preventDefault();
-    console.log("button clicked");
-    try {
-      const response = await axios.post(
-        "http://localhost:8800/api/auth/login",
-        {
-          email: user.email,
-          password: user.password,
-        }
-      );
-      // console.group(response)
-      console.log("Mai response hu dekho jra", response);
-      // if (response.data.success) {
-      if (response) {
-        // console.log(response)
-        if (response.status === 400 || response.status === 401) {
-          swal("Invalid Credentials", "Please try again", "error");
-        } else {
-          swal("Congratulations! Sign in successful", "Enjoy", "success");
-        }
-      }
-    } catch (error) {
-      if (error.response) {
-        // console.log('errorrr hai yr')
-        // Display the server's response data and status code
-        swal("Invalid Credentials Or User Does Not Exists", "Please try again", "error");
-      } else {
-        // Handle other request errors
-        console.error("API error:", error.message);
-      }
-    }
-  };
+  const changeHandler = (event, type) => {
+    let value = event.target.value;
+    let updatedInputs = { ...inputs };
 
+    if (!value || value.length == 0)
+      updatedInputs[type].isValid = false;
+    else
+      updatedInputs[type].isValid = true;
 
-  // SignUp Form
-  const [user1, setUser1] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: ""
-  });
-  const handleInput1 = (event) => {
-    setUser1({
-      ...user1,
-      [event.target.name]: event.target.value,
-    });
-  };
+    if (type == 'tel' && isNaN(value))
+      return
 
+    updatedInputs[type].value = value;
+    setInputs(updatedInputs);
+  }
 
+  const overAllValidity = () => {
+    let { text, email, password, tel, whatsApp } = inputs;
+    if (text.value && email.value && password.value && tel.value && workStatus && file)
+      setOverAllValid(true)
+    else
+      setOverAllValid(false)
+  }
 
-  const handleSignUp = async (event) => {
-    event.preventDefault();
-    console.log("button clicked");
-    try {
-      const response = await axios.post(
-        "http://localhost:8800/api/auth/signup",
-        {
-          firstName: user1.firstName,
-          lastName: user1.lastName,
-          email: user1.email,
-          phoneNumber: user1.phoneNumber,
-          phoneNumber: user1.phoneNumber,
-          password: user1.password,
-          confirmPassword: user1.confirmPassword,
-          provider: "local"
-        }
-      );
-      // console.group(response)
-      console.log("Mai response signup se aara hu", response);
-      // if (response.data.success) {
-      if (response) {
-        // console.log('mai response hu signup se',response)
-        if (response.status === 400 || response.status === 401) {
-          swal("Already Exists", "Please Login", "error");
-        } else {
-          swal("Congratulations! Signup successful", "Enjoy", "success");
-        }
-      }
-    } catch (error) {
-      if (error.response) {
-        // console.log('errorrr hai yr')
-        // Display the server's response data and status code
-        console.log("API error:", error.message);
-      } else {
-        // Handle other request errors
-        console.error("API error:", error.message);
-      }
-    }
-  };
-
-  const handleGoogleAuth  = async (e) => {
-    e.preventDefault();
-    window.location.href = "http://localhost:8800/api/google"
-  };
-
-  const handleFacebookAuth  = async (e) => {
-    e.preventDefault();
-    window.location.href = "http://localhost:8800/api/facebook"
-  };
-
-
+  useEffect(() => {
+    overAllValidity()
+  }, [file, workStatus, inputs])
 
   return (
-    <>
-      <Customcss />
-      <div className="w-full h-full flex justify-center items-center">
-      <div className={`new-container ${signUpMode ? "new-sign-up-mode" : ""}`}>
-        <div className="new-signin-signup">
-          {/* Sign In Form */}
+    <div className='Register w-full flex flex-col justify-center items-center'>
+      <form className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
+            sm:w-[80%]
+            md:w-[70%]
+            lg:w-[55%]">
+        <h4 className="mb-5 mt-1 text-left">Find a job & grow your career</h4>
+        {/* Form Inputs */}
+        <div className="w-full flex flex-col
+                sm:flex-row sm:justify-center sm:items-center">
+          <div className="w-[100%] mr-3
+                    sm:w-[70%]">
+            <InputElement
+              type={'text'}
+              label={'Full Name'}
+              placeholder={'Whats your name?'}
+              error={'Full name is required'}
+              value={inputs.text.value}
+              valid={inputs.text.isValid}
+              onChange={changeHandler} />
 
-          <form
-            className={`new-form new-sign-in-form ${signUpMode ? "visible" : ""
-              }`}
-               onSubmit={handleSignUp}
-          >
-            <h2 className="new-title">Register</h2>
-            <div className="new-input-field">
-              <i className="fas fa-user" />
-              <input type="text"
-                 placeholder="First Name"
-                 name="firstName" // Change this to "firstName1"
-                 value={user1.firstName}
-                 onChange={handleInput1}/>
-            </div>
-            <div className="new-input-field">
-              <i className="fas fa-envelope" />
-              <input type="text"
-                 placeholder="Last Name"
-                 name="lastName" // Change this to "firstName1"
-                 value={user1.lastName}
-                 onChange={handleInput1}/>
-            </div>
-
-            <div className="new-input-field">
-              <i className="fas fa-envelope" />
-              <input type="email"
-                 placeholder="Enter Your Email"
-                 name="email" // Change this to "firstName1"
-                 value={user1.email}
-                 onChange={handleInput1}/>
-            </div>
-
-            <div className="new-input-field">
-              <i className="fas fa-envelope" />
-              <input type="text"
-                 placeholder="Phone Number"
-                 name="phoneNumber" // Change this to "firstName1"
-                 value={user1.phoneNumber}
-                 onChange={handleInput1}/>
-            </div>
-
-            <div className="new-input-field">
-              <i className="fas fa-envelope" />
-              <input type="password"
-                 placeholder="Enter Your Password"
-                 name="password" // Change this to "firstName1"
-                 value={user1.password}
-                 onChange={handleInput1}/>
-            </div>
-
-            <div className="new-input-field">
-              <i className="fas fa-envelope" />
-              <input type="password"
-                 placeholder="Confirm Password"
-                 name="confirmPassword" // Change this to "firstName1"
-                 value={user1.confirmPassword}
-                 onChange={handleInput1}/>
-            </div>
-            <input type="submit" defaultValue="Sign up" className="new-btn" id="signin"/>
-            <p className="new-social-text">Or Sign in with social platform</p>
-            <div className="new-social-media">
-              <a href="#" className="new-social-icon">
-                <i className="fab fa-facebook" />
-              </a>
-              <a href="" className="new-social-icon">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="" className="new-social-icon">
-                <i className="fab fa-google" />
-              </a>
-              <a href="" className="new-social-icon">
-                <i className="fab fa-linkedin-in" />
-              </a>
-            </div>
-            <p className="new-account-text">
-              Already have an account?{" "}
-              <a href="#" id="new-sign-in-btn">
-                Login 
-              </a>
-            </p>
-          </form>
-         
-
-          {/* Sign Up Form */}
-
-
-
-          <form
-            className={`new-form new-sign-in-form ${!signUpMode ? "visible" : ""
-              }`}
-               onSubmit={handleSignIn} 
-          >
-            <h2 className="new-title">Login</h2>
-            <div className="new-input-field">
-              <i className="fas fa-user" />
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                name="email" // Add the name attribute
-                value={user.email}
-                onChange={handleInput}
-              />
-            </div>
-            <div className="new-input-field">
-              <i className="fas fa-lock" />
-              <input
-                type="password"
-                placeholder="Enter Your Password"
-                name="password" // Add the name attribute
-                value={user.password}
-                onChange={handleInput}
-              />
-            </div>
-            <input type="submit" defaultValue="Register" className="new-btn" />
-            <p className="new-social-text">Or Sign in with social platform</p>
-            <div className="new-social-media">
-              <div className="new-social-icon" onClick={handleGoogleAuth}>
-                <i className="fab fa-google" />
-              </div>
-              <div href="" className="new-social-icon" onClick={handleFacebookAuth}>
-                <i className="fab fa-twitter" />
-              </div>
-              <a href="" className="new-social-icon">
-                <i className="fab fa-google" />
-              </a>
-              <a href="" className="new-social-icon">
-                <i className="fab fa-linkedin-in" />
-              </a>
-            </div>
-            <p className="new-account-text">
-              Don't have an account?{" "}
-              <a href="#" id="new-sign-up-btn">
-                Register
-              </a>
-            </p>
-          </form>
-        </div>
-
-        {/* Panels */}
-        <div className="new-panels-container">
-          <div className="new-panel new-left-panel">
-            <div className="new-content">
-              <h3>Member of Brand?</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-                accusantium dolor, eos incidunt minima iure?
-              </p>
-              <button
-                className="new-btn"
-                id="new-sign-in-btn"
-                onClick={toggleSignUpMode}
-              >
-                Register
-              </button>
-            </div>
-            <img src="signin.svg" alt="" className="new-image" />
+            <InputElement
+              type={'email'}
+              label={'Email ID'}
+              placeholder={'Tell us your Email ID'}
+              error={'Email ID is required'}
+              value={inputs.email.value}
+              valid={inputs.email.isValid}
+              onChange={changeHandler} />
           </div>
-          <div className="new-panel new-right-panel">
-            <div className="new-content">
-              <h3>New to Brand?</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-                accusantium dolor, eos incidunt minima iure?
-              </p>
-              <button
-                className="new-btn"
-                id="new-sign-up-btn"
-                onClick={toggleSignUpMode}
-              >
-                Login
-              </button>
-            </div>
-            <img src="signup.svg" alt="" className="new-image" />
+          {/* Google Register */}
+          <div className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
+                    sm:flex-col sm:w-[30%] sm:m-0 sm:p-0 sm:mb-3 sm:h-[160px]">
+            <h6 className="mt-1 mr-2 sm:mt-0 sm:mr-0">Continue With</h6>
+            <button className="google flex flex-row">
+              <div><img className="w-[20px] [h-20px] mr-2 mt-0.5" src={require("../images/google-48.png")} /></div>
+              <div>Goolge</div>
+            </button>
           </div>
         </div>
-      </div>
-      </div>
-    </>
-  );
-};
+
+        <InputElement
+          type={'password'}
+          label={'Password'}
+          placeholder={'Create a password for your account'}
+          error={'Password is required'}
+          value={inputs.password.value}
+          valid={inputs.password.isValid}
+          onChange={changeHandler} />
+
+        <InputElement
+          type={'tel'}
+          label={'Mobile Number'}
+          placeholder={'Mobile Number'}
+          error={'Please enter your mobile number'}
+          value={inputs.tel.value}
+          valid={inputs.tel.isValid}
+          onChange={changeHandler} />
+
+        {/* Cards */}
+        <div className="text-left">
+          <p className="font-bold mb-0">Work Status</p>
+          <div className="flex flex-col sm:flex-row">
+            <SelectionCard
+              title="I'm experienced"
+              description="I have work experience (excluding internships)"
+              src={require('../images/experienced.svg').default}
+              workStatus={workStatus}
+              onClick={workStstusHandler} />
+            <SelectionCard
+              title="I'm fresher"
+              description="I am a student/ Haven't worked after graduation"
+              src={require('../images/fresher.svg').default}
+              workStatus={workStatus}
+              onClick={workStstusHandler} />
+          </div>
+        </div>
+
+        {/* File Upload */}
+        <div className="text-left mt-3">
+          <p className="font-bold mb-1">Resume</p>
+          {!file ? <div className="fileCard">
+            <div>
+              <button className="fileBtn">Upload Resume</button>
+              <input
+                className="fileInput"
+                type='file'
+                accept="image/*, .doc, .docx, .pdf, .rtf"
+                onChange={(e) => fileHandler(e, 'add')} />
+            </div>
+            <div>DOC, DOCx, PDF, RTF | Max: 2 MB</div>
+          </div>
+            : <div className="selectedFile w-fit py-1 px-3 flex flex-row justify-between items-center text-[12px]
+                    sm:text-[15px]">
+              <FontAwesomeIcon icon={faPaperclip} />
+              <div className="mr-5 ml-2">{file.name}</div>
+              <div className="cursor-pointer" onClick={() => fileHandler(null, 'remove')}>
+                <FontAwesomeIcon icon={faTrash} style={{ color: '#F58634' }} />
+              </div>
+            </div>}
+          <p className="error">Recruiters give first preference to candidates who have a resume</p>
+        </div>
+
+        {/* WhatsApp Checkbox */}
+        <div className="whatsappCheckbox flex flex-row items-center text-center ml-2 my-3">
+          <input type="checkbox" />
+          <p className="flex flex-row mt-0 ml-2">
+            Send me important updates on<img className="mx-1 w-[20px] h-[20px]" src={require('../images/whatsapp.png')} />WhatsApp
+          </p>
+        </div>
+
+        {/* Submit Button */}
+        <div className="submitWrapper flex flex-col text-left mt-2">
+          <p className="gray13px">By clicking Register, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
+          <button
+            className="submit text-left mt-2"
+            disabled={overAllValid ? false : true}
+            style={{ backgroundColor: !overAllValid && '#ccc' }}>Register Now</button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
 export default Register;
