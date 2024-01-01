@@ -13,19 +13,19 @@ const Register = () => {
     let [inputs, setInputs] = useState({
         text: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
         email: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
         password: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
         tel: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
         whatsApp: {
             value: false,

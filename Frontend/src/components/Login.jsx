@@ -8,11 +8,11 @@ const Login = () => {
     let [inputs, setInputs] = useState({
         email: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
         password: {
             value: '',
-            isValid: false,
+            isValid: true,
         },
     })
 
