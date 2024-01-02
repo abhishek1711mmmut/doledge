@@ -14,7 +14,7 @@ const ResumeQualityScore = () => {
     <div>
         <div>
             {/* blue image div */}
-            <div className={`bg-[url(${blueBg})] bg-no-repeat bg-cover lg:bg-contain h-[300px] relative mx-auto`}>
+            <div className={`bg-[url(${blueBg})] bg-no-repeat bg-cover h-[300px] relative mx-auto`}>
               <div className='absolute top-[9%] left-[50%] translate-x-[-50%] mx-auto'>
                   {/* header */}
                   <h1 className='text-lg lg:text-2xl xl:text-4xl font-medium text-white break-normal'>Know where your resume quality stands amongst others</h1>
