@@ -6,6 +6,8 @@ import '../css/Navbar.css'
 import "@fontsource/poppins"
 
 import SideBar from '../UI/SideBar/SideBar.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faCartArrowDown, faCartFlatbed, faCartShopping, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   let [active, setActive] = useState(false);
@@ -27,6 +29,24 @@ const Navbar = () => {
  return (
     <>
       <Container fluid className="px-0">
+        {/* TopNav */}
+        <div className='flex flex-row justify-end items-center p-2 text-[18px] bg-[#fafafa]'>
+          <div className='mr-4 flex flex-row px-2 border-2 rounded-[10px]'>
+            <div><FontAwesomeIcon icon={faPhone}/></div>
+            {/* <div className='ml-2'>Call Us</div> */}
+          </div>
+
+          <div className='mr-4 flex flex-row px-2 border-2 rounded-[10px]'>
+            <div><FontAwesomeIcon icon={faCartShopping}/></div>
+            {/* <div className='ml-2'>Cart</div> */}
+          </div>
+
+          <div className='mr-4 flex flex-row px-2 border-2 rounded-[10px]'>
+            <div><FontAwesomeIcon icon={faBell}/></div>
+            {/* <div className='ml-2'>Notifications</div> */}
+          </div>
+        </div>
+        {/* NavBar */}
         <nav className="navbar navbar-expand-lg navbar-light">
           <Link to='/' className="navbar-brand">
             <img

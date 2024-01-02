@@ -5,6 +5,7 @@ import InputElement from "../UI/InputElement/InputElement";
 import SelectionCard from '../UI/Card/SelectionCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 const Register = () => {
   let [overAllValid, setOverAllValid] = useState(false)
@@ -31,6 +32,10 @@ const Register = () => {
       value: false,
     },
   })
+
+  useEffect(() => {
+    overAllValidity()
+  }, [file, workStatus, inputs])
 
   const workStstusHandler = (status) => {
     if (status == "I'm experienced")
@@ -72,13 +77,28 @@ const Register = () => {
       setOverAllValid(false)
   }
 
-  useEffect(() => {
-    overAllValidity()
-  }, [file, workStatus, inputs])
+  const submitFormHanadler = async (event) => {
+    event.preventDefault();
+    const {text, email, password, tel, whatsApp} = inputs;
+    const work = workStatus;
+    const resume = file;
+
+    let data = new FormData();
+    data.append('name', text.value)
+    data.append('email', email.value)
+    data.append('password', password.value)
+    data.append('tel', tel.value)
+    data.append('workStatus', work)
+    data.append('whatsApp', whatsApp.value)
+    data.append('resume', resume)
+
+    let response = await axios.post('http://localhost:8800/api/auth/signup', data)
+    console.log(response)
+  }
 
   return (
     <div className='Register w-full flex flex-col justify-center items-center'>
-      <form className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
+      <form onSubmit={submitFormHanadler} className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
             sm:w-[80%]
             md:w-[70%]
             lg:w-[55%]">
@@ -191,6 +211,7 @@ const Register = () => {
         <div className="submitWrapper flex flex-col text-left mt-2">
           <p className="gray13px">By clicking Register, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
           <button
+            type="submit"
             className="submit text-left mt-2"
             disabled={overAllValid ? false : true}
             style={{ backgroundColor: !overAllValid && '#ccc' }}>Register Now</button>

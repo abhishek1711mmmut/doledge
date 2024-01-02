@@ -7,6 +7,10 @@ const userModel = model.User;
 exports.signup = async (req, res) => {
     try {
         const { email } = req.body;
+        
+        // Shehab Fekry Test
+        console.log(req.body)
+        return res.send({message:'got you req /singup'}) 
 
         const exitingUser = await userModel.findOne({ email: email });
         if (exitingUser) {
@@ -39,6 +43,11 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    
+    // Shehab Fekry Test
+    console.log(req.body)
+    return res.send({message:'got you req /singup'}) 
+
     const user = await userModel.findOne({ email });
 
     if (!user)
