@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../css/Navbar.css'
+import { Link } from 'react-router-dom';
 
 const Dropdown = (props) => {
   const Dropdown = ({ title, items }) => {
@@ -18,9 +19,9 @@ const Dropdown = (props) => {
         {isOpen && (
           <div className={`${props.type == 'sideBar' ? 'sidebar-alignment' : 'home-alignment'} dropdown-content`}>
             {items.map((item, index) => (
-              <a key={index} href={`/${item.replace(/ /g, '-')}`}>
+              <Link key={index} to={`/${item.replace(/ /g, '-')}`}>
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         )}

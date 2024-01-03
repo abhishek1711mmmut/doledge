@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../css/Register.css';
 
 import InputElement from "../UI/InputElement/InputElement";
+import axios from "axios";
+import contextAuth from "../ContextAPI/ContextAuth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const Auth = useContext(contextAuth);
     let [overAllValid, setOverAllValid] = useState(false)
     let [inputs, setInputs] = useState({
         email: {
@@ -38,9 +43,30 @@ const Login = () => {
         setOverAllValid(false)
     }
 
+    const submitFormHanadler = (event) => {
+        event.preventDefault();
+        const {email, password} = inputs;
+        
+        let data = {}
+        data.email = email.value;
+        data.password = password.value;
+    
+        axios.post('http://localhost:8800/api/auth/login', data)
+        .then(response => {
+            let data = response.data;
+            if(data.status == 'success'){
+                Auth.login(data.user, data.token)
+                navigate('/')
+            }
+            else 
+                console.log(response.data)
+        })
+        .catch(err => console.log(err))
+      }
+
     return (
         <div className='Register w-full flex flex-col justify-center items-center'>
-            <form className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
+            <form onSubmit={submitFormHanadler} className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
             sm:w-[80%]
             md:w-[70%]
             lg:w-[55%]">
@@ -71,7 +97,7 @@ const Login = () => {
                     {/* Google Register */}
                     <div className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
                     sm:flex-col sm:w-[30%] sm:m-0 sm:p-0 sm:mb-3 sm:h-[160px]">
-                        <h6 className="mt-1 mr-2 sm:mt-0 sm:mr-0">Continue With</h6>
+                        <h6 className="font-bold mt-1 mr-2 sm:mt-0 sm:mr-0 sm:mb-2">Continue With</h6>
                         <button className="google flex flex-row">
                             <div><img className="w-[20px] [h-20px] mr-2 mt-0.5" src={require("../images/google-48.png")}/></div>
                             <div>Goolge</div>
@@ -82,7 +108,9 @@ const Login = () => {
                 {/* Submit Button */}
                 <div className="submitWrapper flex flex-col text-left mt-2">
                     <p className="gray13px">By clicking Sign in, you agree to the Terms and Conditions & Privacy Policy of Doledge.com</p>
-                    <button className="submit text-left mt-2"
+                    <button
+                    type="submit" 
+                    className="submit text-left mt-2"
                     disabled={overAllValid ? false : true}
                     style={{backgroundColor: !overAllValid && '#ccc'}}>Sign in</button>
                 </div>

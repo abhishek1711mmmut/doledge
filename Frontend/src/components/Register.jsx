@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import '../css/Register.css';
 
 import InputElement from "../UI/InputElement/InputElement";
@@ -8,9 +9,11 @@ import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 
 const Register = () => {
+  const navigate = useNavigate();
   let [overAllValid, setOverAllValid] = useState(false)
   let [workStatus, setWorkStatus] = useState('');
   let [file, setFile] = useState(null);
+  let [whatsApp, setWhatsApp] = useState(false);
   let [inputs, setInputs] = useState({
     text: {
       value: '',
@@ -27,9 +30,6 @@ const Register = () => {
     tel: {
       value: '',
       isValid: true,
-    },
-    whatsApp: {
-      value: false,
     },
   })
 
@@ -51,6 +51,10 @@ const Register = () => {
       setFile(filePDF)
     else
       setFile(false)
+  }
+
+  const checkBoxHandler = () => {
+    setWhatsApp(!whatsApp);
   }
 
   const changeHandler = (event, type) => {
@@ -77,10 +81,11 @@ const Register = () => {
       setOverAllValid(false)
   }
 
-  const submitFormHanadler = async (event) => {
+  const submitFormHanadler = (event) => {
     event.preventDefault();
-    const {text, email, password, tel, whatsApp} = inputs;
+    const {text, email, password, tel} = inputs;
     const work = workStatus;
+    const whatsAppUpdates = whatsApp;
     const resume = file;
 
     let data = new FormData();
@@ -89,11 +94,16 @@ const Register = () => {
     data.append('password', password.value)
     data.append('tel', tel.value)
     data.append('workStatus', work)
-    data.append('whatsApp', whatsApp.value)
+    data.append('whatsApp', whatsAppUpdates)
     data.append('resume', resume)
 
-    let response = await axios.post('http://localhost:8800/api/auth/signup', data)
-    console.log(response)
+    axios.post('http://localhost:8800/api/auth/signup', data)
+    .then(response => {
+      console.log(response.data)
+      if(response.data.status == 'Success')
+      navigate('/login');
+    })
+    .catch(err => console.log(err))
   }
 
   return (
@@ -129,7 +139,7 @@ const Register = () => {
           {/* Google Register */}
           <div className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
                     sm:flex-col sm:w-[30%] sm:m-0 sm:p-0 sm:mb-3 sm:h-[160px]">
-            <h6 className="mt-1 mr-2 sm:mt-0 sm:mr-0">Continue With</h6>
+            <h6 className="font-bold mt-1 mr-2 sm:mt-0 sm:mr-0 sm:mb-2">Continue With</h6>
             <button className="google flex flex-row">
               <div><img className="w-[20px] [h-20px] mr-2 mt-0.5" src={require("../images/google-48.png")} /></div>
               <div>Goolge</div>
@@ -201,7 +211,7 @@ const Register = () => {
 
         {/* WhatsApp Checkbox */}
         <div className="whatsappCheckbox flex flex-row items-center text-center ml-2 my-3">
-          <input type="checkbox" />
+          <input type="checkbox" onClick={checkBoxHandler}/>
           <p className="flex flex-row mt-0 ml-2">
             Send me important updates on<img className="mx-1 w-[20px] h-[20px]" src={require('../images/whatsapp.png')} />WhatsApp
           </p>

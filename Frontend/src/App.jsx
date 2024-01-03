@@ -40,53 +40,84 @@ import ProfileUpdate from './components/PaymentScreen/CareerGrowth/ProfileUpdate
 import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalPortfolio';
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
-
-
 // import TextEntryResumeref from './components/PaymentScreen/ResumeWriting/TextResume/TextResumeref';
 
+import contextAuth from './ContextAPI/ContextAuth';
+import { useEffect, useState } from 'react';
+
 function App() {
+  let [user, setUser] = useState({});
+  let [token, setToken] = useState('');
+
+  useEffect(() => {
+    let userID = localStorage.getItem('userID');
+    let username = localStorage.getItem('userName');
+    let token = localStorage.getItem('token');
+    setUser({_id: userID, name: username});
+    setToken(token);
+  }, [])
+  
+  const login = (user, token) => {
+    setUser(user);
+    setToken(token);
+    localStorage.setItem('userID', user._id);
+    localStorage.setItem('userName', user.name);
+    localStorage.setItem('token', token);
+  }
+
+  const logout = () => {
+    setUser({});
+    setToken('');
+    localStorage.removeItem('userID');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('token');
+  }
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-      
-        <Routes>
-          {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
-          <Route path="/Text-Resume-Entry-Level" element={<TextEntry/>} />
-          <Route path="/Text-Resume-Middle-Level" element={<TextMiddle/>} />
-          <Route path="/Text-Resume-Senior-Level" element = {<TextSenior/>} />
-          <Route path="/Visual-Resume-Entry-Level" element={<VisualEntry/>} />
-          <Route path="/Visual-Resume-Middle-Level" element={<VisualMiddle/>} />
-          <Route path="/Visual-Resume-Senior-Level" element = {<VisualSenior/>} />
-          <Route path='/resume-quality-score' element={<ResumeQualityScore/>}/>
-          <Route path="/International-Resume-Entry-Level" element={<InternationalTextEntry/>} />
-          <Route path="/International-Resume-Middle-Level" element={<InternationalTextMiddle/>} />
-          <Route path="/International-Resume-Senior-Level" element = {<InternationalTextSenior/>} />
-          <Route path="/Visual-Resume-International-Entry-Level" element={<InternationalVisualEntry/>} />
-          <Route path="/Visual-Resume-International-Middle-Level" element={<InternationalVisualMiddle/>} />
-          <Route path="/Visual-Resume-International-Senior-Level" element = {<InternationalVisualSenior/>} />
-          <Route path="/socialprofiler" element={<SocialProfiler/>} />
-          <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
-          <Route path="Zap-Your-Resume" element={<ZapResume/>} />
-          <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
-          <Route path="/Job-Search-Assistant-6-Months" element={<JobSearchAssistant6/>} />
-          <Route path="/Job-Search-Assistant-3-Months" element={<JobSearchAssistant3/>} />
-          <Route path="/Interview-Preparation" element={<InterviewPreparation/>} />
-          <Route path="/Top-Management-Profile" element={<TopManagementProfile/>} />
-          <Route path="/Profile-Update" element={<ProfileUpdate/>} />
-          <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
-          <Route path="/Cover-Letter" element={<CoverLetter/>} />
-          
-          <Route path="/" element={<MAINheader/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/redirect" element={<Redirect/>} />
-        </Routes>
-
-        {/* <Footer /> */}
-
-      </div>
-    </BrowserRouter>
+        <contextAuth.Provider value={{user, token, login, logout}}>
+          <BrowserRouter>
+            <div className="App">
+                <Navbar />
+                <Routes>
+                  {/* <Route path="/redirect" element={<Redirect/>} /> */}
+                  {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
+                  <Route path="/Text-Resume-Entry-Level" element={<TextEntry/>} />
+                  <Route path="/Text-Resume-Middle-Level" element={<TextMiddle/>} />
+                  <Route path="/Text-Resume-Senior-Level" element = {<TextSenior/>} />
+                  <Route path="/Visual-Resume-Entry-Level" element={<VisualEntry/>} />
+                  <Route path="/Visual-Resume-Middle-Level" element={<VisualMiddle/>} />
+                  <Route path="/Visual-Resume-Senior-Level" element = {<VisualSenior/>} />
+                  <Route path='/resume-quality-score' element={<ResumeQualityScore/>}/>
+                  <Route path="/International-Resume-Entry-Level" element={<InternationalTextEntry/>} />
+                  <Route path="/International-Resume-Middle-Level" element={<InternationalTextMiddle/>} />
+                  <Route path="/International-Resume-Senior-Level" element = {<InternationalTextSenior/>} />
+                  <Route path="/Visual-Resume-International-Entry-Level" element={<InternationalVisualEntry/>} />
+                  <Route path="/Visual-Resume-International-Middle-Level" element={<InternationalVisualMiddle/>} />
+                  <Route path="/Visual-Resume-International-Senior-Level" element = {<InternationalVisualSenior/>} />
+                  <Route path="/socialprofiler" element={<SocialProfiler/>} />
+                  <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
+                  <Route path="Zap-Your-Resume" element={<ZapResume/>} />
+                  <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
+                  <Route path="/Job-Search-Assistant-6-Months" element={<JobSearchAssistant6/>} />
+                  <Route path="/Job-Search-Assistant-3-Months" element={<JobSearchAssistant3/>} />
+                  <Route path="/Interview-Preparation" element={<InterviewPreparation/>} />
+                  <Route path="/Top-Management-Profile" element={<TopManagementProfile/>} />
+                  <Route path="/Profile-Update" element={<ProfileUpdate/>} />
+                  <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
+                  <Route path="/Cover-Letter" element={<CoverLetter/>} />
+                  
+                  <Route path="/" element={<MAINheader/>} />
+                  {!token && (
+                    <>
+                      <Route path="/register" element={<Register/>} />
+                      <Route path="/login" element={<Login/>} />
+                    </>
+                  )}
+                  <Route path='*' element={<MAINheader/>}/>
+                </Routes>
+            </div>
+          </BrowserRouter>
+        </contextAuth.Provider>
   );
 }
 
