@@ -7,17 +7,31 @@ import { Link } from 'react-router-dom';
 const Dropdown = (props) => {
   const Dropdown = ({ title, items }) => {
     const isOpen = true
+    let [height, setHeight] = useState(props.type == 'sideBar' ? false : true);
+
+    const handlerHeight = () => {
+      setHeight(!height);
+    }
 
     return (
       <li className={`${props.type == 'sideBar' ? null : 'nav-item-home'} nav-item  z-10`}>
-        <div className={`${props.type == 'sideBar' ? 'nav-link-sidebar' : 'nav-link'} cursor-pointer`} href={`#${title}`}>
+        <div 
+        className={`${props.type == 'sideBar' ? 'nav-link-sidebar' : 'nav-link'} cursor-pointer`} 
+        onClick={props.type == 'sideBar' ? handlerHeight : null}>
           <div className={`${props.type == 'sideBar' && 'title'}`}>{title}</div>
-          <div className={`${props.type == 'sideBar' && 'icon'}`}>
+          <div className={`${props.type == 'sideBar' && 'icon'}`}
+          style={{
+            transform: height ? 'rotate(180deg)': 'rotate(0deg)',
+          }}>
             <FontAwesomeIcon icon={faChevronDown} style={{ color: '#000000' }} />
           </div>
         </div>
         {isOpen && (
-          <div className={`${props.type == 'sideBar' ? 'sidebar-alignment' : 'home-alignment'} dropdown-content`}>
+          <div className={`${props.type == 'sideBar' ? 'sidebar-alignment sidebar-dropdown-content' : 'home-alignment home-dropdown-content'}`}
+          style={{
+            height: height ? 'auto' : '0px',
+            visibility: height ? 'visible' : 'hidden',
+          }}>
             {items.map((item, index) => (
               <Link key={index} to={`/${item.replace(/ /g, '-')}`}>
                 {item}
