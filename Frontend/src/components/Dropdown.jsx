@@ -21,7 +21,7 @@ const Dropdown = (props) => {
           <div className={`${props.type == 'sideBar' && 'title'}`}>{title}</div>
           <div className={`${props.type == 'sideBar' && 'icon'}`}
           style={{
-            transform: height ? 'rotate(180deg)': 'rotate(0deg)',
+            transform: props.type == 'sideBar' && height ? 'rotate(180deg)': 'rotate(0deg)',
           }}>
             <FontAwesomeIcon icon={faChevronDown} style={{ color: '#000000' }} />
           </div>
