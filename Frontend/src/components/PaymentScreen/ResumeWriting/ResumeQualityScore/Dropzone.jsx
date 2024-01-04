@@ -15,9 +15,8 @@ export function MyDropzone() {
     }
   }
   
-  const {getRootProps, getInputProps, isDragActive, open, acceptedFiles, fileRejections} = useDropzone({
+  const {getRootProps, getInputProps, open, acceptedFiles, fileRejections} = useDropzone({
     noClick:true,
-    // accept: '.pdf, .doc, .docx',
     accept:{
       'application/*':['.pdf','.doc','.docx']
     },
@@ -26,13 +25,12 @@ export function MyDropzone() {
 
     const acceptedFileItems = acceptedFiles.map(file => (
       <li key={file.path}>
-        {file.path} - {file.size} bytes
+        {file.path} - {(file.size/1048576).toFixed(2)} MB
       </li>
     ));
   
     const fileRejectionItems = fileRejections.map(({ file, errors }) => (
       <li key={file.path}>
-        {file.path} - {file.size} bytes
         <ul>
           {errors.map(e => (
             <li key={e.code}>{e.message}</li>
