@@ -49,9 +49,6 @@ export function MyDropzone() {
     <section>
           <div {...getRootProps()}>
             <input {...getInputProps()} />
-            {
-              isDragActive ?
-                <p className='text-sm font-medium'>Drop the files here ...</p> :
                 <div>
                   <img src={uploadImage} alt="" width={79} height={73} className='mx-auto mt-3 lg:mt-0'/>
                   <p className='text-xs lg:text-sm font-medium'>Drag & Drop your Resume here</p>
@@ -69,7 +66,6 @@ export function MyDropzone() {
                       By checking my CV Score I authorize Doledge to call/SMS me regarding Doledge Paid services
                   </p>
                 </div>
-            } 
           </div>
           
     </section>
