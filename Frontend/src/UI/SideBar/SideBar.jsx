@@ -1,12 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import styles from '../../css/SideBar.module.css';
 
 import Dropdown from "../../components/Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
+import contextAuth from "../../ContextAPI/ContextAuth";
 
 const SideBar = (props) => {
+    const Auth = useContext(contextAuth);
     return (
         <Fragment>
             {/* sidebar */}
@@ -33,16 +35,26 @@ const SideBar = (props) => {
                     </ul>
 
                     <ul className="bg-red flex flex-col w-full">
-                        <li>
-                            <Link className="w-[70%] btn login-button" to='/login'>
-                                Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className="w-[70%] btn register-button" to='/register'>
-                                Register
-                            </Link>
-                        </li>
+                        {!Auth.token ? (
+                            <>
+                                <li>
+                                    <Link className="w-[70%] btn login-button" to='/login' onClick={() => props.onClick('close')}>
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link className="w-[70%] btn register-button" to='/register' onClick={() => props.onClick('close')}>
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
+                            <li>
+                                <Link className="w-[70%] btn register-button" onClick={() => Auth.logout()}>
+                                    Logout
+                                </Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>

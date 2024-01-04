@@ -6,16 +6,19 @@ const Mheader = () => {
       id: 1,
       src: 'https://i.pinimg.com/originals/f3/a0/89/f3a089c66e5c6c958e4d5eb7e8321bd9.png',
       link: 'link here',
+      title: 'Resume Display',
     },
     {
       id: 2,
       src: 'https://img.freepik.com/free-vector/job-interview-process-hiring-new-employees-hr-specialist-cartoon-character-talking-new-candidatee-recruitment-employment-headhunting-concept-illustration_335657-2034.jpg',
       link: 'link here',
+      title: 'Periority Application',
     },
     {
       id: 3,
       src: 'https://niceillustrations.com/wp-content/uploads/2021/03/Successful-Payment-color-800px.png',
       link: 'link here',
+      title: 'Stand Out',
     }
   ]
   return (
@@ -93,7 +96,7 @@ const Mheader = () => {
         <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
 
           <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
-            {items.map(({ id, src, link }) => (
+            {items.map(({ id, src, link, title }) => (
               <div
                 key={id}
                 className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
@@ -104,7 +107,7 @@ const Mheader = () => {
                   className='rounded-md duration-200 hover:scale-105'
                 />
                 <div className='flex items-center justify-center'>
-                 <h2 className=' text-2xl p-2 font-serif'>Resume Display</h2>
+                 <h2 className=' text-2xl p-2 font-serif'>{title}</h2>
                 </div>
               </div>
             ))}
