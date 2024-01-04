@@ -1,12 +1,23 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../model/user')
-const { getToken } = require('../configuration/token')
+const { getToken } = require('../configuration/token');
+const { validationResult } = require('express-validator');
 
 exports.signup = async (req, res) => {
     try {
         let { name, email, password, tel, workStatus, whatsApp } = req.body;
         workStatus = workStatus.split(' ')[1];
-        console.log(req.body)
+        const validationErrorsArray = validationResult(req);
+        console.log(validationErrorsArray)
+
+        // check inputs validation
+        if (validationErrorsArray.length != 0) {
+            return res.status(400).json({
+              status: "Failed",
+              message: "Invalid input, please try again" 
+            });
+        }
+
         // check if user already exists
         const exitingUser = await User.findOne({ email: email });
         if (exitingUser) {
@@ -46,6 +57,16 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const validationErrorsArray = validationResult(req);
+    console.log(validationErrorsArray)
+
+    // check inputs validation
+    if (validationErrorsArray.length != 0) {
+        return res.status(400).json({
+          status: "Failed",
+          message: "Invalid input, please try again" 
+        });
+    }
 
     // check if user already exists
     const user = await User.findOne({ email: email });

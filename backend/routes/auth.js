@@ -3,8 +3,10 @@ const router = express.Router();
 const authController = require("../controller/auth");
 
 const fileUpload = require('../middlewares/fileUpload');
-// const multer  = require('multer')
-// const upload = multer({ dest: 'uploads/' })
+const validate = require('../middlewares/validation');
+
+const signinValidation = [validate.email, validate.password];
+const signupValidation = [validate.name, validate.email, validate.password, validate.tel];
 
 router
   .post("/signup", fileUpload.single('resume'), authController.signup)
