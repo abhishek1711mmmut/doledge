@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare, faCheck, faTimesCircle, faCircle, faTimes, faCheckCircle, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
 import { Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import BuyNowServiceCard from './BuyNowServiceCard';
+import BuyNowServiceCard from '../BuyNowServiceCard';
 import { SiSpeedtest } from "react-icons/si";
-import icon1 from '../../../../../images/Icons/1.jpg'
-import icon2 from '../../../../../images/Icons/2.jpg'
+import icon1 from '../../../../images/Icons/1.jpg'
+import icon2 from '../../../../images/Icons/2.jpg'
 
 
 // import Slide from 'react-reveal/Slide';
-export default function DoledgeBenefits() {
+export default function DoledgeBenefits({prices}) {
   const [selectedValue, setSelectedValue] = React.useState('');
 
   const handleChange = (event) => {
@@ -28,26 +28,13 @@ export default function DoledgeBenefits() {
          {/* <div className="flex justify-center align-center bg-green-500">
       Click me
     </div> */}
-      <div className='bg-[#9DD49B] w-[400px] h-[100px] rounded-xl flex justify-center items-center'>
-        <p className='text-black text-4xl leading-10 style={{fontWeight:400}} h-[7vh]'>
-          Doledge Benefits
-        </p>
+      <div className='bg-gradient-to-tr from-emerald-400 to-lime-300 w-[400px] h-[100px] rounded-xl text-4xl leading-10 flex justify-center items-center'>
+        Doledge Benefits
       </div>
 
       </div>
 
     
-
-
-
-
-      {/* Benefits */}
-      {/* <Slide right cascade> */}
-
-
-      {/* <div className="mt-16 sm:flex-row md:flex-row items-end bg-purple-400">
-        
-        </div> */}
 
 
 
@@ -62,7 +49,7 @@ export default function DoledgeBenefits() {
             Benefits of buying Visual Resume service from Doledge
           </div>
 
-          <table className="flex table table-striped table-bordered custom-table-width" style={{ width: '45vw', fontSize: '14px' }}>
+          <table className="table table-striped table-bordered custom-table-width" style={{ width: '45vw', fontSize: '14px' }}>
             <thead>
               <tr>
                 <th scope="col" className="text-left px-5 benefits-header bg-red-500">Doledge Benefits</th>
@@ -72,38 +59,28 @@ export default function DoledgeBenefits() {
             </thead>
             <tbody>
               <tr className="">
-
-
-                <td className='benefit text-left px-5' >CV visible to all recruiters</td>
+                <td className='benefit text-left px-5' >Instant Accessibility</td>
                 <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' /></td>
-
-
-
                 <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' /></td>
               </tr>
               <tr className="">
-
-                <td className='text-left px-5'>Extensive Customisation</td>
+                <td className='text-left px-5'>Maximized Exposure</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
-
-
                 </td>
               </tr>
               <tr className="">
-
-                <td className='text-left px-5'>High-quality design, professional graphics</td>
+                <td className='text-left px-5'>Simplified Job Hunting</td>
                 <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
-
                 </td>
               </tr>
 
               <tr className="">
 
-                <td className='text-left px-5'>Multimedia Integration</td>
+                <td className='text-left px-5'>Swift Responses</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -112,7 +89,7 @@ export default function DoledgeBenefits() {
 
               <tr className="">
 
-                <td className='text-left px-5'>Unique Branding</td>
+                <td className='text-left px-5'>Privacy and Security</td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' />
                 </td>
@@ -123,7 +100,7 @@ export default function DoledgeBenefits() {
 
               <tr className="">
 
-                <td className='text-left px-5'>ATS Optimization</td>
+                <td className='text-left px-5'>Professional Guidance</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -132,7 +109,16 @@ export default function DoledgeBenefits() {
 
               <tr className="">
 
-                <td className='text-left px-5'>Engagement</td>
+                <td className='text-left px-5'>Enhanced Efficiency</td>
+                <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
+                <td className='text-center px-5 benefitGiven'>
+                  <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
+                </td>
+              </tr>
+
+              <tr className="">
+
+                <td className='text-left px-5'>Results - Driven</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -152,7 +138,7 @@ export default function DoledgeBenefits() {
         {/* Purchase card */}
 
 
-        <BuyNowServiceCard />
+        <BuyNowServiceCard prices={prices}/>
 
 
 
@@ -182,7 +168,7 @@ export default function DoledgeBenefits() {
             fontWeight: 400,
             wordWrap: 'break-word',
           }}>
-            Our customers are experiencing a host of benefits <br /> from our Visual Resume Services
+            Our customers are experiencing a host of benefits <br /> from our Text Resume Services
           </div>
           <div className="flex flex-col md:flex-row justify-around items-center mt-12">
             <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col place-items-center justify-center mb-4 md:mb-0">

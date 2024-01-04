@@ -1,17 +1,16 @@
 import { Box, useTheme, Grid } from '@mui/material';
 import coverImage from '../../../../images/textbannerimg.jpg';
-// import bckimg from '../../../../images/blurbck.jpg'
-import bckimg from '../../../../images/bckblurimg.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCheck, faTimesCircle, faCircle, faTimes, faCheckCircle, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
+import {faCircle} from '@fortawesome/free-solid-svg-icons';
 // Ensure this path is correct
 import { styled } from '@mui/material/styles';
 import { Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { faCircleInfo,faMaximize ,faExternalLinkAlt,faTrophy,faSquarePollVertical } from '@fortawesome/free-solid-svg-icons';
-import DoledgeBenefits from './TextEntry_Components/DoledgeBenefits';
 import { Card, CardContent } from '@mui/material';
-
-// import Slide from 'react-reveal/Slide';
+import DoledgeBenefits from './DoledgeBenefits';
+import Blog from '../../../Blog';
+import Footer from '../../../Footer';
+import { useState } from 'react';
 
 
 const TextEntry = () => {
@@ -22,6 +21,13 @@ const TextEntry = () => {
     textAlign: 'center',
     height: '100px', // Set the desired height here
   }));
+
+  const prices={
+    price1:2399,
+    price2:2599,
+    price3:2799
+  }
+
 
   const cardContents = [
     {
@@ -34,6 +40,7 @@ const TextEntry = () => {
     {
       steps: 'Step 2',
       title: 'Content Optimization',
+
       content: 'The text resume is formatted for maximum readability on various devices, ensuring it maintains a professional appearance.',
       icon: faMaximize
       
@@ -62,9 +69,9 @@ const TextEntry = () => {
           sx={{
             backgroundImage: `url(${coverImage})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: '100% 100%',
             height: '60vh',
-            width: '50%',
+            width: '45%',
             [theme.breakpoints.down('md')]: {
               width: '100%',
               height: '30vh',
@@ -80,7 +87,7 @@ const TextEntry = () => {
             // backgroundSize: 'cover',
             // backgroundRepeat: 'no-repeat',
             height: '60vh',
-            width: '50%',
+            width: '55%',
             [theme.breakpoints.down('md')]: {
               width: '100%',
               height: 'fit-content',
@@ -91,11 +98,11 @@ const TextEntry = () => {
           <div className="flex flex-col justify-between h-full px-7">
             <div className="mt-auto mb-auto">
 
-              <div className="text-white text-4xl text-left max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text Resumes: Your Express Route to Employment <br />
+              <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
+                Text Resumes: Your Express Route <br /> to Employment
               </div>
-              <div className="text-orange-400 text-2xl text-left max-w-full mt-4">
-                Embrace the simplicity, speed, and impact of text to boost your career.
+              <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
+                Embrace the simplicity, speed, and impact of text <br /> to boost your career.
               </div><br />
             </div>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
@@ -142,26 +149,20 @@ const TextEntry = () => {
 
       {/* Doledge Benefits Sections */}
 
-      {/* <Slide left cascade> */}
-
-      <DoledgeBenefits />
-      {/* </Slide> */}
-      {/* <div className="points bg-red-400">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur facere autem dolorum veniam, ea possimus ipsam eius. Ipsum, reiciendis facere quisquam recusandae ducimus libero, odio totam quas numquam, consequuntur minus.
-      </div> */}
-
+      <DoledgeBenefits prices={prices}/>
+      
 
 
       {/* Filtering Points*/}
 
-      <div className="bg-orange-500 w-full mt-5 text-white">
+      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-full mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
           <div className='text-left pl-4 pt-12' style={{ wordWrap: 'break-word',lineHeight:'2.7rem' }}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Expertly tailored to beat ATS filters
              
               
@@ -173,7 +174,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
 
               Strategically incorporate industry-specific keywords to make your resume stand out
 
@@ -188,7 +189,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Our designers create professional, aesthetically pleasing text resumes
              
             </span>
@@ -197,7 +198,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               We valuing your input and preferences to produce a resume that truly represents you
              
             </span>
@@ -206,7 +207,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Making your resume usable for all individuals
              
             </span>
@@ -215,7 +216,7 @@ const TextEntry = () => {
           <div className='text-left pl-4 pb-12' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-2 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Crafting text resumes that lead to real-world job opportunities
              
             </span>
@@ -255,16 +256,14 @@ const TextEntry = () => {
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%' }}>
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100'>
                   <div className="div" style={{ fontSize: 26,
-                fontFamily: 'Poppins',
-                fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
-
-                <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}}/> 
-                </div>
+                    fontFamily: 'Poppins',
+                    fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
+                    <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}}/> 
+                  </div>
                   <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh', }}>
                     <Typography variant="h6" component="h2" style={{ fontSize: '14px', fontFamily: 'Poppins', fontWeight: 500 }}>
-
                       {card.content}
                     </Typography>
 
@@ -277,27 +276,47 @@ const TextEntry = () => {
             ))}
           </Grid>
 
-
-
-
-
-
-
         </Stepper>
       </div>
 
 
       {/* </div> */}
 
+      {/* Resume Delivery Time */}
+      <div className=' mx-auto p-4 mt-8'>
+        <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
+        <div className='my-10'>
+          <table className='mx-auto  w-[70%] text-[20px] bg-gradient-to-t from-slate-200 to-slate-50'>
+            <tr className='border-2 border-black text-[26px] h-16'>
+              <th>Resume Variant</th>
+              <th className='border-l-2 border-r-2'>First Version</th>
+              <th>Final Delivery</th>
+            </tr>
+            <tr className='border-2 border-black h-12'>
+              <td>Regular</td>
+              <td className='border-l-2 border-r-2'>8 Working Days</td>
+              <td>14 Working Days</td>
+            </tr>
+            <tr className='border-2 border-black h-12'>
+              <td>Express</td>
+              <td className='border-l-2 border-r-2'>4 Working Days</td>
+              <td>10 Working Days</td>
+            </tr>
+            <tr className='border-2 border-black h-12'>
+              <td>Super Express</td>
+              <td className='border-l-2 border-r-2'>2 Working Days</td>
+              <td>6 Working Days</td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
 
+      {/* Blog */}
+      <Blog/>
 
-
-
-
-
-
-
+      {/* Footer */}
+      <Footer/>
 
     </div>
   );

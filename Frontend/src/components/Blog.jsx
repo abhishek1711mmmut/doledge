@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import blogImage from '../images/hand.png'
 
 const Blog = () => {
 
@@ -24,19 +25,22 @@ const Blog = () => {
 
   const blo = [
     {
-      Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      Image: blogImage,
       BlogTitle: 'Blog Title 1',
-      Description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias pariatur, minima qui assumenda consequuntur consequatur placeat. Ex eum voluptates pariatur!"
+      Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
     },
     {
-      Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      Image: blogImage,
       BlogTitle: 'Blog Title 2',
-      Description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias pariatur, minima qui assumenda consequuntur consequatur placeat. Ex eum voluptates pariatur!"
+      Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
     },
     {
-      Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
+      Image: blogImage,
       BlogTitle: 'Blog Title 3',
-      Description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias pariatur, minima qui assumenda consequuntur consequatur placeat. Ex eum voluptates pariatur!"
+      Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
     },
   ];
 
@@ -63,20 +67,17 @@ const Blog = () => {
             {blo.map((b) => (
 
               <div className="w-full md:w-[100%] lg:w-[33.33%] px-4" key={b.BlogTitle}>
-                <div className="max-w-[370px] mx-auto mb-10 border-[2px] shadow-lg rounded-lg p-4 ">
+                <div className="max-w-[370px] mx-auto mb-10 border-[2px] shadow-lg rounded-lg p-4 cursor-pointer">
                   <div className="rounded overflow-hidden mb-8">
                     <img src={b.Image} alt="image" className="w-full" />
                   </div>
                   <div>
-                    {/* <span className="bg-primary rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5">
-              Dec 22, 2023
-            </span> */}
                     <h3>
                       <a href="#" className="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary">
                         {b.BlogTitle}
                       </a>
                     </h3>
-                    <p className="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary" style={{ fontSize: '18px' }}>
+                    <p className="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary opacity-75" style={{ fontSize: '18px' }}>
                       {b.Description}
 
                     </p>

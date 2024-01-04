@@ -1,50 +1,8 @@
-// import React from 'react';
-
-// const VisualEntry = () => {
-//   return (
-//     <div style={{ background: 'linear-gradient(to bottom, white, white)' }} className="text-black p-6">
-//       <div className="max-w-4xl mx-auto text-center">
-//         <h1 className="text-3xl font-semibold mb-6">Visual Entry - Entry Level</h1>
-//         <p className="text-lg mb-12">
-//           Make a lasting first impression when competing for your dream job. Recruiters spend less than 6 seconds reviewing your resume or CV. With Text CV, you're guaranteed to make the right first impression. Choose from our industry-approved templates, create multiple profile versions, and track your success. Edit your CV on the go with mobile support. Your next career move starts here.
-//         </p>
-//         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-//           <div className="bg-white rounded-lg shadow-md p-6">
-//             <h2 className="text-xl font-semibold text-blue-900 mb-2">Text Resume - Entry Level</h2>
-//             <p className="text-2xl font-bold mb-4">₹4200</p>
-//             <p className="text-lg mb-4">(inclusive of all taxes)</p>
-//             <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-//               Buy Now
-//             </button>
-//           </div>
-//           <div className="bg-white rounded-lg shadow-md p-6">
-//             <h2 className="text-xl font-semibold text-blue-900 mb-2">Text Resume - Entry Level</h2>
-//             <p className="text-2xl font-bold mb-4">₹4200</p>
-//             <p className="text-lg mb-4">(inclusive of all taxes)</p>
-//             <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-//               Buy Now
-//             </button>
-//           </div>
-//           <div className="bg-white rounded-lg shadow-md p-6">
-//             <h2 className="text-xl font-semibold text-blue-900 mb-2">Text Resume - Entry Level</h2>
-//             <p className="text-2xl font-bold mb-4">₹4200</p>
-//             <p className="text-lg mb-4">(inclusive of all taxes)</p>
-//             <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-//               Buy Now
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default VisualEntry;
-
 import { Box, useTheme, Grid } from '@mui/material';
+// import coverImage from '../../../../images/visualbabberimg.jpg';
 import coverImage from '../../../../images/visualbabberimg.jpg';
 // import bckimg from '../../../../images/blurbck.jpg'
-import bckimg from '../../../../images/bckblurimg.jpg'
+// import bckimg from '../../../../images/bckblurimg.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare, faCheck, faTimesCircle, faCircle, faTimes, faCheckCircle, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
 // Ensure this path is correct
@@ -52,12 +10,10 @@ import { styled } from '@mui/material/styles';
 import { Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { faCircleInfo,faMaximize ,faExternalLinkAlt,faTrophy,faSquarePollVertical } from '@fortawesome/free-solid-svg-icons';
 import { Card, CardContent } from '@mui/material';
-import DoledgeBenefits from './VisualEntry_Component/DoledgeBenefits';
+// import DoledgeBenefits from './VisualEntry_Component/DoledgeBenefits';
+import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
-
-
-// import Slide from 'react-reveal/Slide';
 
 
 const VisualEntry = () => {
@@ -68,6 +24,12 @@ const VisualEntry = () => {
     textAlign: 'center',
     height: '100px', // Set the desired height here
   }));
+
+  const prices={
+    price1:3699,
+    price2:3899,
+    price3:4199
+  }
 
   const cardContents = [
     {
@@ -80,6 +42,7 @@ const VisualEntry = () => {
     {
       steps: 'Step 2',
       title: 'Content Optimization',
+
       content: 'The text resume is formatted for maximum readability on various devices, ensuring it maintains a professional appearance.',
       icon: faMaximize
       
@@ -101,7 +64,7 @@ const VisualEntry = () => {
   return (
 
 
-    <div className='w-[100%]'>
+    <div className='w-[100%] mx-auto'>
       {/* <Slide left cascade> */}
       <div className='flex flex-col md:flex-row'>
         <Box
@@ -188,19 +151,13 @@ const VisualEntry = () => {
 
       {/* Doledge Benefits Sections */}
 
-      {/* <Slide left cascade> */}
-
-      <DoledgeBenefits />
-      {/* </Slide> */}
-      {/* <div className="points bg-red-400">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur facere autem dolorum veniam, ea possimus ipsam eius. Ipsum, reiciendis facere quisquam recusandae ducimus libero, odio totam quas numquam, consequuntur minus.
-      </div> */}
-
+      <DoledgeBenefits prices={prices}/>
+      
 
 
       {/* Filtering Points*/}
 
-      <div className="bg-orange-500 w-full mt-5 text-white">
+      <div className="bg-gradient-to-tr from-orange-500 to-amber-400 w-full mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
@@ -301,7 +258,7 @@ const VisualEntry = () => {
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%' }}>
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%' }} className='bg-gradient-to-br from-stone-300 to-neutral-100'>
                   <div className="div" style={{ fontSize: 26,
                 fontFamily: 'Poppins',
                 fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
@@ -333,7 +290,7 @@ const VisualEntry = () => {
       <div>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
-          <table className='mx-auto border w-[70%] text-[20px]'>
+          <table className='mx-auto border w-[70%] text-[20px] bg-gradient-to-t from-slate-200 to-slate-50'>
             <tr className='border-2 border-black text-[26px] h-16'>
               <th>Resume Variant</th>
               <th className='border-l-2 border-r-2'>First Version</th>

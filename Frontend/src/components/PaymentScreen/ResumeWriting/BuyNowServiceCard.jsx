@@ -3,10 +3,10 @@ import { Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { FormControl, FormControlLabel, Radio, Checkbox, RadioGroup } from '@mui/material';
 // import Slide from 'react-reveal/Slide';
 
-export default function BuyNowServiceCard() {
+export default function BuyNowServiceCard({prices}) {
     const [selectedValue, setSelectedValue] = React.useState('option1');
     // Changing prices dynamically
-    const [price, setPrice] = React.useState(3699);
+    const [price, setPrice] = React.useState(prices.price1);
     const [includeCoverLetter, setIncludeCoverLetter] = React.useState(false);
 
 
@@ -14,12 +14,12 @@ export default function BuyNowServiceCard() {
         setSelectedValue(event.target.value);
         // Update price based on the selected radio button
         if (event.target.value === 'option1') {
-            setPrice(3699);
+            setPrice(prices.price1);
         } else if (event.target.value === 'option2') {
-            setPrice(3899);
+            setPrice(prices.price2);
         }
         else if (event.target.value === 'option3') {
-            setPrice(3999);
+            setPrice(prices.price3);
         }
 
     };
@@ -54,7 +54,7 @@ export default function BuyNowServiceCard() {
 
 
                     <div className="ml-20 mr-20 text-black text-xl max-w-screen-sm md:max-w-full self-start sm:text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
-                    Buy Visual Resume Services
+                    Buy Text Resume Services
                     </div>
 
 
