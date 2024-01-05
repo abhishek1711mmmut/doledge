@@ -10,7 +10,7 @@ const InputElement = (props) => {
             type={props.type} 
             placeholder={props.placeholder}
             value={props.value}
-            onChange={(e) => props.onChange(e, props.type)}/>
+            onChange={(e) => props.onChange(e, props.field)}/>
             
             <p className="error" style={{
                 visibility: props.valid ? 'hidden' : 'visible',

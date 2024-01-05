@@ -5,18 +5,19 @@ const { validationResult } = require('express-validator');
 
 exports.signup = async (req, res) => {
     try {
-        let { name, email, password, tel, workStatus, whatsApp } = req.body;
-        workStatus = workStatus.split(' ')[1];
+        let { name, email, password, tel, workStatus, whatsApp, picture } = req.body;
+        whatsApp = whatsApp ? whatsApp : false;
+        workStatus = workStatus ? workStatus.split(' ')[1] : null;
         const validationErrorsArray = validationResult(req);
-        console.log(validationErrorsArray)
+        // console.log(validationErrorsArray)
 
-        // check inputs validation
-        if (validationErrorsArray.length != 0) {
-            return res.status(400).json({
-              status: "Failed",
-              message: "Invalid input, please try again" 
-            });
-        }
+        // // check inputs validation
+        // if (validationErrorsArray.length != 0) {
+        //     return res.status(400).json({
+        //       status: "Failed",
+        //       message: "Invalid input, please try again" 
+        //     });
+        // }
 
         // check if user already exists
         const exitingUser = await User.findOne({ email: email });
@@ -34,9 +35,12 @@ exports.signup = async (req, res) => {
           const newUser = new User({name, email, phoneNumber: tel, password: hashedPassword, workStatus, whatsApp});
           newUser.save()
           .then(() => {
+            const token = getToken(newUser);
             return res.status(201).json({
               status: "Success",
               message: "User registered successfully",
+              user: newUser,
+              token: token,
             });
           })
           .catch(err => console.log(err))
@@ -58,15 +62,15 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const validationErrorsArray = validationResult(req);
-    console.log(validationErrorsArray)
+    // console.log(validationErrorsArray)
 
     // check inputs validation
-    if (validationErrorsArray.length != 0) {
-        return res.status(400).json({
-          status: "Failed",
-          message: "Invalid input, please try again" 
-        });
-    }
+    // if (validationErrorsArray.length != 0) {
+    //     return res.status(400).json({
+    //       status: "Failed",
+    //       message: "Invalid input, please try again" 
+    //     });
+    // }
 
     // check if user already exists
     const user = await User.findOne({ email: email });

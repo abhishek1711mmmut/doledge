@@ -81,6 +81,10 @@ const Register = () => {
       setOverAllValid(false)
   }
 
+  const googleRegisterHandler = () => {
+    window.open('http://localhost:8800/signup/google', '_self');
+  }
+
   const submitFormHanadler = (event) => {
     event.preventDefault();
     const {text, email, password, tel} = inputs;
@@ -119,6 +123,7 @@ const Register = () => {
           <div className="w-[100%] mr-3
                     sm:w-[70%]">
             <InputElement
+              field={'text'}
               type={'text'}
               label={'Full Name'}
               placeholder={'Whats your name?'}
@@ -128,6 +133,7 @@ const Register = () => {
               onChange={changeHandler} />
 
             <InputElement
+              field={'email'}
               type={'email'}
               label={'Email ID'}
               placeholder={'Tell us your Email ID'}
@@ -140,7 +146,7 @@ const Register = () => {
           <div className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
                     sm:flex-col sm:w-[30%] sm:m-0 sm:p-0 sm:mb-3 sm:h-[160px]">
             <h6 className="font-bold mt-1 mr-2 sm:mt-0 sm:mr-0 sm:mb-2">Continue With</h6>
-            <button className="google flex flex-row">
+            <button className="google flex flex-row" onClick={googleRegisterHandler}>
               <div><img className="w-[20px] [h-20px] mr-2 mt-0.5" src={require("../images/google-48.png")} /></div>
               <div>Goolge</div>
             </button>
@@ -148,6 +154,7 @@ const Register = () => {
         </div>
 
         <InputElement
+          field={'password'}
           type={'password'}
           label={'Password'}
           placeholder={'Create a password for your account'}
@@ -157,6 +164,7 @@ const Register = () => {
           onChange={changeHandler} />
 
         <InputElement
+          field={'tel'}
           type={'tel'}
           label={'Mobile Number'}
           placeholder={'Mobile Number'}
