@@ -24,6 +24,10 @@ app.use(cors({
   credentials: true,
 }));
 
+app.get("/", (req, res) => {
+  res.json("hello from server");
+});
+
 // Google Authentication
 app.use(session({
   secret: 'hello',
