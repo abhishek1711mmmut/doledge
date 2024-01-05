@@ -80,7 +80,7 @@ const Register = () => {
     console.log("button clicked");
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/signup",
+        "https://rk80csg.srv-01.purezzatechnologies.com/api/auth/signup",
         {
           firstName: user1.firstName,
           lastName: user1.lastName,

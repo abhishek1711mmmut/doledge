@@ -55,7 +55,7 @@ const Login = () => {
         data.email = email.value;
         data.password = password.value;
     
-        axios.post('http://localhost:8800/api/auth/login', data)
+        axios.post('https://rk80csg.srv-01.purezzatechnologies.comapi/auth/login', data)
         .then(response => {
             let data = response.data;
             if(data.status == 'success'){
