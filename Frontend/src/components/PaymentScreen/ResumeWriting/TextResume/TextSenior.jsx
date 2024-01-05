@@ -93,11 +93,11 @@ const TextSenior = () => {
             },
           }}
         >
-          <div className="flex flex-col justify-between h-full px-7">
+          <div className="flex flex-col justify-between h-full px-7 w-[100%]">
             <div className="mt-auto mb-auto">
 
               <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text Resumes: Your Express Route <br /> to Employment
+                Text Resumes: Your Express Route to Employment
               </div>
               <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
                 Embrace the simplicity, speed, and impact of text <br /> to boost your career.

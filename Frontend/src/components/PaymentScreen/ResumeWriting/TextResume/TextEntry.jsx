@@ -62,7 +62,7 @@ const TextEntry = () => {
   return (
 
 
-    <div className='w-[100%]'>
+    <div className='w-[100%] mx-auto'>
       {/* <Slide left cascade> */}
       <div className='flex flex-col md:flex-row'>
         <Box
@@ -95,17 +95,17 @@ const TextEntry = () => {
             },
           }}
         >
-          <div className="flex flex-col justify-between h-full px-7">
+          <div className="flex flex-col justify-between h-full px-7 w-[100%]">
             <div className="mt-auto mb-auto">
 
               <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text Resumes: Your Express Route <br /> to Employment
+                Text Resumes: Your Express Route to Employment
               </div>
               <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
                 Embrace the simplicity, speed, and impact of text <br /> to boost your career.
               </div><br />
             </div>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
+             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
                 <Item><b>Entry-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(0-3) Years</p>
