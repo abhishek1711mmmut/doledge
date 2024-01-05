@@ -10,14 +10,14 @@ import { styled } from '@mui/material/styles';
 import { Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { faCircleInfo,faMaximize ,faExternalLinkAlt,faTrophy,faSquarePollVertical } from '@fortawesome/free-solid-svg-icons';
 import { Card, CardContent } from '@mui/material';
-// import DoledgeBenefits from './VisualSenior_Component/DoledgeBenefits';
+// import DoledgeBenefits from './VisualExecutive_Component/DoledgeBenefits';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
 import { useNavigate } from 'react-router-dom';
 
 
-const VisualSenior = () => {
+const VisualExecutive = () => {
   const navigate=useNavigate();
   const theme = useTheme();
   const Item = styled('div')(({ theme }) => ({
@@ -28,9 +28,9 @@ const VisualSenior = () => {
   }));
 
   const prices={
-    price1:4099,
-    price2:4299,
-    price3:4499
+    price1:4299,
+    price2:4499,
+    price3:4699
   }
 
   const cardContents = [
@@ -66,7 +66,7 @@ const VisualSenior = () => {
   return (
 
 
-    <div className='w-[100%]'>
+    <div className='w-[100%] mx-auto'>
       {/* <Slide left cascade> */}
       <div className='flex flex-col md:flex-row'>
         <Box
@@ -123,14 +123,14 @@ const VisualSenior = () => {
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Senior-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Senior-Level")}>
                   <b>Senior-Level</b><br />
                   <p style={{ fontSize: '0.9rem' }}>(8-15) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Executive-Level")}>
-                  <b>Executive-Level </b> <br />
+                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Executive-Level")}>
+                    <b>Executive-Level </b> <br />
                   <p style={{ fontSize: '0.9rem' }}>(15 Years & Above)</p>
                 </Item>
               </Grid>
@@ -332,4 +332,4 @@ const VisualSenior = () => {
   );
 };
 
-export default VisualSenior;
+export default VisualExecutive;

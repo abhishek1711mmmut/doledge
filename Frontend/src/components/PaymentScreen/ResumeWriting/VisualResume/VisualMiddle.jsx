@@ -14,9 +14,11 @@ import { Card, CardContent } from '@mui/material';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
+import { useNavigate } from 'react-router-dom';
 
 
 const VisualMiddle = () => {
+  const navigate=useNavigate();
   const theme = useTheme();
   const Item = styled('div')(({ theme }) => ({
     backgroundColor: '#f0f0f0',
@@ -109,22 +111,26 @@ const VisualMiddle = () => {
             </div>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
-                <Item><b>Entry-Level </b><br />
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Entry-Level")}>
+                  <b>Entry-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(0-3) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item><b>Middle-Level </b><br />
+                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Middle-Level")}>
+                  <b>Middle-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(3-8) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item><b>Senior-Level</b><br />
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Senior-Level")}>
+                  <b>Senior-Level</b><br />
                   <p style={{ fontSize: '0.9rem' }}>(8-15) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item><b>Executive-Level </b> <br />
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Executive-Level")}>
+                  <b>Executive-Level </b> <br />
                   <p style={{ fontSize: '0.9rem' }}>(15 Years & Above)</p>
                 </Item>
               </Grid>

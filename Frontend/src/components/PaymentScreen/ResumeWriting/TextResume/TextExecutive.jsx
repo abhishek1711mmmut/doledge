@@ -1,23 +1,19 @@
 import { Box, useTheme, Grid } from '@mui/material';
-// import coverImage from '../../../../images/visualbabberimg.jpg';
-import coverImage from '../../../../images/visualbabberimg.jpg';
-// import bckimg from '../../../../images/blurbck.jpg'
-// import bckimg from '../../../../images/bckblurimg.jpg'
+import coverImage from '../../../../images/textbannerimg.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCheck, faTimesCircle, faCircle, faTimes, faCheckCircle, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
+import {faCircle} from '@fortawesome/free-solid-svg-icons';
 // Ensure this path is correct
 import { styled } from '@mui/material/styles';
 import { Stepper, Step, StepLabel, Typography } from '@mui/material';
 import { faCircleInfo,faMaximize ,faExternalLinkAlt,faTrophy,faSquarePollVertical } from '@fortawesome/free-solid-svg-icons';
 import { Card, CardContent } from '@mui/material';
-// import DoledgeBenefits from './VisualSenior_Component/DoledgeBenefits';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
 import { useNavigate } from 'react-router-dom';
 
 
-const VisualSenior = () => {
+const TextExecutive = () => {
   const navigate=useNavigate();
   const theme = useTheme();
   const Item = styled('div')(({ theme }) => ({
@@ -28,9 +24,9 @@ const VisualSenior = () => {
   }));
 
   const prices={
-    price1:4099,
-    price2:4299,
-    price3:4499
+    price1:2999,
+    price2:3199,
+    price3:3399
   }
 
   const cardContents = [
@@ -103,34 +99,34 @@ const VisualSenior = () => {
             <div className="mt-auto mb-auto">
 
               <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Visual Resumes: Elevate Your Career with Visual Resumes <br />
+                Text Resumes: Your Express Route to Employment
               </div>
               <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
-                Transform your qualifications into a captivating <br /> visual story
+                Embrace the simplicity, speed, and impact of text <br /> to boost your career.
               </div><br />
             </div>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Entry-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Entry-Level")}>
                   <b>Entry-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(0-3) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Middle-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Middle-Level")}>
                   <b>Middle-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(3-8) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Senior-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Senior-Level")}>
                   <b>Senior-Level</b><br />
                   <p style={{ fontSize: '0.9rem' }}>(8-15) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-Executive-Level")}>
-                  <b>Executive-Level </b> <br />
+                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Executive-Level")}>
+                    <b>Executive-Level </b> <br />
                   <p style={{ fontSize: '0.9rem' }}>(15 Years & Above)</p>
                 </Item>
               </Grid>
@@ -148,7 +144,7 @@ const VisualSenior = () => {
         fontFamily: 'Poppins'
       }}>
         <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
-          Doledge's Visual Resume Services are the key to <br /> unlocking a more
+          Doledge's Text Resume Services are the key to <br /> unlocking a more
           efficient and effective job search.
         </div>
 
@@ -163,7 +159,7 @@ const VisualSenior = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-orange-500 to-amber-400 w-full mt-5 text-white">
+      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-full mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
@@ -264,16 +260,14 @@ const VisualSenior = () => {
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%' }} className='bg-gradient-to-br from-stone-300 to-neutral-100'>
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100'>
                   <div className="div" style={{ fontSize: 26,
-                fontFamily: 'Poppins',
-                fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
-
-                <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}}/> 
-                </div>
+                    fontFamily: 'Poppins',
+                    fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
+                    <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}}/> 
+                  </div>
                   <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh', }}>
                     <Typography variant="h6" component="h2" style={{ fontSize: '14px', fontFamily: 'Poppins', fontWeight: 500 }}>
-
                       {card.content}
                     </Typography>
 
@@ -293,10 +287,10 @@ const VisualSenior = () => {
       {/* </div> */}
 
       {/* Resume Delivery Time */}
-      <div>
+      <div className=' mx-auto p-4 mt-8'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
-          <table className='mx-auto border w-[70%] text-[20px] bg-gradient-to-t from-slate-200 to-slate-50'>
+          <table className='mx-auto  w-[70%] text-[20px] bg-gradient-to-t from-slate-200 to-slate-50'>
             <tr className='border-2 border-black text-[26px] h-16'>
               <th>Resume Variant</th>
               <th className='border-l-2 border-r-2'>First Version</th>
@@ -332,4 +326,4 @@ const VisualSenior = () => {
   );
 };
 
-export default VisualSenior;
+export default TextExecutive;
