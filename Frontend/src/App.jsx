@@ -44,12 +44,14 @@ import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQ
 
 import contextAuth from './ContextAPI/ContextAuth';
 import { useEffect, useState } from 'react';
+import GoogleNewPassword from './components/GoogleNewPassword';
+import Spinner from './UI/Spinner/Spinner';
 
 function App() {
   let [user, setUser] = useState({});
   let [token, setToken] = useState('');
 
-  useEffect(() => {
+  useEffect(() => {    
     let userID = localStorage.getItem('userID');
     let username = localStorage.getItem('userName');
     let token = localStorage.getItem('token');
@@ -113,6 +115,9 @@ function App() {
                       <Route path="/login" element={<Login/>} />
                     </>
                   )}
+                  
+                  <Route path="/auth/loadLoginData" element={<Spinner/>}/>
+                  <Route path="/auth/googlePassword" element={<GoogleNewPassword/>}/>
                   <Route path='*' element={<MAINheader/>}/>
                 </Routes>
             </div>

@@ -23,6 +23,7 @@ exports.password = body('password')
 .isLength({min: 5, max:20})
 .withMessage('password must be between 5-20 characters')
 .trim()
+// .matches(/^[A-Za-z0-9 .,'!&$#@%*]/)
 
 exports.tel = body('tel')
 .notEmpty()

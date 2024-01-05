@@ -1,47 +1,37 @@
 const express = require("express");
-const app = express();
-const dotenv = require("dotenv");
-dotenv.config()
+const dotenv = require("dotenv").config();
 const database = require("./configuration/databaseConfig");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const passport = require('passport');
 const session = require('express-session');
-
-require("./configuration/passport")
-require("./configuration/passportFacebook");
-// const corsOptions = {
-//     exposedHeaders: 'Authorization',
-// };
-
-app.use(session({
-    secret: 'hello',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 3600000 // 1 hour in milliseconds
-    }
-  }));
-
-
-app.get("/facebook/callback" , passport.authenticate('facebook' , {failureRedirect:"/failed"})
-, function(req,res){
-res.send("Hogya Login Facebook Se!")
-}
-);
-
-const port = process.env.PORT || 8800;
 const cors = require('cors');
 
-// middleware
-app.use(cors())
+// Google Authentication Imports
+require('./configuration/passport'); // definition to passport object
+const googleSignupRoutes = require('./routes/GoogleSignup'); // google signup routes
+const googleSigninRouts = require('./routes/GoogleSignin');
+
+
+const app = express();
+
+// middlewares
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: 'GET,UPDATE,PUT,DELETE',
+  credentials: true,
+}));
 
-
-
+// Google Authentication
+app.use(session({
+  secret: 'hello',
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(googleSignupRoutes)
+app.use(googleSigninRouts)
 
 
 /// Routes
@@ -54,8 +44,7 @@ const cartRouter = require('./routes/cart')
 const socialauthRouter = require("./routes/socialauth");
 
 
-
-
+// APIs
 app.use('/api/auth', authRouter.routes) //✅
 app.use('/api', userRouter.routes) //✅
 app.use('/api', productRouter.routes) //✅
@@ -64,20 +53,7 @@ app.use('/api',serviceRouter.routes)
 app.use('/api', cartRouter.routes)
 app.use('/api/socialauth' , socialauthRouter.routes);
 
-app.get("/google/callback" , passport.authenticate('google' , {failureRedirect:"/failed"})
-, function(req,res){
-res.send("Hogya Login Google Se !")
-// res.redirect('http://localhost:3000'); 
-}
-);
-
-
-
-app.get("/",(req,res)=>{
-    res.send("Hello from Server")
-})
-
-
+const port = process.env.PORT || 8800;
 database()
     .then(() => console.log("Database connected 😎👍"))
     .catch(() => console.log("Database connection failed"));
