@@ -182,7 +182,7 @@ const Footer = () => {
         </div>
 
         {/* Social Networks */}
-        <div className="flex items-center justify-center items-center py-2">
+        <div className="flex justify-center items-center py-2">
           <img
             className="w-[25px] h-[25px] mx-1"
             src={require("../images/social-facebook.png")} />

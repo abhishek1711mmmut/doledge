@@ -40,6 +40,9 @@ import ProfileUpdate from './components/PaymentScreen/CareerGrowth/ProfileUpdate
 import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalPortfolio';
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
+
+
+
 // import TextEntryResumeref from './components/PaymentScreen/ResumeWriting/TextResume/TextResumeref';
 
 import contextAuth from './ContextAPI/ContextAuth';
