@@ -161,7 +161,7 @@ const InternationalVisualEntry = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-full mt-5 text-white">
+      <div className="bg-gradient-to-tr from-orange-500 to-amber-400 w-full mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
