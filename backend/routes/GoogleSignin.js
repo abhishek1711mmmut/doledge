@@ -7,13 +7,16 @@ const { getToken } = require("../configuration/token");
 
 // this route will show your google emails to register with, when you choose one of them
 // it will redirect you to '/google/callback' route
-router.get('/signin/google', passport.authenticate('google-signin', {scope: ['profile', 'email']}));
+router.get('/signin/google', passport.authenticate('google-signin', {
+    scope: ['profile', 'email'],
+    prompt : "select_account",
+}));
 
 // gets invoked after choosing email in '/google'
 // defines if the user success authenticated or not and based on each case redirect to it's route.
-router.get('/signin/google/callback', passport.authenticate('google-signin', {
-    successRedirect: 'http://localhost:3000/auth/loadLoginData', // redirect to react app home page
-    failureRedirect: '/auth/failed',
+router.get('/google/callback', passport.authenticate('google-signin', {
+    successRedirect: 'http://localhost:3000/auth/loadLoginData', // redirect to react app loadingData page
+    failureRedirect: '/signin/failed',
 }))
 
 // redirected to when login succeed
@@ -34,9 +37,10 @@ router.get('/signin/success', (req, res) => {
                     token,
                 })
             } else {
-                return res.status(401).json({
+                return res.json({
                     status: 'failed',
-                    message: "user doesn't exist",
+                    type: 'Signin',
+                    error: "user doesn't exist please signup first",
                 })
             }
         })
@@ -54,16 +58,6 @@ router.get('/signin/failed', (req, res) => {
     res.status(401).json({
         status: 'faild',
         message: 'google login failed',
-    });
-})
-
-// to logout
-router.get('/logout', (req, res) => {
-    req.logOut(() => {
-        req.session.destroy(() => {
-            // delete req.user;
-            res.json({logut: true});
-        })
     });
 })
 

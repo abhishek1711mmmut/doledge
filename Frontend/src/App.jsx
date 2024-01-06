@@ -48,11 +48,16 @@ import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQ
 import contextAuth from './ContextAPI/ContextAuth';
 import { useEffect, useState } from 'react';
 import GoogleNewPassword from './components/GoogleNewPassword';
-import Spinner from './UI/Spinner/Spinner';
+import DataLoading from './UI/DataLoading/DataLoading';
+import Modal from './UI/Modal/Modal';
+import axios from 'axios';
+import { responsiveFontSizes } from '@mui/material';
 
 function App() {
   let [user, setUser] = useState({});
   let [token, setToken] = useState('');
+  let [error, setError] = useState(false);
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {    
     let userID = localStorage.getItem('userID');
@@ -71,18 +76,32 @@ function App() {
   }
 
   const logout = () => {
-    setUser({});
-    setToken('');
-    localStorage.removeItem('userID');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('token');
+    axios.get('http://localhost:8800/logout', {withCredentials: true})
+    .then(() => {
+      setUser({});
+      setToken('');
+      localStorage.removeItem('userID');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('token');
+    })
+    .catch(err => console.log(err))
+  }
+
+  const errorHandler = (error) => {
+    setError(error)
+  }
+
+  const loadingHandler = (status) => {
+    setLoading(status);
   }
 
   return (
-        <contextAuth.Provider value={{user, token, login, logout}}>
+        <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, loadingHandler}}>
           <BrowserRouter>
             <div className="App">
                 <Navbar />
+                {error && <Modal error={error.message} type={error.type}/>}
+                {loading && <DataLoading/>}
                 <Routes>
                   {/* <Route path="/redirect" element={<Redirect/>} /> */}
                   {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
@@ -119,7 +138,7 @@ function App() {
                     </>
                   )}
                   
-                  <Route path="/auth/loadLoginData" element={<Spinner/>}/>
+                  <Route path="/auth/loadLoginData" element={<DataLoading/>}/>
                   <Route path="/auth/googlePassword" element={<GoogleNewPassword/>}/>
                   <Route path='*' element={<MAINheader/>}/>
                 </Routes>

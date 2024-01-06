@@ -15,7 +15,7 @@ const userSchema = Schema({
   phoneNumber: {
     type: Number,
     // required: [true, "Phone number is Required"],
-    unique: true, // Remove this line to allow updates with the same phoneNumber
+    // unique: true, // Remove this line to allow updates with the same phoneNumber
   },
   password: { 
     type: String, 

@@ -44,11 +44,13 @@ const Login = () => {
     }
 
     const googleLoginHandler = () => {
+        event.preventDefault()
         window.open('http://localhost:8800/signin/google', '_self');
       }
 
     const submitFormHanadler = (event) => {
         event.preventDefault();
+        Auth.loadingHandler(true);
         const {email, password} = inputs;
         
         let data = {}
@@ -60,10 +62,14 @@ const Login = () => {
             let data = response.data;
             if(data.status == 'success'){
                 Auth.login(data.user, data.token)
+                Auth.loadingHandler(false);
                 navigate('/')
             }
-            else 
-                console.log(response.data)
+            else {
+                Auth.loadingHandler(false)
+                Auth.errorHandler({message: data.error, type: data.type})
+                // console.log(response.data)
+            }
         })
         .catch(err => console.log(err))
       }

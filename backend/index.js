@@ -31,7 +31,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(googleSignupRoutes)
-app.use(googleSigninRouts)
+// app.use(googleSigninRouts)
+
+// Google Logout middleware
+app.get('/logout', (req, res) => {
+  req.logOut((error1) => {
+    req.session.destroy((error2) => {
+          // delete req.user;
+          res.clearCookie("connect.sid");
+          return res.json('done')
+      })
+  });
+})
 
 
 /// Routes

@@ -4,34 +4,44 @@ import { BarLoader, HashLoader } from "react-spinners";
 import contextAuth from "../../ContextAPI/ContextAuth";
 import { useNavigate } from "react-router-dom";
 
-const Spinner = () => {
+const DataLoading = () => {
     const Auth = useContext(contextAuth);
     const navigate = useNavigate();
 
     useEffect(() => {
         // get login user data on redirect to app from google
         getGoogleAuthUser(data => {
-            Auth.login(data.user, data.token);
-            navigate('/')
+            if(!data.error){
+                Auth.login(data.user, data.token);
+                navigate('/');
+            } else {
+                Auth.errorHandler({message: data.error, type: data.type});
+                navigate('/register');
+            }
         })
     }, [])
 
     const getGoogleAuthUser = async (cb) => {
         try {
             const { data } = await axios.get('http://localhost:8800/signin/success', {withCredentials: true});
+            let newData = {};
             if(data.status == 'success'){
-                let newData = {
+                newData = {
                     user: {
                         _id: data.user._id,
                         name: data.user.name,
                     },
                     token: data.token,
                 };
+                cb(newData);
+            } else {
+                newData.error = data.error;
+                newData.type = data.type;
                 cb(newData)
             }
+
         } catch (err) {
             navigate('/register')
-            console.log(err)
         }
     }
 
@@ -48,4 +58,4 @@ const Spinner = () => {
     )
 }
 
-export default Spinner;
+export default DataLoading;

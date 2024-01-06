@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import '../css/Register.css';
 
@@ -7,8 +7,10 @@ import SelectionCard from '../UI/Card/SelectionCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import contextAuth from "../ContextAPI/ContextAuth";
 
 const Register = () => {
+  const Auth = useContext(contextAuth);
   const navigate = useNavigate();
   let [overAllValid, setOverAllValid] = useState(false)
   let [workStatus, setWorkStatus] = useState('');
@@ -87,6 +89,7 @@ const Register = () => {
 
   const submitFormHanadler = (event) => {
     event.preventDefault();
+    Auth.loadingHandler(true);
     const {text, email, password, tel} = inputs;
     const work = workStatus;
     const whatsAppUpdates = whatsApp;
@@ -103,9 +106,15 @@ const Register = () => {
 
     axios.post('http://localhost:8800/api/auth/signup', data)
     .then(response => {
-      console.log(response.data)
-      if(response.data.status == 'Success')
-      navigate('/login');
+      const data = response.data;
+      if(data.status == 'success'){
+        navigate('/login');
+        Auth.loadingHandler(false);
+      }
+      else{
+        Auth.loadingHandler(false);
+        Auth.errorHandler({message: data.error, type: data.type})
+      }
     })
     .catch(err => console.log(err))
   }
