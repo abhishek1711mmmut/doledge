@@ -52,9 +52,11 @@ const Dropdown = (props) => {
           'Text Resume-Entry Level',
           'Text Resume-Middle Level',
           'Text Resume-Senior Level',
+          'Text Resume-Executive Level',
           'Visual Resume-Entry Level',
           'Visual Resume-Middle Level',
           'Visual Resume-Senior Level',
+          'Visual Resume-Executive Level',
           'Resume Quality Score'
         ]}
       />
