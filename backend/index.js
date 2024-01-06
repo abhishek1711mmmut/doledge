@@ -19,10 +19,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: "*",
   methods: 'GET,UPDATE,PUT,DELETE',
   credentials: true,
 }));
+
+app.get("/", (req, res) => {
+  res.json("hello from server");
+});
 
 // Google Authentication
 app.use(session({

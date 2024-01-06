@@ -38,10 +38,8 @@ export default function BuyNowServiceCard({prices}) {
         setPrice(newPrice);
     };
 
-
     const location=useLocation();
     const ResumeType=location.pathname.includes('Visual') ? "Visual" : "Text"
-
 
 
     return (

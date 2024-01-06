@@ -1,6 +1,5 @@
-// InternationalTextSenior
 import { Box, useTheme, Grid } from '@mui/material';
-import coverImage from '../../../../images/textresume-img.png';
+import coverImage from '../../../../images/textbannerimg.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircle} from '@fortawesome/free-solid-svg-icons';
 // Ensure this path is correct
@@ -11,11 +10,10 @@ import { Card, CardContent } from '@mui/material';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
-const InternationalTextSenior = () => {
+const TextExecutive = () => {
   const navigate=useNavigate();
   const theme = useTheme();
   const Item = styled('div')(({ theme }) => ({
@@ -26,11 +24,10 @@ const InternationalTextSenior = () => {
   }));
 
   const prices={
-    price1:17499,
-    price2:18499,
-    price3:19499
+    price1:2999,
+    price2:3199,
+    price3:3399
   }
-
 
   const cardContents = [
     {
@@ -65,7 +62,7 @@ const InternationalTextSenior = () => {
   return (
 
 
-    <div className='w-[100%] mx-auto'>
+    <div className='w-[100%]'>
       {/* <Slide left cascade> */}
       <div className='flex flex-col md:flex-row'>
         <Box
@@ -102,34 +99,34 @@ const InternationalTextSenior = () => {
             <div className="mt-auto mb-auto">
 
               <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text International Resumes: Elevate Your Profile, Expand your Horizons
+                Text Resumes: Your Express Route to Employment
               </div>
               <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
-                International Impressions: Internation Text Resumes for a Global Workforce
+                Embrace the simplicity, speed, and impact of text <br /> to boost your career.
               </div><br />
             </div>
-             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/International-Resume-Entry-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Entry-Level")}>
                   <b>Entry-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(0-3) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/International-Resume-Middle-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Middle-Level")}>
                   <b>Middle-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(3-8) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/International-Resume-Senior-Level")}>
+                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Senior-Level")}>
                   <b>Senior-Level</b><br />
                   <p style={{ fontSize: '0.9rem' }}>(8-15) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/International-Resume-Executive-Level")}>
-                  <b>Executive-Level </b> <br />
+                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Executive-Level")}>
+                    <b>Executive-Level </b> <br />
                   <p style={{ fontSize: '0.9rem' }}>(15 Years & Above)</p>
                 </Item>
               </Grid>
@@ -147,7 +144,7 @@ const InternationalTextSenior = () => {
         fontFamily: 'Poppins'
       }}>
         <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
-          Doledge's International Text Resume Services are the key to <br /> unlocking a more
+          Doledge's Text Resume Services are the key to <br /> unlocking a more
           efficient and effective job search.
         </div>
 
@@ -329,4 +326,4 @@ const InternationalTextSenior = () => {
   );
 };
 
-export default InternationalTextSenior;
+export default TextExecutive;

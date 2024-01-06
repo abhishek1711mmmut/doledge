@@ -32,11 +32,13 @@ const Dropdown = (props) => {
             height: height ? 'auto' : '0px',
             visibility: height ? 'visible' : 'hidden',
           }}>
-            {items.map((item, index) => (
-              <Link key={index} to={`/${item.replace(/ /g, '-')}`}>
-                {item}
-              </Link>
-            ))}
+            {
+              items.map((item, index)=>(
+                <Link key={index} to={item.link}>
+                  {item.title}
+                </Link>
+              ))
+            }
           </div>
         )}
       </li>
@@ -49,43 +51,41 @@ const Dropdown = (props) => {
       <Dropdown
         title="Resume Writing"
         items={[
-          'Text Resume-Entry Level',
-          'Text Resume-Middle Level',
-          'Text Resume-Senior Level',
-          'Visual Resume-Entry Level',
-          'Visual Resume-Middle Level',
-          'Visual Resume-Senior Level',
-          'Resume Quality Score'
+          {title:'Text Resume', link:'Text-Resume-Entry-Level'},
+          {title:'Visual Resume', link:'Visual-Resume-Entry-Level'},
+          {title:'Resume Quality Score', link:'Resume-Quality-Score'}
         ]}
       />
       <Dropdown
         title="International Resume"
-        items={["International Resume-Entry Level",
-          "International Resume-Middle Level",
-          "International Resume-Senior Level",
-          "Visual Resume International-Entry Level",
-          "Visual Resume International-Middle Level",
-          "Visual Resume International-Senior Level",
-          "Zap Your Resume-International"]}
+        items={[
+          {title:'Text International Resume', link:'International-Resume-Entry-Level'},
+          {title:'Visual International Resume', link:'Visual-Resume-International-Entry-Level'},
+          {title:'Zap Your Resume-International', link:'Zap-Your-Resume-International'}
+          ]}
       />
       <Dropdown
         title="Career Growth"
-        items={["Zap Your Resume",
-          "Highlight Your Resume",
-          "Job Search Assistant-6 Months",
-          "Job Search Assistant-3 Months",
-          "Interview Preparation",
-          "Top Management Profile",
-          "Profile Update",
-          "Personal Portfolio",
-          "Cover Letter"]}
+        items={[
+          {title:'Zap Your Resume', link:'Zap-Your-Resume'},
+          {title:'Highlight Your Resume', link:'Highlight-Your-Resume'},
+          {title:'Job Search Assistant-6 Months', link:'Job-Search-Assistant-6-Months'},
+          {title:'Job Search Assistant-3 Months', link:'Job-Search-Assistant-3-Months'},
+          {title:'Interview Preparation', link:'Interview-Preparation'},
+          {title:'Top Management Profile', link:'Top-Management-Profile'},
+          {title:'Profile Update', link:'Profile-Update'},
+          {title:'Personal Portfolio', link:'Personal-Portfolio'},
+          {title:'Cover Letter', link:'Cover-Letter'}
+          ]}
       />
       <Dropdown
         title="Screening Services"
-        items={["Employee Background Verification",
-          "Profile Check & Investigation",
-          "Document Verification",
-          "Web Screening Services"]}
+        items={[
+          {title:'Employee Background Verification', link:'Employee-Background-Verification'},
+          {title:'Profile Check & Investigation', link:'Profile-Check-&-Investigation'},
+          {title:'Document Verification', link:'Document-Verification'},
+          {title:'Web Screening Services', link:'Web-Screening-Services'}
+          ]}
       />
     </>
   )

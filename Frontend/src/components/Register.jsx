@@ -104,7 +104,7 @@ const Register = () => {
     data.append('whatsApp', whatsAppUpdates)
     data.append('resume', resume)
 
-    axios.post('http://localhost:8800/api/auth/signup', data)
+    axios.post('https://rk80csg.srv-01.purezzatechnologies.com/api/auth/signup', data)
     .then(response => {
       const data = response.data;
       if(data.status == 'success'){

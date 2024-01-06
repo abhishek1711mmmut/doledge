@@ -46,7 +46,7 @@ export default function DoledgeBenefits({prices}) {
 
           <div className="ml-12 text-black text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start sm:text-center font-semibold mb-2" style={{ fontFamily: 'Poppins', fontWeight: 300 }}>
             
-            Benefits of buying Text Resume service from Doledge
+            Benefits of buying Visual International Resume service from Doledge
           </div>
 
           <table className="table table-striped table-bordered custom-table-width" style={{ width: '45vw', fontSize: '14px' }}>
@@ -54,33 +54,43 @@ export default function DoledgeBenefits({prices}) {
               <tr>
                 <th scope="col" className="text-left px-5 benefits-header bg-red-500">Doledge Benefits</th>
                 <th scope="col" className="text-left px-5">Free Resume</th>
-                <th scope="col" className="text-left px-5" style={{ color: 'white', backgroundColor: '#2e3339', fontSize: '14px', fontFamily: 'Poppins', fontWeight: 700 }}>Doledge Text Resume</th>
+                <th scope="col" className="text-left px-5" style={{ color: 'white', backgroundColor: '#2e3339', fontSize: '14px', fontFamily: 'Poppins', fontWeight: 700 }}>Doledge Text International Services</th>
               </tr>
             </thead>
             <tbody>
               <tr className="">
-                <td className='benefit text-left px-5' >Instant Accessibility</td>
+
+
+                <td className='text-left px-5' >CV visible to all recruiters</td>
                 <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' /></td>
-                <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' /></td>
+
+
+
+                <td className='text-center benefitGiven'> <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' /></td>
               </tr>
               <tr className="">
-                <td className='text-left px-5'>Maximized Exposure</td>
+
+                <td className='text-left px-5'>Professional Visual Appeal</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
+
+
                 </td>
               </tr>
               <tr className="">
-                <td className='text-left px-5'>Simplified Job Hunting</td>
+
+                <td className='text-left px-5'>Tailored for Targeted Industries</td>
                 <td className='text-center px-5 benefitGiven'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
+
                 </td>
               </tr>
 
               <tr className="">
 
-                <td className='text-left px-5'>Swift Responses</td>
+                <td className='text-left px-5'>Personalized Branding</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -89,7 +99,7 @@ export default function DoledgeBenefits({prices}) {
 
               <tr className="">
 
-                <td className='text-left px-5'>Privacy and Security</td>
+                <td className='text-left px-5'>Integrated LinkedIn Profiles</td>
                 <td className='text-center px-5'>
                   <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' />
                 </td>
@@ -100,7 +110,7 @@ export default function DoledgeBenefits({prices}) {
 
               <tr className="">
 
-                <td className='text-left px-5'>Professional Guidance</td>
+                <td className='text-left px-5'>Enhanced Visibility</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -109,16 +119,7 @@ export default function DoledgeBenefits({prices}) {
 
               <tr className="">
 
-                <td className='text-left px-5'>Enhanced Efficiency</td>
-                <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
-                <td className='text-center px-5 benefitGiven'>
-                  <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
-                </td>
-              </tr>
-
-              <tr className="">
-
-                <td className='text-left px-5'>Results - Driven</td>
+                <td className='text-left px-5'>Continuous Support and Updates</td>
                 <td className='text-center px-5'> <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} size='xl' /></td>
                 <td className='text-center px-5 benefitGiven'>
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
@@ -168,7 +169,7 @@ export default function DoledgeBenefits({prices}) {
             fontWeight: 400,
             wordWrap: 'break-word',
           }}>
-            Our customers are experiencing a host of benefits <br /> from our Text Resume Services
+            Our customers are experiencing a host of benefits <br /> from our Visual International Resume Services
           </div>
           <div className="flex flex-col md:flex-row justify-around items-center mt-12">
             <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col place-items-center justify-center mb-4 md:mb-0">

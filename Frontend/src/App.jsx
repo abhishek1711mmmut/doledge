@@ -47,11 +47,15 @@ import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQ
 
 import contextAuth from './ContextAPI/ContextAuth';
 import { useEffect, useState } from 'react';
+import TextExecutive from './components/PaymentScreen/ResumeWriting/TextResume/TextExecutive';
+import VisualExecutive from './components/PaymentScreen/ResumeWriting/VisualResume/VisualExecutive';
 import GoogleNewPassword from './components/GoogleNewPassword';
 import DataLoading from './UI/DataLoading/DataLoading';
 import Modal from './UI/Modal/Modal';
 import axios from 'axios';
 import { responsiveFontSizes } from '@mui/material';
+import InternationalTextExecutive from './components/PaymentScreen/International/InternationalTextResume/InternationalTextExecutive';
+import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
 
 function App() {
   let [user, setUser] = useState({});
@@ -108,16 +112,20 @@ function App() {
                   <Route path="/Text-Resume-Entry-Level" element={<TextEntry/>} />
                   <Route path="/Text-Resume-Middle-Level" element={<TextMiddle/>} />
                   <Route path="/Text-Resume-Senior-Level" element = {<TextSenior/>} />
+                  <Route path="/Text-Resume-Executive-Level" element = {<TextExecutive/>} />
                   <Route path="/Visual-Resume-Entry-Level" element={<VisualEntry/>} />
                   <Route path="/Visual-Resume-Middle-Level" element={<VisualMiddle/>} />
                   <Route path="/Visual-Resume-Senior-Level" element = {<VisualSenior/>} />
+                  <Route path="/Visual-Resume-Executive-Level" element = {<VisualExecutive/>} />
                   <Route path='/resume-quality-score' element={<ResumeQualityScore/>}/>
                   <Route path="/International-Resume-Entry-Level" element={<InternationalTextEntry/>} />
                   <Route path="/International-Resume-Middle-Level" element={<InternationalTextMiddle/>} />
                   <Route path="/International-Resume-Senior-Level" element = {<InternationalTextSenior/>} />
+                  <Route path="/International-Resume-Executive-Level" element = {<InternationalTextExecutive/>} />
                   <Route path="/Visual-Resume-International-Entry-Level" element={<InternationalVisualEntry/>} />
                   <Route path="/Visual-Resume-International-Middle-Level" element={<InternationalVisualMiddle/>} />
                   <Route path="/Visual-Resume-International-Senior-Level" element = {<InternationalVisualSenior/>} />
+                  <Route path="/Visual-Resume-International-Executive-Level" element = {<InternationalVisualExecutive/>} />
                   <Route path="/socialprofiler" element={<SocialProfiler/>} />
                   <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
                   <Route path="Zap-Your-Resume" element={<ZapResume/>} />
