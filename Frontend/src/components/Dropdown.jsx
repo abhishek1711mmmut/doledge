@@ -32,11 +32,6 @@ const Dropdown = (props) => {
             height: height ? 'auto' : '0px',
             visibility: height ? 'visible' : 'hidden',
           }}>
-            {/* {items.map((item, index) => (
-              <Link key={index} to={`/${item.replace(/ /g, '-')}`}>
-                {item.title}
-              </Link>
-            ))} */}
             {
               items.map((item, index)=>(
                 <Link key={index} to={item.link}>
@@ -64,8 +59,8 @@ const Dropdown = (props) => {
       <Dropdown
         title="International Resume"
         items={[
-          {title:'International Resume', link:'International-Resume-Entry-Level'},
-          {title:'Visual Resume International', link:'Visual-Resume-International-Entry-Level'},
+          {title:'Text International Resume', link:'International-Resume-Entry-Level'},
+          {title:'Visual International Resume', link:'Visual-Resume-International-Entry-Level'},
           {title:'Zap Your Resume-International', link:'Zap-Your-Resume-International'}
           ]}
       />

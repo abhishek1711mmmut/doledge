@@ -51,6 +51,8 @@ import TextExecutive from './components/PaymentScreen/ResumeWriting/TextResume/T
 import VisualExecutive from './components/PaymentScreen/ResumeWriting/VisualResume/VisualExecutive';
 import GoogleNewPassword from './components/GoogleNewPassword';
 import Spinner from './UI/Spinner/Spinner';
+import InternationalTextExecutive from './components/PaymentScreen/International/InternationalTextResume/InternationalTextExecutive';
+import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
 
 function App() {
   let [user, setUser] = useState({});
@@ -100,9 +102,11 @@ function App() {
                   <Route path="/International-Resume-Entry-Level" element={<InternationalTextEntry/>} />
                   <Route path="/International-Resume-Middle-Level" element={<InternationalTextMiddle/>} />
                   <Route path="/International-Resume-Senior-Level" element = {<InternationalTextSenior/>} />
+                  <Route path="/International-Resume-Executive-Level" element = {<InternationalTextExecutive/>} />
                   <Route path="/Visual-Resume-International-Entry-Level" element={<InternationalVisualEntry/>} />
                   <Route path="/Visual-Resume-International-Middle-Level" element={<InternationalVisualMiddle/>} />
                   <Route path="/Visual-Resume-International-Senior-Level" element = {<InternationalVisualSenior/>} />
+                  <Route path="/Visual-Resume-International-Executive-Level" element = {<InternationalVisualExecutive/>} />
                   <Route path="/socialprofiler" element={<SocialProfiler/>} />
                   <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
                   <Route path="Zap-Your-Resume" element={<ZapResume/>} />
