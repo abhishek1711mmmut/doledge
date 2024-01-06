@@ -54,7 +54,7 @@ export default function BuyNowServiceCard({prices}) {
 
 
                     <div className="ml-20 mr-20 text-black text-xl max-w-screen-sm md:max-w-full self-start sm:text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
-                    Buy Text Resume Services
+                    Buy Visual Resume Services
                     </div>
 
 
