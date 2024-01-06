@@ -6,11 +6,23 @@ const commentSchema = mongoose.Schema({
 });
 
 const blogSchema = mongoose.Schema({
-    BlogTitle: String,
-    Description: String,
-    Image: String,
-    likes: { type: Number, default: 0 },
-    share: { type: Number, default:0 },
+    title: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    image: {
+        type:String
+    },
+    likes: { 
+        type: Number, 
+        default: 0
+    },
+    share: { 
+        type: Number, 
+        default:0 
+    },
     comments: [commentSchema],
     
 });

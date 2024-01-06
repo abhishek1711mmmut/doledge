@@ -19,7 +19,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: "*",
+  origin: "http://localhost:3000",
   methods: 'GET,UPDATE,PUT,DELETE',
   credentials: true,
 }));
@@ -53,9 +53,9 @@ app.get('/logout', (req, res) => {
 const authRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 const productRouter = require('./routes/product');
-const blogRouter = require('./routes/blog')
-const serviceRouter = require('./routes/service')
-const cartRouter = require('./routes/cart')
+const blogRouter = require('./routes/blog');
+const serviceRouter = require('./routes/service');
+const cartRouter = require('./routes/cart');
 const socialauthRouter = require("./routes/socialauth");
 
 

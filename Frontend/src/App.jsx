@@ -138,7 +138,6 @@ function App() {
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
                   
-                  <Route path="/" element={<MAINheader/>} />
                   {!token && (
                     <>
                       <Route path="/register" element={<Register/>} />
@@ -148,7 +147,8 @@ function App() {
                   
                   <Route path="/auth/loadLoginData" element={<DataLoading/>}/>
                   <Route path="/auth/googlePassword" element={<GoogleNewPassword/>}/>
-                  <Route path='*' element={<MAINheader/>}/>
+                    <Route path="/" element={<MAINheader/>} />
+                  {/* <Route path='*' element={<MAINheader/>}/> */}
                 </Routes>
             </div>
           </BrowserRouter>
