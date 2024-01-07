@@ -30,7 +30,7 @@ const GoogleNewPassword = () => {
 
     const getGoogleAuthUser = async () => {
         try {
-          const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/signup/success`, {withCredentials: true});
+          const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/signup/success`, {withCredentials: true});
           if(data.status == 'success'){
               let userData = {
                   name: data.user._json.name,
@@ -76,7 +76,7 @@ const GoogleNewPassword = () => {
             let data = {...user}
             data.password = password.value;
             
-            axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data)
+            axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/auth/signup`, data)
             .then(response => {
                 console.log(response)
                 let data = response.data;

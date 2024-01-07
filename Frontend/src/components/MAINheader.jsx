@@ -12,40 +12,30 @@ import Spinner from '../UI/Spinner/Spinner'
 
 const MAINheader = () => {
   let [loading, setLoading] = useState(true);
-  let [blogs, setBlogs] = useState([]);
-  let [services, setServices] = useState([]);
+  let [state, setState] = useState({
+    services: [],
+    blogs: [],
+  });
   
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/services`, {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/api/home/data`, {withCredentials: true})
     .then(response => {
-      const data = response.data;
-      setServices(data.services);
+      const data = response.data.data;
+      setState({services: data.services, blogs: data.blogs});
+      setLoading(false);
     })
     .catch(err => console.log(err));
   }, [])
-
-  // callback to setServices
-  useEffect(() => {
-    if(!!services || services.length != 0){
-      axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/blogs`, {withCredentials: true})
-      .then(response => {
-        const data = response.data;
-        setBlogs(data.blogs);
-      })
-      .catch(err => console.log(err));
-      setLoading(false);
-    }
-  }, [services])
 
   return (
     <div>
         {loading && <Spinner/>}
         <Banner/>
-        <Banner_services services={services}/>
+        <Banner_services services={state.services}/>
         <Header/>
         <Contact/>
         <Mheader/>
-        <Blog blogs={blogs}/>
+        <Blog blogs={state.blogs}/>
         <Footer/>
     </div>
   )

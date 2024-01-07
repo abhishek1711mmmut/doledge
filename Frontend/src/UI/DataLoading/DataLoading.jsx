@@ -23,7 +23,7 @@ const DataLoading = () => {
 
     const getGoogleAuthUser = async (cb) => {
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/signin/success`, {withCredentials: true});
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/signin/success`, {withCredentials: true});
             let newData = {};
             if(data.status == 'success'){
                 newData = {
