@@ -19,7 +19,7 @@ const Banner_services = (props) => {
       <br></br>
       
       <div className="services">
-      {props.services.map(service => {
+      {props.services?.map(service => {
         return (
           <div className="service-card" key={service._id}>
             <div

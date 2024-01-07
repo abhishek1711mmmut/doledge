@@ -45,7 +45,7 @@ const Login = () => {
 
     const googleLoginHandler = () => {
         event.preventDefault()
-        window.open('http://localhost:8800/signin/google', '_self');
+        window.open(`${process.env.REACT_APP_SERVER_PRO_URL}/signin/google`, '_self');
       }
 
     const submitFormHanadler = (event) => {
@@ -57,7 +57,7 @@ const Login = () => {
         data.email = email.value;
         data.password = password.value;
     
-        axios.post('https://rk80csg.srv-01.purezzatechnologies.com/api/auth/login', data)
+        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/login`, data)
         .then(response => {
             let data = response.data;
             if(data.status == 'success'){

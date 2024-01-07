@@ -26,7 +26,7 @@ const Modal = (props) => {
                 }
             </div>
             <div className="action w-full text-right py-2 px-3">
-                <button onClick={() => Auth.errorHandler(null)}>Okay</button>
+                <button onClick={() => Auth.errorHandler(null)}>Ok</button>
             </div>
             </div>
             <div className="backdrop w-full h-full" onClick={() => Auth.errorHandler(null)}></div>

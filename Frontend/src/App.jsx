@@ -50,6 +50,7 @@ import { useEffect, useState } from 'react';
 import TextExecutive from './components/PaymentScreen/ResumeWriting/TextResume/TextExecutive';
 import VisualExecutive from './components/PaymentScreen/ResumeWriting/VisualResume/VisualExecutive';
 import GoogleNewPassword from './components/GoogleNewPassword';
+import Spinner from './UI/Spinner/Spinner';
 import DataLoading from './UI/DataLoading/DataLoading';
 import Modal from './UI/Modal/Modal';
 import axios from 'axios';
@@ -80,13 +81,15 @@ function App() {
   }
 
   const logout = () => {
-    axios.get('http://localhost:8800/logout', {withCredentials: true})
+    loadingHandler(true);
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
     .then(() => {
       setUser({});
       setToken('');
       localStorage.removeItem('userID');
       localStorage.removeItem('userName');
       localStorage.removeItem('token');
+      loadingHandler(false)
     })
     .catch(err => console.log(err))
   }
@@ -105,7 +108,7 @@ function App() {
             <div className="App">
                 <Navbar />
                 {error && <Modal error={error.message} type={error.type}/>}
-                {loading && <DataLoading/>}
+                {loading && <Spinner/>}
                 <Routes>
                   {/* <Route path="/redirect" element={<Redirect/>} /> */}
                   {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}

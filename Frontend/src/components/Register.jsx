@@ -84,7 +84,7 @@ const Register = () => {
   }
 
   const googleRegisterHandler = () => {
-    window.open('http://localhost:8800/signup/google', '_self');
+    window.open(`${process.env.REACT_APP_SERVER_PRO_URL}/signup/google`, '_self');
   }
 
   const submitFormHanadler = (event) => {
@@ -104,7 +104,7 @@ const Register = () => {
     data.append('whatsApp', whatsAppUpdates)
     data.append('resume', resume)
 
-    axios.post('https://rk80csg.srv-01.purezzatechnologies.com/api/auth/signup', data)
+    axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data, {withCredentials: true})
     .then(response => {
       const data = response.data;
       if(data.status == 'success'){
@@ -116,7 +116,12 @@ const Register = () => {
         Auth.errorHandler({message: data.error, type: data.type})
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      navigate('/register')
+      Auth.errorHandler({message: 'Internal server error occured', type: ''});
+      Auth.loadingHandler(false);
+      console.log(err)
+    })
   }
 
   return (

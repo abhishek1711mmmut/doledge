@@ -43,7 +43,7 @@ const Blog = (props) => {
             </div>
           </div>
           <div className="flex flex-wrap -mx-4">
-            {props.blogs.map(blog => (
+            {props.blogs?.map(blog => (
 
               <div className="w-full md:w-[100%] lg:w-[33.33%] px-4" key={blog._id}>
                 <div className="max-w-[370px] mx-auto mb-10 border-[2px] shadow-lg rounded-lg p-4 cursor-pointer">
