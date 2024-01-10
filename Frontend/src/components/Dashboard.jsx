@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(Auth.user){
-            axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/api/dashboard/userData/${Auth.user._id}`, {withCredentials: true})
+            axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/dashboard/userData/${Auth.user._id}`, {withCredentials: true})
             .then(response => {
                 const data = response.data;
                 setUser(data.user);

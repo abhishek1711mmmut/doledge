@@ -85,7 +85,7 @@ function App() {
 
   const logout = () => {
     loadingHandler(true);
-    axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/logout`, {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
     .then(() => {
       localStorage.removeItem('userID');
       // localStorage.removeItem('email');

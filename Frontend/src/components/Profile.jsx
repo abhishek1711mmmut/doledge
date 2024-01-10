@@ -95,7 +95,7 @@ const Profile = () => {
         data.append('whatsApp', whatsAppUpdates)
         data.append('resume', resume)
 
-        axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/auth/signup`, data, {withCredentials: true})
+        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data, {withCredentials: true})
         .then(response => {
         const data = response.data;
         if(data.status == 'success'){

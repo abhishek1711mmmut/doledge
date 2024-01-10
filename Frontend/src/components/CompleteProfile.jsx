@@ -91,7 +91,7 @@ const CompleteProfile = () => {
         // console.log(whatsAppUpdates)
         // console.log(resume)
 
-        axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/dashboard/complete`, data, {withCredentials: true})
+        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/dashboard/complete`, data, {withCredentials: true})
         .then(response => {
         const data = response.data;
         if(data.status == 'success')
