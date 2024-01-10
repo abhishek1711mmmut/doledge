@@ -51,6 +51,7 @@ app.get('/logout', (req, res) => {
 
 /// Routes
 const authRouter = require('./routes/auth');
+const dashRouter = require('./routes/dashboard');
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 const productRouter = require('./routes/product');
@@ -62,6 +63,7 @@ const socialauthRouter = require("./routes/socialauth");
 
 // APIs
 app.use('/api/auth', authRouter.routes) //✅
+app.use('/api/dashboard', dashRouter.routes)
 app.use('/api', homeRouter.routes) //✅
 app.use('/api', userRouter.routes) //✅
 app.use('/api', productRouter.routes)

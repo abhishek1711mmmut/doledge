@@ -6,7 +6,6 @@ const { validationResult } = require('express-validator');
 exports.signup = async (req, res) => {
     try {
         let { name, email, password, tel, workStatus, whatsApp, picture } = req.body;
-        whatsApp = whatsApp ? whatsApp : false;
         workStatus = workStatus ? workStatus.split(' ')[1] : null;
         const validationErrorsArray = validationResult(req);
         console.log(req.body)
@@ -34,7 +33,7 @@ exports.signup = async (req, res) => {
         bcrypt.hash(password, 10)
         .then(hashedPassword => {
           // create a new user
-          const newUser = new User({name, email, phoneNumber: tel, password: hashedPassword, workStatus, whatsApp});
+          const newUser = new User({name, email, picture, phoneNumber: tel, password: hashedPassword, workStatus, whatsApp});
           newUser.save()
           .then(() => {
             const token = getToken(newUser);
@@ -95,7 +94,7 @@ exports.login = async (req, res) => {
 
     // generate token for user & specify user data
     const token = getToken(user);
-    const updatedUser = {_id: user._id, name: user.name}
+    const updatedUser = {_id: user._id, name: user.name, email: user.email}
 
     return res.status(200).json({ 
       status: "success", 

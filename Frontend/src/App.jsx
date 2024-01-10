@@ -57,6 +57,7 @@ import axios from 'axios';
 import { responsiveFontSizes } from '@mui/material';
 import InternationalTextExecutive from './components/PaymentScreen/International/InternationalTextResume/InternationalTextExecutive';
 import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
+import Dashboard from './components/Dashboard';
 
 function App() {
   let [user, setUser] = useState({});
@@ -66,6 +67,7 @@ function App() {
 
   useEffect(() => {    
     let userID = localStorage.getItem('userID');
+    // let useremail = localStorage.getItem('email');
     let username = localStorage.getItem('userName');
     let token = localStorage.getItem('token');
     setUser({_id: userID, name: username});
@@ -76,19 +78,21 @@ function App() {
     setUser(user);
     setToken(token);
     localStorage.setItem('userID', user._id);
+    // localStorage.setItem('email', user.email);
     localStorage.setItem('userName', user.name);
     localStorage.setItem('token', token);
   }
 
   const logout = () => {
     loadingHandler(true);
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/logout`, {withCredentials: true})
     .then(() => {
-      setUser({});
-      setToken('');
       localStorage.removeItem('userID');
+      // localStorage.removeItem('email');
       localStorage.removeItem('userName');
       localStorage.removeItem('token');
+      setUser({});
+      setToken('');
       loadingHandler(false)
     })
     .catch(err => console.log(err))
@@ -140,6 +144,7 @@ function App() {
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
+                  <Route path="/dashboard" element={<Dashboard/>}/>
                   
                   {!token && (
                     <>

@@ -7,6 +7,10 @@ const userSchema = Schema({
     type: String, 
     required: [true, "Name is Required"] 
   },
+  picture: {
+    type: String,
+    default: null,
+  },
   email: { 
     type: String, 
     required: [true, "Email is Required"], 
@@ -14,8 +18,7 @@ const userSchema = Schema({
   },
   phoneNumber: {
     type: Number,
-    // required: [true, "Phone number is Required"],
-    // unique: true, // Remove this line to allow updates with the same phoneNumber
+    default: null,
   },
   password: { 
     type: String, 
@@ -23,10 +26,11 @@ const userSchema = Schema({
   },
   workStatus: { 
     type: String, 
-    // required: [true, "Work Status is Required"],  
+    default: null, 
   },
   whatsApp: { 
     type: Boolean,  
+    default: false,
   },
 });
 

@@ -28,8 +28,9 @@ router.get('/signin/success', (req, res) => {
             if(!!user){
                 let userData = {};
                 let token = getToken(user);
-                userData.name = user.name;
                 userData._id = user._id;
+                userData.email = user.email;
+                userData.name = user.name;
 
                 return res.status(200).json({
                     status: 'success',
