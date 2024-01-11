@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const cors = require('cors');
 
+
 // Google Authentication Imports
 require('./configuration/passport'); // definition to passport object
 const googleSignupRoutes = require('./routes/GoogleSignup'); // google signup routes
@@ -59,7 +60,7 @@ const blogRouter = require('./routes/blog');
 const serviceRouter = require('./routes/service');
 const cartRouter = require('./routes/cart');
 const socialauthRouter = require("./routes/socialauth");
-
+const resumeRoutes = require('./routes/resumequality');
 
 // APIs
 app.use('/api/auth', authRouter.routes) //✅
@@ -71,6 +72,7 @@ app.use('/api',blogRouter.routes)
 app.use('/api',serviceRouter.routes)
 app.use('/api', cartRouter.routes)
 app.use('/api/socialauth' , socialauthRouter.routes);
+app.use('/api', resumeRoutes);
 
 const port = process.env.PORT || 8800;
 database()
