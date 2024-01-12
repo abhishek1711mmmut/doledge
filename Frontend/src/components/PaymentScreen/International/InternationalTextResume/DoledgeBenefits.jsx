@@ -40,8 +40,8 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex flex-col xl:flex-row justify-center items-center mt-5 w-[90%] mx-auto">
-        <div className="flex flex-col justify-center align-center w-[100%]">
+      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-[90%] mx-auto">
+        <div className="flex flex-col justify-center items-start w-[100%]">
          
 
           <div className="text-black text-base md:text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300,  textAlign:'center' }}>

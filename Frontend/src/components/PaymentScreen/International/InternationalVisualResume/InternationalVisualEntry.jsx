@@ -113,7 +113,7 @@ const InternationalVisualEntry = () => {
                 International Impressions: Internation Visual Resumes for a Global Workforce
               </div><br />
             </div>
-             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
+             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
                 <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Visual-Resume-International-Entry-Level")}>
                   <b>Entry-Level </b><br />
@@ -151,7 +151,7 @@ const InternationalVisualEntry = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
+        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
           Doledge's International Visual Resume Services are the key to <br /> unlocking a more
           efficient and effective job search.
         </div>

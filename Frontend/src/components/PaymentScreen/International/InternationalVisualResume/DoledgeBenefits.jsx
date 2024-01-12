@@ -40,7 +40,7 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex flex-col xl:flex-row justify-center items-center mt-5 w-[90%] mx-auto">
+      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-[90%] mx-auto">
         <div className="flex flex-col justify-center items-center w-[100%]">
          
 

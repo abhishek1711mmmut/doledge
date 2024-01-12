@@ -148,13 +148,13 @@ const VisualExecutive = () => {
       {/* </Slide> */}
 
 
-      <div className="flex justify-center bg-orange-400 w-[100%] mt-6 sm:mt-2" style={{
+      <div className="flex justify-center bg-orange-400 w-[100%] mt-2" style={{
         fontSize: 18,
         fontWeight: '500',
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
+        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
           Doledge's Visual Resume Services are the key to <br /> unlocking a more
           efficient and effective job search.
         </div>

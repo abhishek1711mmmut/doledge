@@ -67,7 +67,7 @@ const InternationalVisualMiddle = () => {
 
     <div className='w-[100%] mx-auto'>
       {/* <Slide left cascade> */}
-      <div className='flex flex-col md:flex-row'>
+      <div className='flex flex-col lg:flex-row'>
         <Box
           sx={{
             backgroundImage: `url(${coverImage})`,
@@ -108,13 +108,13 @@ const InternationalVisualMiddle = () => {
             <div className="pb-4">
 
               <div className="text-white text-5xl sm:text-center md:text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text International Resumes: Elevate Your Profile, Expand your Horizons
+                Visual International Resumes: Elevate Your Profile, Expand your Horizons
               </div>
               <div className="text-orange-400 text-2xl sm:text-center md:text-left max-w-full mt-4 pl-3">
                 International Impressions: Internation Visual Resumes for a Global Workforce
               </div><br />
             </div>
-             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
+             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
               <Grid item xs={6} sm={3}>
                 <Item className='cursor-pointer rounded-md sm:rounded-t-md sm:rounded-b-none' onClick={()=>navigate("/Visual-Resume-International-Entry-Level")}>
                   <b>Entry-Level </b><br />
@@ -146,14 +146,14 @@ const InternationalVisualMiddle = () => {
       {/* </Slide> */}
 
 
-      <div className="flex justify-center bg-orange-400 w-[100%] mt-6 sm:mt-2" style={{
+      <div className="flex justify-center bg-orange-400 w-[100%] mt-2" style={{
         fontSize: 18,
         fontWeight: '500',
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
-          Doledge's International Text Resume Services are the key to <br /> unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's International Visual Resume Services are the key to <br /> unlocking a more
           efficient and effective job search.
         </div>
 

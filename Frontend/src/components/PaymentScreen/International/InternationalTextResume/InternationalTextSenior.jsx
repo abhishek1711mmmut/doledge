@@ -152,8 +152,8 @@ const InternationalTextSenior = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
-          Doledge's International Text Resume Services are the key to <br /> unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's International Text Resume Services are <br /> the key to unlocking a more
           efficient and effective job search.
         </div>
 
@@ -250,6 +250,7 @@ const InternationalTextSenior = () => {
           fontFamily: 'Poppins',
           fontWeight: 500,
           wordWrap: 'break-word',
+          textAlign:'center'
         }}>
         How it works?
       </div>
@@ -259,7 +260,7 @@ const InternationalTextSenior = () => {
         <Stepper sx={{ width: '90%', }} className='mx-auto'>
 
 
-          <Grid containerjustifyContent={'center'} alignItems={'center'} spacing={{lg:3}} rowSpacing={3} className='mx-auto'>
+          <Grid container justifyContent={'center'} alignItems={'center'} spacing={{lg:3}} rowSpacing={3} className='mx-auto'>
             {cardContents.map((card, index) => (
               <Grid item sm={9} md={6}  lg={3} key={index} className='mx-auto'>
               
