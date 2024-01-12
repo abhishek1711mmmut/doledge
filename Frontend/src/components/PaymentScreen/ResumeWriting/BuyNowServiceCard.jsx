@@ -47,7 +47,7 @@ export default function BuyNowServiceCard({prices}) {
     return (
         <>
 
-            <div className="justify-content-center md:flex md:ml-20 w-[100%]">
+            <div className="justify-content-center xl:flex w-[80%] xl:w-[100%]">
                 
                 <div className="div flex flex-col justify-center align-center">
                     
@@ -55,13 +55,13 @@ export default function BuyNowServiceCard({prices}) {
 
 
 
-                    <div className="ml-20 mr-20 text-black text-xl max-w-screen-sm md:max-w-full self-start sm:text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
+                    <div className="mx-auto text-black text-lg sm:text-xl max-w-screen-sm md:max-w-full self-start text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
                     Buy {ResumeType} Resume Services
                     </div>
 
 
                     {/* <Card className='md:ml-20 md:mt-10 md:w-[100%]' style={{ height: '45vh' }}> */}
-                    <Card className='md:ml-2 md:mt-1 md:w-[100%]' style={{ height: '45vh' }}>
+                    <Card className='md:ml-2 md:mt-1 md:w-[100%] h-fit pb-2'>
 
                         {/* <Slide right cascade> */}
 
@@ -70,10 +70,10 @@ export default function BuyNowServiceCard({prices}) {
                         <Typography component="div" gutterBottom style={{
                             background: '#f3f1f2',
                             fontSize: 26,
+                            
                             color: '#444',
                             padding: '7px 0',
                             fontWeight: '500',
-
                         }}>
                             Rs. {price}*
                             <p class="inclTxt" style={{
