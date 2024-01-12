@@ -153,7 +153,7 @@ const HighlightResume = () => {
                                 8 Months - Rs. 3599
                             </label>
                         </div>
-                        <button onClick={handleSubmit} className='text-xl sm:text-3xl text-white w-[70%] font-semibold mx-auto px-4 py-2 pb-3 flex justify-center items-center rounded-xl !bg-orange-500'>
+                        <button onClick={handleSubmit} className='text-xl sm:text-3xl text-white w-[70%] font-semibold mx-auto px-4 py-2 flex justify-center items-center rounded-xl !bg-orange-500'>
                             Buy Now
                         </button>
                     </form>
