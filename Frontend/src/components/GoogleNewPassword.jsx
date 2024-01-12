@@ -30,16 +30,15 @@ const GoogleNewPassword = () => {
 
     const getGoogleAuthUser = async () => {
         try {
-          const { data } = await axios.get('http://localhost:8800/signup/success', {withCredentials: true});
+          const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/signup/success`, {withCredentials: true});
           if(data.status == 'success'){
               let userData = {
-                name: data.user._json.name,
-                email: data.user._json.email,
-                picture: data.user._json.picture,
-                tel: null,
-              };
-              console.log(userData)
-              setUser(userData)
+                  name: data.user._json.name,
+                  email: data.user._json.email,
+                  picture: data.user._json.picture,
+                };
+                setUser(userData)
+                console.log(user)
           }
         } catch (err) {
           console.log(err)
@@ -75,13 +74,20 @@ const GoogleNewPassword = () => {
         if(password.value == confirmPassword.value){
             let data = {...user}
             data.password = password.value;
-            console.log(data)
             
-            axios.post('http://localhost:8800/api/auth/signup', data)
+            axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data)
             .then(response => {
+                console.log(response)
                 let data = response.data;
-                Auth.login(data.user, data.token)
-                navigate('/')
+                if(data.status == 'failed'){
+                    console.log(data)
+                    Auth.errorHandler({message: data.error, type: data.type})
+                    navigate('/login');
+                } else {
+                    console.log(data)
+                    Auth.login(data.user, data.token);
+                    navigate('/');
+                }
             })
             .catch(err => console.log(err))
             }
@@ -94,37 +100,42 @@ const GoogleNewPassword = () => {
             backgroundColor: 'white',
             zIndex: '100',
         }}>
+            {/* Form Inputs */}
             <form onSubmit={submitFormHanadler} className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
-            sm:w-[80%]
-            md:w-[70%]
-            lg:w-[55%]">
-                {/* Form Inputs */}
-                <h4 className="mb-5 mt-1 text-left">Set a password to your account</h4>
-                <div className="w-full flex flex-col
-                sm:flex-row sm:justify-center sm:items-center">
-                    <div className="w-[100%] mr-3
-                    sm:w-[70%]">
-                        <InputElement
-                        field={'password'}
-                        type={'password'}
-                        label={'Password'}
-                        placeholder={'Create a password for your account'}
-                        error={'Password is required'}
-                        value={inputs.password.value}
-                        valid={inputs.password.isValid}
-                        onChange={changeHandler}/>
-
-                        <InputElement
-                        field={'confirmPassword'}
-                        type={'password'}
-                        label={'Confirm Password'}
-                        placeholder={'Confirm Password'}
-                        error={'Must match you passwords'}
-                        value={inputs.confirmPassword.value}
-                        valid={inputs.confirmPassword.isValid}
-                        onChange={changeHandler}/>
-
+            sm:w-[65%]
+            md:w-[55%]
+            lg:w-[35%]">
+                {/* User Data */}
+                <div className="flex flex-col justify-center items-center mb-2">
+                    <div className="bg-[#ccc] w-[80px] h-[80px] rounded-[50%] overflow-hidden">
+                        <img src={user.picture}/>
                     </div>
+                    <div className="my-1 text-[18px]">{user.name}</div>
+                    <div className="py-1 px-2 border-[1px] rounded-[20px]">{user.email}</div>
+                </div>
+                {/* Inputs */}
+                <div className="w-[80%]
+                sm:w-[70%]">
+                    <InputElement
+                    field={'password'}
+                    type={'password'}
+                    label={'Password'}
+                    placeholder={'Create a password for your account'}
+                    error={'Password is required'}
+                    value={inputs.password.value}
+                    valid={inputs.password.isValid}
+                    onChange={changeHandler}/>
+
+                    <InputElement
+                    field={'confirmPassword'}
+                    type={'password'}
+                    label={'Confirm Password'}
+                    placeholder={'Confirm Password'}
+                    error={'Must match you passwords'}
+                    value={inputs.confirmPassword.value}
+                    valid={inputs.confirmPassword.isValid}
+                    onChange={changeHandler}/>
+
                 </div>
 
                 {/* Submit Button */}

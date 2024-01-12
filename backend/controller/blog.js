@@ -3,11 +3,18 @@ const { Blog } = require('../model/blog');
 exports.getAllBlogs = async (req, res) => {
     try {
         const blogs = await Blog.find({});
-        res.status(200).json({
-            status: 'success',
-            message: 'Blogs displayed successfully',
-            data: blogs,
-        });
+        if(!!blogs || blogs.length != 0){
+            res.status(201).json({
+                status: "success",
+                message: "blogs displayed successfully",
+                blogs,
+            });
+        } else {
+            res.json({
+                status: "failed",
+                message: "No blogs where found",
+            });
+        }
     } catch (error) {
         console.error('Error fetching blogs:', error);
         res.status(500).json({ error: 'Internal server error' });

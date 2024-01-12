@@ -44,26 +44,32 @@ const Login = () => {
     }
 
     const googleLoginHandler = () => {
-        window.open('http://localhost:8800/signin/google', '_self');
+        event.preventDefault()
+        window.open(`${process.env.REACT_APP_SERVER_PRO_URL}/signin/google`, '_self');
       }
 
     const submitFormHanadler = (event) => {
         event.preventDefault();
+        Auth.loadingHandler(true);
         const {email, password} = inputs;
         
         let data = {}
         data.email = email.value;
         data.password = password.value;
     
-        axios.post('https://rk80csg.srv-01.purezzatechnologies.com/api/auth/login', data)
+        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/login`, data)
         .then(response => {
             let data = response.data;
             if(data.status == 'success'){
                 Auth.login(data.user, data.token)
+                Auth.loadingHandler(false);
                 navigate('/')
             }
-            else 
-                console.log(response.data)
+            else {
+                Auth.loadingHandler(false)
+                Auth.errorHandler({message: data.error, type: data.type})
+                // console.log(response.data)
+            }
         })
         .catch(err => console.log(err))
       }

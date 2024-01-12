@@ -51,15 +51,23 @@ import TextExecutive from './components/PaymentScreen/ResumeWriting/TextResume/T
 import VisualExecutive from './components/PaymentScreen/ResumeWriting/VisualResume/VisualExecutive';
 import GoogleNewPassword from './components/GoogleNewPassword';
 import Spinner from './UI/Spinner/Spinner';
+import DataLoading from './UI/DataLoading/DataLoading';
+import Modal from './UI/Modal/Modal';
+import axios from 'axios';
+import { responsiveFontSizes } from '@mui/material';
 import InternationalTextExecutive from './components/PaymentScreen/International/InternationalTextResume/InternationalTextExecutive';
 import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
+import Dashboard from './components/Dashboard';
 
 function App() {
   let [user, setUser] = useState({});
   let [token, setToken] = useState('');
+  let [error, setError] = useState(false);
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {    
     let userID = localStorage.getItem('userID');
+    // let useremail = localStorage.getItem('email');
     let username = localStorage.getItem('userName');
     let token = localStorage.getItem('token');
     setUser({_id: userID, name: username});
@@ -70,23 +78,41 @@ function App() {
     setUser(user);
     setToken(token);
     localStorage.setItem('userID', user._id);
+    // localStorage.setItem('email', user.email);
     localStorage.setItem('userName', user.name);
     localStorage.setItem('token', token);
   }
 
   const logout = () => {
-    setUser({});
-    setToken('');
-    localStorage.removeItem('userID');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('token');
+    loadingHandler(true);
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
+    .then(() => {
+      localStorage.removeItem('userID');
+      // localStorage.removeItem('email');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('token');
+      setUser({});
+      setToken('');
+      loadingHandler(false)
+    })
+    .catch(err => console.log(err))
+  }
+
+  const errorHandler = (error) => {
+    setError(error)
+  }
+
+  const loadingHandler = (status) => {
+    setLoading(status);
   }
 
   return (
-        <contextAuth.Provider value={{user, token, login, logout}}>
+        <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, loadingHandler}}>
           <BrowserRouter>
             <div className="App">
                 <Navbar />
+                {error && <Modal error={error.message} type={error.type}/>}
+                {loading && <Spinner/>}
                 <Routes>
                   {/* <Route path="/redirect" element={<Redirect/>} /> */}
                   {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
@@ -118,8 +144,8 @@ function App() {
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
+                  <Route path="/dashboard" element={<Dashboard/>}/>
                   
-                  <Route path="/" element={<MAINheader/>} />
                   {!token && (
                     <>
                       <Route path="/register" element={<Register/>} />
@@ -127,9 +153,10 @@ function App() {
                     </>
                   )}
                   
-                  <Route path="/auth/loadLoginData" element={<Spinner/>}/>
+                  <Route path="/auth/loadLoginData" element={<DataLoading/>}/>
                   <Route path="/auth/googlePassword" element={<GoogleNewPassword/>}/>
-                  <Route path='*' element={<MAINheader/>}/>
+                    <Route path="/" element={<MAINheader/>} />
+                  {/* <Route path='*' element={<MAINheader/>}/> */}
                 </Routes>
             </div>
           </BrowserRouter>

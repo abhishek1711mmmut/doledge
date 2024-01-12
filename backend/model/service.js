@@ -1,11 +1,20 @@
 const mongoose = require('mongoose');
 
-const blogSchema = mongoose.Schema({
-    service:String,
-    duration:String,
-    price:Number
+const serviceSchema = mongoose.Schema({
+    title:{
+       type: String,
+    },
+    description:{
+       type: String,
+    },
+    image: {
+      type:String
+  },
+    price:{
+       type: Number,
+    }
 })
-exports.Blog = mongoose.model("Service", blogSchema);
+exports.Service = mongoose.model("Service", serviceSchema);
 
 
 

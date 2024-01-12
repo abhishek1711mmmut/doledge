@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Servicecss from './Servicecss' // Import your CSS file
+import axios from 'axios';
+import contextAuth from '../ContextAPI/ContextAuth';
 
-const Banner_services = () => {
+const Banner_services = (props) => {
   return (
     <>
       <br></br>
@@ -17,6 +19,31 @@ const Banner_services = () => {
       <br></br>
       
       <div className="services">
+      {props.services?.map(service => {
+        return (
+          <div className="service-card" key={service._id}>
+            <div
+              className="service-thumb"
+              style={{
+                backgroundImage:
+                  `url(${service.image})`,
+              }}
+            ></div>
+            <article>
+              <h1 className="service-title">{service.title}</h1>
+              <h2 className="service-description">{service.description}</h2>
+              <span className="service-price" style={{marginTop:'20px'}}>Starts from {service.price}/-</span>
+              <span className="service-link" style={{marginTop:'20px'}}>KNOW MORE</span>
+            </article>
+          </div>
+        )
+      })}
+
+
+
+
+
+      {/* <div className="services">
         <div className="service-card">
           <div
             className="service-thumb"
@@ -33,10 +60,10 @@ const Banner_services = () => {
             <span className="service-price" style={{marginTop:'20px'}}>Starts from 5299/-</span>
             <span className="service-link" style={{marginTop:'20px'}}>KNOW MORE</span>
           </article>
-        </div>
+        </div> */}
 
         {/* Repeat similar structure for other service cards */}
-        <div className="service-card">
+        {/* <div className="service-card">
           <div
             className="service-thumb"
             style={{
@@ -57,7 +84,7 @@ const Banner_services = () => {
 
 
 
-        {/* 3 */}
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -79,7 +106,7 @@ const Banner_services = () => {
         
 
 
-        {/* 4 */}
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -100,7 +127,7 @@ const Banner_services = () => {
 
        
 
-        {/* 5 */}
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -121,7 +148,7 @@ const Banner_services = () => {
 
 
 
-        {/* 6 */}
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -143,7 +170,7 @@ const Banner_services = () => {
 
 
 
-        {/* 7 */}
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -163,8 +190,7 @@ const Banner_services = () => {
         </div>
 
 
-        {/* 8 */}
-
+        
         <div className="service-card">
           <div
             className="service-thumb"
@@ -181,7 +207,7 @@ const Banner_services = () => {
             <span className="service-price">Starts from 5299/-</span>
             <span className="service-link">KNOW MORE</span>
           </article>
-        </div>
+        </div> */}
         
 
       </div>

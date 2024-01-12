@@ -5,7 +5,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use('google-signup', new GoogleStrategy({
     clientID:process.env.CLIENT_ID,
     clientSecret:process.env.CLIENT_SECRET,
-    callbackURL:process.env.REDIRECT_SIGNUP_URI,
+    callbackURL:process.env.REDIRECT_URI,
     passReqToCallback:true
 
 }, function(request , accessToken , refreshToken , profile , done){
@@ -19,7 +19,7 @@ passport.use('google-signup', new GoogleStrategy({
 passport.use('google-signin', new GoogleStrategy({
     clientID:process.env.CLIENT_ID,
     clientSecret:process.env.CLIENT_SECRET,
-    callbackURL:process.env.REDIRECT_SIGNIN_URI,
+    callbackURL:process.env.REDIRECT_URI,
     passReqToCallback:true
 
 }, function(request , accessToken , refreshToken , profile , done){

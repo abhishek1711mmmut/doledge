@@ -6,9 +6,9 @@ const { validationResult } = require('express-validator');
 exports.signup = async (req, res) => {
     try {
         let { name, email, password, tel, workStatus, whatsApp, picture } = req.body;
-        whatsApp = whatsApp ? whatsApp : false;
         workStatus = workStatus ? workStatus.split(' ')[1] : null;
         const validationErrorsArray = validationResult(req);
+        console.log(req.body)
         // console.log(validationErrorsArray)
 
         // // check inputs validation
@@ -22,9 +22,10 @@ exports.signup = async (req, res) => {
         // check if user already exists
         const exitingUser = await User.findOne({ email: email });
         if (exitingUser) {
-            return res.status(400).send({
-              status: "Failed",
-              message: "User already exists" 
+            return res.json({
+              status: "failed",
+              type: 'Register',
+              error: "User already exists, Please Sign-in",
             });
         }
         
@@ -32,12 +33,12 @@ exports.signup = async (req, res) => {
         bcrypt.hash(password, 10)
         .then(hashedPassword => {
           // create a new user
-          const newUser = new User({name, email, phoneNumber: tel, password: hashedPassword, workStatus, whatsApp});
+          const newUser = new User({name, email, picture, phoneNumber: tel, password: hashedPassword, workStatus, whatsApp});
           newUser.save()
           .then(() => {
             const token = getToken(newUser);
             return res.status(201).json({
-              status: "Success",
+              status: "success",
               message: "User registered successfully",
               user: newUser,
               token: token,
@@ -51,9 +52,9 @@ exports.signup = async (req, res) => {
     } catch (error) {
         console.log("Sign-up error: " + error);
         return res.status(500).json({
-            status: "Failed",
-            message: "Internal error occurred",
-            error: error
+            status: "failed",
+            type: 'Register',
+            error: "Internal server error occurred, please try again later",
         });
     }
 };
@@ -75,28 +76,29 @@ exports.login = async (req, res) => {
     // check if user already exists
     const user = await User.findOne({ email: email });
     if (!user) {
-      console.log(user)
-        return res.status(400).json({
-          status: "Failed",
-          message: "User doesn't exist, Please sign-up." 
+        return res.json({
+          status: "failed",
+          type: 'Signin',
+          error: "User doesn't exist, Please sign-up" 
         });
     }
 
     // check if passwords match
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch)
-    return res.status(200).json({
-      status: "Failed",
-      message: "Incorrect password. Please try again.",
+    return res.json({
+      status: "failed",
+      type: 'Signin',
+      error: "Incorrect password. Please try again.",
     });
 
     // generate token for user & specify user data
     const token = getToken(user);
-    const updatedUser = {_id: user._id, name: user.name}
+    const updatedUser = {_id: user._id, name: user.name, email: user.email}
 
     return res.status(200).json({ 
       status: "success", 
-      message: "Login successful",
+      error: "Login successful",
       user: updatedUser, 
       token: token,
     });
@@ -105,9 +107,9 @@ exports.login = async (req, res) => {
   } catch (error) {
     console.log("Sign-up error: " + error);
     return res.status(500).json({
-        status: "Failed",
-        message: "Internal error occurred",
-        error: error,
+        status: "failed",
+        type: 'Signin',
+        error: "Internal server error occurred, please try again later",
     });
   }
 };

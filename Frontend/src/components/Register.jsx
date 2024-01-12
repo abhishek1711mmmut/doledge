@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import '../css/Register.css';
 
@@ -7,8 +7,10 @@ import SelectionCard from '../UI/Card/SelectionCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import contextAuth from "../ContextAPI/ContextAuth";
 
 const Register = () => {
+  const Auth = useContext(contextAuth);
   const navigate = useNavigate();
   let [overAllValid, setOverAllValid] = useState(false)
   let [workStatus, setWorkStatus] = useState('');
@@ -82,11 +84,12 @@ const Register = () => {
   }
 
   const googleRegisterHandler = () => {
-    window.open('http://localhost:8800/signup/google', '_self');
+    window.open(`${process.env.REACT_APP_SERVER_PRO_URL}/signup/google`, '_self');
   }
 
   const submitFormHanadler = (event) => {
     event.preventDefault();
+    Auth.loadingHandler(true);
     const {text, email, password, tel} = inputs;
     const work = workStatus;
     const whatsAppUpdates = whatsApp;
@@ -101,13 +104,24 @@ const Register = () => {
     data.append('whatsApp', whatsAppUpdates)
     data.append('resume', resume)
 
-    axios.post('https://rk80csg.srv-01.purezzatechnologies.com/api/auth/signup', data)
+    axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data, {withCredentials: true})
     .then(response => {
-      console.log(response.data)
-      if(response.data.status == 'Success')
-      navigate('/login');
+      const data = response.data;
+      if(data.status == 'success'){
+        navigate('/login');
+        Auth.loadingHandler(false);
+      }
+      else{
+        Auth.loadingHandler(false);
+        Auth.errorHandler({message: data.error, type: data.type})
+      }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      navigate('/register')
+      Auth.errorHandler({message: 'Internal server error occured', type: ''});
+      Auth.loadingHandler(false);
+      console.log(err)
+    })
   }
 
   return (

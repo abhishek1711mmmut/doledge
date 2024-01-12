@@ -4,13 +4,16 @@ const router = express.Router();
 
 // this route will show your google emails to register with, when you choose one of them
 // it will redirect you to '/google/callback' route
-router.get('/signup/google', passport.authenticate('google-signup', {scope: ['profile', 'email']}));
+router.get('/signup/google', passport.authenticate('google-signup', {
+    scope: ['profile', 'email'], 
+    prompt : "select_account",
+}));
 
 // gets invoked after choosing email in '/google'
 // defines if the user success authenticated or not and based on each case redirect to it's route.
-router.get('/signup/google/callback', passport.authenticate('google-signup', {
-    successRedirect: 'http://localhost:3000/auth/googlePassword', // redirect to react app home page
-    failureRedirect: '/auth/failed',
+router.get('/google/callback', passport.authenticate('google-signup', {
+    successRedirect: 'http://localhost:3000/auth/googlePassword', // redirect to react app googlePassword page
+    failureRedirect: '/signup/failed',
 }))
 
 // redirected to when login succeed
@@ -36,15 +39,5 @@ router.get('/signup/failed', (req, res) => {
         message: 'google login failed',
     });
 })
-
-// to logout
-// router.get('/logout', (req, res) => {
-//     req.logOut(() => {
-//         req.session.destroy(() => {
-//             // delete req.user;
-//             res.json({logut: true});
-//         })
-//     });
-// })
 
 module.exports = router;

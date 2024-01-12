@@ -5,7 +5,7 @@ const Blog = () => {
 
   useEffect(() => {
     // Update the URL to match your API endpoint
-    fetch("http://localhost:8800/api/blogs")
+    fetch(`${process.env.REACT_APP_SERVER_PRO_URL}/api/blogs`)
       .then((response) => response.json())
       .then((data) => {
         setBlogs(data.data);
