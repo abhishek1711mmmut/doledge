@@ -117,7 +117,7 @@ const Profile = (props) => {
         data.workStatus = work;
         data.whatsApp = whatsAppUpdates;
 
-        axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/dashboard/update`, data, {withCredentials: true})
+        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/dashboard/update`, data, {withCredentials: true})
         .then(response => {
         const data = response.data;
         if(data.status == 'success')
