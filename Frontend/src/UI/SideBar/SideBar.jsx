@@ -32,9 +32,13 @@ const SideBar = (props) => {
                         </div>
                     </div>
                     {/* text side */}
-                    <div className="name text-[18px] font-bold mt-2">{Auth.user.name}</div>
-                    <div className="email mt-1 mb-1">{Auth.user.email}</div>
-                    <Link to={'/dashboard'} onClick={() => props.onClick('close')} className={styles.viewProfile}>View Profile</Link>
+                    {Auth.user.name && (
+                        <>
+                            <div className="name text-[18px] font-bold mt-2">{Auth.user.name}</div>
+                            <div className="email mt-1 mb-1">{Auth.user.email}</div>
+                            <Link to={'/dashboard'} onClick={() => props.onClick('close')} className={styles.viewProfile}>View Profile</Link>
+                        </>
+                    )}
                 </div>
                 {/* Content */}
                 <div className={styles.content}>
