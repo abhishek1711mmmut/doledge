@@ -19,7 +19,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: "*",
+  origin: "http://localhost:3000",
   methods: 'GET,UPDATE,PUT,DELETE',
   credentials: true,
 }));
@@ -34,8 +34,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(googleSignupRoutes)
-app.use(googleSigninRouts)
+app.use(googleSignupRoutes)
+// app.use(googleSigninRouts)
 
 // Google Logout middleware
 app.get('/logout', (req, res) => {

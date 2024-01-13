@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Dropdown from './Dropdown';
-import '../css/Navbar.css'
+import '../css/Navbar.css';
+import styles from '../css/SideBar.module.css';
 import "@fontsource/poppins"
 
 import SideBar from '../UI/SideBar/SideBar.jsx';
@@ -53,7 +54,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light" style={{border: '0px solid black'}}>
           {/* Logo */}
           <Link to='/' className="navbar-brand">
-            <img
+            <img className='brand'
               src={require('../images/logo-removed.png')}
               alt="Logo"
             />
@@ -65,7 +66,9 @@ const Navbar = () => {
             <div className="bar"></div>
             <div className="bar"></div>
           </button>
-          <SideBar active={active} onClick={sideBarHandler}/>
+          <div className='sideBar-hider absolute'>
+            <SideBar active={active} onClick={sideBarHandler}/>
+          </div>
 
           {/* Nav Links */}
           <div className="navbar-links">
@@ -96,26 +99,37 @@ const Navbar = () => {
                   </li>
                 </>) : (
                   <>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <Link className="btn register-button" onClick={() => Auth.logout()}>
                         Logout
                       </Link>
-                    </li>
-                    <li className="employer-login1">
-                      <div className="employer-login-container">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16" >
-                          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                          <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" className='' />
-                      </svg>
-                      <Link className="btn employer-login1" to="#employer" style={{
-                        margin: 0, fontSize: 15,
-                        fontFamily: 'Poppins',
-                        fontWeight: '400',
-                        wordWrap: 'break-word'
-                      }}>
-                          {Auth.user.name}
-                      </Link>
-                      </div>
+                    </li> */}
+                    <li className="user-info flex flex-row justify-center items-center rounded-[25px]" style={{position: 'relative', border: '1px solid #ccc'}}>
+                        {Auth.user.picture ? <div className='w-[51px] h-[50px] rounded-[50%] overflow-hidden m-0'>
+                          <img src={Auth.user.picture} style={{objectFit: 'contain'}}/>
+                        </div> 
+                        : <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16" >
+                              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" className='' />
+                          </svg>
+                        }
+                        <div className="btn employer-login1" style={{
+                          margin: 0, 
+                          fontSize: 15,
+                          fontFamily: 'Poppins',
+                          fontWeight: '400',
+                          wordWrap: 'break-word'
+                        }}>
+                            {Auth.user.name}
+                        </div>
+                        <div className='w-full h-full pt-3' style={{position: 'absolute', backgroundColor: 'unset', bottom: '-47px'}}>
+                          <div className='user-list'>
+                            <Link to='/dashboard' className={['w-full p-2 px-3' ,styles.viewProfile].join(' ')}>View Profile</Link>
+                            <Link className={['w-full' ,styles.viewProfile].join(' ')} onClick={() => Auth.logout()}>
+                              Logout
+                            </Link>
+                          </div>
+                        </div>
                     </li>
                   </>
                 )

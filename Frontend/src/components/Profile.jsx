@@ -3,10 +3,14 @@ import contextAuth from "../ContextAPI/ContextAuth";
 import { useNavigate } from "react-router-dom";
 import InputElement from "../UI/InputElement/InputElement";
 import SelectionCard from "../UI/Card/SelectionCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faLock, faPaperclip, faTrash, faUnlock } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
-const Profile = () => {
+const Profile = (props) => {
     const Auth = useContext(contextAuth);
     const navigate = useNavigate();
+    let [editMode, setEditMode] = useState(false);
     let [overAllValid, setOverAllValid] = useState(false)
     let [workStatus, setWorkStatus] = useState('');
     let [file, setFile] = useState(null);
@@ -20,25 +24,37 @@ const Profile = () => {
         value: '',
         isValid: true,
         },
-        password: {
-        value: '',
-        isValid: true,
-        },
         tel: {
         value: '',
         isValid: true,
         },
     })
+    
+    // set profile data
+    useEffect(() => {
+        let updatedInputs = {...inputs};
+        const user = props.user;
+        updatedInputs.text.value = user.name;
+        updatedInputs.email.value = user.email;
+        updatedInputs.tel.value = user.phoneNumber;
+        setWorkStatus(user.workStatus)
+        setInputs(updatedInputs);
+    }, []);
 
+    // validate overall data on change
     useEffect(() => {
         overAllValidity()
+        console.log(workStatus)
     }, [file, workStatus, inputs])
 
-    const workStstusHandler = (status) => {
-        if (status == "I'm experienced")
-        setWorkStatus("I'm experienced");
-        else
-        setWorkStatus("I'm fresher")
+    const editModeHandler = () => {
+        setEditMode(!editMode)
+    }
+
+    const selectHandler = (e) => {
+        const value = e.target.value;  
+        setWorkStatus(value);  
+
     }
 
     const fileHandler = async (event, action) => {
@@ -71,8 +87,8 @@ const Profile = () => {
     }
 
     const overAllValidity = () => {
-        let { text, email, password, tel, whatsApp } = inputs;
-        if (text.value && email.value && password.value && tel.value && workStatus && file)
+        let { text, email, tel, whatsApp } = inputs;
+        if (text.value && email.value && tel.value && workStatus)
         setOverAllValid(true)
         else
         setOverAllValid(false)
@@ -80,47 +96,53 @@ const Profile = () => {
 
     const submitFormHanadler = (event) => {
         event.preventDefault();
-        Auth.loadingHandler(true);
-        const {text, email, password, tel} = inputs;
+        const {text, email, tel} = inputs;
         const work = workStatus;
         const whatsAppUpdates = whatsApp;
         const resume = file;
 
-        let data = new FormData();
-        data.append('name', text.value)
-        data.append('email', email.value)
-        data.append('password', password.value)
-        data.append('tel', tel.value)
-        data.append('workStatus', work)
-        data.append('whatsApp', whatsAppUpdates)
-        data.append('resume', resume)
+        // let data = new FormData();
+        // data.append('name', text.value)
+        // data.append('email', email.value)
+        // data.append('tel', tel.value)
+        // data.append('workStatus', work)
+        // data.append('whatsApp', whatsAppUpdates)
+        // data.append('resume', resume)
 
-        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data, {withCredentials: true})
+        let data = {}
+        data._id = Auth.user._id;
+        data.name = text.value;
+        data.email = email.value;
+        data.tel = tel.value;
+        data.workStatus = work;
+        data.whatsApp = whatsAppUpdates;
+
+        axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/dashboard/update`, data, {withCredentials: true})
         .then(response => {
         const data = response.data;
-        if(data.status == 'success'){
-            navigate('/login');
-            Auth.loadingHandler(false);
-        }
-        else{
-            Auth.loadingHandler(false);
-            Auth.errorHandler({message: data.error, type: data.type})
-        }
+        if(data.status == 'success')
+            props.updateState()
+        else
+            Auth.errorHandler({message: data.error})
         })
         .catch(err => {
-        navigate('/register')
-        Auth.errorHandler({message: 'Internal server error occured', type: ''});
-        Auth.loadingHandler(false);
+        Auth.errorHandler({message: data.error, type: ''});
         console.log(err)
         })
     }
 
     return (
         <div className="Dashboard h-full w-full flex flex-col">
-            <h1 className="text-[25px] text-left font-bold mb-4 text-[#333]">Profile Information</h1>
+            <div className="flex flex-row justify-between items-baseline">
+                <h1 className="text-[25px] font-bold mb-4 text-[#333]">Profile Information</h1>
+                <div className="editButton text-[22px] px-3 py-1 rounded-[10px]" onClick={editModeHandler}>
+                    <FontAwesomeIcon icon={editMode ? faEdit : faLock} style={{color: '#333'}}/>
+                </div>
+            </div>
              {/* Form Inputs */}
-            <form className="reg-form w-full flex flex-col" style={{boxShadow: 'none'}}>
+            <form onSubmit={submitFormHanadler} className="reg-form w-full flex flex-col" style={{boxShadow: 'none'}}>
                 <InputElement
+                disabled={!editMode}
                 field={'text'}
                 type={'text'}
                 label={'Full Name'}
@@ -132,6 +154,7 @@ const Profile = () => {
                 />
 
                 <InputElement
+                disabled={!editMode}
                 field={'email'}
                 type={'email'}
                 label={'Email ID'}
@@ -143,17 +166,7 @@ const Profile = () => {
                 />
 
                 <InputElement
-                field={'password'}
-                type={'password'}
-                label={'Password'}
-                placeholder={'Create a password for your account'}
-                error={'Password is required'}
-                value={inputs.password.value}
-                valid={inputs.password.isValid}
-                onChange={changeHandler} 
-                />
-
-                <InputElement
+                disabled={!editMode}
                 field={'tel'}
                 type={'tel'}
                 label={'Mobile Number'}
@@ -164,29 +177,29 @@ const Profile = () => {
                 onChange={changeHandler} 
                 />
 
-                {/* Cards */}
-                <div className="text-left">
-                <p className="font-bold mb-0">Work Status</p>
-                <div className="flex flex-col sm:flex-row">
-                    <SelectionCard
-                    title="I'm experienced"
-                    description="I have work experience (excluding internships)"
-                    src={require('../images/experienced.svg').default}
-                    workStatus={workStatus}
-                    onClick={workStstusHandler} 
-                    />
-                    <SelectionCard
-                    title="I'm fresher"
-                    description="I am a student/ Haven't worked after graduation"
-                    src={require('../images/fresher.svg').default}
-                    workStatus={workStatus}
-                    onClick={workStstusHandler} 
-                    />
-                </div>
+                {/* Work Status */}
+                <div className="text-left m-1">
+                    <p className="font-bold mb-1">Work Status</p>
+                    <select 
+                    disabled={!editMode} 
+                    className="w-full py-2 px-2 m-0 rounded-[15px]" 
+                    value={workStatus} onChange={selectHandler} 
+                    style={{border: '1px solid #ccc'}}>
+                        <option 
+                        defaultValue={workStatus == 'experienced'} 
+                        value='experienced'>
+                            I'm Experienced
+                        </option>
+                        <option 
+                        defaultValue={workStatus == 'fresher'} 
+                        value='fresher'>
+                            I'm Fresher
+                        </option>
+                    </select>
                 </div>
 
                 {/* File Upload */}
-                <div className="text-left mt-3">
+                {/* <div className="text-left mt-3">
                 <p className="font-bold mb-1">Resume</p>
                 {!file ? <div className="fileCard">
                     <div>
@@ -209,14 +222,14 @@ const Profile = () => {
                     </div>
                     </div>}
                 <p className="error">Recruiters give first preference to candidates who have a resume</p>
-                </div>
+                </div> */}
 
                 {/* WhatsApp Checkbox */}
                 <div className="whatsappCheckbox flex flex-row items-center text-center ml-2 my-3">
-                <input type="checkbox" onClick={checkBoxHandler}/>
-                <p className="flex flex-row mt-0 ml-2">
-                    Send me important updates on<img className="mx-1 w-[20px] h-[20px]" src={require('../images/whatsapp.png')} />WhatsApp
-                </p>
+                    <input type="checkbox" onClick={checkBoxHandler}/>
+                    <p className="flex flex-row mt-0 ml-2">
+                        Send me important updates on<img className="mx-1 w-[20px] h-[20px]" src={require('../images/whatsapp.png')} />WhatsApp
+                    </p>
                 </div>
 
                 {/* Submit Button */}
@@ -224,8 +237,8 @@ const Profile = () => {
                 <button
                     type="submit"
                     className="submit text-left mt-2"
-                    disabled={overAllValid ? false : true}
-                    style={{ backgroundColor: !overAllValid && '#ccc' }}>Update Info</button>
+                    disabled={overAllValid && editMode ? false : true}
+                    style={{ backgroundColor: !overAllValid || !editMode ? '#ccc': '#F58634'}}>Update Info</button>
                 </div>
             </form>
         </div>

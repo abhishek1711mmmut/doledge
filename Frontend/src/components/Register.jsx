@@ -84,7 +84,7 @@ const Register = () => {
   }
 
   const googleRegisterHandler = () => {
-    window.open(`${process.env.REACT_APP_SERVER_PRO_URL}/signup/google`, '_self');
+    window.open(`${process.env.REACT_APP_SERVER_DEV_URL}/signup/google`, '_self');
   }
 
   const submitFormHanadler = (event) => {
@@ -104,7 +104,7 @@ const Register = () => {
     data.append('whatsApp', whatsAppUpdates)
     data.append('resume', resume)
 
-    axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/signup`, data, {withCredentials: true})
+    axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/auth/signup`, data, {withCredentials: true})
     .then(response => {
       const data = response.data;
       if(data.status == 'success'){

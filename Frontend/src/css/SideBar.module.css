@@ -32,7 +32,7 @@
 
 .header {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     padding: 15px;
@@ -40,27 +40,20 @@
     letter-spacing: 1px;
 }
 
-.header .close {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 0px;
-    width: 20%;
-    margin-bottom: -5px;
-    font-size: large;
-    /* border:  1px solid black; */
-}
-
-.header .title {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 25px;
+.viewProfile {
+    padding: 5px 0px;
+    margin-top: 10px;
+    width: 70%;
     font-weight: bold;
-    /* border:  1px solid black; */
+    margin-bottom: 4px;
+    border-radius: 15px;
+    color: #333;
+    background-color: #f8f8f8;
+} 
+
+.viewProfile:hover {
+    background-color: #ebebeb;
+    cursor: pointer;
 }
 
 .content ul {

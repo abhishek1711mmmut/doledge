@@ -8,7 +8,7 @@ import contextAuth from "../ContextAPI/ContextAuth";
 import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const CompleteProfile = () => {
+const CompleteProfile = (props) => {
     const Auth = useContext(contextAuth);
     const navigate = useNavigate();
     let [overAllValid, setOverAllValid] = useState(false)
@@ -79,7 +79,7 @@ const CompleteProfile = () => {
         const resume = file;
 
         let data = new FormData();
-        data.append('email', Auth.user.email)
+        data.append('userID', Auth.user._id)
         data.append('tel', tel.value)
         data.append('workStatus', work)
         data.append('whatsApp', whatsAppUpdates)
@@ -91,13 +91,13 @@ const CompleteProfile = () => {
         // console.log(whatsAppUpdates)
         // console.log(resume)
 
-        axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/dashboard/complete`, data, {withCredentials: true})
+        axios.post(`${process.env.REACT_APP_SERVER_DEV_URL}/api/dashboard/complete`, data, {withCredentials: true})
         .then(response => {
-        const data = response.data;
-        if(data.status == 'success')
-            navigate('/dashboard');
-        else
-            Auth.errorHandler({message: data.error, type: data.type});
+            const data = response.data;
+            if(data.status == 'success')
+                props.updateState();
+            else
+                Auth.errorHandler({message: data.error, type: data.type});
         })
         .catch(err => {
             Auth.errorHandler({message: 'Internal server error occured', type: ''});

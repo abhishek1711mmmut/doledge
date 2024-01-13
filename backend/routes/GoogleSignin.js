@@ -31,6 +31,7 @@ router.get('/signin/success', (req, res) => {
                 userData._id = user._id;
                 userData.email = user.email;
                 userData.name = user.name;
+                userData.picture = user.picture;
 
                 return res.status(200).json({
                     status: 'success',
@@ -40,7 +41,6 @@ router.get('/signin/success', (req, res) => {
             } else {
                 return res.json({
                     status: 'failed',
-                    type: 'Signin',
                     error: "user doesn't exist please signup first",
                 })
             }

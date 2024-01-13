@@ -17,7 +17,7 @@
   position: relative;
 }
 
-.navbar img {
+.navbar .brand {
   width: 189px;
   height: 85px;
   /* margin-left: 13px; */
@@ -153,7 +153,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: -10px;
 }
 
 /* Restyle the hamburger menu positioning for small screens */
@@ -338,4 +337,38 @@
 .title{
   width: 80%;
   /* background-color: red; */
+}
+
+.navbar-nav .user-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  /* bottom: -115px; */
+  width: 100%;
+  padding: 5px 0px;
+  /* min-height: 50px; */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 5px #ccc;
+  border: 1px solid #ccc;
+}
+
+.navbar-nav .user-info {
+  overflow: hidden;
+}
+
+.navbar-nav .user-info:hover {
+  overflow: visible;
+}
+
+.sideBar-hider {
+  display: block; 
+}
+
+@media (min-width: 900px) {
+  .sideBar-hider {
+    display: none;
+  }
 }

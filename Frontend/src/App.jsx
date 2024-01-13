@@ -67,10 +67,11 @@ function App() {
 
   useEffect(() => {    
     let userID = localStorage.getItem('userID');
-    // let useremail = localStorage.getItem('email');
+    let useremail = localStorage.getItem('email');
     let username = localStorage.getItem('userName');
+    let picture = localStorage.getItem('picture');
     let token = localStorage.getItem('token');
-    setUser({_id: userID, name: username});
+    setUser({_id: userID, name: username, email: useremail, picture});
     setToken(token);
   }, [])
   
@@ -78,18 +79,20 @@ function App() {
     setUser(user);
     setToken(token);
     localStorage.setItem('userID', user._id);
-    // localStorage.setItem('email', user.email);
+    localStorage.setItem('email', user.email);
     localStorage.setItem('userName', user.name);
+    localStorage.setItem('picture', user.picture);
     localStorage.setItem('token', token);
   }
 
   const logout = () => {
     loadingHandler(true);
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/logout`, {withCredentials: true})
     .then(() => {
       localStorage.removeItem('userID');
-      // localStorage.removeItem('email');
+      localStorage.removeItem('email');
       localStorage.removeItem('userName');
+      localStorage.removeItem('picture');
       localStorage.removeItem('token');
       setUser({});
       setToken('');

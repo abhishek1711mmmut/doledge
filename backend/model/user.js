@@ -5,28 +5,31 @@ const bcrypt = require("bcrypt");
 const userSchema = Schema({
   name: { 
     type: String, 
-    required: [true, "Name is Required"] 
+    required: [true, "Name is Required"],
+    default: "",
   },
   picture: {
     type: String,
-    default: null,
+    default: "",
   },
   email: { 
     type: String, 
     required: [true, "Email is Required"], 
-    unique: true 
+    unique: true,
+    default: "",
   },
   phoneNumber: {
     type: Number,
-    default: null,
+    default: 0,
   },
   password: { 
     type: String, 
-    required: [true, "Password is Required"] 
+    required: [true, "Password is Required"],
+    default: "",
   },
   workStatus: { 
     type: String, 
-    default: null, 
+    default: "", 
   },
   whatsApp: { 
     type: Boolean,  

@@ -18,7 +18,7 @@ const MAINheader = () => {
   });
   
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_DEV_URL}/api/home/data`, {withCredentials: true})
     .then(response => {
       const data = response.data.data;
       setState({services: data.services, blogs: data.blogs});
