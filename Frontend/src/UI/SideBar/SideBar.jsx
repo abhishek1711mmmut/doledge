@@ -23,7 +23,7 @@ const SideBar = (props) => {
                     <div className="relative">
                         {/* <div className="percent bg-[white]">{percentage}%</div> */}
                         <div className="limits p-0 rounded-[50%]">
-                            <div className="scaller bg-[#F58634]" style={{height:'100%'}}></div>
+                            <div className="scaller bg-[#F58634]" style={{height:'0%'}}></div>
                             <div className="image-wrapper p-1 m-1 rounded-[50%] bg-white" style={{border: '1px solid #ccc'}}>
                                 <div className="bg-[#ebebeb] w-[80px] h-[80px] rounded-[50%] overflow-hidden">
                                     <img src={Auth.user.picture}/>
