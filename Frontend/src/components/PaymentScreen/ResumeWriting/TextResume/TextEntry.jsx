@@ -66,70 +66,78 @@ const TextEntry = () => {
 
     <div className='w-[100%] mx-auto'>
       {/* <Slide left cascade> */}
-      <div className='flex flex-col md:flex-row'>
+      <div className='flex flex-col lg:flex-row'>
         <Box
           sx={{
             backgroundImage: `url(${coverImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% 100%',
-            height: '60vh',
+            // height: '60vh',
             width: '45%',
-            [theme.breakpoints.down('md')]: {
+            [theme.breakpoints.down(1024)]: {
               width: '100%',
-              height: '30vh',
+              height: '50vh',
+            },
+            [theme.breakpoints.down(500)]: {
+              width: '100%',
+              height: '40vh',
             },
           }}
         />
 
         <Box
-          className='bg-[#13274F] flex items-center'
+          className='flex items-center'
           sx={{
             // backgroundImage: `url(${bckimg})`,
-
-            // backgroundSize: 'cover',
-            // backgroundRepeat: 'no-repeat',
-            height: '60vh',
+            backgroundColor:'#13274F',
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat',
+            paddingTop:'40px',
+            // height: '60vh',
             width: '55%',
-            [theme.breakpoints.down('md')]: {
+            [theme.breakpoints.down(1024)]: {
               width: '100%',
-              height: 'fit-content',
-              paddingBottom: '20px'
+              height: '',
             },
+            [theme.breakpoints.down('sm')]:{
+              paddingBottom:'20px'
+            }
           }}
         >
           <div className="flex flex-col justify-between h-full px-7 w-[100%]">
-            <div className="mt-auto mb-auto">
+            <div className="pb-4">
 
-              <div className="text-white text-5xl text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
+              <div className="text-white text-5xl sm:text-center md:text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
                 Text Resumes: Your Express Route to Employment
-              </div>
-              <div className="text-orange-400 text-2xl text-left max-w-full mt-4 pl-3">
-                Embrace the simplicity, speed, and impact of text <br /> to boost your career.
               </div><br />
+              <div className="text-orange-400 text-2xl sm:text-center md:text-left max-w-full mt-4 pl-3">
+                Embrace the simplicity, speed, and impact of text <br /> to boost your career.
+              </div>
+              <br />
             </div>
-             <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
-              <Grid item xs={6} sm={3}>
-                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Entry-Level")}>
+             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 4, md: 2 }} >
+              <Grid item xs={6} sm={3} >
+                <Item className='scale-y-110 -translate-y-1 cursor-pointer rounded-md sm:rounded-t-md sm:rounded-b-none' onClick={()=>navigate("/Text-Resume-Entry-Level")}>
                   <b>Entry-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(0-3) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Middle-Level")}>
+                <Item className='cursor-pointer rounded-md sm:rounded-t-md sm:rounded-b-none' onClick={()=>navigate("/Text-Resume-Middle-Level")}>
                   <b>Middle-Level </b><br />
                   <p style={{ fontSize: '0.9rem' }}>(3-8) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Senior-Level")}>
+                <Item className='cursor-pointer rounded-md sm:rounded-t-md sm:rounded-b-none' onClick={()=>navigate("/Text-Resume-Senior-Level")}>
                   <b>Senior-Level</b><br />
                   <p style={{ fontSize: '0.9rem' }}>(8-15) Years</p>
                 </Item>
               </Grid>
               <Grid item xs={6} sm={3}>
-                <Item className='cursor-pointer rounded-t-md' onClick={()=>navigate("/Text-Resume-Executive-Level")}>
+                <Item className='cursor-pointer rounded-md sm:rounded-t-md sm:rounded-b-none' onClick={()=>navigate("/Text-Resume-Executive-Level")}>
                   <b>Executive-Level </b> <br />
-                  <p style={{ fontSize: '0.9rem' }}>(15 Years & Above)</p>
+                  <p style={{ fontSize: '0.9rem' }} className='text-xs sm:text-sm'>(15 Years & Above)</p>
                 </Item>
               </Grid>
             </Grid>
@@ -145,8 +153,8 @@ const TextEntry = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center max-w-[970px] max-md:max-w-full">
-          Doledge's Text Resume Services are the key to <br /> unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's Text Resume Services are the key to unlocking a more
           efficient and effective job search.
         </div>
 
@@ -177,7 +185,7 @@ const TextEntry = () => {
 
 
           {/* 2 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-4 leading-[2.7rem]' style={{ wordWrap: 'break-word' }}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
@@ -192,7 +200,7 @@ const TextEntry = () => {
 
 
           {/* 3 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-4 leading-[2.7rem]' style={{ wordWrap: 'break-word' ,}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
@@ -237,36 +245,35 @@ const TextEntry = () => {
 
 
       {/* How it Works */}
-      <div className="flex justify-center text-orange-400 font-medium  mt-16" style=
+      <div className="text-orange-400 font-medium mt-16" style=
         {{
           fontSize: 26,
           fontFamily: 'Poppins',
           fontWeight: 500,
           wordWrap: 'break-word',
+          textAlign:'center'
         }}>
         How it works?
       </div>
 
       <div className="flex justify-center p-5">
 
-        <Stepper sx={{ width: '90%', }}>
+        <Stepper sx={{ width: '90%', }} className='mx-auto'>
 
 
-          <Grid container spacing={3}>
+          <Grid container justifyContent={'center'} alignItems={'center'} spacing={{lg:3}} rowSpacing={3} className='mx-auto'>
             {cardContents.map((card, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid item sm={9} md={6}  lg={3} key={index} className='mx-auto'>
               
-                <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px', color: '#5E5E5E' }}>
+                <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px', color: '#5E5E5E', }}>
                   {card.steps}
                 </div>
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100'>
-                  <div className="div" style={{ fontSize: 26,
-                    fontFamily: 'Poppins',
-                    fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',marginBottom:'-10px'}}>
-                    <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}}/> 
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100 mx-auto'>
+                  <div className="div mb-[10px] sm:-mb-2" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
+                    <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}} /> 
                   </div>
                   <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh', }}>
                     <Typography variant="h6" component="h2" style={{ fontSize: '14px', fontFamily: 'Poppins', fontWeight: 500 }}>
@@ -289,30 +296,32 @@ const TextEntry = () => {
       {/* </div> */}
 
       {/* Resume Delivery Time */}
-      <div className=' mx-auto p-4 mt-8'>
+      <div className='mx-auto p-4 sm:mt-8'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
-          <table className='mx-auto  w-[70%] text-[20px] bg-gradient-to-t from-slate-200 to-slate-50'>
-            <tr className='border-2 border-black text-[26px] h-16'>
+          <table className='mx-auto w-[95%] md:w-[85%] lg:w-[70%] bg-gradient-to-t from-slate-200 to-slate-50'>
+            <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px] h-16'>
               <th>Resume Variant</th>
               <th className='border-l-2 border-r-2'>First Version</th>
               <th>Final Delivery</th>
             </tr>
-            <tr className='border-2 border-black h-12'>
-              <td>Regular</td>
-              <td className='border-l-2 border-r-2'>8 Working Days</td>
-              <td>14 Working Days</td>
-            </tr>
-            <tr className='border-2 border-black h-12'>
-              <td>Express</td>
-              <td className='border-l-2 border-r-2'>4 Working Days</td>
-              <td>10 Working Days</td>
-            </tr>
-            <tr className='border-2 border-black h-12'>
-              <td>Super Express</td>
-              <td className='border-l-2 border-r-2'>2 Working Days</td>
-              <td>6 Working Days</td>
-            </tr>
+            <tbody className='text-xs md:text-lg lg:text-[26px]'>
+              <tr className='border-2 border-black h-12'>
+                <td>Regular</td>
+                <td className='border-l-2 border-r-2'>8 Working Days</td>
+                <td>14 Working Days</td>
+              </tr>
+              <tr className='border-2 border-black h-12'>
+                <td>Express</td>
+                <td className='border-l-2 border-r-2'>4 Working Days</td>
+                <td>10 Working Days</td>
+              </tr>
+              <tr className='border-2 border-black h-12'>
+                <td>Super Express</td>
+                <td className='border-l-2 border-r-2'>2 Working Days</td>
+                <td>6 Working Days</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

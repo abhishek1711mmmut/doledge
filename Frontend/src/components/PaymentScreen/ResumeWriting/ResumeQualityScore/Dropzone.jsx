@@ -56,11 +56,11 @@ export function MyDropzone() {
                     <ul className='text-blue-600'>{acceptedFileItems}</ul>
                     <ul className='text-red-500'>{fileRejectionItems}</ul>
                   </aside>
-                  <p className='text-[#536777] text-xs py-6'>OR</p>
-                  <button className='bg-[#4a90e2] text-white rounded border border-[#979797] text-sm px-2 py-1 lg:text-lg lg:px-4 lg:py-2 '>
+                  <p className='text-[#536777] text-xs py-4 xl:py-6'>OR</p>
+                  <button className='bg-[#4a90e2] text-white rounded border border-[#979797] text-sm px-3 py-1 lg:text-lg lg:px-4 lg:py-2 flex justify-center items-center mx-auto'>
                       Fetch from Doledge Account
                   </button>
-                  <p className='text-xs text-[#536777] py-3'>
+                  <p className='text-[10px] xl:text-xs text-[#536777] py-3'>
                       By checking my CV Score I authorize Doledge to call/SMS me regarding Doledge Paid services
                   </p>
                 </div>
