@@ -11,7 +11,7 @@ const Dashboard = () => {
     const Auth = useContext(contextAuth);
     let [user, setUser] = useState({});
     let [percentage, setPercentage] = useState(0);
-    let [section, setSection] = useState('');
+    let [section, setSection] = useState('profile');
     let [flag, setFlag] = useState(0);
 
     useEffect(() => {
@@ -47,17 +47,17 @@ const Dashboard = () => {
             backgroundColor: 'white',
             zIndex: 100,
         }}>
-            {/* <nav className="dashboard-nav text-left py-2 px-10 text-[25px]">
-                <div className="dashboard-goback py-0 px-3 w-fit">
-                    <FontAwesomeIcon icon={faArrowLeft}/>
-                </div>
-            </nav> */}
-            <div className="h-full flex flex-row justify-evenly p-3" >
-                <div className="dashboard-sidebar w-[22%] rounded-[15px]">
+            {/* wrapper of both sidebar and content */}
+            <div className=" w-full flex flex-col justify-btween items-center p-3
+            lg:flex lg:flex-row lg:justify-evenly lg:p-5" style={{border: '0px solid black'}}> 
+                {/* SideBar */}
+                <div className="dashboard-sidebar h-full rounded-[15px] w-[90%] mb-0 p-2
+                lg:w-[22%]">
                     {/* User Info */}
-                    <div className="user-info flex flex-col items-center mt-3 py-3 mb-4" style={{border: '0px solid black'}}>
+                    <div className="user-info flex justify-center items-center m-2
+                    lg:flex lg:flex-col lg:items-center lg:mt-3 lg:py-3 lg:mb-4" style={{border: '0px solid black'}}>
                         {/* Image side */}
-                        <div className="relative">
+                        <div className="relative mr-2 lg:mr-0">
                             <div className="percent bg-[white]">{percentage}%</div>
                             <div className="limits p-0 rounded-[50%]">
                                 <div className="scaller bg-[#F58634]" style={{height: percentage + '%'}}></div>
@@ -69,22 +69,24 @@ const Dashboard = () => {
                             </div>
                         </div>
                         {/* text side */}
-                        <div className="name text-[18px] font-bold mt-2">{user.name}</div>
-                        <div className="email mt-1">{user.email}</div>
-                        {percentage != 100 && <button className="complete px-3 py-1 mt-3" onClick={() => sectionHandler('complete')}>
-                            Complete Profile
-                        </button>
-                        }
+                        <div>
+                            <div className="name text-[18px] font-bold mt-2">{user.name}</div>
+                            <div className="email mt-1">{user.email}</div>
+                            {percentage != 100 && <button className="complete px-3 py-1 mt-[10px] lg:mt-3" onClick={() => sectionHandler('complete')}>
+                                Complete Profile
+                            </button>
+                            }
+                        </div>
                             
                     </div>
                     {/* Menu */}
                     <div className="menu" style={{border: '0px solid #ccc'}}>
-                        <ul className="flex flex-col items-center">
-                            <li className="flex flex-row" onClick={() => sectionHandler('profile')}>
+                        <ul className="flex flex-col items-center" style={{border: '0px solid black'}}>
+                            <li className="flex flex-row w-[200px] lg:w-[70%]" onClick={() => sectionHandler('profile')}>
                                 <div className="w-[20%] ml-2"><FontAwesomeIcon icon={faUser}/></div>
                                 <div>My Profile</div>
                             </li>
-                            <li className="flex flex-row">
+                            <li className="flex flex-row w-[200px] lg:w-[70%]">
                                 <div className="w-[20%] ml-2"><FontAwesomeIcon icon={faArrowLeft}/></div>
                                 <div>Go Back</div>
                             </li>
@@ -96,7 +98,8 @@ const Dashboard = () => {
                     </div>
                 </div>
                 {/* Content */}
-                <div className="dashboard-content w-[70%] rounded-[15px] p-5" style={{border: section != '' && '1px solid #ccc'}}>
+                <div className="dashboard-content w-[90%] rounded-[15px] p-5 mt-[20px] lg:mt-[0px]
+                lg:w-[70%]" style={{border: section != '' && '1px solid #ccc'}}>
                     {section == 'complete' && percentage != 100 ? <CompleteProfile updateState={updateStateHandler}/> : null}
                     {section == 'profile' && <Profile user={user} updateState={updateStateHandler}/>}
                 </div>
