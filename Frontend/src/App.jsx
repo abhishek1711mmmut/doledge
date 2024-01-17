@@ -39,6 +39,7 @@ import TopManagementProfile from './components/PaymentScreen/CareerGrowth/TopMan
 import ProfileUpdate from './components/PaymentScreen/CareerGrowth/ProfileUpdate';
 import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalPortfolio';
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
+import EmployeeVerification from './components/PaymentScreen/ScreeningServices/EmployeeVerification';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
 
 
@@ -147,6 +148,7 @@ function App() {
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
+                  <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   
                   {!token && (
