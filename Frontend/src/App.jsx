@@ -39,6 +39,7 @@ import TopManagementProfile from './components/PaymentScreen/CareerGrowth/TopMan
 import ProfileUpdate from './components/PaymentScreen/CareerGrowth/ProfileUpdate';
 import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalPortfolio';
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
+import EmployeeVerification from './components/PaymentScreen/ScreeningServices/EmployeeVerification';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
 
 
@@ -67,10 +68,11 @@ function App() {
 
   useEffect(() => {    
     let userID = localStorage.getItem('userID');
-    // let useremail = localStorage.getItem('email');
+    let useremail = localStorage.getItem('email');
     let username = localStorage.getItem('userName');
+    let picture = localStorage.getItem('picture');
     let token = localStorage.getItem('token');
-    setUser({_id: userID, name: username});
+    setUser({_id: userID, name: username, email: useremail, picture});
     setToken(token);
   }, [])
   
@@ -78,8 +80,9 @@ function App() {
     setUser(user);
     setToken(token);
     localStorage.setItem('userID', user._id);
-    // localStorage.setItem('email', user.email);
+    localStorage.setItem('email', user.email);
     localStorage.setItem('userName', user.name);
+    localStorage.setItem('picture', user.picture);
     localStorage.setItem('token', token);
   }
 
@@ -88,8 +91,9 @@ function App() {
     axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
     .then(() => {
       localStorage.removeItem('userID');
-      // localStorage.removeItem('email');
+      localStorage.removeItem('email');
       localStorage.removeItem('userName');
+      localStorage.removeItem('picture');
       localStorage.removeItem('token');
       setUser({});
       setToken('');
@@ -144,6 +148,7 @@ function App() {
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
+                  <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   
                   {!token && (

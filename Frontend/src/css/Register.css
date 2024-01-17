@@ -149,7 +149,11 @@
     width: fit-content;
 }
 
-.gray13px {
+.reg-form .gray13px {
     font-size: 13px;
     color: #a6a6a6;
+}
+
+.reg-form select {
+    max-width: 425px;
 }

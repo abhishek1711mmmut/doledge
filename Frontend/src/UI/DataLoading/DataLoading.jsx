@@ -30,14 +30,14 @@ const DataLoading = () => {
                     user: {
                         _id: data.user._id,
                         name: data.user.name,
-                        // email: data.user.email,
+                        email: data.user.email,
+                        picture: data.user.picture,
                     },
                     token: data.token,
                 };
                 cb(newData);
             } else {
                 newData.error = data.error;
-                newData.type = data.type;
                 cb(newData)
             }
 

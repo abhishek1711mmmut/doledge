@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import styles from '../../css/SideBar.module.css';
+import '../../css/Dashboard.css';
 
 import Dropdown from "../../components/Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,15 +19,26 @@ const SideBar = (props) => {
                 transform: props.active ? 'translateX(0px)' : 'translateX(300px)',
             }}>
                 {/* Header */}
-                <div className={styles.header}>
-                    <div className={styles.title}>
-                        <div className={styles.close}>
-                            <button onClick={() => props.onClick('close')}>
-                                <FontAwesomeIcon icon={faXmark} style={{fontSize: '30px'}}/>
-                            </button>
+                <div className={styles.header} style={{borderBottom: '0px solid #ccc'}}>
+                    <div className="relative">
+                        {/* <div className="percent bg-[white]">{percentage}%</div> */}
+                        <div className="limits p-0 rounded-[50%]">
+                            <div className="scaller bg-[#F58634]" style={{height:'0%'}}></div>
+                            <div className="image-wrapper p-1 m-1 rounded-[50%] bg-white" style={{border: '1px solid #ccc'}}>
+                                <div className="bg-[#ebebeb] w-[80px] h-[80px] rounded-[50%] overflow-hidden">
+                                    <img src={Auth.user.picture}/>
+                                </div>
+                            </div>
                         </div>
-                        Services
                     </div>
+                    {/* text side */}
+                    {Auth.user.name && (
+                        <>
+                            <div className="name text-[18px] font-bold mt-2">{Auth.user.name}</div>
+                            <div className="email mt-1 mb-1">{Auth.user.email}</div>
+                            <Link to={'/dashboard'} onClick={() => props.onClick('close')} className={styles.viewProfile}>View Profile</Link>
+                        </>
+                    )}
                 </div>
                 {/* Content */}
                 <div className={styles.content}>

@@ -6,7 +6,7 @@ const { validationResult } = require('express-validator');
 exports.signup = async (req, res) => {
     try {
         let { name, email, password, tel, workStatus, whatsApp, picture } = req.body;
-        workStatus = workStatus ? workStatus.split(' ')[1] : null;
+        workStatus = workStatus ? workStatus.split(' ')[1] : '';
         const validationErrorsArray = validationResult(req);
         console.log(req.body)
         // console.log(validationErrorsArray)
@@ -94,7 +94,7 @@ exports.login = async (req, res) => {
 
     // generate token for user & specify user data
     const token = getToken(user);
-    const updatedUser = {_id: user._id, name: user.name, email: user.email}
+    const updatedUser = {_id: user._id, name: user.name, email: user.email, picture: user.picture}
 
     return res.status(200).json({ 
       status: "success", 

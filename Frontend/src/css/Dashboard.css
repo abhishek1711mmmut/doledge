@@ -9,24 +9,29 @@
     cursor: pointer;
 }
 
+.Dashboard .editButton:hover {
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+
 .dashboard-sidebar {
     border: 1px solid #ccc;
 }
 
 .dashboard-content {
-    border: 1px solid #ccc;
-    height: fit-content;
+    /* border: 1px solid #ccc; */
+    /* height: fit-content; */
 }
 
-.dashboard-sidebar .limits {
+.limits {
     position: relative;
     overflow: hidden;
 }
 
-.dashboard-sidebar .scaller {
+.scaller {
     position: absolute;
     bottom: 0px;
-    height: 50%;
+    /* height: 50%; */
     width: 100%;
     z-index: -1;
 }
@@ -48,7 +53,7 @@
     z-index: 1;
 }
 
-.dashboard-sidebar .email {
+.email {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 15px;
@@ -73,7 +78,7 @@
 .dashboard-sidebar .menu ul li {
     padding: 5px 0px;
     margin: 5px 0px;
-    width: 70%;
+    /* width: 70%; */
     font-weight: bold;
     margin-bottom: 4px;
     border-radius: 15px;
