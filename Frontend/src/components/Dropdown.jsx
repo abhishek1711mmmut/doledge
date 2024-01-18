@@ -69,8 +69,7 @@ const Dropdown = (props) => {
         items={[
           {title:'Zap Your Resume', link:'Zap-Your-Resume'},
           {title:'Highlight Your Resume', link:'Highlight-Your-Resume'},
-          {title:'Job Search Assistant-6 Months', link:'Job-Search-Assistant-6-Months'},
-          {title:'Job Search Assistant-3 Months', link:'Job-Search-Assistant-3-Months'},
+          {title:'Job Search Assistant', link:'Job-Search-Assistant'},
           {title:'Interview Preparation', link:'Interview-Preparation'},
           {title:'Top Management Profile', link:'Top-Management-Profile'},
           {title:'Profile Update', link:'Profile-Update'},

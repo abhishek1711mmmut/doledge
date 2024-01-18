@@ -32,7 +32,6 @@ import ZapInternational from './components/PaymentScreen/International/ZapIntern
 
 import ZapResume from './components/PaymentScreen/CareerGrowth/ZapResume';
 import HighlightResume from './components/PaymentScreen/CareerGrowth/HighlightResume';
-import JobSearchAssistant6 from './components/PaymentScreen/CareerGrowth/JobSearchAssistant6';
 import JobSearchAssistant3 from './components/PaymentScreen/CareerGrowth/JobSearchAssistant3';
 import InterviewPreparation from './components/PaymentScreen/CareerGrowth/InterviewPreparation';
 import TopManagementProfile from './components/PaymentScreen/CareerGrowth/TopManagementProfile';
@@ -141,8 +140,7 @@ function App() {
                   <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
                   <Route path="Zap-Your-Resume" element={<ZapResume/>} />
                   <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
-                  <Route path="/Job-Search-Assistant-6-Months" element={<JobSearchAssistant6/>} />
-                  <Route path="/Job-Search-Assistant-3-Months" element={<JobSearchAssistant3/>} />
+                  <Route path="/Job-Search-Assistant" element={<JobSearchAssistant3/>} />
                   <Route path="/Interview-Preparation" element={<InterviewPreparation/>} />
                   <Route path="/Top-Management-Profile" element={<TopManagementProfile/>} />
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
