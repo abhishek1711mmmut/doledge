@@ -40,7 +40,7 @@ const Header = () => {
             begins with us
           </h1>
           <div className="text-left md:text-left">
-            <button className="bg-gray-100 rounded-lg py-2 px-4 text-black font-semibold text-xl text-green-700">
+            <button className="bg-gray-100 rounded-lg py-2 px-4 text-black font-semibold text-xl">
               Know more
             </button>
           </div>

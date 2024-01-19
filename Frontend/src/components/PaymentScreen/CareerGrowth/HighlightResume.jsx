@@ -55,7 +55,7 @@ const HighlightResume = () => {
 
     return (
         <div>
-            {/* Section 1 */}
+            {/* hero section */}
             <div className='flex flex-col lg:flex-row h-full lg:max-h-[450px]'>
                 {/* left part */}
                 <div className='hidden sm:block w-full h-[300px] lg:h-auto lg:w-[45%]'>
@@ -72,7 +72,7 @@ const HighlightResume = () => {
                 </div>
             </div>
 
-            {/* Section 2 */}
+            {/* Key Features of a Profile Highlighter service */}
             <div className='flex flex-col lg:flex-row gap-y-5 lg:gap-x-5 w-full lg:my-10 mb-10'>
                 {/* left part */}
                 <div className='w-full lg:w-[70%] flex flex-col gap-y-10 py-3 lg:py-10'>
@@ -161,7 +161,7 @@ const HighlightResume = () => {
                 </div>
             </div>
 
-            {/* Section 3 */}
+            {/* Your profile might go unnoticed in recruiter searches for the following reasons: */}
             <div className='bg-[#F6F6F8] py-5'>
                 <h1 className='text-2xl lg:text-3xl text-center px-2'>
                     Your profile might go unnoticed in recruiter searches for the following reasons:
@@ -187,7 +187,7 @@ const HighlightResume = () => {
                 </div>
             </div>
 
-            {/* Section 4 */}
+            {/* The benefits you gain from a Profile Highlighter service include */}
             <section>
                 <div className='bg-[#F6F6F8] mt-5'>
                     <h1 className='bg-[#F58634] font-medium text-lg sm:text-xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center'>
@@ -219,12 +219,12 @@ const HighlightResume = () => {
                 </div>
             </section>
 
-            {/* Section 5 */}
+            {/* how your profile look to recruiter - image */}
             <div className=''>
                 <img src={Image3} alt="" className='w-full mx-auto p-5 pt-2 pb-4'/>
             </div>
 
-            {/* Section 6 */}
+            {/* To get the best out of a Profile Highlighter service, consider the following tips */}
             <div className='bg-[#F8F8F8] flex flex-col gap-5 w-[90%] mx-auto p-4 px-2 rounded-2xl'>
                 <h1 className='xl:text-3xl lg:text-2xl md:text-xl sm:text-base text-center'>
                     To get the best out of a Profile Highlighter service, consider the following tips
@@ -251,7 +251,7 @@ const HighlightResume = () => {
                 </div>
             </div>
 
-            {/* Section 7 */}
+            {/* Talk to our experts */}
             <div className='flex flex-col md:flex-row justify-evenly gap-2 my-10 w-[90%] mx-auto'>
                 {/* left part */}
                 <div className='p-3 border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-t-2xl md:rounded-e-none md:rounded-l-2xl  w-full'>

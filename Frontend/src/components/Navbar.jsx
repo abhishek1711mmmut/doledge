@@ -18,7 +18,7 @@ const Navbar = () => {
   const sideBarHandler = (type) => {
     if(type == 'close'){
       setActive(false);
-      console.log(active)
+      // console.log(active)
 
     }
     else if( type == 'toggle'){

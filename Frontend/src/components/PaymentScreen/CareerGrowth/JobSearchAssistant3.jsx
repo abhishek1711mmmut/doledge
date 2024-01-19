@@ -46,6 +46,7 @@ const JobSearchAssistant3 = () => {
     const submitContactFormData=(e)=>{
         e.preventDefault();
         console.log(formData)
+        // write your code here
     }
 
     const handlePriceAssistant=()=>{
@@ -57,7 +58,7 @@ const JobSearchAssistant3 = () => {
 
   return (
     <div>
-        {/* section 1 */}
+        {/* Hero section */}
         <div className={`relative bg-[url(${bgImage})] bg-cover h-[300px] md:h-[400px] xl:h-[500px]`}>
            <div className='flex justify-around items-center mx-auto pt-4'>
                 <div className='flex flex-col justify-center items-center gap-y-4 md:gap-y-8 w-[90%] md:w-[40%]'>
@@ -73,7 +74,7 @@ const JobSearchAssistant3 = () => {
                 </div>
            </div>
 
-           {/*div to be overlaped */}
+           {/* Benefits of Doledge Job Search Assistant Services - div to be overlaped */}
            <div className='absolute left-[50%] -translate-x-[50%] top-[55%] md:top-[60%] lg:top-[70%] bg-white w-[85%] md:w-[90%] mx-auto py-4 sm:py-8 shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-y-8'>
             <h1 className='font-semibold text-base p-1 px-2 md:p-2 md:text-xl md:leading-[43px] bg-[#F58634] w-[90%] sm:w-[85%] md:w-[70%] lg:w-[50%] mx-auto rounded-xl'>
                 Benefits of Doledge Job Search Assistant Services
@@ -121,7 +122,8 @@ const JobSearchAssistant3 = () => {
                         </div>
                     </div>
                 </div>
-                {/* right part */}
+
+                {/* buy now checkbox */}
                 <div className='w-[60%] sm:w-[55%] md:w-[30%] flex flex-col gap-3 md:gap-4'>
                     <h1 className='font-medium text-base pr-5 sm:pr-0 mx-auto sm:text-2xl md:text-base lg:text-xl xl:text-2xl xl:leading-[43px] w-52 break-words sm:w-full'>
                         Job Search Assistant Service
@@ -152,12 +154,14 @@ const JobSearchAssistant3 = () => {
         </div>
         <div className='bg-white max-[400px]:h-[650px] max-[500px]:h-[650px] h-[800px] sm:h-[600px] md:h-[400px] xl:h-[500px]'></div>
 
-        {/* section 2 */}
+        {/* Benefits of Doledge Job Search Assistant Services */}
         <div>
             <div>
                 <h1 className='bg-[#62B01E9C] font-semibold sm:text-lg md:text-2xl lg:text-3xl py-3'>
                     Benefits of Doledge Job Search Assistant Services
                 </h1>
+
+                {/* table */}
                 <table className="table table-bordered table-striped table-auto !w-[70%] mx-auto my-10">
                     <thead >
                         <tr>  
@@ -219,6 +223,7 @@ const JobSearchAssistant3 = () => {
                 </table>
             </div>
 
+            {/* Why Job Search Assistant services is important? */}
             <div className='flex flex-col gap-6 mt-20'>
 
                 <h1 className='font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl' style={{fontFamily:'inter'}}>
@@ -267,6 +272,7 @@ const JobSearchAssistant3 = () => {
 
                 <hr className='h-[2px] bg-black/30'/>
 
+                {/* HOW JOB SEARCH ASSISTANT HELPS  */}
                 <div className='my-3'>
                     <h1 className='bg-[#62B01E9C] font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl py-3'>
                         HOW JOB SEARCH ASSISTANT HELPS 
@@ -305,7 +311,7 @@ const JobSearchAssistant3 = () => {
                 </div>
             </div>
 
-            {/* Contact us */}
+            {/* Talk to our experts */}
             <div className='flex flex-col md:flex-row justify-evenly gap-2 my-5 w-[90%] mx-auto border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl'>
                 {/* left part */}
                 <div className='p-3 w-full'>
@@ -316,8 +322,8 @@ const JobSearchAssistant3 = () => {
                 </div>
                 {/* right part */}
                 <div className='flex flex-col justify-evenly items-center w-full p-3 gap-y-4 md:gap-2'>
-                    <div className='flex flex-col justify-center items-start md:items-center'>
-                        <h1 className='font-inter font-semibold text-2xl'>
+                    <div className='flex flex-col justify-center items-center lg:items-start'>
+                        <h1 className='font-inter font-semibold text-2xl text-left md:text-center'>
                             Contact Us
                         </h1>
                         <p className='text-lg md:text-base lg:text-xl font-light' style={{fontFamily:'inter'}}>
