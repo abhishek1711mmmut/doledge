@@ -22,10 +22,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: "*",
-  methods: 'GET,UPDATE,PUT,DELETE',
+  origin: 'https://doledge-resume-portal-git-main-purezza-technologies.vercel.app',
   credentials: true,
 }));
+
 
 app.get("/", (req, res) => {
   res.json("hello from server");
