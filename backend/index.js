@@ -21,7 +21,11 @@ const app = express();
 // middlewares
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://doledge-resume-portal-git-main-purezza-technologies.vercel.app',
+  credentials: true,
+}));
+
 
 app.get("/", (req, res) => {
   res.json("hello from server");
