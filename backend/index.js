@@ -21,11 +21,7 @@ const app = express();
 // middlewares
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({
-  origin: "*",
-  methods: 'GET,UPDATE,PUT,DELETE',
-  credentials: true,
-}));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json("hello from server");
