@@ -25,9 +25,9 @@ const InternationalVisualEntry = () => {
   }));
 
   const prices={
-    price1:15499,
-    price2:17499,
-    price3:19499
+    price1:12499,
+    price2:13499,
+    price3:14499
   }
 
 
