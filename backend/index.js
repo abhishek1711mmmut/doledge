@@ -22,7 +22,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: '*',
+  origin: 'https://doledge-resume-portal-v2.vercel.app/',
   credentials: true,
 }));
 
