@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Servicecss from './Servicecss' // Import your CSS file
 import axios from 'axios';
 import contextAuth from '../ContextAPI/ContextAuth';
+import { Link } from "react-router-dom";
 
 const Banner_services = (props) => {
   return (
@@ -18,26 +19,29 @@ const Banner_services = (props) => {
       <br></br>
       <br></br>
       
-      <div className="services">
-      {props.services?.map(service => {
-        return (
-          <div className="service-card" key={service._id}>
-            <div
-              className="service-thumb"
-              style={{
-                backgroundImage:
-                  `url(${service.image})`,
-              }}
-            ></div>
-            <article>
-              <h1 className="service-title">{service.title}</h1>
-              <h2 className="service-description">{service.description}</h2>
-              <span className="service-price" style={{marginTop:'20px'}}>Starts from {service.price}/-</span>
-              <span className="service-link" style={{marginTop:'20px'}}>KNOW MORE</span>
-            </article>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-[90%] mx-auto">
+      {props.services?.map((service)=>(
+        <div className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/40 p-2 py-3 rounded-lg hover:scale-[97%] duration-200 hover:shadow-[0px_25px_20px_-20px_rgba(0,_0,_0,_0.45)] max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
+          <div className='w-[80%] md:w-[65%] h-[250px] md:h-[200px]'>
+            <img src={service.image} alt="" className='h-full w-full object-fill object-center rounded-lg'/>
           </div>
-        )
-      })}
+          <h1 className='text-xl text-center'>
+            {service.title}
+          </h1>
+          <hr className='w-[90%] h-[2px] border-none bg-gray-700'/>
+          <h2 className='text-base text-center w-[95%] mx-auto'>
+            {service.description}
+          </h2>
+          <div className='flex justify-between items-center text-[12px] leading-[15px] px-2 w-full'>
+            <button>
+              Starts from {service.price}/-
+            </button>
+            <Link className='text-blue-500'>
+              KNOW MORE
+            </Link>
+          </div>
+        </div>
+      ))}
 
 
 
