@@ -22,7 +22,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: 'https://doledge-resume-portal-v2-git-main-purezza-technologies.vercel.app',
+  origin: '*',
   credentials: true,
 }));
 
