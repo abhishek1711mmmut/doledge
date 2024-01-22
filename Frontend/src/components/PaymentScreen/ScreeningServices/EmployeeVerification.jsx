@@ -57,7 +57,7 @@ const BuyNow = (e) =>{
             fontFamily: "Poppins",
           }}
         >
-          <div className="text-white tracking-wider font-extrabold text-center  self-center max-w-[970px] max-md:max-w-full justify-center ">
+          <div className="text-white tracking-wider font-[900] text-center  self-center max-w-[970px] max-md:max-w-full justify-center  xl:text-[1.8rem] ">
             Pre-Employment Background Check Solutions
           </div>
         </div>
@@ -66,19 +66,18 @@ const BuyNow = (e) =>{
 
 
 
-
-      {/*  Section-2 -->  Details of Employee Background  Verification  */}
-      <div className="w-[92%] h-auto flex flex-col mx-auto mt-4  lg:flex-row">
-        <div className="basis-3/4 lg:basis-3/5  w-auto  h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 p-10 2xl:p-16">
-          <div className="basis-1/2 ">
+{/*  Section-2 -->  Details of Employee Background  Verification  */}
+<div className="w-[92%] h-auto flex flex-col mx-auto mt-2  lg:flex-row">
+        <div className="basis-3/4 lg:basis-3/5 h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 p-10 2xl:p-1">
+          <div className="basis-1/2">
             <img
-              className="w-full  items-center"
+              className="w-full items-center"
               src={require("./../../../images/ScreeningServices/PeopleImage.jpg")}
               alt="PeopleImage"
             />
           </div>
 
-          <div className="basis-1/2   w-auto text-justify m-2  [word-spacing:15px]">
+          <div className="basis-1/2   w-auto text-justify m-2  [word-spacing:2px]">
             <p className=" text-xl xl:text-[1.45rem] text-black leading-8 lg:leading-10 tracking-wide  lg:p-5">
               Employee background verification is a vital component of the
               hiring process, offering numerous benefits to employers. This
