@@ -58,6 +58,7 @@ import { responsiveFontSizes } from '@mui/material';
 import InternationalTextExecutive from './components/PaymentScreen/International/InternationalTextResume/InternationalTextExecutive';
 import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
 import Dashboard from './components/Dashboard';
+import DocumentVerification from './components/PaymentScreen/ScreeningServices/DocumentVerification';
 
 function App() {
   let [user, setUser] = useState({});
@@ -147,6 +148,7 @@ function App() {
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
                   <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
+                  <Route path='/Document-Verification' element={<DocumentVerification/>}/>
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   
                   {!token && (
