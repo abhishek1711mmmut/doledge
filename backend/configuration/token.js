@@ -6,10 +6,8 @@ function getToken(user) {
     }, process.env.SECRET,{
         expiresIn: '15d' 
     })
-
     return token;
 }
-
 function extractJWTFromRequest(req) {
     const authHeader = req.headers.authorization;
     if (authHeader && authHeader.startsWith('Bearer ')) {
@@ -19,7 +17,6 @@ function extractJWTFromRequest(req) {
     return null;
 }
 
-
 const validateToken = (req, res, next) => {
     const token = extractJWTFromRequest(req)
 
@@ -27,7 +24,7 @@ const validateToken = (req, res, next) => {
         return res.status(401).json({ message: 'No token provided' });
     }
 
-    jwt.verify(token, secretKey, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if (err) {
             return res.status(401).json({ message: 'Invalid token' });
         }
@@ -36,11 +33,10 @@ const validateToken = (req, res, next) => {
         next();
     });
 };
-
 function extractJWTDetails(jwtToken) {
     try {
         // Verify and decode the JWT using the secret key or public key, depending on your use case
-        const decoded = jwt.verify(jwtToken, secretKey); // Replace 'your-secret-key' with your actual secret key
+        const decoded = jwt.verify(jwtToken, process.env.SECRET); // Replace 'your-secret-key' with your actual secret key
 
         // The 'decoded' object will contain the payload data from the JWT
         return decoded;

@@ -1,14 +1,16 @@
-const mongoose = require("mongoose"); // Import mongoose
-const Cart = require("../model/cart"); // Use the correct model export name
+// controllers/cartController.js
+
+const mongoose = require("mongoose");
+const Cart = require("../model/cart");
 const token = require("../configuration/token");
 const ProductModel = require("../model/product");
 
+//! Add product to cart
 exports.addToCart = async (req, res) => {
   try {
     const jwtToken = token.extractJWTFromRequest(req);
     const jwtInfo = token.extractJWTDetails(jwtToken);
 
-    // Ensure that the user is authenticated and you have access to the user's _id in req.user._id.
     if (!jwtInfo) {
       return res.status(401).json({
         status: "Failed",
@@ -16,10 +18,9 @@ exports.addToCart = async (req, res) => {
       });
     }
 
-    const productId = req.params.productId; // Use the correct parameter name
+    const productId = req.params.productId;
 
-    // Find the product by its ID
-    const product = await ProductModel.findOne({_id:productId});
+    const product = await ProductModel.findOne({ _id: productId });
 
     if (!product) {
       return res.status(404).json({
@@ -28,35 +29,33 @@ exports.addToCart = async (req, res) => {
       });
     }
 
-    // Find the user's cart based on user ID
-    const cart = await Cart.findOne({ _userId: jwtInfo.ID });
+    let cart = await Cart.findOne({ _userId: jwtInfo.ID });
 
     if (!cart) {
-      return res.status(404).json({
-        status: "Failed",
-        message: "Cart not found",
+      cart = new Cart({
+        _id: new mongoose.Types.ObjectId(),
+        _userId: jwtInfo.ID,
+        products: [],
+        cartTotal: 0,
       });
     }
 
-    // Create a new cart item using the product details
     const cartProduct = {
-      product_id: product._id, // Use 'product._id' instead of 'Product._id'
+      product_id: product._id,
       price: product.price,
       description: product.description,
       title: product.title,
     };
 
-    // Add the product to the cart
     cart.products.push(cartProduct);
-
-    cart.cartTotal += product.price; // Update the cart total
+    cart.cartTotal += product.price;
 
     await cart.save();
 
     return res.status(201).json({
       status: "Success",
       message: "Product added to the cart successfully",
-      cartItem: cartProduct, // Return the added cart product
+      cartItem: cartProduct,
     });
   } catch (error) {
     console.log("Add to cart error: " + error);
@@ -67,32 +66,39 @@ exports.addToCart = async (req, res) => {
     });
   }
 };
-
-
-// Delete an item from the cart
-exports.deleteCartItem = async (req, res) => {
+//! Delete product from cart
+exports.deleteFromCart = async (req, res) => {
   try {
-    console.log("AM i calling from deleteCartItem");
     const jwtToken = token.extractJWTFromRequest(req);
     const jwtInfo = token.extractJWTDetails(jwtToken);
-    const productId = req.params.cartId; // Assuming you use cartId in the route
-    console.log("I m product id", productId);
 
-    // Find the user's cart based on user ID
-    const cart = await Cart.findOne({ _userId: jwtInfo.ID });
-    console.log("Print ho ra h..", cart);
+    if (!jwtInfo) {
+      return res.status(401).json({
+        status: "Failed",
+        message: "User not authenticated. Please log in or sign up.",
+      });
+    }
+
+    const productId = req.params.productId;
+
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Invalid product ID format",
+      });
+    }
+
+    let cart = await Cart.findOne({ _userId: jwtInfo.ID });
 
     if (!cart) {
-      return res.status(404).send({
+      return res.status(404).json({
         status: "Failed",
         message: "Cart not found",
       });
     }
-    // console.log('PRODUCT_ID is here',product_id)
 
-    // Find the index of the item to be deleted in the cart.products array
     const cartProductIndex = cart.products.findIndex(
-      (cartProduct) => cartProduct.product_id === productId
+      (cartProduct) => cartProduct.product_id.toString() === productId
     );
 
     if (cartProductIndex === -1) {
@@ -102,20 +108,66 @@ exports.deleteCartItem = async (req, res) => {
       });
     }
 
-    // Remove the item from the cart
+    const deletedProductPrice = cart.products[cartProductIndex].price;
+
     cart.products.splice(cartProductIndex, 1);
+    cart.cartTotal -= deletedProductPrice;
 
     await cart.save();
 
-    return res.status(200).send({
-      status: "success",
+    return res.status(200).json({
+      status: "Success",
       message: "Product deleted from the cart successfully",
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).send({
+    return res.status(500).json({
       status: "Failed",
       message: "Internal error",
+      error: error.message,
+    });
+  }
+};
+//! see my cart (user)
+exports.getmyCart = async (req, res) => {
+  try {
+    const jwtToken = token.extractJWTFromRequest(req);
+    const jwtInfo = token.extractJWTDetails(jwtToken);
+
+    if (!jwtInfo) {
+      return res.status(401).json({
+        status: "Failed",
+        message: "you are not authenticated. Please log in or sign up.",
+      });
+    }
+
+    let cart = await Cart.findOne({ _userId: jwtInfo.ID });
+
+    if (!cart) {
+      return res.status(404).json({
+        status: "Failed",
+        message: " your Cart not found",
+      });
+    }
+
+    if (cart.products.length === 0) {
+      return res.status(200).json({
+        status: "Success",
+        message: "Dear user, your cart is empty right now. Add some products!",
+        
+      });
+    }
+
+    return res.status(200).json({
+      status: "Success",
+      message: "dear user your cart ",
+      cart: cart,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      status: "Failed to see users cart",
+      message: "Internal error to fetch your cart",
       error: error.message,
     });
   }
