@@ -81,8 +81,8 @@ const JobSearchAssistant3 = () => {
             </h1>
             <div className='flex flex-col md:flex-row justify-around items-center gap-y-4 md:gap-y-0 md:pt-3'>
                 {/* left part */}
-                <div className='flex flex-col justify-center items-center gap-4 w-[90%] md:w-[55%]'>
-                    <div className='flex justify-center items-center gap-3 lg:gap-4'>
+                <div className='flex flex-col justify-start items-center gap-4 w-[90%] md:w-[55%]'>
+                    <div className='flex justify-start items-center gap-3 lg:gap-4 w-full'>
                         <div className='w-12'>
                             <img src={Icon1} alt="" className='w-full h-full object-contain'/>
                         </div>
@@ -95,7 +95,7 @@ const JobSearchAssistant3 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex justify-center items-center gap-3 lg:gap-4'>
+                    <div className='flex justify-start items-center gap-3 lg:gap-4 w-full'>
                         <div className='w-12'>
                             <img src={Icon2} alt="" className='w-full h-full object-contain'/>
                         </div>
@@ -108,7 +108,7 @@ const JobSearchAssistant3 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex justify-center items-center gap-3 lg:gap-4'>
+                    <div className='flex justify-start items-center gap-3 lg:gap-4 w-full'>
                         <div className='w-12'>
                             <img src={Icon3} alt="" className='w-full h-full object-contain'/>
                         </div>
