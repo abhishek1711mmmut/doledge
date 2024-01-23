@@ -62,6 +62,8 @@ const TextEntry = () => {
     },
   ];
 
+  let [loading, setLoading] = useState(true);
+
   let [state, setState] = useState({
     services: [],
     blogs: [],
