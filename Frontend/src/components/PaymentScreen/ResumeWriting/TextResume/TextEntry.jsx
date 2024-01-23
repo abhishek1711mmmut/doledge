@@ -61,6 +61,21 @@ const TextEntry = () => {
     },
   ];
 
+  let [state, setState] = useState({
+    services: [],
+    blogs: [],
+  });
+  
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(response => {
+      const data = response.data.data;
+      setState({services: data.services, blogs: data.blogs});
+    })
+    .catch(err => console.log(err));
+    setLoading(false);
+  }, [])
+
   return (
 
 
@@ -328,7 +343,7 @@ const TextEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      <Blog blogs={state.blogs}/>
 
       {/* Footer */}
       <Footer/>
