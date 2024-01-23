@@ -119,7 +119,7 @@ function App() {
         <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, loadingHandler}}>
           <BrowserRouter>
             <div className="App">
-                <Navbar />
+                <Navbar/>
                 {error && <Modal error={error.message} type={error.type}/>}
                 {loading && <Spinner/>}
                 <Routes>

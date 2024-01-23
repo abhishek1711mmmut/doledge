@@ -35,7 +35,7 @@ const MAINheader = () => {
         <Header/>
         <Contact/>
         <Mheader/>
-        <Blog blogs={state.blogs}/>
+        <Blog/>
         <Footer/>
     </div>
   )
