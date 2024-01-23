@@ -10,7 +10,7 @@ import { Card, CardContent } from '@mui/material';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
