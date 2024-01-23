@@ -317,7 +317,7 @@ const TextEntry = () => {
       <div className='mx-auto p-4 sm:mt-8 w-11/12 max-w-[1280px]'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
-          <table className='mx-auto w-[95%] md:w-[85%] lg:w-[73%] bg-gradient-to-t from-slate-200 to-slate-50'>
+          <table className='mx-auto w-[95%] md:w-[85%] lg:w-[80.5%] bg-gradient-to-t from-slate-200 to-slate-50'>
             <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px]  h-16'>
               <th>Resume Variant</th>
               <th className='border-l-2 border-r-2'>First Version</th>
