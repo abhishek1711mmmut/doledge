@@ -27,7 +27,6 @@ import InternationalTextSenior from './components/PaymentScreen/International/In
 import InternationalVisualEntry from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualEntry';
 import InternationalVisualMiddle from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualMiddle';
 import InternationalVisualSenior from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualSenior';
-import SocialProfiler from './components/PaymentScreen/International/SocialProfiler';
 import ZapInternational from './components/PaymentScreen/International/ZapInternational';
 
 import ZapResume from './components/PaymentScreen/CareerGrowth/ZapResume';
@@ -41,6 +40,9 @@ import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
 import EmployeeVerification from './components/PaymentScreen/ScreeningServices/EmployeeVerification';
 import ResumeCritique from './components/PaymentScreen/ScreeningServices/ResumeCritique';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
+
+// import COntactus from './components/Contactus'
+import SocialProfiler from './components/PaymentScreen/International/SocialProfiler';
 
 
 
@@ -60,6 +62,7 @@ import InternationalTextExecutive from './components/PaymentScreen/International
 import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
 import Dashboard from './components/Dashboard';
 import DocumentVerification from './components/PaymentScreen/ScreeningServices/DocumentVerification';
+import Contactus from './components/Contactus';
 
 function App() {
   let [user, setUser] = useState({});
@@ -119,6 +122,7 @@ function App() {
                 {error && <Modal error={error.message} type={error.type}/>}
                 {loading && <Spinner/>}
                 <Routes>
+                {/* <Route path="/Contact-us" element={<Contactus/>} /> */}
                   {/* <Route path="/redirect" element={<Redirect/>} /> */}
                   {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
                   <Route path="/Text-Resume-Entry-Level" element={<TextEntry/>} />
@@ -138,7 +142,7 @@ function App() {
                   <Route path="/Visual-Resume-International-Middle-Level" element={<InternationalVisualMiddle/>} />
                   <Route path="/Visual-Resume-International-Senior-Level" element = {<InternationalVisualSenior/>} />
                   <Route path="/Visual-Resume-International-Executive-Level" element = {<InternationalVisualExecutive/>} />
-                  <Route path="/socialprofiler" element={<SocialProfiler/>} />
+                  
                   <Route path="/Zap-Your-Resume-International" element={<ZapInternational/>} />
                   <Route path="Zap-Your-Resume" element={<ZapResume/>} />
                   <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
@@ -151,6 +155,7 @@ function App() {
                   <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
                   <Route path="/Web-Screening-Services" element={<ResumeCritique/>} />
                   <Route path='/Document-Verification' element={<DocumentVerification/>}/>
+                  <Route path="/socialprofiler" element={<SocialProfiler/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   
                   {!token && (
