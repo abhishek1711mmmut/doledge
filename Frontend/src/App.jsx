@@ -60,6 +60,7 @@ import InternationalTextExecutive from './components/PaymentScreen/International
 import InternationalVisualExecutive from './components/PaymentScreen/International/InternationalVisualResume/InternationalVisualExecuive';
 import Dashboard from './components/Dashboard';
 import DocumentVerification from './components/PaymentScreen/ScreeningServices/DocumentVerification';
+import JobAlertOnMailAndSms from './components/PaymentScreen/CareerGrowth/JobAlertOnMailAndSms';
 
 function App() {
   let [user, setUser] = useState({});
@@ -144,6 +145,7 @@ function App() {
                   <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
                   <Route path="/Job-Search-Assistant" element={<JobSearchAssistant3/>} />
                   <Route path="/Interview-Preparation" element={<InterviewPreparation/>} />
+                  <Route path="Job-Alert-On-Mail-And-SMS" element={<JobAlertOnMailAndSms/>} />
                   <Route path="/Top-Management-Profile" element={<TopManagementProfile/>} />
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
