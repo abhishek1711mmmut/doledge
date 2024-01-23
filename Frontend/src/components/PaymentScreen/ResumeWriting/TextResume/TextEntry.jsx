@@ -10,8 +10,9 @@ import { Card, CardContent } from '@mui/material';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 
 const TextEntry = () => {
@@ -60,6 +61,23 @@ const TextEntry = () => {
       icon:faTrophy
     },
   ];
+
+  let [loading, setLoading] = useState(true);
+
+  let [state, setState] = useState({
+    services: [],
+    blogs: [],
+  });
+  
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(response => {
+      const data = response.data.data;
+      setState({services: data.services, blogs: data.blogs});
+    })
+    .catch(err => console.log(err));
+    setLoading(false);
+  }, [])
 
   return (
 
@@ -153,8 +171,8 @@ const TextEntry = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
-          Doledge's Text Resume Services are the key to unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-11/12 max-w-[1280px] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's Text Resume Services are the key to <br className='hidden lg:block'/> unlocking a more
           efficient and effective job search.
         </div>
 
@@ -245,7 +263,7 @@ const TextEntry = () => {
 
 
       {/* How it Works */}
-      <div className="text-orange-400 font-medium mt-16" style=
+      <div className="text-orange-400 font-medium mt-16 w-11/12 max-w-[1280px] mx-auto" style=
         {{
           fontSize: 26,
           fontFamily: 'Poppins',
@@ -296,7 +314,7 @@ const TextEntry = () => {
       {/* </div> */}
 
       {/* Resume Delivery Time */}
-      <div className='mx-auto p-4 sm:mt-8'>
+      <div className='mx-auto p-4 sm:mt-8 w-11/12 max-w-[1280px]'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
           <table className='mx-auto w-[95%] md:w-[85%] lg:w-[73%] bg-gradient-to-t from-slate-200 to-slate-50'>
@@ -328,7 +346,7 @@ const TextEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      <Blog blogs={state.blogs}/>
 
       {/* Footer */}
       <Footer/>
