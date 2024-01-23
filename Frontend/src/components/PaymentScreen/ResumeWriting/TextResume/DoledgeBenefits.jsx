@@ -28,7 +28,7 @@ export default function DoledgeBenefits({prices}) {
          {/* <div className="flex justify-center align-center bg-green-500">
       Click me
     </div> */}
-      <div className='bg-gradient-to-tr from-emerald-400 to-lime-300 w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
+      <div className='bg-[#9DD49B] w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
         Doledge Benefits
       </div>
 
@@ -40,7 +40,7 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-[90%] mx-auto">
+      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-11/12 max-w-[1280px] mx-auto">
         <div className="flex flex-col justify-center items-center w-[100%]">
          
 
@@ -157,7 +157,7 @@ export default function DoledgeBenefits({prices}) {
 
       {/* Experiencing benefit section */}
 
-      <div className="flex md:flex-col w-full md:w-[100%] align-center justify-center">
+      <div className="flex md:flex-col w-full md:w-11/12 max-w-[1280px] mx-auto align-center justify-center">
         {/* red main */}
         <div className="stats-section w-full lg:w-[90%]" style={{ margin: '25px auto' }}>
           <div className="text-opacity-60 text-center font-medium leading-[35px] sm:leading-[48.1px] mt-8 self-center w-[90%] sm:w-full mx-auto max-md:max-w-full text-lg sm:text-2xl" style={{

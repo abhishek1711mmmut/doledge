@@ -153,8 +153,8 @@ const TextEntry = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
-          Doledge's Text Resume Services are the key to unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-11/12 max-w-[1280px] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's Text Resume Services are the key to <br className='hidden lg:block'/> unlocking a more
           efficient and effective job search.
         </div>
 
@@ -169,8 +169,8 @@ const TextEntry = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-full mt-5 text-white">
-        <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
+      <div className="bg-[#a6da8a] w-screen mt-5 text-black">
+        <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%] w-11/12 max-w-[1080px] mx-auto">
           
 
           <div className='text-left pl-4 pt-12' style={{ wordWrap: 'break-word',lineHeight:'2.7rem' }}>
@@ -245,7 +245,7 @@ const TextEntry = () => {
 
 
       {/* How it Works */}
-      <div className="text-orange-400 font-medium mt-16" style=
+      <div className="text-orange-400 font-medium mt-16 w-11/12 max-w-[1280px] mx-auto" style=
         {{
           fontSize: 26,
           fontFamily: 'Poppins',
@@ -256,7 +256,7 @@ const TextEntry = () => {
         How it works?
       </div>
 
-      <div className="flex justify-center p-5">
+      <div className="flex justify-center p-5 w-11/12 max-w-[1280px] mx-auto">
 
         <Stepper sx={{ width: '90%', }} className='mx-auto'>
 
@@ -271,7 +271,7 @@ const TextEntry = () => {
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100 mx-auto'>
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='!bg-[#FCE3D1] mx-auto'>
                   <div className="div mb-[10px] sm:-mb-2" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
                     <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}} /> 
                   </div>
@@ -296,7 +296,7 @@ const TextEntry = () => {
       {/* </div> */}
 
       {/* Resume Delivery Time */}
-      <div className='mx-auto p-4 sm:mt-8'>
+      <div className='mx-auto p-4 sm:mt-8 w-11/12 max-w-[1280px]'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
           <table className='mx-auto w-[95%] md:w-[85%] lg:w-[70%] bg-gradient-to-t from-slate-200 to-slate-50'>
