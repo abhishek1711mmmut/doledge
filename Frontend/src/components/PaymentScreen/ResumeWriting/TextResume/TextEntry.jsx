@@ -290,7 +290,7 @@ const TextEntry = () => {
                   {card.title}
                 </div>
                 <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '70%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100 mx-auto'>
-                  <div className="div mb-[10px] sm:mb-3" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
+                  <div className="div mb-[10px] sm:mb-2" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
                     <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}} /> 
                   </div>
                   <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '18vh', }}>
