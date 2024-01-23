@@ -1,11 +1,10 @@
 const express = require('express');
+const { createresume,getallresume } = require('../controller/resume');
 const router = express.Router();
-const resumeController = require('../controller/resume');
 
-// Create a resume
-router.post('/resumes', resumeController.createResume);
 
-// Get all resumes
-router.get('/resumes', resumeController.getResumes);
+router.post("/create-resume",createresume)
 
-module.exports = router;
+router.get("/allresumes",getallresume)
+
+exports.routes = router;   

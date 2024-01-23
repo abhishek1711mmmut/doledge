@@ -9,8 +9,8 @@ const signinValidation = [validate.email, validate.password];
 const signupValidation = [validate.name, validate.email, validate.password, validate.tel];
 
 router
-  .post("/signup", fileUpload.single('resume'), authController.signup)
-  .post("/login", authController.login);
+  .post("/signup", fileUpload.single('resume'),signupValidation, authController.signup)
+  .post("/login",signinValidation, authController.login);
   
 
 exports.routes = router;
