@@ -37,7 +37,7 @@ const Banner_services = (props) => {
               Starts from {service.price}/-
             </button>
             <Link className='text-blue-500'>
-              KNOW MORE
+              KNOW MORE 
             </Link>
           </div>
         </div>

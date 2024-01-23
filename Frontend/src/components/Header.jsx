@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     // h-[411px]
-    <div className="w-[80%] mt-5" style={{
+    <div className="w-[67%] mt-5" style={{
       margin: '0 auto', display: 'flex',
       flexWrap: 'wrap'
     }}>

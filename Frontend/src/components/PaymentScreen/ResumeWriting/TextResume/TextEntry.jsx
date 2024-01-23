@@ -10,8 +10,9 @@ import { Card, CardContent } from '@mui/material';
 import DoledgeBenefits from './DoledgeBenefits';
 import Blog from '../../../Blog';
 import Footer from '../../../Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 
 const TextEntry = () => {
@@ -60,6 +61,23 @@ const TextEntry = () => {
       icon:faTrophy
     },
   ];
+
+  let [loading, setLoading] = useState(true);
+
+  let [state, setState] = useState({
+    services: [],
+    blogs: [],
+  });
+  
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(response => {
+      const data = response.data.data;
+      setState({services: data.services, blogs: data.blogs});
+    })
+    .catch(err => console.log(err));
+    setLoading(false);
+  }, [])
 
   return (
 
@@ -153,8 +171,8 @@ const TextEntry = () => {
         padding: '15px 8px 8px',
         fontFamily: 'Poppins'
       }}>
-        <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
-          Doledge's Text Resume Services are the key to unlocking a more
+        <div className="text-white text-center self-center w-[100%] lg:w-11/12 max-w-[1280px] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
+          Doledge's Text Resume Services are the key to <br className='hidden lg:block'/> unlocking a more
           efficient and effective job search.
         </div>
 
@@ -169,14 +187,14 @@ const TextEntry = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-full mt-5 text-white">
+      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-[70%] mx-auto mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
           <div className='text-left pl-4 pt-12' style={{ wordWrap: 'break-word',lineHeight:'2.7rem' }}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Expertly tailored to beat ATS filters
              
               
@@ -188,7 +206,7 @@ const TextEntry = () => {
           <div className='text-left pl-4 leading-[2.7rem]' style={{ wordWrap: 'break-word' }}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
+            <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
 
               Strategically incorporate industry-specific keywords to make your resume stand out
 
@@ -203,7 +221,7 @@ const TextEntry = () => {
           <div className='text-left pl-4 leading-[2.7rem]' style={{ wordWrap: 'break-word' ,}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Our designers create professional, aesthetically pleasing text resumes
              
             </span>
@@ -212,7 +230,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               We valuing your input and preferences to produce a resume that truly represents you
              
             </span>
@@ -221,7 +239,7 @@ const TextEntry = () => {
           <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Making your resume usable for all individuals
              
             </span>
@@ -230,7 +248,7 @@ const TextEntry = () => {
           <div className='text-left pl-4 pb-12' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
-            <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
+            <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
               Crafting text resumes that lead to real-world job opportunities
              
             </span>
@@ -245,7 +263,7 @@ const TextEntry = () => {
 
 
       {/* How it Works */}
-      <div className="text-orange-400 font-medium mt-16" style=
+      <div className="text-orange-400 font-medium mt-16 w-11/12 max-w-[1280px] mx-auto" style=
         {{
           fontSize: 26,
           fontFamily: 'Poppins',
@@ -256,27 +274,27 @@ const TextEntry = () => {
         How it works?
       </div>
 
-      <div className="flex justify-center p-5">
+      <div className="flex justify-center px-[2.4vw]">
 
         <Stepper sx={{ width: '90%', }} className='mx-auto'>
 
 
-          <Grid container justifyContent={'center'} alignItems={'center'} spacing={{lg:3}} rowSpacing={3} className='mx-auto'>
+          <Grid container justifyContent={'center'} alignItems={'center'} spacing={{lg:3}} rowSpacing={3} className='ml-[1vw] px-[5vw]'>
             {cardContents.map((card, index) => (
               <Grid item sm={9} md={6}  lg={3} key={index} className='mx-auto'>
               
                 <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px', color: '#5E5E5E', }}>
                   {card.steps}
                 </div>
-                <div style={{ fontSize: '15px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
+                <div style={{ fontSize: '11.5px', fontFamily: 'Poppins', fontWeight: 700, marginBottom: '10px' }}>
                   {card.title}
                 </div>
-                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '90%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100 mx-auto'>
-                  <div className="div mb-[10px] sm:-mb-2" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
+                <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', width: '70%', borderRadius:'5%'}} className='bg-gradient-to-br from-orange-300 to-yellow-100 mx-auto'>
+                  <div className="div mb-[10px] sm:mb-3" style={{ fontSize: 26, fontFamily: 'Poppins', fontWeight: '500',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
                     <FontAwesomeIcon icon={card.icon}  style={{color: "royalblue"}} /> 
                   </div>
-                  <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh', }}>
-                    <Typography variant="h6" component="h2" style={{ fontSize: '14px', fontFamily: 'Poppins', fontWeight: 500 }}>
+                  <CardContent className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '18vh', }}>
+                    <Typography variant="h6" component="h2" style={{ fontSize: '10px', fontFamily: 'Poppins', fontWeight: 500 }}>
                       {card.content}
                     </Typography>
 
@@ -296,11 +314,11 @@ const TextEntry = () => {
       {/* </div> */}
 
       {/* Resume Delivery Time */}
-      <div className='mx-auto p-4 sm:mt-8'>
+      <div className='mx-auto p-4 sm:mt-8 w-11/12 max-w-[1280px]'>
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
-          <table className='mx-auto w-[95%] md:w-[85%] lg:w-[70%] bg-gradient-to-t from-slate-200 to-slate-50'>
-            <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px] h-16'>
+          <table className='mx-auto w-[95%] md:w-[85%] lg:w-[80.5%] bg-gradient-to-t from-slate-200 to-slate-50'>
+            <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px]  h-16'>
               <th>Resume Variant</th>
               <th className='border-l-2 border-r-2'>First Version</th>
               <th>Final Delivery</th>
@@ -328,7 +346,7 @@ const TextEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      <Blog blogs={state.blogs}/>
 
       {/* Footer */}
       <Footer/>
