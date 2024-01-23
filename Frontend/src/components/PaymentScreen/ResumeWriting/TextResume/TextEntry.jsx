@@ -12,6 +12,7 @@ import Blog from '../../../Blog';
 import Footer from '../../../Footer';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 
 const TextEntry = () => {
