@@ -51,9 +51,8 @@ function JobAlertOnMailAndSms() {
         {/* Section 1 */}
         <div
           className="Banner w-full flex flex-col md:flex md:flex-row"
-          style={{ height: "400px" }}
         >
-          <div className="banner-title bg-[#D37F47] w-full md:w-[70%] flex justify-start flex-col pt-4 sm:pt-0 px-4 sm:px-12">
+          <div className="banner-title bg-[#D37F47] w-full md:w-[70%] flex justify-start items-center pt-4 sm:pt-0 px-4 sm:px-12">
             <div className="text-left">
               <div className="first-header ">Receive Instant Job Alerts</div>
               <div className="first-header">on Mail & SMS for Your Next</div>
@@ -64,7 +63,7 @@ function JobAlertOnMailAndSms() {
             </div>
           </div>
 
-          <div className="banner-image w-full flex justify-center md:w-[30%]">
+          <div className="w-full flex justify-center md:w-[30%]">
             <img
               src={require("../../../images/image 99.png")}
               alt="Banner"
@@ -75,7 +74,7 @@ function JobAlertOnMailAndSms() {
       </div>
 
       {/*Section 2*/}
-      <div className="bg-white  p-4">
+      <div className="bg-white p-4">
         {/* Title on the left top with padding */}
         <div className=" text-2xl font-bold mb-4 text-left">
           Importance of alerts!
