@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
-import payment1 from '../images/mastercard.png'
+import payment1 from '../images/mastercard.jpg'
 import payment2 from '../images/visa.png'
 import payment3 from '../images/american-express.png'
 import payment4 from '../images/maestro.png'
@@ -36,20 +36,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-4 bg-white">
-            <img
-              className="w-[100%] h-[60px] px-3
-              sm:w-[70%]
-              md:w-[50%]"
-              alt="payment"
-              src={require("../images/payment.png")}
-            // style={{border: '1px solid black'}}
-            />
-            {/* <img src={payment1} alt="" className="h-[60px] w-[90px] !bg-white"/>
-            <img src={payment2} alt="" className="h-[60px] w-[90px] bg-white"/>
-            <img src={payment3} alt="" className="h-[60px] w-[90px] bg-white"/>
-            <img src={payment4} alt="" className="h-[60px] w-[90px] bg-white"/>
-            <img src={payment5} alt="" className="h-[60px] w-[90px] bg-white"/> */}
+          <div className="flex justify-center items-center md:gap-4 bg-white">
+            <img src={payment1} alt="" loading="lazy" className="h-[60px] w-[90px] !bg-white"/>
+            <img src={payment2} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment3} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment4} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment5} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
           </div>
         </div>
 
