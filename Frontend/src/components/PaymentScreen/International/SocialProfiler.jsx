@@ -76,7 +76,7 @@ const SocialProfiler = () => {
 
             {/* Third Section */}
 
-            <h1 className='font-semibold text-3xl leading-[70px] p-2 bg-[#F58634]'>
+            <h1 className='font-semibold text-3xl leading-[70px] p-2 bg-[#F58634] mb-8'>
                 Unlocking Success with Social Profiler
             </h1>
 
@@ -146,8 +146,8 @@ const SocialProfiler = () => {
 
 
             {/* FIfth Section Points */}
-            <div className='flex flex-col justify-center items-center mt-2 mt-10'>
-                <h1 className='font-medium text-3xl leading-[53px]'>
+            <div className='flex flex-col justify-center items-center mt-2 mt-12'>
+                <h1 className='font-medium text-3xl leading-[53px] mb-4'>
                     Unlocking Your Digital Potential: How Our Social Profiler Service Works
                 </h1>
            

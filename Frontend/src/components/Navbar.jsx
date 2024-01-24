@@ -10,6 +10,7 @@ import SideBar from '../UI/SideBar/SideBar.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCartArrowDown, faCartFlatbed, faCartShopping, faPhone } from '@fortawesome/free-solid-svg-icons';
 import contextAuth from '../ContextAPI/ContextAuth.js';
+import recruiterLogo from '../images/employer-login.png'
 
 const Navbar = () => {
   const Auth = useContext(contextAuth);;
@@ -31,7 +32,7 @@ const Navbar = () => {
 
  return (
     <>
-      <Container fluid className="px-0">
+      <Container fluid className="px-0 top-0 sticky bg-white z-50">
         {/* TopNav */}
         <div className='flex flex-row justify-end items-center py-2 md:px-8 text-[18px] bg-[#fafafa]'>
           <div className='mr-4 flex flex-row px-2 border-2 rounded-[10px]'>
@@ -95,6 +96,14 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link className="btn register-button" to='/register'>
                       Register
+                    </Link>
+                  </li>
+                  <li className="nav-item border-l-[1.5px] border-[#c1c1c1]">
+                    <Link className="flex flex-col justify-center items-center pl-3" to='/register'>
+                      <img src={recruiterLogo} alt="" className='w-12'/>
+                      <p className='text-[15px] leading-[18px]'>
+                        RECRUITER LOGIN
+                      </p>
                     </Link>
                   </li>
                 </>) : (

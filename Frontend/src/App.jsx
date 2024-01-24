@@ -63,6 +63,7 @@ import InternationalVisualExecutive from './components/PaymentScreen/Internation
 import Dashboard from './components/Dashboard';
 import DocumentVerification from './components/PaymentScreen/ScreeningServices/DocumentVerification';
 import Contactus from './components/Contactus';
+import JobAlertOnMailAndSms from './components/PaymentScreen/CareerGrowth/JobAlertOnMailAndSms';
 
 function App() {
   let [user, setUser] = useState({});
@@ -118,7 +119,7 @@ function App() {
         <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, loadingHandler}}>
           <BrowserRouter>
             <div className="App">
-                <Navbar />
+                <Navbar/>
                 {error && <Modal error={error.message} type={error.type}/>}
                 {loading && <Spinner/>}
                 <Routes>
@@ -148,6 +149,7 @@ function App() {
                   <Route path="Highlight-Your-Resume" element={<HighlightResume/>} />
                   <Route path="/Job-Search-Assistant" element={<JobSearchAssistant3/>} />
                   <Route path="/Interview-Preparation" element={<InterviewPreparation/>} />
+                  <Route path="Job-Alert-On-Mail-And-SMS" element={<JobAlertOnMailAndSms/>} />
                   <Route path="/Top-Management-Profile" element={<TopManagementProfile/>} />
                   <Route path="/Profile-Update" element={<ProfileUpdate/>} />
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />

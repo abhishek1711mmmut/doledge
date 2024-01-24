@@ -71,6 +71,7 @@ const Dropdown = (props) => {
           {title:'Highlight Your Resume', link:'Highlight-Your-Resume'},
           {title:'Job Search Assistant', link:'Job-Search-Assistant'},
           {title:'Interview Preparation', link:'Interview-Preparation'},
+          {title:'Job Alert On Mail and SMS',link:'Job-Alert-On-Mail-And-SMS'},
           {title:'Top Management Profile', link:'Top-Management-Profile'},
           {title:'Profile Update', link:'Profile-Update'},
           {title:'Personal Portfolio', link:'Personal-Portfolio'},

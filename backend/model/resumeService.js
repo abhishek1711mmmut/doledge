@@ -23,4 +23,5 @@ const resumeServiceSchema = new mongoose.Schema({
   ],
 });
 
-exports.ResumeService = mongoose.model("ResumeService", resumeServiceSchema);
+const resumeService = mongoose.model("resumeService", resumeServiceSchema);
+module.exports = resumeService;
