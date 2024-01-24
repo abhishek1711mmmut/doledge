@@ -1,13 +1,18 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
+import payment1 from '../images/mastercard.jpg'
+import payment2 from '../images/visa.png'
+import payment3 from '../images/american-express.png'
+import payment4 from '../images/maestro.png'
+import payment5 from '../images/Rupay-Logo.png'
 
 const Footer = () => {
   return (
     <>
       <div className="w-[100%]">
         {/* Payment Section */}
-        <div className="w-[100%] border-t-2 border-b-2 py-3 mt-5">
+        <div className="w-[70%] max-w-[1500px] mx-auto mx-autoborder-t-2 py-3 mt-5">
           <div className="w-full">
             <div className="w-full text-black leading-[31px] tracking-[3.74px]" style={{
               color: 'black',
@@ -31,20 +36,19 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full flex justify-center">
-            <img
-              className="w-[100%] h-[60px] px-3
-              sm:w-[70%]
-              md:w-[50%]"
-              alt="payment"
-              src={require("../images/payment.png")}
-            // style={{border: '1px solid black'}}
-            />
+          <div className="flex justify-center items-center md:gap-4 bg-white">
+            <img src={payment1} alt="" loading="lazy" className="h-[60px] w-[90px] !bg-white"/>
+            <img src={payment2} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment3} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment4} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment5} alt="" loading="lazy" className="h-[60px] w-[90px] bg-white"/>
           </div>
         </div>
 
+        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
+
         {/* Footer Information */}
-        <div className="flex flex-row justify-evenly items-center px-0 pt-4" style={{ borderBottom: '2px solid #ccc' }}>
+        <div className="flex flex-row justify-evenly items-center px-0 pt-4 w-[70%] max-w-[1500px] mx-auto">
           {/* section 1 */}
           <div className="flex flex-col
           lg:flex lg:flex-row">
@@ -180,6 +184,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
 
         {/* Social Networks */}
         <div className="flex justify-center items-center py-2">

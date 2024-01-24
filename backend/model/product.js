@@ -10,4 +10,6 @@ const productSchema = new mongoose.Schema({
     status: { type: String, enum: ["Approved", "Rejected", "Initial"], default: "Initial" },
 });
 
-exports.Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;

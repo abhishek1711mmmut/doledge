@@ -3,14 +3,14 @@ import React from "react";
 const Header = () => {
   return (
     // h-[411px]
-    <div className="w-[67%] mt-5" style={{
+    <div className="w-[80%] md:w-[70%] max-w-[1500px] mt-5" style={{
       margin: '0 auto', display: 'flex',
       flexWrap: 'wrap'
     }}>
       <div className="w-full flex flex-col items-center justify-between border-[3px] rounded border-gray-200 
       md:flex-row">
         <div className="md:w-1/2 w-full py-6 px-8  text-gray-900 text-left">
-          <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left" style={{
+          <h1 className="text-2xl md:text-4xl font-sans mb-4 text-center md:text-left" style={{
             // borderRadius:'20px',
             color: '#6B6B6B',
             fontSize: 27,
@@ -19,7 +19,7 @@ const Header = () => {
             letterSpacing: 2.16,
             wordWrap: 'break-word'
           }}>Text Resume</h1>
-          <h1 className="text-xl text-left md:text-xl font-semibold mb-4 mt-5 text-black-600"
+          <h1 className="text-xl text-center md:text-left md:text-xl font-semibold mb-4 mt-5 text-black-600"
             style={{
               fontFamily: 'Poppins'
             }}
@@ -28,7 +28,7 @@ const Header = () => {
             Unlock opportunities and captivate employers with our professional
             text resume services.
           </h1>
-          <h1 className="text-left text-xl md:text-xl mb-8" style={{
+          <h1 className="text-justify md:text-left text-xl md:text-xl mb-8" style={{
             color: 'black',
             fontFamily: 'Poppins',
             fontWeight: '300',
@@ -39,16 +39,16 @@ const Header = () => {
             Concise, impactful, and ATS-friendly—your pathway to career success
             begins with us
           </h1>
-          <div className="text-left md:text-left">
+          <div className="text-center md:text-left">
             <button className="bg-gray-100 rounded-lg py-2 px-4 text-black font-semibold text-xl">
               Know more
             </button>
           </div>
         </div>
-        <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-right">
+        <div className="md:w-1/2 w-full flex-shrink-0 py-8 px-8 text-center md:text-right rounded-lg">
           <img
             src={require("../images/trog.png")}
-            className="mx-auto md:mx-0"
+            className="mx-auto md:mx-0 rounded-lg"
             width="350px"
             height="350px"
             alt=""
