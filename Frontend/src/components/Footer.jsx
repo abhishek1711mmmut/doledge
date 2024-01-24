@@ -1,6 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
+import payment1 from '../images/mastercard.png'
+import payment2 from '../images/visa.png'
+import payment3 from '../images/american-express.png'
+import payment4 from '../images/maestro.png'
+import payment5 from '../images/Rupay-Logo.png'
 
 const Footer = () => {
   return (
@@ -31,7 +36,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center items-center gap-4 bg-white">
             <img
               className="w-[100%] h-[60px] px-3
               sm:w-[70%]
@@ -40,6 +45,11 @@ const Footer = () => {
               src={require("../images/payment.png")}
             // style={{border: '1px solid black'}}
             />
+            {/* <img src={payment1} alt="" className="h-[60px] w-[90px] !bg-white"/>
+            <img src={payment2} alt="" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment3} alt="" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment4} alt="" className="h-[60px] w-[90px] bg-white"/>
+            <img src={payment5} alt="" className="h-[60px] w-[90px] bg-white"/> */}
           </div>
         </div>
 
