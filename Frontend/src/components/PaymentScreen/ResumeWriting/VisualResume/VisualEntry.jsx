@@ -170,11 +170,11 @@ const VisualEntry = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-orange-500 to-amber-400 w-[70%] mx-auto mt-5 text-white">
+      <div className="bg-gradient-to-tr from-orange-500 to-amber-400 w-[100%] mx-auto mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 
-          <div className='text-left pl-4 pt-12' style={{ wordWrap: 'break-word',lineHeight:'2.7rem' }}>
+          <div className='text-left pl-7 pt-12' style={{ wordWrap: 'break-word',lineHeight:'2.7rem' }}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
@@ -186,7 +186,7 @@ const VisualEntry = () => {
 
 
           {/* 2 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-7' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
@@ -201,7 +201,7 @@ const VisualEntry = () => {
 
 
           {/* 3 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-7' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
@@ -210,7 +210,7 @@ const VisualEntry = () => {
             </span>
           </div>
           {/* 4 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-7' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
@@ -219,7 +219,7 @@ const VisualEntry = () => {
             </span>
           </div>
           {/* 5 */}
-          <div className='text-left pl-4' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-7' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
@@ -228,7 +228,7 @@ const VisualEntry = () => {
             </span>
           </div>
           {/* 6 */}
-          <div className='text-left pl-4 pb-12' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
+          <div className='text-left pl-7 pb-12' style={{ wordWrap: 'break-word' ,lineHeight:'2.7rem'}}>
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-[16px]' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
