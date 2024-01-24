@@ -40,16 +40,16 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex0col xl:flex-row sm:flex justify-center items-center gap-[-3vw] xl:items-start mt-5 max-w-[1280px] mx-auto">
-        <div className="flex flex-col justify-center items-center w-[100%]">
+      <div className="flex0col xl:flex-row sm:flex justify-center items-center gap-[3vw] pr-[1vw] xl:items-start mt-5 w-[90%] mx-auto">
+        <div className="flex flex-col justify-center ml-[10.5vw] items-center w-[fit-content]">
          
 
-          <div className=" text-black text-base md:text-xl  max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300, textAlign:'center' }}>
+          <div className=" text-black text-base md:text-[15px]  max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300, textAlign:'center' }}>
             Benefits of buying Text Resume service from Doledge
           </div>
           {/* table table-striped table-bordered custom-table-width */}
 
-          <table className="table table-striped table-bordered ml-[0.7vw]" style={{ fontSize: '14px' , width: '80%' }}>
+          <table className="table table-striped table-bordered ml-[0.7vw]" style={{ fontSize: '14px' , width: '100%' }}>
             <thead>
               <tr >  
                 <th  scope="col" className="text-center sm:px-5 benefits-header">Doledge Benefits</th>

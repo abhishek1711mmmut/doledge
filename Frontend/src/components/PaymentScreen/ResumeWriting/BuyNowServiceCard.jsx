@@ -55,13 +55,13 @@ export default function BuyNowServiceCard({prices}) {
 
 
 
-                    <div className="mx-auto text-black text-lg sm:text-xl max-w-screen-sm md:max-w-full self-start text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
+                    <div className="ml-12 text-black text-lg sm:text-[17px] max-w-screen-sm md:max-w-full self-start text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
                     Buy {ResumeType} Resume Services
                     </div>
 
 
                     {/* <Card className='md:ml-20 md:mt-10 md:w-[100%]' style={{ height: '45vh' }}> */}
-                    <Card className='md:ml-2 md:mt-1 md:w-[90%] h-fit py-2'>
+                    <Card className='md:ml-7 md:mt-1 md:w-[77%] h-fit py-2'>
 
                         {/* <Slide right cascade> */}
 
@@ -147,7 +147,10 @@ export default function BuyNowServiceCard({prices}) {
                                                 fontSize: '16px',
                                                 fontFamily: 'Poppins',
                                                 fontWeight: '400',
-                                            }}><span className='text-blue-900'>Super express</span> 2 working days (Rs. 1901/-)</Typography>
+                                                marginTop:'12px',
+                                                marginRight:'35px'
+                                                
+                                            }}><span className='text-blue-900 '>Super express</span> 2 working days (Rs. 1901/-)</Typography>
                                         </div>
                                     }
                                     labelPlacement="end"
