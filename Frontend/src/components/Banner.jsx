@@ -23,7 +23,7 @@ const Banner = () => {
           md:text-3x1 md:my-3
           lg:text-4x1 xl:my-5"> Impress Recruiters</h1>  */}
 
-          <div className="text-left px-12 m-0"> 
+          <div className="text-left  px-12 m-0"> 
             <div className="first-header">Enhance Your</div>
             <div className="second-header">Resume to</div>
           </div>

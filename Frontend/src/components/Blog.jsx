@@ -17,7 +17,8 @@ const Blog = () => {
   }, [])
 
   return (
-    <div className='w-[80%] md:w-[70%] max-w-[1500px] mx-auto pb-4'>
+    
+    <div className='w-[80%] md:w-[70%] max-w-[1500px] mx-auto pb-4 '>
       <section className="pt-[16px]">
         <div className="container">
           <div className="flex flex-wrap justify-center -mx-4">
