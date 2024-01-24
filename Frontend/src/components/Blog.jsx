@@ -4,45 +4,7 @@ import axios from 'axios'
 const Blog = () => {
 
   let [loading, setLoading] = useState(true);
-  let [blogs, setBolgs] = useState([{
-    "_id": "6599d38d7be983fade200d11",
-    "title": "Blog Title 1",
-    "description": "What are communication barriers and hot to overcome from them, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque.\n",
-    "image": "https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg",
-    "__v": 3,
-    "comments": [
-        {
-            "author": "pawannnn",
-            "text": "mst blog hai",
-            "_id": "65a7a42b48880963d32bdc8e"
-        },
-        {
-            "author": "pawannnn",
-            "text": "mst blog hai",
-            "_id": "65a8f46513aebbfe648ec755"
-        }
-    ],
-    "likes": 2,
-    "share": 2
-},
-{
-    "likes": 0,
-    "share": 0,
-    "_id": "6599d5c17be983fade200d12",
-    "title": "Blog Title 2",
-    "description": "What are communication barriers and hot to overcome from them, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque.\n",
-    "image": "https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg",
-    "comments": []
-},
-{
-    "likes": 0,
-    "share": 0,
-    "_id": "6599d5d17be983fade200d13",
-    "title": "Blog Title 3",
-    "description": "What are communication barriers and hot to overcome from them, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque.\n",
-    "image": "https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg",
-    "comments": []
-}]);
+  let [blogs, setBolgs] = useState([]);
   
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
