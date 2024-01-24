@@ -38,6 +38,7 @@ import ProfileUpdate from './components/PaymentScreen/CareerGrowth/ProfileUpdate
 import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalPortfolio';
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
 import EmployeeVerification from './components/PaymentScreen/ScreeningServices/EmployeeVerification';
+import ComboResume from './components/PaymentScreen/ScreeningServices/ComboResume';
 import ResumeCritique from './components/PaymentScreen/ScreeningServices/ResumeCritique';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
 
@@ -156,6 +157,7 @@ function App() {
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
                   <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
                   <Route path="/Web-Screening-Services" element={<ResumeCritique/>} />
+                  <Route path="/Combo-resume-services" element={<ComboResume/>} />
                   <Route path='/Document-Verification' element={<DocumentVerification/>}/>
                   <Route path="/socialprofiler" element={<SocialProfiler/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
