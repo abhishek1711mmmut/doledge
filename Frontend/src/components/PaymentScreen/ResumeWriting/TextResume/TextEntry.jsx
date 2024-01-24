@@ -187,7 +187,7 @@ const TextEntry = () => {
 
       {/* Filtering Points*/}
 
-      <div className="bg-gradient-to-tr from-emerald-400 to-lime-300 w-[70%] mx-auto mt-5 text-white">
+      <div className="bg-gradient-to-tr from-green-400 to-lime-300 w-full pl-[2.2vw] mx-auto mt-5 text-white">
         <div className="lg:ml-[12%] md:ml-[8%] sm:ml-[4%]">
           
 

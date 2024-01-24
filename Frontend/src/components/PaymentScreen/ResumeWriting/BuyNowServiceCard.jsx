@@ -47,7 +47,7 @@ export default function BuyNowServiceCard({prices}) {
     return (
         <>
 
-            <div className="justify-content-center xl:flex lg:w-[50%] xl:w-[100%] py-2">
+            <div className="justify-content-center pr-[2vw] xl:flex lg:w-[50%] xl:w-[100%] py-2">
                 
                 <div className="div flex flex-col justify-center align-center">
                     
@@ -61,7 +61,7 @@ export default function BuyNowServiceCard({prices}) {
 
 
                     {/* <Card className='md:ml-20 md:mt-10 md:w-[100%]' style={{ height: '45vh' }}> */}
-                    <Card className='md:ml-2 md:mt-1 md:w-[100%] h-fit py-2'>
+                    <Card className='md:ml-2 md:mt-1 md:w-[90%] h-fit py-2'>
 
                         {/* <Slide right cascade> */}
 
