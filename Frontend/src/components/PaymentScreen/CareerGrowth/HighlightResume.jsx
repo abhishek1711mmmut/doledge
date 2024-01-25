@@ -35,11 +35,11 @@ const HighlightResume = () => {
             {/* hero section */}
             <div className='flex flex-col lg:flex-row h-full lg:max-h-[450px]'>
                 {/* left part */}
-                <div className='hidden sm:block w-full h-[300px] lg:h-auto lg:w-[45%]'>
+                <div className='hidden sm:block w-full h-[300px] lg:h-auto lg:w-[47%]'>
                     <img src={ResumeHighlighter} alt="" className='h-full w-full object-fill' loading='lazy'/>
                 </div>
                 {/* right part */}
-                <div className='font-bold bg-gradient-to-r from-[#F58634] to-orange-200 flex flex-col gap-4 md:gap-y-8 justify-center lg:text-left h-full py-10 pb-16 lg:h-auto w-full lg:w-[55%]'>
+                <div className='font-bold bg-[#F58634] flex flex-col gap-4 md:gap-y-8 justify-center lg:text-left h-full py-10 pb-16 lg:h-auto w-full lg:w-[53%]'>
                     <h1 className='text-4xl sm:text-5xl leading-[50px] sm:leading-[75px] px-6 sm:px-12'>
                         Highlight Your Profile
                     </h1>
@@ -50,91 +50,99 @@ const HighlightResume = () => {
             </div>
 
             {/* Key Features of a Profile Highlighter service */}
-            <div className='flex flex-col lg:flex-row gap-y-5 lg:gap-x-5 w-full lg:w-[70%] max-w-[1500px] mx-auto lg:my-10 mb-10'>
-                {/* left part */}
-                <div className='w-full lg:w-[70%] flex flex-col gap-y-10 py-3 lg:py-10'>
-                    <div className='bg-[#4B57A3] px-3 py-4'>
-                        <h1 className='text-white text-2xl sm:text-3xl md:text-4xl font-semibold'>
-                            Key Features of a Profile Highlighter service
-                        </h1>
-                    </div>
-                    <div className='grid grid-cols-2 gap-y-9 lg:grid-cols-4'>
-                        <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
-                            <img src={image1} alt="" />
-                            <p className='text-center'>
-                                Professional Endorsements
-                            </p>
-                        </div>
-                        <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
-                            <img src={image2} alt="" />
-                            <p>
-                                Skill Spotlight
-                            </p>
-                        </div>
-                        <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
-                            <img src={image3} alt="" />
-                            <p>
-                                Professional Guidance
-                            </p>
-                        </div>
-                        <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
-                            <img src={image4} alt="" />
-                            <p>
-                                Networking Opportunities
-                            </p>
-                        </div>
+            <div className='flex flex-col gap-y-3 w-full lg:w-[70%] max-w-[1500px] mx-auto lg:my-10'>
+                <div className='w-full hidden lg:flex gap-x-5'>
+                    <div className='w-[70%]'></div>
+                    <div className='w-[30%] text-3xl md:text-4xl lg:text-3xl text-center' style={{fontFamily:'inter'}}>
+                        Buy Package
                     </div>
                 </div>
-                {/* right part - buy package */}
-                <div className='w-[70%] sm:w-[50%] lg:w-[30%] mx-auto flex flex-col gap-y-5 lg:gap-y-2'>
-                    <h1 className='text-3xl md:text-4xl lg:text-3xl text-center'>
-                        Buy Package
-                    </h1>
-                    <form className='flex flex-col gap-4 text-center justify-evenly text-base sm:text-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] py-4 md:py-5 rounded-xl lg:rounded-none'>
-                        <div className='flex items-center gap-x-3 sm:gap-x-6'>
-                            <input 
-                                type="radio" 
-                                name="buyPackage" 
-                                id="2month" 
-                                value={899} 
-                                onChange={handleRadioChange}
-                                checked={price==='899'}
-                                className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 cursor-pointer'/>
-                            <label htmlFor="2month" className='cursor-pointer'>
-                                2 Months - Rs. 899
-                            </label>
+                <div className='flex flex-col lg:flex-row gap-y-5 lg:gap-x-5 mb-10'>
+                    {/* left part */}
+                    <div className='w-full lg:w-[70%] flex flex-col gap-y-10'>
+                        <div className='bg-[#4B57A3] px-2 py-4'>
+                            <h1 className='text-white text-2xl sm:text-3xl md:text-4xl font-semibold'>
+                                Key Features of a Profile Highlighter service
+                            </h1>
                         </div>
-                        <div className='flex items-center gap-x-3 sm:gap-x-6'>
-                            <input 
-                                type="radio" 
-                                name="buyPackage" 
-                                id="4month" 
-                                value={1699} 
-                                onChange={handleRadioChange}
-                                checked={price==='1699'}
-                                className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 cursor-pointer'/>
-                            <label htmlFor="4month" className='cursor-pointer'>
-                                4 Months - Rs. 1699
-                            </label>
+                        <div className='grid grid-cols-2 gap-y-9 lg:grid-cols-4'>
+                            <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
+                                <img src={image1} alt="" />
+                                <p className='text-center'>
+                                    Professional Endorsements
+                                </p>
+                            </div>
+                            <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
+                                <img src={image2} alt="" />
+                                <p>
+                                    Skill Spotlight
+                                </p>
+                            </div>
+                            <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
+                                <img src={image3} alt="" />
+                                <p>
+                                    Professional Guidance
+                                </p>
+                            </div>
+                            <div className='flex flex-col justify-center items-center gap-y-5 lg:gap-y-2 w-[80%] sm:w-full mx-auto'>
+                                <img src={image4} alt="" />
+                                <p>
+                                    Networking Opportunities
+                                </p>
+                            </div>
                         </div>
-                        <div className='flex items-center gap-x-3 sm:gap-x-6'>
-                            <input 
-                                type="radio" 
-                                name="buyPackage" 
-                                id="8month" 
-                                value={3599} 
-                                onChange={handleRadioChange}
-                                checked={price==='3599'}
-                                className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 cursor-pointer'/>
-                            <label htmlFor="8month" className='cursor-pointer'>
-                                8 Months - Rs. 3599
-                            </label>
-                        </div>
-                        <button onClick={handleSubmit} className='text-xl sm:text-2xl text-white w-[70%] font-semibold mx-auto px-4 py-2 flex justify-center items-center rounded-xl !bg-orange-500'>
-                            Buy Now
-                        </button>
-                    </form>
-                    
+                    </div>
+                    {/* right part - buy package */}
+                    <div className='w-[70%] sm:w-[50%] lg:w-[30%] mx-auto flex flex-col gap-y-5 lg:gap-y-2'>
+                        <h1 className='text-3xl md:text-4xl lg:text-3xl text-center block lg:hidden'>
+                            Buy Package
+                        </h1>
+                        <form className='flex flex-col gap-4 text-center justify-evenly text-base sm:text-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] py-4 md:py-5 rounded-xl lg:rounded-none'>
+                            <div className='flex items-center gap-x-3 sm:gap-x-6 '>
+                                <input 
+                                    type="radio" 
+                                    name="buyPackage" 
+                                    id="2month" 
+                                    value={899} 
+                                    onChange={handleRadioChange}
+                                    checked={price==='899'}
+                                    className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 2xl:ml-12 cursor-pointer'/>
+                                <label htmlFor="2month" className='cursor-pointer'>
+                                    2 Months - Rs. 899
+                                </label>
+                            </div>
+                            <div className='flex items-center gap-x-3 sm:gap-x-6'>
+                                <input 
+                                    type="radio" 
+                                    name="buyPackage" 
+                                    id="4month" 
+                                    value={1699} 
+                                    onChange={handleRadioChange}
+                                    checked={price==='1699'}
+                                    className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 2xl:ml-12 cursor-pointer'/>
+                                <label htmlFor="4month" className='cursor-pointer'>
+                                    4 Months - Rs. 1699
+                                </label>
+                            </div>
+                            <div className='flex items-center gap-x-3 sm:gap-x-6'>
+                                <input 
+                                    type="radio" 
+                                    name="buyPackage" 
+                                    id="8month" 
+                                    value={3599} 
+                                    onChange={handleRadioChange}
+                                    checked={price==='3599'}
+                                    className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 2xl:ml-12 cursor-pointer'/>
+                                <label htmlFor="8month" className='cursor-pointer'>
+                                    8 Months - Rs. 3599
+                                </label>
+                            </div>
+                            <button onClick={handleSubmit} className='text-xl sm:text-2xl text-white w-[70%] font-semibold mx-auto px-4 py-2 flex justify-center items-center rounded-xl !bg-orange-500'>
+                                Buy Now
+                            </button>
+                        </form>
+                        
+                    </div>
                 </div>
             </div>
 

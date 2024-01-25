@@ -202,19 +202,19 @@ const DocumentVerification = () => {
             <div className='flex justify-between items-center'>
                 <div className='flex flex-col justify-between md:gap-11 md:w-[60%] lg:w-[55%] text-lg md:text-xl tracking-wide'>
                     <div className='flex justify-evenly items-baseline flex-wrap gap-4'>
-                        <div className='flex flex-col justify-center items-center md:w-[23%] md:max-lg:pt-5'>
+                        <div className='flex flex-col justify-center items-center md:w-[30%] md:max-lg:pt-5'>
                             <img src={id1} alt="" loading='lazy'/>
                             <p>
                                 Aadhar card
                             </p>
                         </div>
-                        <div className='flex flex-col justify-center items-center md:w-[23%]'>
+                        <div className='flex flex-col justify-center items-center md:w-[30%]'>
                             <img src={id2} alt="" loading='lazy'/>
                             <p>
                                 Pan card
                             </p>
                         </div>
-                        <div className='flex flex-col justify-center items-center  md:w-[23%]'>
+                        <div className='flex flex-col justify-center items-center  md:w-[30%]'>
                             <img src={id3} alt="" loading='lazy'/>
                             <p>
                                 Mobile number

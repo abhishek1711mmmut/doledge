@@ -33,7 +33,7 @@ const Contactus = () => {
   return (
     <div>
 
-<div className="flex flex-col md:flex-row justify-evenly gap-2 my-5 w-[85%] lg:w-[70%] max-w-[1500px] mx-auto border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl">
+        <div className="flex flex-col md:flex-row justify-evenly sm:gap-2 my-5 w-[85%] lg:w-[70%] max-w-[1500px] mx-auto border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl">
           {/* left part */}
           <div className="p-3 w-full flex flex-col justify-start items-center">
             <h1 className="font-inter font-semibold text-2xl justify-items-start">
@@ -46,7 +46,7 @@ const Contactus = () => {
 
           {/* right part */}
           <div className="flex flex-col justify-evenly items-center w-full p-3 gap-y-4 md:gap-2">
-            <div className="flex flex-col justify-center items-center md:items-start">
+            <div className="flex flex-col justify-center items-center md:items-start md:text-left md:w-[80%]">
               <h1 className="font-inter font-semibold text-2xl">Contact Us</h1>
               <p
                 className="text-lg md:text-base lg:text-xl font-light"
@@ -124,27 +124,6 @@ const Contactus = () => {
             </form>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

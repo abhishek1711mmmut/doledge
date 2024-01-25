@@ -50,6 +50,7 @@ function JobAlertOnMailAndSms() {
   return (
     <>
     
+<<<<<<< HEAD
    <div style={{fontFamily:'inter'}} className="lg:flex flex-col h-full w-full lg:flex-row ">
       {/* left part*/}
     <div className="bg-[#F58634] flex flex-col items-start justify-center lg:w-[55%] w-full p-5  gap-y-3">
@@ -71,6 +72,11 @@ function JobAlertOnMailAndSms() {
       <div style={{fontFamily:'inter'}}>
       {/*Section 2*/}
       <div className=" bg-white md:w-[70%] md:pt-3 md:mx-auto pt-3 lg:pt-3 p-2">
+=======
+      <section>
+      {/*Section 2*/}
+      <div className=" bg-white md:w-[70%] md:pt-0 md:mx-auto">
+>>>>>>> 6fb96fe98d5ca263c902254d885eb57827d20c9c
         {/* Title on the left top with padding */}
         <div className=" text-xl font-bold mb-4 text-left pt-2 ">
           Importance of alerts!
@@ -375,6 +381,7 @@ function JobAlertOnMailAndSms() {
         </div> */}
         
       {/*section 5 */}
+<<<<<<< HEAD
       {/*  */}
         
        <Contactus/>
@@ -386,6 +393,11 @@ function JobAlertOnMailAndSms() {
         <Footer />
         
         
+=======
+      <Contactus/>
+      <Blog/>
+      <Footer/>
+>>>>>>> 6fb96fe98d5ca263c902254d885eb57827d20c9c
     </>
   );
 }
