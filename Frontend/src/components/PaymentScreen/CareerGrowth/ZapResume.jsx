@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { FaAnglesRight } from "react-icons/fa6";
 import image from '../../../images/zapResume.png'
 import icon from '../../../images/zapIcon.png'
-import Image from '../../../images/JobSearch1.png'
+import image2 from '../../../images/image160.png'
 import Blog from '../../Blog';
 import Footer from '../../Footer';
 import Contactus from '../../Contactus';
@@ -61,14 +61,19 @@ const ZapResume = () => {
   return (
     <div className='flex flex-col gap-5'>
         {/* hero section */}
-        <div className='bg-[#2180ba] h-[300px] xl:h-[350px] flex flex-col justify-center items-center'>
-            <div className='flex flex-col gap-y-4 xl:gap-y-16 justify-evenly xl:justify-center items-center text-center w-[70%] max-w-[1500px] mx-auto'>
-            <h1 className='text-2xl md:text-4xl font-semibold lg:text-left' style={{fontFamily:'inter'}}>
-                Ignite Success with a Resume that Speaks <br className='hidden md:block'/> Innovation and Impact!
-            </h1>
-            <h2 className='text-white text-xl md:text-3xl font-semibold' style={{fontFamily:'inter'}}>
-                Unleash the Power of 'Zap Your Resume' Services
-            </h2>
+        <div className='bg-[#2180ba] h-[300px] xl:h-[350px]'>
+            <div className='flex flex-col md:flex-row justify-between items-center w-full max-w-[2000px] xl:h-[350px] mx-auto'>
+                <div className='flex flex-col gap-y-4 xl:gap-y-12 justify-evenly xl:justify-center items-center w-[60%]'>
+                    <h1 className='text-2xl md:text-4xl font-semibold lg:text-left' style={{fontFamily:'inter'}}>
+                        Ignite Success with a Resume that Speaks <br className='hidden md:block'/> Innovation and Impact!
+                    </h1>
+                    <h2 className='text-white text-xl md:text-3xl font-semibold' style={{fontFamily:'inter'}}>
+                        Unleash the Power of 'Zap Your Resume' Services
+                    </h2>
+                </div>
+                <div className='w-[40%]'>
+                    <img src={image2} alt="" loading='lazy' className='w-full xl:h-[350px]'/>
+                </div>
             </div>
         </div>
 
@@ -140,27 +145,27 @@ const ZapResume = () => {
                 <hr className='h-[6px] bg-[#F58634] border-[#F58634] text-[#F58634] rounded-xl'/>
             </div>
             <div className='flex justify-between items-center'>
-                <ul className='text-lg md:text-xl xl:text-[26px] flex flex-col gap-y-5 text-left' style={{fontFamily:'inter'}}>
-                    <li className='flex justify-start items-center gap-2'>
-                        <img src={icon} alt="" className='h-10 w-10 md:h-14 md:w-14'/>
+                <ul className='text-lg md:text-xl xl:text-[26px] flex flex-col gap-y-5 text-left xl:pl-3' style={{fontFamily:'inter'}}>
+                    <li className='flex justify-start items-center gap-x-5'>
+                        <FaAnglesRight color='#f58634'/>
                         <p>
                             Time Efficiency and Professional Assistance
                         </p>
                     </li>
-                    <li className='flex justify-start items-center gap-2'>
-                        <img src={icon} alt="" className='h-10 w-10 md:h-14 md:w-14'/>
+                    <li className='flex justify-start items-center gap-x-5'>
+                        <FaAnglesRight color='#f58634'/>
                         <p className=''>
                             Adaptation to Modern Standards
                         </p>
                     </li>
-                    <li className='flex justify-start items-center gap-2'>
-                        <img src={icon} alt="" className='h-10 w-10 md:h-14 md:w-14'/>
+                    <li className='flex justify-start items-center gap-x-5'>
+                        <FaAnglesRight color='#f58634'/>
                         <p>
                             Career Confidence Boost
                         </p>
                     </li>
-                    <li className='flex justify-start items-center gap-2'>
-                        <img src={icon} alt="" className='h-10 w-10 md:h-14 md:w-14'/>
+                    <li className='flex justify-start items-center gap-x-5'>
+                        <FaAnglesRight color='#f58634'/>
                         <p>
                             Enhanced Readability
                         </p>
