@@ -3,8 +3,10 @@ import iconarrow from "../../../images/image 112.png";
 import image from "../../../images/image 113.png";
 import image1 from "../../../images/image 114.png";
 import image2 from "../../../images/image 66.png";
+import image3 from "../../../images/image 99.png";
 import Blog from "../../Blog";
 import Footer from "../../Footer";
+import Contactus from "../../Contactus";
 
 function JobAlertOnMailAndSms() {
   const [formData, setFormData] = useState({
@@ -47,39 +49,30 @@ function JobAlertOnMailAndSms() {
 
   return (
     <>
-    <section>
-      <div>
-        {/* Section 1 */}
-        <div
-          className="Banner w-full flex flex-col md:flex md:flex-row h-80"
-          
-        >
-          <div className="banner-title bg-[#D37F47] w-full md:w-[70%] flex justify-start items-center  pt-4 sm:pt-0 px-4 sm:px-12 ">
-            <div className="text-left">
-              <div className="first-header ">Receive Instant Job Alerts</div>
-              <div className="first-header ">on Mail & SMS for Your Next</div>
-              <div className="first-header mb-3 ">Big Opportunity</div>
-              <p className="third-header text-[#EFF3F1] sm:pb-20 m-0">
-                Your Dream Job Awaits!
-              </p>
-            </div>
-          </div>
+    
+   <div style={{fontFamily:'inter'}} className="lg:flex flex-col h-full w-full lg:flex-row ">
+      {/* left part*/}
+    <div className="bg-[#F58634] flex flex-col items-start justify-center lg:w-[55%] w-full p-5  gap-y-3">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-medium leading-[25px]  text-left "> 
+          Receive Instant Job Alerts <br /> on Mail & SMS for Your Next <br /> Big Opportunity.
+          </h1>
+        <h2 className="text-2xl font-light leading-[43px] text-white text-left"> 
+        Your Dream Job Awaits!
+        </h2>
+    </div>
+    {/* right part */}
+    <div className="w-full lg:w-[45%] flex justify-center items-center  max-lg:h-[300px]">
+    
+    <img className="h-full w-full object-fill" src={image3} alt="" />
+    </div>
 
-          <div className="banner-image w-full flex justify-center md:w-[40%]">
-            <img
-              src={require("../../../images/image 99.png")}
-              alt="Banner"
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-      </div>
-      </section>
-      <section>
+   </div>
+      
+      <div style={{fontFamily:'inter'}}>
       {/*Section 2*/}
-      <div className=" bg-white  pt-80    md:w-[70%] md:pt-0 md:mx-auto">
+      <div className=" bg-white md:w-[70%] md:pt-3 md:mx-auto pt-3 lg:pt-3 p-2">
         {/* Title on the left top with padding */}
-        <div className=" text-2xl font-bold mb-4 text-left mx-px before:">
+        <div className=" text-xl font-bold mb-4 text-left pt-2 ">
           Importance of alerts!
         </div>
         {/* cards */}
@@ -149,22 +142,22 @@ function JobAlertOnMailAndSms() {
           
 
           {/* Right side */}
-          <div className='w-[60%] sm:w-[55%] md:w-[40%] flex flex-col gap-3 md:gap-4 mx-auto'>
-                    <h1 className='font-medium text-base pr-5 sm:pr-0 mx-auto sm:text-2xl md:text-base lg:text-xl xl:text-2xl xl:leading-[43px] w-52 break-words sm:w-full'>
-                        Job Search Assistant Service
+          <div className='w-[50%] sm:w-[55%] md:w-[60%] flex flex-col gap-3 md:gap-4 mx-auto'>
+                    <h1 className='font-medium text-base pr-5 sm:pr-0 mx-auto sm:text-2xl md:text-base lg:text-xs xl:text-xl xl:leading-[43px] w-52 break-words sm:w-full'>
+                    Job alert on mail and message
                     </h1>
-                    <div className='flex flex-col max-auto items-start justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-3 xl:p-4 rounded-lg'>
+                    <div className='flex flex-col max-auto items-start justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-3 xl:p-4 rounded-lg'style={{fontFamily:'Poppins'}}>
                         <div className='flex justify-start items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
                             <input type="checkbox" name="input1" id="input1" value="8999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input1" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>3 Months Rs. 8999/-</label>
+                            <label htmlFor="input1" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>3 Months Rs. 1699/-</label>
                         </div>
                         <div className='flex justify-start max-auto items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
                             <input type="checkbox" name="input2" id="input2" value="17999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input2" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>6 Months Rs. 17999/-</label>
+                            <label htmlFor="input2" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>6 Months Rs. 2799/-</label>
                         </div>
                         <div className='flex justify-start max-auto items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
                             <input type="checkbox" name="input3" id="input3" value="28999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input3" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>12 Months Rs. 28999/-</label>
+                            <label htmlFor="input3" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>12 Months Rs. 4299/-</label>
                         </div>
                         <em className='self-center md:text-base text-xs'>
                             (*Applicable Taxes may apply)
@@ -178,14 +171,14 @@ function JobAlertOnMailAndSms() {
           </div>
         
       
-      </section>
+      </div>
       {/*Section 3 */}
-      <section>
+      <div style={{fontFamily:'inter'}}>
         <div className="bg-[#F6F6F8] mt-5 sm:text-sm">
-          <h1 className="bg-[#F58634] font-medium text-lg sm:text-xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center md:mt-8 mx-auto">
+          <h1 className="bg-[#F58634] font-medium text-xs sm:text-xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center  mx-auto">
             The benefits you gain from a Profile Highlighter service include
           </h1>
-          <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4">
+          <div className="flex gap-x-5 w-[100%] m:w-[90%] lg:w-[70%] justify-center items-center mx-auto py-4 text-xs">
             <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[90%] md:w-[90%] xl:w-[70%] flex flex-col justify-evenly items-start gap-3 md:gap-5 lg:gap-y-10  ">
               <div className="flex items-center">
                 <img
@@ -271,20 +264,70 @@ function JobAlertOnMailAndSms() {
             </div>
 
             <div className="hidden md:block w-[30%]">
-              <img src={image} alt="" className="w-full max-w-[400px] h-auto" />
+              <img src={image} alt="" className="w-auto max-w-[400px] h-auto" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/*Section 4 */}
-      <section>
-        <div className="bg-[#F6F6F8] mt-5">
-          <h1 className=" font-medium text-lg sm:text-xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center">
-            The benefits you gain from a Profile Highlighter service include
+      <div style={{fontFamily:'inter'}}>
+        <div className="bg-[#F6F6F8] mt-5 sm:text-sm">
+          <h1 className="bg-white font-medium text-xs sm:text-xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center  mx-auto">
+          Job Alert Services FAQs: Your Questions Answered
           </h1>
-          <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4">
-            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[90%] md:w-[90%] xl:w-[70%] flex flex-col  items-start gap-3 md:gap-5 lg:gap-y-8 lg:h-[220px] xl:h-[300px]">
+          <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4 text-xs">
+            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[70%] flex flex-col justify-evenly items-start gap-3 md:gap-5 lg:gap-y-10  ">
+            <h1 className="text-left w-full font-medium">
+                What are job alert services?
+              </h1>
+              <p className="lg:text-lg xl:text-xl xl:leading-[43px] text-justify">
+                Job alert services are automated systems that notify users about
+                new job opportunities based on their specified criteria, such as
+                industry, job type, location, and keywords.
+              </p>
+              <h1 className="text-left w-full font-medium">
+                How do job alert services work?
+              </h1>
+              <p className="lg:text-lg xl:text-xl xl:leading-[43px] text-justify">
+                Users set preferences for the type of jobs they're interested
+                in. The service then sends them notifications, typically via
+                email or SMS, whenever a new job matching their criteria is
+                posted.
+              </p>
+
+              <h1 className="text-left w-full font-medium">
+                Are job alert services free?
+              </h1>
+              <p className="lg:text-lg xl:text-xl xl:leading-[43px] text-justify">
+                Many job alert services are free for users. However, some
+                platforms may offer premium services with additional features
+                for a fee
+              </p>
+
+              <h1 className="text-left w-full font-medium">
+                Can I receive job alerts for specific companies?
+              </h1>
+              <p className="lg:text-lg xl:text-xl xl:leading-[43px] text-justify">
+                Yes, some job alert services allow users to specify preferences
+                for particular companies, ensuring they receive notifications
+                for relevant positions.
+              </p>
+            </div>
+
+            <div className="hidden md:block w-[30%]">
+              <img src={image1} alt="" className="w-auto max-w-[400px] h-auto" />
+            </div>
+          </div>
+        </div>
+      </div>
+{/*      
+        <div className="bg-[#F6F6F8] mt-3 ">
+          <h1 className=" font-medium text-sm sm:text-xl lg:text-2xl md:text-2xl px-1 sm:leading-10 py-2 sm:h-12 md:h-16 flex justify-center items-center">
+          Job Alert Services FAQs: Your Questions Answered
+          </h1>
+          <div className="flex  gap-x-5 w-[70%] justify-center items-center mx-auto  text-xs ">
+            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[100%] md:w-[90%] xl:w-[70%] flex flex-col  items-start gap-3 md:gap-5 lg:gap-y-8 lg:h-[220px] xl:h-[300px]">
               <h1 className="text-left w-full font-medium">
                 What are job alert services?
               </h1>
@@ -321,119 +364,28 @@ function JobAlertOnMailAndSms() {
                 for relevant positions.
               </p>
             </div>
-            <div className="hidden md:block w-[30%]">
+            <div className="hidden md:block w-[30%] ">
               <img
                 src={image1}
                 alt=""
-                className="w-full max-w-[400px] h-auto"
+                className=" w-auto max-w-[400px] h-auto  "
               />
             </div>
           </div>
-        </div>
-      </section>
+        </div> */}
+        
       {/*section 5 */}
-      <section>
+      {/*  */}
         
-          
-          <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4  md:mt-60">
-            {/* Talk to our experts */}
-            <div className="flex flex-col md:flex-row justify-evenly gap-2 my-5 w-[90%] mx-auto border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl">
-              {/* left part - image */}
-              <div className="p-3 w-full">
-                <h1 className="font-inter font-semibold text-2xl">
-                  Talk to our experts
-                </h1>
-                <img src={image2} alt="" className="hidden md:block mx-auto" />
-              </div>
-              {/* right part - form input */}
-              <div className="flex flex-col justify-evenly items-center w-full p-3 gap-y-4 md:gap-2">
-                <div className="flex flex-col justify-center items-center lg:items-start">
-                  <h1 className="font-inter font-semibold text-2xl text-left md:text-center">
-                    Contact Us
-                  </h1>
-                  <p
-                    className="text-lg md:text-base lg:text-xl font-light"
-                    style={{ fontFamily: "inter" }}
-                  >
-                    Our executive will contact your shortly
-                  </p>
-                </div>
-                <form
-                  onSubmit={submitContactFormData}
-                  className="flex flex-col gap-2 w-full sm:w-[90%] md:w-[80%]"
-                >
-                  <div className="flex flex-col items-start gap-2">
-                    <label
-                      htmlFor="name"
-                      className="font-inter font-semibold max-[500px]:text-xl text-2xl"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={name}
-                      onChange={handleOnChange}
-                      placeholder="Enter your name here"
-                      required
-                      className="px-4 py-2 outline-none border-2 rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start gap-2">
-                    <label
-                      htmlFor="email"
-                      className="font-inter font-semibold  max-[500px]:text-xl text-2xl"
-                    >
-                      Email Id
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={handleOnChange}
-                      placeholder="Enter your email here"
-                      required
-                      className="px-4 py-2 outline-none border-2 rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start gap-2">
-                    <label
-                      htmlFor="phoneNo"
-                      className="font-inter font-semibold  max-[500px]:text-xl text-2xl"
-                    >
-                      Phone Number
-                    </label>
-                    <div className="flex justify-center items-center gap-2 w-full">
-                      <p className="p-2 border-2 rounded-lg">+91</p>
-                      <input
-                        type="number"
-                        name="phoneNo"
-                        maxLength={10}
-                        value={phoneNo}
-                        onChange={handleOnChange}
-                        placeholder="Enter your phone number"
-                        required
-                        className="px-4 py-2 outline-none border-2 rounded-lg w-full hide-arrow"
-                      />
-                    </div>
-                  </div>
-                  <button
-                    type="submit"
-                    className="!bg-[#F58634] text-white py-2 mt-3 rounded-xl font-inter font-semibold text-lg flex justify-center items-center mx-auto w-[70%]"
-                  >
-                    Call Me Back
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        
+       <Contactus/>
+       
         {/* Bolg */}
         <Blog />
-
+        
         {/* Footer */}
         <Footer />
-      </section>
+        
+        
     </>
   );
 }
