@@ -28,7 +28,7 @@ export default function DoledgeBenefits({prices}) {
          {/* <div className="flex justify-center align-center bg-green-500">
       Click me
     </div> */}
-      <div className='bg-gradient-to-tr from-emerald-400 to-lime-300 w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
+      <div className='bg-[#9DD49B] w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
         Doledge Benefits
       </div>
 
@@ -40,20 +40,21 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-[90%] mx-auto">
-        <div className="flex flex-col justify-center items-center w-[100%]">
+      <div className="flex0col xl:flex-row sm:flex justify-center items-center gap-[3vw] pr-[1vw] xl:items-start mt-5 w-[90%] mx-auto">
+        <div className="flex flex-col justify-center ml-[10.5vw] items-center w-[fit-content]">
          
 
-          <div className=" text-black text-base md:text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300, textAlign:'center' }}>
+          <div className=" text-black text-base md:text-[15px]  max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300, textAlign:'center' }}>
             Benefits of buying Text Resume service from Doledge
           </div>
+          {/* table table-striped table-bordered custom-table-width */}
 
-          <table className="table table-striped table-bordered custom-table-width" style={{ fontSize: '14px' }}>
+          <table className="table table-striped table-bordered ml-[0.7vw]" style={{ fontSize: '14px' , width: '100%' }}>
             <thead>
-              <tr>  
-                <th scope="col" className="text-left sm:px-5 benefits-header bg-red-500">Doledge Benefits</th>
-                <th scope="col" className="text-left sm:px-5">Free Resume</th>
-                <th scope="col" className="text-left sm:px-5" style={{ color: 'white', backgroundColor: '#2e3339', fontSize: '14px', fontFamily: 'Poppins', fontWeight: 700, }}>Doledge Text Resume</th>
+              <tr >  
+                <th  scope="col" className="text-center sm:px-5 benefits-header">Doledge Benefits</th>
+                <th scope="col" className="text-center sm:px-5">Free Resume</th>
+                <th scope="col" className="text-center sm:px-5" style={{ color: 'white', backgroundColor: '#2e3339', fontSize: '14px', fontFamily: 'Poppins', fontWeight: 700, }}>Doledge Text Resume</th>
               </tr>
             </thead>
             <tbody>
@@ -157,7 +158,7 @@ export default function DoledgeBenefits({prices}) {
 
       {/* Experiencing benefit section */}
 
-      <div className="flex md:flex-col w-full md:w-[100%] align-center justify-center">
+      <div className="flex md:flex-col w-full md:w-11/12 max-w-[1280px] mx-auto align-center justify-center">
         {/* red main */}
         <div className="stats-section w-full lg:w-[90%]" style={{ margin: '25px auto' }}>
           <div className="text-opacity-60 text-center font-medium leading-[35px] sm:leading-[48.1px] mt-8 self-center w-[90%] sm:w-full mx-auto max-md:max-w-full text-lg sm:text-2xl" style={{
@@ -169,8 +170,8 @@ export default function DoledgeBenefits({prices}) {
           }}>
             Our customers are experiencing a host of benefits <br /> from our Text Resume Services
           </div>
-          <div className="flex flex-col md:flex-row justify-around items-center mt-12">
-            <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col place-items-center justify-center mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row  justify-around items-center mt-12">
+            <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col sm:ml-[6vw] place-items-center justify-center mb-4 md:mb-0">
               <div style={{
                 fontSize: 20,
                 fontFamily: 'Poppins',
@@ -197,7 +198,7 @@ export default function DoledgeBenefits({prices}) {
                 Affordability</div>
               <p style={{ fontSize: 12, fontWeight: 400 }}>cost-effective solutions for modernizing job applications</p>
             </div>
-            <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col justify-center items-center mb-4 md:mb-0">
+            <div className="w-48 h-48 border-1 border-[#62B01E] rounded-full flex flex-col justify-center sm:mr-[6vw] items-center mb-4 md:mb-0">
               <div style={{
                 fontSize: 20,
                 fontFamily: 'Poppins',

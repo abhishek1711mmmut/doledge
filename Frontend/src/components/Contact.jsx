@@ -2,8 +2,8 @@ import React from "react";
 
 const Contact = () => {
   return (
-  <div className="flex justify-center">
-    <div className="w-[80%] py-4 md:flex flex-row items-stretch justify-center rounded-lg-gray-200">
+  <div className="flex justify-center w-[80%] md:w-[70%] max-w-[1500px] mx-auto">
+    <div className="py-4 md:flex flex-row items-stretch justify-center rounded-lg-gray-200 w-full">
     
     <div className="w-[100%] p-8 flex-1 bg-[#4495e6] text-white flex flex-col justify-center items-center">
       <div className="text-left">
@@ -16,7 +16,7 @@ const Contact = () => {
     </div>
 
 
-    <div className="w-[100%] p-8 flex-1 w-1/2 bg-gray-100 flex flex-col justify-center items-center">
+    <div className="w-[100%] p-8 flex-1 bg-gray-100 flex flex-col justify-center items-center">
   
       <div className="w-[100%] text-left">
         <h4 className="font-extrabold text-2xl ">CONTACT US</h4>

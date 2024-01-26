@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const commentSchema = mongoose.Schema({
-    text: String,
     author: String,
+    text: String,
 });
 
 const blogSchema = mongoose.Schema({
@@ -27,4 +27,6 @@ const blogSchema = mongoose.Schema({
     
 });
 
-exports.Blog = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
+
+module.exports =  Blog ;

@@ -26,9 +26,9 @@ const InternationalTextMiddle = () => {
   }));
 
   const prices={
-    price1:15499,
-    price2:16499,
-    price3:17499
+    price1:7499,
+    price2:8499,
+    price3:9499
   }
 
 
@@ -108,10 +108,10 @@ const InternationalTextMiddle = () => {
             <div className="pb-4">
 
               <div className="text-white text-5xl sm:text-center md:text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text International Resumes: Elevate Your Profile, Expand your Horizons
+                Global Edge Resumes: Elevate Your Career Worldwide with Our International Resume Services
               </div>
               <div className="text-orange-400 text-2xl sm:text-center md:text-left max-w-full mt-4 pl-3">
-                International Impressions: Internation Text Resumes for a Global Workforce
+                Crafted for Excellence, Tailored for Global Opportunities
               </div><br />
             </div>
              <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
@@ -176,7 +176,7 @@ const InternationalTextMiddle = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              Expertly tailored to beat ATS filters
+            Tailored resumes designed to attract international employers and showcase your skills on a global scale
              
               
             </span>
@@ -189,7 +189,7 @@ const InternationalTextMiddle = () => {
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
 
-              Strategically incorporate industry-specific keywords to make your resume stand out
+            Customized resumes for specific industries, aligning with international standards and expectations
 
              
             </span>
@@ -203,7 +203,7 @@ const InternationalTextMiddle = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              Our designers create professional, aesthetically pleasing text resumes
+            Polished language proficiency to meet the linguistic expectations of various international markets
              
             </span>
           </div>
@@ -212,7 +212,7 @@ const InternationalTextMiddle = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              We valuing your input and preferences to produce a resume that truly represents you
+            Guidance on leveraging international networking platforms for enhanced job opportunities
              
             </span>
           </div>

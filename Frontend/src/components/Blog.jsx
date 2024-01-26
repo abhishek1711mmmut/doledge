@@ -1,33 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import blogImage from '../images/hand.png'
+import axios from 'axios'
 
-const Blog = (props) => {
+const Blog = () => {
 
-  // const blo = [
-  //   {
-  //     // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
-  //     Image: blogImage,
-  //     BlogTitle: 'Blog Title 1',
-  //     Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
-  //   },
-  //   {
-  //     // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
-  //     Image: blogImage,
-  //     BlogTitle: 'Blog Title 2',
-  //     Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
-  //   },
-  //   {
-  //     // Image: 'https://assets.bcci.tv/bcci/photos/1046/036146ff-0f1f-4669-8d22-566334ecb459.jpg',
-  //     Image: blogImage,
-  //     BlogTitle: 'Blog Title 3',
-  //     Description: "What are communication barriers and hot to overcome from them,  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis nobis unde nostrum iusto praesentium commodi cumque."
-  //   },
-  // ];
-
-
+  let [loading, setLoading] = useState(true);
+  let [blogs, setBolgs] = useState([]);
+  
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(response => {
+      const blogs = response.data.data.blogs;
+      setBolgs(blogs);
+    })
+    .catch(err => console.log(err));
+    setLoading(false);
+  }, [])
 
   return (
-    <div className='w-[78%] mx-auto pb-4'>
+    
+    <div className='w-[80%] md:w-[70%] max-w-[1500px] mx-auto pb-4 '>
       <section className="pt-[16px]">
         <div className="container">
           <div className="flex flex-wrap justify-center -mx-4">
@@ -36,16 +27,13 @@ const Blog = (props) => {
                 <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
                   Latest Blogs
                 </h2>
-                {/* <p className="text-body-color text-lg">
-            These are the latest news of our company.<br></br> You can find more on our blog page.
-          </p> */}
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-4">
-            {props.blogs?.map(blog => (
+          <div className="flex justify-between w-full flex-wrap">
+            {blogs?.map(blog => (
 
-              <div className="w-full md:w-[100%] lg:w-[33.33%] px-4" key={blog._id}>
+              <div className="w-full lg:w-[33.33%] px-4" key={blog._id}>
                 <div className="max-w-[370px] mx-auto mb-10 border-[2px] shadow-lg rounded-lg p-4 cursor-pointer">
                   <div className="rounded overflow-hidden mb-8">
                     <img src={blog.image} alt="image" className="w-full" />

@@ -22,7 +22,7 @@ const Mheader = () => {
     }
   ]
   return (
-    <div className='w-[90%] flex flex-col w-auto py-4'>
+    <div className='w-[70%] mx-auto max-w-[1500px] flex flex-col py-4'>
         <div className=" items-center ">
           <h1 className=" text-center text-4xl font-sans">
             <br></br>
@@ -32,39 +32,37 @@ const Mheader = () => {
 
           <br></br>
           
-          <div className="w-[100%] px-5">
+          <div className="px-5 w-full">
               <h2 className="text-center text-xl text-gray-500">
                 Rank higher in recruiter searches, Get instant relevant Jobs and <br /> reach out to recruiters to increase your chances of getting a call
               </h2>
-              <div className="font-bold font-sans pt-4 pb-4 sm:flex flex-row items-center justify-center md:flex md:flex-wrap md:justify-center">
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+              <div className="font-bold font-sans pt-4 pb-4 sm:flex flex-row items-center justify-center gap-[2.1vw] md:flex md:flex-wrap md:justify-center">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-1 px-2 rounded-full mb-4 md:mr-4">
                   Visibility
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-1 px-2 rounded-full mb-4 md:mr-4">
                   Professional
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-1 px-2 rounded-full mb-4 md:mr-4">
                   StandOut
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-1 px-2 rounded-full mb-4 md:mr-4">
                   Recruiter Friendly
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-2 px-6 rounded-full mb-4 md:mr-4">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white m-2 py-1 px-2 rounded-full mb-4 md:mr-4">
                   Error Free
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-2 px-6 rounded-full mb-4 md:mr-4">
+                <button className="bg-gray-100 hover:bg-gray-200 text-black hover:text-white py-1 px-2 rounded-full mb-3 md:mr-4">
                   Assurity
                 </button>
               </div>
           </div>
         </div>
 
-        <div className="w-5/6 mx-auto py-4">
+        <div className="w-full mx-auto py-4">
         <div className="md:flex items-center justify-between border-[3px] lg:rounded border-gray-200 md:h-411 md:flex-row flex-col">
-        <div className="md:w-[90%] w-full py-6 px-8  text-gray-900 text-center md:text-left">
+        <div className=" w-full py-6 px-8  text-gray-900 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl font-sans mb-4 text-left"> Unlocking Career Opportunities: The Benefits of Text Resume Services</h1>
-          <h1 className="text-xl text-left md:text-2xl font-semibold mb-4 font-sans text-gray-500">
-          </h1>
           <h1 className=" text-left text-xl md:text-2xl font-light mb-8 font-sans">
           Investing in text resume services offers a streamlined approach to enhancing your job search. Your qualifications are presented clearly, making it easier for employers to quickly assess your suitability for the role. 
           </h1>
@@ -82,7 +80,7 @@ const Mheader = () => {
       </div>
       </div>
       
-      <div className='w-5/6 mx-auto py-2' >
+      <div className='mx-auto py-2 w-full' >
         <div className="border-[3px] lg:rounded border-gray-200 h-411 w-1176 items-center justify-center text-center py-4">
           <h1 className="font-bold text-3xl py-2 px-2 font-sans">
             Move ahead in Career, Faster
@@ -115,9 +113,9 @@ const Mheader = () => {
         </div>
         </div>
         </div>
-        <div className='w-5/6 mx-auto py-4' >
-        <div className=" border-[3px] lg:rounded border-gray-200 h-411 w-1176 items-center justify-center text-center p-4">
-          <h2 className="text-3xl py-2 px-2 font-sans font-light">
+        <div className='w-full mx-auto py-4 border-[3px] border-gray-200 rounded-lg mt-4' >
+        <div className="h-411 md:w-[70%] mx-auto items-center justify-center text-center p-4">
+          <h2 className="text-2xl py-2 px-2 font-sans font-ligh max-md:text-center">
             View ready-made samples for Text Resume, Visual Resume, Cover
             Letters
           </h2>
@@ -125,14 +123,14 @@ const Mheader = () => {
           <br />
           <br></br>
 
-          <div className="flex flex-row justify-evenly">
-            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
+          <div className="flex flex-row justify-evenly flex-wrap gap-y-4">
+            <button className="w-30 bg-blue-700 text-white ml-2 py-2 px-4 sm:text-[15px] text-[12px] rounded-full">
               Text Resume
             </button>
-            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
+            <button className="w-30 bg-blue-700 text-white ml-2 py-2 px-4 sm:text-[15px] text-[12px] rounded-full">
               Visual Resume
             </button>
-            <button className="w-30 bg-blue-700 text-white m-2 py-2 px-4 rounded-full">
+            <button className="w-30 bg-blue-700 text-white ml-3 mr-2 py-2 px-4 sm:text-[15px] text-[12px] rounded-full">
               Cover Letter
             </button>
           </div>

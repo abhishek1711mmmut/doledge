@@ -25,9 +25,9 @@ const InternationalTextEntry = () => {
   }));
 
   const prices={
-    price1:12499,
-    price2:13499,
-    price3:14499
+    price1:6799,
+    price2:7499,
+    price3:8499
   }
 
 
@@ -108,10 +108,10 @@ const InternationalTextEntry = () => {
             <div className="pb-4">
 
               <div className="text-white text-5xl sm:text-center md:text-left leading-[60px] max-md:max-w-full max-md:text-3xl max-lg:mt-4">
-                Text International Resumes: Elevate Your Profile, Expand your Horizons
+                Global Edge Resumes: Elevate Your Career Worldwide with Our International Resume Services
               </div>
               <div className="text-orange-400 text-2xl sm:text-center md:text-left max-w-full mt-4 pl-3">
-                International Impressions: Internation Text Resumes for a Global Workforce
+                Crafted for Excellence, Tailored for Global Opportunities
               </div><br />
             </div>
              <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 4, md: 2 }}>
@@ -153,8 +153,7 @@ const InternationalTextEntry = () => {
         fontFamily: 'Poppins'
       }}>
         <div className="text-white text-center self-center w-[100%] lg:w-[80%] max-md:max-w-full text-sm sm:text-xl md:text-2xl lg:text-3xl font-medium flex justify-center items-center">
-          Doledge's International Text Resume Services are <br /> the key to unlocking a more
-          efficient and effective job search.
+          Doledge's International Resume Services: Unleash Your <br /> International Career Potential with Our Expert Resume Services
         </div>
 
 
@@ -176,7 +175,7 @@ const InternationalTextEntry = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              Expertly tailored to beat ATS filters
+            Tailored resumes designed to attract international employers and showcase your skills on a global scale
              
               
             </span>
@@ -189,7 +188,7 @@ const InternationalTextEntry = () => {
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word'}}>
 
-              Strategically incorporate industry-specific keywords to make your resume stand out
+            Customized resumes for specific industries, aligning with international standards and expectations
 
              
             </span>
@@ -203,7 +202,7 @@ const InternationalTextEntry = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              Our designers create professional, aesthetically pleasing text resumes
+            Polished language proficiency to meet the linguistic expectations of various international markets
              
             </span>
           </div>
@@ -212,7 +211,7 @@ const InternationalTextEntry = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              We valuing your input and preferences to produce a resume that truly represents you
+            Guidance on leveraging international networking platforms for enhanced job opportunities
              
             </span>
           </div>
@@ -221,7 +220,7 @@ const InternationalTextEntry = () => {
             <FontAwesomeIcon icon={faCircle} style={{ color: "#ffff" }} />
 
             <span className='ml-4 text-sm md:text-lg lg:text-xl' style={{ fontFamily: 'Poppins', fontWeight: '300', wordWrap: 'break-word' }}>
-              Making your resume usable for all individuals
+            Making your resume usable for all individuals,
              
             </span>
           </div>

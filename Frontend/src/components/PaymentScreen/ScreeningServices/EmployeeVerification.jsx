@@ -35,30 +35,16 @@ const BuyNow = (e) =>{
 
   return (
     <div className="w-full h-auto mx-auto pt-2">
+
+
+      {/* Section-1  */}
       <div>
-        <img
+      <img
           src={require("./../../../images/ScreeningServices/EmpVerHeading.png")}
           alt="Verification"
           className=" object-cover  w-full h-auto relative"
         />
-
-        <img
-          src={require("./../../../images/ScreeningServices/Vector.png")}
-          alt="Verification"
-          className="w-[8%] left-[6%] top-[22%] md:top-[24%] absolute"
-        />
-
-        <p className=" text-sm sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[56px] font-extrabold  w-[max-content] text-start text-[#FFFFFF] top-[28%] sm:top-[31%] md:top-[37%] lg:top-[41%] xl:top-[45%] 2xl:top-[48%]  tracking-normal lg:tracking-wide left-[3%] absolute lg:leading-[3rem] xl:leading-[4rem] 2xl:leading-[4.8rem] ">
-          {" "}
-          Unlocking <br />
-          Confidence Through <br /> Trustworthy <br /> Verification
-        </p>
-
-        <p className="text-[10px] md:text-base lg:text-xl 2xl:text-2xl font-extrabold  w-[fit-content] text-start text-[#FFFFFF] top-[38%] sm:top-[50%] md:top-[58%] lg:top-[71%] xl:top-[85%] 2xl:top-[99%] tracking-normal lg:tracking-wide left-[3%] absolute">
-          {" "}
-          Empower Your Workforce with Seamless Employment <br /> Background
-          Verification Services
-        </p>
+  
       </div>
 
       <div className="pt-8 mx-auto">
@@ -71,25 +57,28 @@ const BuyNow = (e) =>{
             fontFamily: "Poppins",
           }}
         >
-          <div className="text-white tracking-wider font-extrabold text-center  self-center max-w-[970px] max-md:max-w-full justify-center ">
+          <div className="text-white tracking-wider font-[900] text-center  self-center max-w-[970px] max-md:max-w-full justify-center  xl:text-[1.8rem] ">
             Pre-Employment Background Check Solutions
           </div>
         </div>
       </div>
 
-      {/*  Details of Employee Background  Verification  */}
-      <div className="w-[92%] h-auto flex flex-col mx-auto mt-4  lg:flex-row">
-        <div className="basis-3/4 lg:basis-3/5  w-auto  h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 p-10 lg:p-20">
-          <div className="md:basis-2/3 w-auto justify-center h-auto ">
+
+
+
+{/*  Section-2 -->  Details of Employee Background  Verification  */}
+<div className="w-[92%] h-auto flex flex-col mx-auto mt-2  lg:flex-row">
+        <div className="basis-3/4 lg:basis-3/5 h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 p-10 2xl:p-1">
+          <div className="basis-1/2">
             <img
-              className="p-2  xl:w-[100%] items-center"
+              className="w-full items-center"
               src={require("./../../../images/ScreeningServices/PeopleImage.jpg")}
               alt="PeopleImage"
             />
           </div>
 
-          <div className=" md:basis-2/5    w-auto text-justify m-2  [word-spacing:15px]">
-            <p className=" text-xl  text-black leading-8 lg:leading-10 tracking-wide lg:p-5">
+          <div className="basis-1/2   w-auto text-justify m-2  [word-spacing:2px]">
+            <p className=" text-xl xl:text-[1.45rem] text-black leading-8 lg:leading-10 tracking-wide  lg:p-5">
               Employee background verification is a vital component of the
               hiring process, offering numerous benefits to employers. This
               process not only safeguards your organization but also minimizes
@@ -102,15 +91,15 @@ const BuyNow = (e) =>{
 
         {/*       flex-basis 1/5 area  */}
 
-        <div className="basis-1/5 xl:m-20  mx-auto w-auto h-auto bg-white flex  flex-row flex-wrap  md:flex-col items-justify ">
+        <div className="basis-1/5 lg:m-20  mx-auto w-full gap-3 h-auto bg-white flex  flex-row flex-wrap  md:flex-col items-justify ">
           {/* 1. */}
-          <div className="flex pr-5 items-center justify-end mx-auto ">
+          <div className="flex pr-5 items-center justify-end mx-auto">
             <img
-              className=" w-[40%] h-auto "
+              className=" w-[40%] "
               src={require("./../../../images/ScreeningServices/DrugTest.jpg")}
               alt="DrugTestImage"
             />
-            <h2 className="text-lg xl:text-2xl pl-6 xl:pl-10"> Drug Test</h2>
+            <h2 className="text-lg xl:text-2xl pl-6 xl:pl-10  "> Drug Test</h2>
           </div>
 
           {/* 2. */}
@@ -260,7 +249,7 @@ const BuyNow = (e) =>{
       <div className="w-full h-auto flex flex-col lg:flex-row mx-auto items-center  ">
         <div className="basis-2/5 p-2 m-1 mx-auto items-center ">
           <Card
-            className="w-[90%] mx-auto bg-[#F0EFF5] 2xl:h-[85vh] md:h-[max-content]  "
+            className="w-[90%] mx-auto bg-[#F0EFF5]  md:h-[max-content]  "
             style={{
               marginTop: "2rem",
               backgroundColor: "#F0EFF5",
@@ -281,7 +270,7 @@ const BuyNow = (e) =>{
             </Typography>
 
             <img
-              className="object-cover  w-auto   h-auto mt-20 mx-auto"
+              className="object-cover w-auto  mx-auto"
               src={require("./../../../images/ScreeningServices/BackgroundCheck.jpg")}
               alt="Background Check Process "
             />
@@ -302,7 +291,7 @@ const BuyNow = (e) =>{
 
         <div className="basis-2/5 p-2 m-1 mx-auto items-center ">
           <Card
-            className=" xl:w-[90%] mx-auto bg-[#000000] 2xl:h-[85vh] md:h-[max-content] "
+            className=" xl:w-[90%] mx-auto bg-[#000000]  md:h-[max-content] "
             style={{
               marginTop: "2rem",
               backgroundColor: "rgba(251, 251, 251, 1)",
@@ -562,7 +551,7 @@ const BuyNow = (e) =>{
                 icon={faCircle}
                 style={{ color: "#F58634", fontSize: "25px" }}
               />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
+              <h2 className="text-xl  text-start  xl:text-2xl pl-7 xl:pl-10">
                 
                 Protect Company Reputation
               </h2>
@@ -583,7 +572,7 @@ const BuyNow = (e) =>{
                 icon={faCircle}
                 style={{ color: "#F58634", fontSize: "25px" }}
               />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
+              <h2 className="text-xl xl:text-2xl pl-7 xl:pl-10">
           
                 Prevent Fraud
               </h2>

@@ -1,27 +1,33 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
+import payment1 from '../images/mastercard.jpg'
+import payment2 from '../images/visa.png'
+import payment3 from '../images/american-express.png'
+import payment4 from '../images/maestro.png'
+import payment5 from '../images/Rupay-Logo.png'
 
 const Footer = () => {
   return (
     <>
-      <div className="w-[100%]">
+      <div className="w-[100%] flex flex-col gap-y-4">
+        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
         {/* Payment Section */}
-        <div className="w-[100%] border-t-2 border-b-2 py-3 mt-5">
-          <div className="w-full">
-            <div className="w-full text-black leading-[31px] tracking-[3.74px]" style={{
+        <div className="md:w-[70%] max-w-[1500px] mx-auto flex flex-col md:flex-row justify-evenly items-center max-md:p-1">
+          <div className="flex flex-col w-full md:w-[60%]">
+            <div className="w-full text-black leading-[31px] text-left tracking-wider xl:tracking-widest text-base max-md:text-center md:text-[22px]" style={{
               color: 'black',
-              fontSize: '22px',
+              // fontSize: '22px',
               fontFamily: 'Inter,Arial,sans-serif',
               fontWeight: '700',
-              wordWrap: 'break-word',
+              // wordWrap: 'break-word',
               // border: '1px solid black'
             }}>
               Purchase securely with Doledgeindia.com
             </div>
 
-            <div className="w-full text-black text-xl text-center my-2 mb-4" style={{
-              fontSize: '20px',
+            <div className="w-full text-black max-md:text-center md:text-xl text-left" style={{
+              // fontSize: '20px',
               fontFamily: 'Inter,Arial,sans-serif',
               fontWeight: '300',
               letterSpacing: 1.60,
@@ -31,20 +37,19 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full flex justify-center">
-            <img
-              className="w-[100%] h-[60px] px-3
-              sm:w-[70%]
-              md:w-[50%]"
-              alt="payment"
-              src={require("../images/payment.png")}
-            // style={{border: '1px solid black'}}
-            />
+          <div className="flex justify-center items-center md:gap-4 bg-white max-sm:p-1">
+            <img src={payment1} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] !bg-white border-r-2"/>
+            <img src={payment2} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-2 "/>
+            <img src={payment3} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white px-2 border-r-2 border-l-2"/>
+            <img src={payment4} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-3 border-r-2"/>
+            <img src={payment5} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white"/>
           </div>
         </div>
 
+        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
+
         {/* Footer Information */}
-        <div className="flex flex-row justify-evenly items-center px-0 pt-4" style={{ borderBottom: '2px solid #ccc' }}>
+        <div className="flex flex-row justify-evenly items-center px-0 pt-4 w-[70%] max-w-[1500px] mx-auto">
           {/* section 1 */}
           <div className="flex flex-col
           lg:flex lg:flex-row">
@@ -180,6 +185,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
 
         {/* Social Networks */}
         <div className="flex justify-center items-center py-2">

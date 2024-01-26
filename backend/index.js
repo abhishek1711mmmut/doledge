@@ -1,92 +1,77 @@
+//! NECESSARY IMPORTS
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
-const dotenv = require("dotenv").config();
+const port = process.env.PORT || 8800;
 const database = require("./configuration/databaseConfig");
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose')
-const passport = require('passport');
-const session = require('express-session');
-const cors = require('cors');
-
-
-
-// Google Authentication Imports
-
-require('./configuration/passport'); // definition to passport object
-const googleSignupRoutes = require('./routes/GoogleSignup'); // google signup routes
-const googleSigninRouts = require('./routes/GoogleSignin');
-
-
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 
-// middlewares
+//! middlewares
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({
-  origin: 'https://doledge-resume-portal-git-main-purezza-technologies.vercel.app',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,UPDATE,PUT,DELETE,PATCH",
+    credentials: true,
+  })
+);
 
-
+//! server msg Routes
 app.get("/", (req, res) => {
-  res.json("hello from server");
+  res.json("hello from Doldege server");
 });
 
+//! Routes imports
+const authRouter = require("./routes/auth");
+const homeRouter = require("./routes/home");
+const userRouter = require("./routes/user");
+const resumeServiceRouter = require("./routes/resumeService");
+const productRouter = require("./routes/product");
+const blogRouter = require("./routes/blog");
+const cartRouter = require("./routes/cart");
+const resumequalityRoutes = require("./routes/resumequality");
+const serviceRouter = require("./routes/service");
+const resumeRouter = require("./routes/resume");
+const cardRouter = require("./routes/card");
+const jobserviceRouter = require("./routes/jobservice");
+const highlightResumeRouter = require("./routes/highlightresume");
+const contactusRouter = require("./routes/contactus");
+// const dashRouter = require("./routes/dashboard");
 
-// Google Authentication
- app.use(session({
- secret: 'hello',}));
-app.use(passport.initialize());
-app.use(passport.session());
- app.use(googleSignupRoutes)
-//  app.use(googleSigninRouts)
+//! BASE API'S
+app.use("/api/auth", authRouter.routes); //✅
+app.use("/api/home", homeRouter.routes); //✅
+app.use("/api", userRouter.routes); //✅
+app.use("/api/resumeService", resumeServiceRouter.routes); //✅ // resume k services
+app.use("/api/jobService", jobserviceRouter.routes); //✅ // job k  services
+app.use("/api/contact-us", contactusRouter.routes); //✅
+app.use("/api", productRouter.routes); //✅
+app.use("/api", blogRouter.routes); //✅
+app.use("/api", cartRouter.routes); //✅
+app.use("/api", resumequalityRoutes); //✅
+app.use("/api/home", serviceRouter.routes); //✅ // normal services
+app.use("/api/home", cardRouter.routes); //✅
+app.use("/api/resume", resumeRouter.routes); //✅ create and get all resume
+app.use("/api/highlightresume", highlightResumeRouter.routes); //✅
+// app.use("/api/dashboard", dashRouter.routes);
 
- // Google Logout middleware
- app.get('/logout', (req, res) => {
-   req.logOut((error1) => {
-     req.session.destroy((error2) => {
- delete req.user;
-           res.clearCookie("connect.sid");
-           return res.json('done')
-       })
-   });
- })
+//! SERVER START FUNCTION
+const startServer = async () => {
+  try {
+    await database();
 
+    app.listen(port, () =>
+      console.log(`Server started on http://localhost:${port}`)
+    );
+  } catch (error) {
+    console.error(
+      "Error connecting to the database or starting the server:",
+      error
+    );
+  }
+};
 
-/// Routes
-const authRouter = require('./routes/auth');
-const dashRouter = require('./routes/dashboard');
-const homeRouter = require('./routes/home');
-const userRouter = require('./routes/user');
-const productRouter = require('./routes/product');
-const blogRouter = require('./routes/blog');
-const serviceRouter = require('./routes/service');
-const cardRouter = require('./routes/card');
-const cartRouter = require('./routes/cart');
-const socialauthRouter = require("./routes/socialauth");
-const resumeRoutes = require('./routes/resumequality');
-
-const resumemakeRoutes = require('./routes/resume');
-const resumeServiceRouter = require('./routes/resumeService');
-
-
-// APIs
-app.use('/api/auth', authRouter.routes) //✅
-app.use('/api/dashboard', dashRouter.routes)
-app.use('/api', homeRouter.routes) //✅
-app.use('/api', userRouter.routes) //✅
-app.use('/api/resumeService',resumeServiceRouter.routes)
-app.use('/api', productRouter.routes)
-app.use('/api/home',blogRouter.routes) 
-app.use('/api/home',serviceRouter.routes)
-app.use('/api/home',cardRouter.routes)
-app.use('/api', cartRouter.routes)
-app.use('/api/socialauth' , socialauthRouter.routes);
-app.use('/api', resumeRoutes);
-app.use('/api', resumemakeRoutes);
-
-const port = process.env.PORT || 8800;
-database()
-    .then(() => console.log("Database connected 😎👍"))
-    .catch(() => console.log("Database connection failed"));
-
-app.listen(port, () => console.log( `server started on http://localhost:${port}`))   
+startServer();
