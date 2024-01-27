@@ -48,11 +48,29 @@ function JobAlertOnMailAndSms() {
   };
 
   return (
-   
+    <>
     
-      <section>
+   <div style={{fontFamily:'inter'}} className="lg:flex flex-col h-full w-full lg:flex-row ">
+      {/* left part*/}
+    <div className="bg-[#F58634] flex flex-col items-start justify-center lg:w-[55%] w-full p-5  gap-y-3">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-medium leading-[25px]  text-left "> 
+          Receive Instant Job Alerts <br /> on Mail & SMS for Your Next <br /> Big Opportunity.
+          </h1>
+        <h2 className="text-2xl font-light leading-[43px] text-white text-left"> 
+        Your Dream Job Awaits!
+        </h2>
+    </div>
+    {/* right part */}
+    <div className="w-full lg:w-[45%] flex justify-center items-center  max-lg:h-[300px]">
+    
+    <img className="h-full w-full object-fill" src={image3} alt="" />
+    </div>
+
+   </div>
+      
+      <div style={{fontFamily:'inter'}} >
       {/*Section 2*/}
-      <div className=" bg-white md:w-[70%] md:pt-0 md:mx-auto">
+      <div className=" bg-white md:w-[70%] md:pt-3 md:mx-auto pt-3 lg:pt-3 p-2">
         {/* Title on the left top with padding */}
         <div className=" text-xl font-bold mb-4 text-left pt-2 ">
           Importance of alerts!
@@ -124,7 +142,7 @@ function JobAlertOnMailAndSms() {
           
 
           {/* Right side */}
-          <div className='w-[50%] sm:w-[55%] md:w-[60%] flex flex-col gap-3 md:gap-4 mx-auto'>
+          <div className='w-[50%] sm:w-[55%] md:w-[60%] flex flex-col gap-3 md:gap-4 mx-auto '>
                     <h1 className='font-medium text-base pr-5 sm:pr-0 mx-auto sm:text-2xl md:text-base lg:text-xs xl:text-xl xl:leading-[43px] w-52 break-words sm:w-full'>
                     Job alert on mail and message
                     </h1>
@@ -153,8 +171,7 @@ function JobAlertOnMailAndSms() {
           </div>
         
       
-  
-      </section>
+      </div>
       {/*Section 3 */}
       <div style={{fontFamily:'inter'}}>
         <div className="bg-[#F6F6F8] mt-5 sm:text-sm">
@@ -262,9 +279,6 @@ function JobAlertOnMailAndSms() {
           <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4 text-xs">
             <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[70%] flex flex-col justify-evenly items-start gap-3 md:gap-5 lg:gap-y-10  ">
             <h1 className="text-left w-full font-medium">
-          <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4">
-            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[90%] md:w-[90%] xl:w-[70%] flex flex-col  items-start gap-3 md:gap-5 lg:gap-y-8">
-              <h1 className="text-left w-full font-medium">
                 What are job alert services?
               </h1>
               <p className="lg:text-lg xl:text-xl xl:leading-[43px] text-justify">
@@ -361,11 +375,18 @@ function JobAlertOnMailAndSms() {
         </div> */}
         
       {/*section 5 */}
-      <Contactus/>
-      <Blog/>
-      <Footer/>
-      </section>
-   
+      {/*  */}
+        
+       <Contactus/>
+       
+        {/* Bolg */}
+        <Blog />
+        
+        {/* Footer */}
+        <Footer />
+        
+        
+    </>
   );
 }
 
