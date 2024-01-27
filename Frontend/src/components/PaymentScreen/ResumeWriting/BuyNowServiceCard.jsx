@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card, CardContent, Typography, Button, Box } from '@mui/material';
+import { Card, Typography, Button, Box } from '@mui/material';
 import { FormControl, FormControlLabel, Radio, Checkbox, RadioGroup } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-// import Slide from 'react-reveal/Slide';
 
 export default function BuyNowServiceCard({prices}) {
     const [selectedValue, setSelectedValue] = React.useState('option1');
@@ -47,28 +46,22 @@ export default function BuyNowServiceCard({prices}) {
     return (
         <>
 
-            <div className="justify-content-center pr-[2vw] xl:flex lg:w-[50%] xl:w-[100%] py-2">
+            <div className="justify-content-center xl:flex lg:w-[55%] xl:w-[40%] py-2">
                 
-                <div className="div flex flex-col justify-center align-center">
-                    
+                <div className="div flex flex-col">
 
-
-
-
-                    <div className="ml-12 text-black text-lg sm:text-[17px] max-w-screen-sm md:max-w-full self-start text-center font-semibold mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
+                    <div className="mx-auto text-black text-lg sm:text-xl max-w-screen-sm md:max-w-full self-start text-center font-semibold md:mb-2" style={{fontFamily: 'Poppins', fontWeight: 300 }}>
                     Buy {ResumeType} Resume Services
                     </div>
 
 
                     {/* <Card className='md:ml-20 md:mt-10 md:w-[100%]' style={{ height: '45vh' }}> */}
-                    <Card className='md:ml-7 md:mt-1 md:w-[77%] h-fit py-2'>
+                    <Card className='md:mt-1 md:w-[100%] my-2 h-full'>
 
-                        {/* <Slide right cascade> */}
-
-
+                        <div className='bg-white max-xl:h-6 xl:h-[10%]'></div>
 
                         <Typography component="div" gutterBottom style={{
-                            background: '#f3f1f2',
+                            background: '#D2D2D263',
                             fontSize: 26,
                             color: '#444',
                             padding: '7px 0',
@@ -82,7 +75,7 @@ export default function BuyNowServiceCard({prices}) {
                             }}>*Applicable taxes may apply</p>
                         </Typography>
 
-                        <FormControl component="fieldset" sx={{ marginLeft: '20px' }}>
+                        <FormControl component="fieldset" sx={{ paddingX: '20px' }}>
                             <RadioGroup
                                 aria-label="options"
                                 name="options"
@@ -95,26 +88,22 @@ export default function BuyNowServiceCard({prices}) {
                                     label={
                                         <div>
                                             <Typography style={{
-                                                fontSize: '16px',
+                                                fontSize: '15px',
                                                 fontFamily: 'Poppins',
                                                 fontWeight: '400',
                                             }}> Including Cover letter </Typography>
                                         </div>
                                     }
                                     labelPlacement="end"
-
-
-
-
-
                                 />
+                                <hr className='w-full'/>
                                 <FormControlLabel
                                     value="option1"
                                     control={<Radio checked={selectedValue === 'option1'} onChange={handleChange} />}
                                     label={
                                         <div>
                                             <Typography style={{
-                                                fontSize: '16px',
+                                                fontSize: '15px',
                                                 fontFamily: 'Poppins',
                                                 fontWeight: '400',
                                             }}><span className='text-blue-900'>Regular</span> 8 working days</Typography>
@@ -129,7 +118,7 @@ export default function BuyNowServiceCard({prices}) {
                                     label={
                                         <div>
                                             <Typography style={{
-                                                fontSize: '16px',
+                                                fontSize: '15px',
                                                 fontFamily: 'Poppins',
                                                 fontWeight: '400',
                                             }}><span className='text-blue-900'>Express</span> 4 working days (Rs. 1201/-)</Typography>
@@ -144,17 +133,15 @@ export default function BuyNowServiceCard({prices}) {
                                     label={
                                         <div>
                                             <Typography style={{
-                                                fontSize: '16px',
+                                                fontSize: '15px',
                                                 fontFamily: 'Poppins',
                                                 fontWeight: '400',
-                                                marginTop:'12px',
-                                                marginRight:'35px'
-                                                
-                                            }}><span className='text-blue-900 '>Super express</span> 2 working days (Rs. 1901/-)</Typography>
+                                            }}><span className='text-blue-900'>Super express</span> 2 working days (Rs. 1901/-)</Typography>
                                         </div>
                                     }
                                     labelPlacement="end"
                                     enebled={selectedValue === 'option1' || selectedValue === 'option2'}
+                                    className='text-left'
                                 />
 
                             </RadioGroup>

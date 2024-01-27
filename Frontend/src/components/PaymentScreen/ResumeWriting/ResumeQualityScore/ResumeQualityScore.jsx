@@ -15,13 +15,13 @@ const ResumeQualityScore = () => {
         <div>
             {/* blue image div */}
             <div className={`bg-[url(${blueBg})] bg-no-repeat bg-cover h-[300px] relative mx-auto`}>
-              <div className='absolute top-[9%] left-[50%] translate-x-[-50%] mx-auto sm:w-[90%] xl:w-fit'>
+              <div className=' mx-auto sm:w-[90%] xl:w-fit translate-y-[1%] lg:translate-y-[2%]'>
                   {/* header */}
                   <h1 className='text-lg lg:text-2xl xl:text-4xl font-medium text-white break-normal'>Know where your resume quality stands amongst others</h1>
                   <p className='text-base xl:text-lg mt-3 text-white'>Analyze your current resume and get a feedback to make it better</p>
 
                   {/* box */}
-                  <div className='w-[70%] xl:w-[70vw] mx-auto flex flex-col items-center gap-y-8 xl:flex-row text-center px-4 sm:p-10 py-6 sm:pt-14 mt-4 bg-white drop-shadow-xl'>
+                  <div className='w-[80%] sm:w-[70%] max-w-[1500px] mx-auto flex flex-col items-center gap-y-8 xl:flex-row text-center px-4 sm:p-10 py-6 sm:pt-14 mt-4 bg-white drop-shadow-xl'>
                     {/* left section */}
                     <div className='w-[100%] xl:w-[40%] text-xl font-medium flex flex-col gap-5'>
                       <h2 className='w-full xl:w-[75%] mx-auto'>
@@ -47,7 +47,7 @@ const ResumeQualityScore = () => {
                   </div>
 
                   {/* how it works */}
-                  <div className='my-14 text-center'>
+                  <div className='my-14 text-center lg:w-[70%] max-w-[1500px] mx-auto'>
                     <h1 className='text-3xl mb-7'>How it works</h1>
                     <div className='flex flex-col items-center lg:justify-center lg:flex-row gap-10 xl:gap-3 w-full mx-auto'>
                       <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[21%] xl:w-full min-h-[300px]'>
@@ -79,13 +79,12 @@ const ResumeQualityScore = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className='w-full mx-auto'>
-                    <Footer/>
-                  </div>
+                  <Footer/>
               </div>
             </div>
+            
         </div>
+        
     </div>
   )
 }

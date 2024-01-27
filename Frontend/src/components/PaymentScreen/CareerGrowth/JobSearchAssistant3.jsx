@@ -20,34 +20,10 @@ import Contactus from '../../Contactus'
 
 const JobSearchAssistant3 = () => {
 
-    const [formData, setFormData]=useState({
-        name:'',
-        email:'',
-        phoneNo:''
-    })
-    
-    const {name, email, phoneNo}=formData;
-
-    const handleOnChange = (e) => {
-        if(e.target.type==="number" && e.target.value.length > e.target.maxLength){
-            e.target.value=e.target.value.slice(0, e.target.maxLength)
-        }
-        setFormData((prevData) => ({
-          ...prevData,
-          [e.target.name]: e.target.value,
-        }))
-    }
-
     const [price, setPrice] = useState(0);
 
     const handleCheckBoxChange=(e)=>{
         e.target.checked ? setPrice((prev)=>(prev + parseInt(e.target.value))) : setPrice((prev)=>(prev - parseInt(e.target.value)));
-    }
-
-    const submitContactFormData=(e)=>{
-        e.preventDefault();
-        console.log(formData)
-        // write your code here
     }
 
     const handlePriceAssistant=()=>{

@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCheck, faTimesCircle, faCircle, faTimes, faCheckCircle, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
-import { Card, CardContent, Typography, Button, Box } from '@mui/material';
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import BuyNowServiceCard from '../BuyNowServiceCard';
 import { SiSpeedtest } from "react-icons/si";
 import icon1 from '../../../../images/Icons/1.jpg'
@@ -12,23 +9,16 @@ import icon2 from '../../../../images/Icons/2.jpg'
 
 // import Slide from 'react-reveal/Slide';
 export default function DoledgeBenefits({prices}) {
-  const [selectedValue, setSelectedValue] = React.useState('');
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
   return (
-    
 
-
-
-    <div className="main flex flex-col md:ml-20 md:mr-20 w-full mx-auto">
+    <div className="main flex flex-col md:ml-20 md:mr-20 w-[93%] lg:w-[80%] xl:w-[70%] max-w-[1500px] mx-auto">
       <div className="div w-[100%] flex justify-center align-center mt-5">
 
          {/* <div className="flex justify-center align-center bg-green-500">
       Click me
     </div> */}
-      <div className='bg-gradient-to-tr from-emerald-400 to-lime-300 w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
+      <div className='bg-[#9DD49B] w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
         Doledge Benefits
       </div>
 
@@ -40,8 +30,8 @@ export default function DoledgeBenefits({prices}) {
 
 
 
-      <div className="flex flex-col xl:flex-row justify-center items-center xl:items-start mt-5 w-[90%] mx-auto">
-        <div className="flex flex-col justify-center items-start w-[100%]">
+      <div className="flex flex-col xl:flex-row justify-center items-center xl:justify-between xl:items-stretch gap-x-2 mt-5 w-full mx-auto">
+        <div className="flex flex-col justify-center items-start  xl:w-[60%]">
          
 
           <div className="text-black text-base md:text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300,  textAlign:'center' }}>
@@ -49,12 +39,12 @@ export default function DoledgeBenefits({prices}) {
             Benefits of buying International Resume service from Doledge
           </div>
 
-          <table className="table table-striped table-bordered custom-table-width" style={{ fontSize: '14px' }}>
+          <table className="table table-striped table-bordered table-auto">
             <thead>
               <tr>  
-                <th scope="col" className="text-left sm:px-5 benefits-header bg-red-500">Doledge Benefits</th>
-                <th scope="col" className="text-left sm:px-5">Free Resume</th>
-                <th scope="col" className="text-left sm:px-5" style={{ color: 'white', backgroundColor: '#2e3339', fontSize: '14px', fontFamily: 'Poppins', fontWeight: 700, }}>Doledge Text Resume</th>
+                <th scope="col" className="text-center !bg-[#4472c4] !text-white">Doledge Benefits</th>
+                <th scope="col" className="text-center !bg-[#4472c4] !text-white">Free Resume</th>
+                <th scope="col" className="text-center !bg-[#4472c4] !text-white" >Doledge Text Resume</th>
               </tr>
             </thead>
             <tbody>
@@ -124,48 +114,25 @@ export default function DoledgeBenefits({prices}) {
                   <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} size='xl' />
                 </td>
               </tr>
-
-
-
             </tbody>
           </table>
 
         </div>
 
-
-
-        {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. At, quos. */}
-        {/* Purchase card */}
-
-
         <BuyNowServiceCard prices={prices}/>
-
-
-
-
       </div>
-
-
-
-
-      {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. At, quos. */}
-      {/* Purchase card */}
-
-
-      {/* </Slide> */}
-
 
 
       {/* Experiencing benefit section */}
 
-      <div className="flex md:flex-col w-full md:w-[100%] align-center justify-center">
+      <div className="flex md:flex-col w-full align-center justify-center">
         {/* red main */}
-        <div className="stats-section w-full lg:w-[90%]" style={{ margin: '25px auto' }}>
+        <div className="stats-section w-full" style={{ margin: '25px auto' }}>
           <div className="text-opacity-60 text-center font-medium leading-[35px] sm:leading-[48.1px] mt-8 self-center w-[90%] sm:w-full mx-auto max-md:max-w-full text-lg sm:text-2xl" style={{
             color: 'rgba(0, 0, 0, 0.56)',
             fontSize: 26,
             fontFamily: 'Poppins',
-            fontWeight: 400,
+            fontWeight: 500,
             wordWrap: 'break-word',
           }}>
             Our customers are experiencing a host of benefits <br /> from our Text International Resume Services

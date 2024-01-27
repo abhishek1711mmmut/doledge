@@ -117,7 +117,7 @@ function App() {
   }
 
   return (
-        <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, loadingHandler}}>
+        <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, setLoading, loadingHandler}}>
           <BrowserRouter>
             <div className="App">
                 <Navbar/>

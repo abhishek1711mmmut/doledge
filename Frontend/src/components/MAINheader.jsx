@@ -7,31 +7,16 @@ import Blog from './Blog'
 import Footer from './Footer'
 import Mheader from './Mheader'
 import contextAuth from '../ContextAPI/ContextAuth'
-import axios from 'axios'
 import Spinner from '../UI/Spinner/Spinner'
 
 const MAINheader = () => {
-  let [loading, setLoading] = useState(true);
-  let [state, setState] = useState({
-    services: [],
-    blogs: [],
-  });
+  // const {loading}=useContext(contextAuth)
   
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
-    .then(response => {
-      const data = response.data.data;
-      setState({services: data.services, blogs: data.blogs});
-    })
-    .catch(err => console.log(err));
-    setLoading(false);
-  }, [])
-
   return (
     <div>
-        {loading && <Spinner/>}
+        {/* {loading && <Spinner/>} */}
         <Banner/>
-        <Banner_services services={state.services}/>
+        <Banner_services/>
         <Header/>
         <Contact/>
         <Mheader/>

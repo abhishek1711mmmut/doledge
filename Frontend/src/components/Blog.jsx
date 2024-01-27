@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
+import contextAuth from '../ContextAPI/ContextAuth';
 
 const Blog = () => {
 
-  let [loading, setLoading] = useState(true);
+  const {setLoading} = useContext(contextAuth);
   let [blogs, setBolgs] = useState([]);
   
   useEffect(() => {
+    setLoading(true);
     axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
     .then(response => {
       const blogs = response.data.data.blogs;
       setBolgs(blogs);
+      setLoading(false);
     })
-    .catch(err => console.log(err));
-    setLoading(false);
+    .catch(err => {
+      console.log(err);
+      setLoading(false);
+    });
   }, [])
 
   return (

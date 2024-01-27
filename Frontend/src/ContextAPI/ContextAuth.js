@@ -5,6 +5,7 @@ const contextAuth = createContext({
     token: '',
     error: {},
     loading: false,
+    setLoading:{},
     login: () => {},
     logout: () => {},
     errorHandler: () => {},

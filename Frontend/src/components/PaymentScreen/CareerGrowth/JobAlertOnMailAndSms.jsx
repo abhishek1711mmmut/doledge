@@ -150,8 +150,6 @@ function JobAlertOnMailAndSms() {
                 </div>
             </div>  
           </div>
-        
-      
       </section>
       {/*Section 3 */}
       <section>
@@ -258,7 +256,7 @@ function JobAlertOnMailAndSms() {
             The benefits you gain from a Profile Highlighter service include
           </h1>
           <div className="flex gap-x-5 w-[70%] justify-center items-center mx-auto py-4">
-            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[90%] md:w-[90%] xl:w-[70%] flex flex-col  items-start gap-3 md:gap-5 lg:gap-y-8 lg:h-[220px] xl:h-[300px]">
+            <div className="font-light text-[13px] sm:text-sm lg:text-lg xl:text-xl w-[90%] md:w-[90%] xl:w-[70%] flex flex-col  items-start gap-3 md:gap-5 lg:gap-y-8">
               <h1 className="text-left w-full font-medium">
                 What are job alert services?
               </h1>

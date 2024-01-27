@@ -4,7 +4,23 @@ import axios from 'axios';
 import contextAuth from '../ContextAPI/ContextAuth';
 import { Link } from "react-router-dom";
 
-const Banner_services = (props) => {
+const Banner_services = () => {
+
+  const {setLoading}=useContext(contextAuth);
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(response => {
+      const data = response.data.data;
+      setServices(data.services);
+      setLoading(false);
+    })
+    .catch(err => console.log(err));
+  }, [])
+
   return (
     <>
             <br></br>
@@ -20,8 +36,8 @@ const Banner_services = (props) => {
 <br></br>
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-5 w-[80%] md:w-[70%] max-w-[1500px] mx-auto">
-{props.services?.map((service)=>(
-  <div className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg hover:scale-[97%] duration-200 hover:shadow-[0px_25px_20px_-20px_rgba(0,_0,_0,_0.45)] max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
+{services?.map((service)=>(
+  <div key={service._id} className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg hover:scale-[97%] duration-200 hover:shadow-[0px_25px_20px_-20px_rgba(0,_0,_0,_0.45)] max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
     <div className='w-[80%] md:w-[65%] md:h-[180px]'>
       <img src={service.image} alt="" className='h-full w-full object-fill rounded-lg'/>
     </div>

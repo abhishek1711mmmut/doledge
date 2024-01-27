@@ -2,7 +2,7 @@ import React from 'react';
 
 const Servicecss = () => {
   return (
-    <style jsx>{`
+    <style jsx='true'>{`
       .services {
         width:90%;
         // background-color: red;
