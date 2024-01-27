@@ -27,8 +27,8 @@ const Banner_services = () => {
 
 <Servicecss />
 <div className="bg-indigo-900 w-[100%] text-white md:h-28 px-4 md:px-48 flex justify-center items-center leading-3 ">
-  <div className="text-center p-2 leading-10 font-sans text-xl xl:text-4xl lr:text-3xl md:text-3xl sm:text-2xl">
-    Elevate your career prospects and stand out to <br></br> employers with our personalized resume services
+  <div className="text-center p-2 leading-10 font-sans text-xl xl:text-4xl lr:text-3xl md:text-3xl sm:text-2xl md:tracking-wider">
+    Elevate your career prospects and stand out to <br className='hidden md:block'/> employers with our personalized resume services
   </div>
 </div>
 
@@ -37,8 +37,8 @@ const Banner_services = () => {
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-5 w-[80%] md:w-[70%] max-w-[1500px] mx-auto">
 {services?.map((service)=>(
-  <div key={service._id} className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg hover:scale-[97%] duration-200 hover:shadow-[0px_25px_20px_-20px_rgba(0,_0,_0,_0.45)] max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
-    <div className='w-[80%] md:w-[65%] md:h-[180px]'>
+  <div key={service._id} className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg  max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
+    <div className='w-[80%] md:w-[65%] md:h-[150px]'>
       <img src={service.image} alt="" className='h-full w-full object-fill rounded-lg'/>
     </div>
     <h1 className='text-xl text-center'>

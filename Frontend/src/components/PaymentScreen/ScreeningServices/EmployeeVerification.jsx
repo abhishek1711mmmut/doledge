@@ -581,9 +581,9 @@ const BuyNow = (e) =>{
         </div>
       </div>
 
-      <Blog />
+      {/* <Blog /> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

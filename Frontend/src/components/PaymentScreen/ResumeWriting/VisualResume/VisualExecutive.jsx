@@ -327,10 +327,10 @@ const VisualExecutive = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );

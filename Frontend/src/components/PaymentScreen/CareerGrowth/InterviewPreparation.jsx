@@ -164,9 +164,9 @@ const InterviewPreparation = () => {
         {/* Contact us */}
       <Contactus/>
 
-        <Blog />
+        {/* <Blog /> */}
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

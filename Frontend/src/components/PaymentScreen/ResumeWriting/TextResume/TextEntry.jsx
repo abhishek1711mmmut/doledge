@@ -324,10 +324,10 @@ const TextEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );

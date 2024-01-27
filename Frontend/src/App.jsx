@@ -179,6 +179,8 @@ function App() {
                     <Route path="/" element={<MAINheader/>} />
                   {/* <Route path='*' element={<MAINheader/>}/> */}
                 </Routes>
+                <Blog/>
+                <Footer/>
             </div>
           </BrowserRouter>
         </contextAuth.Provider>

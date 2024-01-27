@@ -47,7 +47,7 @@ const Dropdown = (props) => {
               props.type == "sideBar"
                 ? "sidebar-alignment sidebar-dropdown-content"
                 : "home-alignment home-dropdown-content"
-            }`}
+            } min-[900px]:max-[1372px]:mt-4`}
             style={{
               height: height ? "auto" : "0px",
               visibility: height ? "visible" : "hidden",

@@ -328,10 +328,10 @@ const VisualMiddle = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );

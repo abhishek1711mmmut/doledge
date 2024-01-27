@@ -292,10 +292,10 @@ const JobSearchAssistant3 = () => {
             <Contactus/>
 
             {/* blog */}
-            <Blog/>
+            {/* <Blog/> */}
 
             {/* footer */}
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     </div>
   )

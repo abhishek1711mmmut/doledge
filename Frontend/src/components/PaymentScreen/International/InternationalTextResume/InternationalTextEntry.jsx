@@ -326,10 +326,10 @@ const InternationalTextEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );

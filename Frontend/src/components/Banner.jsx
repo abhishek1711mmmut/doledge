@@ -5,7 +5,7 @@ import '@fontsource/sintony';
 const Banner = () => {
   return (
     <>
-      <br></br>
+      <br />
 
       <div className="Banner w-full flex flex-col 
       md:flex md:flex-row max-w-[1700px] mx-auto">

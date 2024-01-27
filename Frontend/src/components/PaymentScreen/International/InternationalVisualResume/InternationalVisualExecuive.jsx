@@ -324,10 +324,10 @@ const InternationalVisualEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );

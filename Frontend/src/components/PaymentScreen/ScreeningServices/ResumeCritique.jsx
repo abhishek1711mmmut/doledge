@@ -456,9 +456,9 @@ const ResumeCritique = () => {
           </div>
         </div>
 
-        <Blog />
+        {/* <Blog /> */}
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

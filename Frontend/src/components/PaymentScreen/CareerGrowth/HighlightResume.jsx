@@ -33,7 +33,7 @@ const HighlightResume = () => {
     return (
         <div>
             {/* hero section */}
-            <div className='flex flex-col lg:flex-row h-full lg:max-h-[450px]'>
+            <div className='flex flex-col lg:flex-row h-full lg:max-h-[450px] max-w-[1600px] mx-auto'>
                 {/* left part */}
                 <div className='hidden sm:block w-full h-[300px] lg:h-auto lg:w-[47%]'>
                     <img src={ResumeHighlighter} alt="" className='h-full w-full object-fill' loading='lazy'/>
@@ -240,10 +240,10 @@ const HighlightResume = () => {
             <Contactus/>
             
             {/* Blog */}
-            <Blog/>
+            {/* <Blog/> */}
 
             {/* Footer */}
-            <Footer/>
+            {/* <Footer/> */}
         </div>
       )
 }

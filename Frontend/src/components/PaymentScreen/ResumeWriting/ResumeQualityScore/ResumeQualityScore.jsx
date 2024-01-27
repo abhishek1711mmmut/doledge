@@ -14,8 +14,10 @@ const ResumeQualityScore = () => {
     <div>
         <div>
             {/* blue image div */}
-            <div className={`bg-[url(${blueBg})] bg-no-repeat bg-cover h-[300px] relative mx-auto`}>
-              <div className=' mx-auto sm:w-[90%] xl:w-fit translate-y-[1%] lg:translate-y-[2%]'>
+            <div className={`mx-auto`}>
+              <div className={`bg-[url(${blueBg})] bg-no-repeat w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]`}>
+              </div>
+              <div className=' mx-auto sm:w-[90%] xl:w-fit relative pt-4'>
                   {/* header */}
                   <h1 className='text-lg lg:text-2xl xl:text-4xl font-medium text-white break-normal'>Know where your resume quality stands amongst others</h1>
                   <p className='text-base xl:text-lg mt-3 text-white'>Analyze your current resume and get a feedback to make it better</p>
@@ -49,8 +51,8 @@ const ResumeQualityScore = () => {
                   {/* how it works */}
                   <div className='my-14 text-center lg:w-[70%] max-w-[1500px] mx-auto'>
                     <h1 className='text-3xl mb-7'>How it works</h1>
-                    <div className='flex flex-col items-center lg:justify-center lg:flex-row gap-10 xl:gap-3 w-full mx-auto'>
-                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[21%] xl:w-full min-h-[300px]'>
+                    <div className='flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-10 xl:gap-3 w-full mx-auto'>
+                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] lg:w-full min-h-[300px]'>
                         <img src={work1} alt="" width={100} height={100} className='mx-auto'/>
                         <p className='md:text-[11px]' >
                           1. Upload or fetch resume from naukri
@@ -59,7 +61,7 @@ const ResumeQualityScore = () => {
                           Yes, thats all that is needed. Upload your resume no matter what state it is in.
                         </p>
                       </div>
-                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[20%] xl:w-full min-h-[300px]'>
+                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] lg:w-full min-h-[300px]'>
                         <img src={work2} alt="" width={100} height={100} className='mx-auto'/>
                         <p className='md:text-[11px]' >
                           2. Our algorithm scores your resume
@@ -68,7 +70,7 @@ const ResumeQualityScore = () => {
                           Our algorithm scores your resume on the basis of 25+ parameters & benchmarks against other job seekers.
                         </p>
                       </div>
-                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[21%] xl:w-full min-h-[300px]'>
+                      <div className='flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] lg:w-full min-h-[300px]'>
                         <img src={work3} alt="" width={100} height={100} className='mx-auto'/>
                         <p className='md:text-[11px]' >
                           3. Get instant Feedback on resume
@@ -79,7 +81,7 @@ const ResumeQualityScore = () => {
                       </div>
                     </div>
                   </div>
-                  <Footer/>
+                  {/* <Footer/> */}
               </div>
             </div>
             

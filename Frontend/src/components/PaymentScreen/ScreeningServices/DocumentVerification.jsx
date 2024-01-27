@@ -242,9 +242,9 @@ const DocumentVerification = () => {
 
         <Contactus/>
 
-        <Blog/>
+        {/* <Blog/> */}
 
-        <Footer/>
+        {/* <Footer/> */}
 
     </div>
   )

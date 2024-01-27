@@ -348,10 +348,10 @@ const ComboResume = () => {
 <Contact/> 
 
 {/* Blog  */}
-<Blog />
+{/* <Blog /> */}
 
 {/* Footer Section  */}
-<Footer />
+{/* <Footer /> */}
 
 
     </div>

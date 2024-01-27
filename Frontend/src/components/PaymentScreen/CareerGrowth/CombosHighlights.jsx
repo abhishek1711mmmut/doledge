@@ -413,9 +413,9 @@ const CombosHighlights = () => {
       </div>
 
       {/************************ Blog *****************************/}
-      <Blog className="mx-auto  w-[90%] md:w-[70%]" />
+      {/* <Blog className="mx-auto  w-[90%] md:w-[70%]" /> */}
       {/********************************** Footer ****************************/}
-      <Footer className="mx-auto  w-[90%] md:w-[70%]" />
+      {/* <Footer className="mx-auto  w-[90%] md:w-[70%]" /> */}
     </div>
   );
 };
