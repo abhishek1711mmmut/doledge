@@ -1,25 +1,25 @@
 // import logo from './logo.svg';
-import './App.css';
-import Banner from './components/Banner';
-import Banner_services from './components/Banner_services';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Mheader from './components/Mheader';
-import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Register from './components/Register';
-import MAINheader from './components/MAINheader';
-import Redirect from './components/Redirect';
-import Login from './components/Login'
+import "./App.css";
+import Banner from "./components/Banner";
+import Banner_services from "./components/Banner_services";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Mheader from "./components/Mheader";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./components/Register";
+import MAINheader from "./components/MAINheader";
+import Redirect from "./components/Redirect";
+import Login from "./components/Login";
 
-import TextEntry from './components/PaymentScreen/ResumeWriting/TextResume/TextEntry';
-import TextMiddle from './components/PaymentScreen/ResumeWriting/TextResume/TextMiddle';
-import TextSenior from './components/PaymentScreen/ResumeWriting/TextResume/TextSenior';
-import VisualEntry from './components/PaymentScreen/ResumeWriting/VisualResume/VisualEntry';
-import VisualMiddle from './components/PaymentScreen/ResumeWriting/VisualResume/VisualMiddle';
-import VisualSenior from './components/PaymentScreen/ResumeWriting/VisualResume/VisualSenior';
+import TextEntry from "./components/PaymentScreen/ResumeWriting/TextResume/TextEntry";
+import TextMiddle from "./components/PaymentScreen/ResumeWriting/TextResume/TextMiddle";
+import TextSenior from "./components/PaymentScreen/ResumeWriting/TextResume/TextSenior";
+import VisualEntry from "./components/PaymentScreen/ResumeWriting/VisualResume/VisualEntry";
+import VisualMiddle from "./components/PaymentScreen/ResumeWriting/VisualResume/VisualMiddle";
+import VisualSenior from "./components/PaymentScreen/ResumeWriting/VisualResume/VisualSenior";
 
 import InternationalTextEntry from './components/PaymentScreen/International/InternationalTextResume/InternationalTextEntry';
 import InternationalTextMiddle from './components/PaymentScreen/International/InternationalTextResume/InternationalTextMiddle';
@@ -65,56 +65,60 @@ import Dashboard from './components/Dashboard';
 import DocumentVerification from './components/PaymentScreen/ScreeningServices/DocumentVerification';
 import Contactus from './components/Contactus';
 import JobAlertOnMailAndSms from './components/PaymentScreen/CareerGrowth/JobAlertOnMailAndSms';
+import CombosHighlights from "./components/PaymentScreen/CareerGrowth/CombosHighlights";
 
 function App() {
   let [user, setUser] = useState({});
-  let [token, setToken] = useState('');
+  let [token, setToken] = useState("");
   let [error, setError] = useState(false);
   let [loading, setLoading] = useState(false);
 
-  useEffect(() => {    
-    let userID = localStorage.getItem('userID');
-    let useremail = localStorage.getItem('email');
-    let username = localStorage.getItem('userName');
-    let picture = localStorage.getItem('picture');
-    let token = localStorage.getItem('token');
-    setUser({_id: userID, name: username, email: useremail, picture});
+  useEffect(() => {
+    let userID = localStorage.getItem("userID");
+    let useremail = localStorage.getItem("email");
+    let username = localStorage.getItem("userName");
+    let picture = localStorage.getItem("picture");
+    let token = localStorage.getItem("token");
+    setUser({ _id: userID, name: username, email: useremail, picture });
     setToken(token);
-  }, [])
-  
+  }, []);
+
   const login = (user, token) => {
     setUser(user);
     setToken(token);
-    localStorage.setItem('userID', user._id);
-    localStorage.setItem('email', user.email);
-    localStorage.setItem('userName', user.name);
-    localStorage.setItem('picture', user.picture);
-    localStorage.setItem('token', token);
-  }
+    localStorage.setItem("userID", user._id);
+    localStorage.setItem("email", user.email);
+    localStorage.setItem("userName", user.name);
+    localStorage.setItem("picture", user.picture);
+    localStorage.setItem("token", token);
+  };
 
   const logout = () => {
     loadingHandler(true);
-    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {withCredentials: true})
-    .then(() => {
-      localStorage.removeItem('userID');
-      localStorage.removeItem('email');
-      localStorage.removeItem('userName');
-      localStorage.removeItem('picture');
-      localStorage.removeItem('token');
-      setUser({});
-      setToken('');
-      loadingHandler(false)
-    })
-    .catch(err => console.log(err))
-  }
+    axios
+      .get(`${process.env.REACT_APP_SERVER_PRO_URL}/logout`, {
+        withCredentials: true,
+      })
+      .then(() => {
+        localStorage.removeItem("userID");
+        localStorage.removeItem("email");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("picture");
+        localStorage.removeItem("token");
+        setUser({});
+        setToken("");
+        loadingHandler(false);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const errorHandler = (error) => {
-    setError(error)
-  }
+    setError(error);
+  };
 
   const loadingHandler = (status) => {
     setLoading(status);
-  }
+  };
 
   return (
         <contextAuth.Provider value={{user, token, login, logout, error, errorHandler, loading, setLoading, loadingHandler}}>
@@ -161,6 +165,7 @@ function App() {
                   <Route path='/Document-Verification' element={<DocumentVerification/>}/>
                   <Route path="/socialprofiler" element={<SocialProfiler/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
+                  <Route path="/Combos-Highlights" element={<CombosHighlights />} />
                   
                   {!token && (
                     <>
