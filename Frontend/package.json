@@ -27,6 +27,7 @@
     "react-spinners": "^0.13.8",
     "react-virtuoso": "^4.6.2",
     "sweetalert": "^2.1.2",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,7 +47,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-},
+  },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }

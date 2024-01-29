@@ -37,9 +37,9 @@ const Banner_services = () => {
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-5 w-[80%] md:w-[70%] max-w-[1500px] mx-auto">
 {services?.map((service)=>(
-  <div key={service._id} className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg  max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto' style={{fontFamily:'poppins'}}>
+  <div key={service._id} className='flex flex-col justify-between items-center gap-y-6 md:gap-y-3 border-2 border-[#00000066]/30 p-1 py-3 rounded-lg  max-[500px]:w-[93%] max-md:w-[70%] md:w-[95%] lg:w-full mx-auto group' style={{fontFamily:'poppins'}}>
     <div className='w-[80%] md:w-[65%] md:h-[150px]'>
-      <img src={service.image} alt="" className='h-full w-full object-fill rounded-lg'/>
+      <img src={service.image} alt="" className='h-full w-full object-fill rounded-lg group-hover:scale-105 duration-200 ease-in-out'/>
     </div>
     <h1 className='text-xl text-center'>
       {service.title}
