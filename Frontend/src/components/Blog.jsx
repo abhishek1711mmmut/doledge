@@ -53,10 +53,49 @@ const Blog = () => {
     Object.assign(swiperRef.current, params);
     swiperRef.current.initialize();
   }, []);
+  
+  const LimitedWordsParagraph = ({ html, maxWords }) => {
+    const paragraphRef = useRef();
+  
+    useEffect(() => {
+      const originalHtml = html;
+      const paragraph = paragraphRef.current;
+  
+      // Create a temporary div to parse and manipulate the HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+  
+      // Traverse the DOM nodes and capture the required number of words
+      const traverseNodes = (node, remainingWords) => {
+        if (!remainingWords) return;
+  
+        if (node.nodeType === 3) {
+          // Text node
+          const words = node.nodeValue.trim().split(' ');
+          const limitedWords = words.slice(0, remainingWords);
+          node.nodeValue = limitedWords.join(' ');
+          remainingWords -= limitedWords.length;
+        } else if (node.nodeType === 1) {
+          // Element node
+          for (const childNode of node.childNodes) {
+            traverseNodes(childNode, remainingWords);
+          }
+        }
+      };
+  
+      traverseNodes(tempDiv, maxWords);
+  
+      // Clear the existing content and append the modified HTML
+      paragraph.innerHTML = '';
+      paragraph.appendChild(tempDiv);
+    }, [html, maxWords]);
+  
+    return <div ref={paragraphRef} className='text-left list-disc'/>;
+  };
 
   return (
     
-    <div className='w-[80%] md:w-[78%] max-w-[1500px] mx-auto my-10 flex flex-col gap-y-10' style={{fontFamily:'inter'}}>
+    <div className='w-[80%] md:w-[78%] max-w-[1500px] mx-auto my-10 flex flex-col gap-y-10 blog-list-style-type' style={{fontFamily:'inter'}}>
       <h1 className='text-4xl font-bold text-center'>
         Latest Blogs
       </h1>
@@ -65,8 +104,7 @@ const Blog = () => {
         <BsFillArrowLeftCircleFill size={40} className='text-blue-400'/>
       </button>
       <div className='w-[90%] mx-auto'>
-        <swiper-container init="false" ref={swiperRef}>
-        
+        <swiper-container init="false" ref={swiperRef}>  
           {
             blogs.map((blog)=>(
               <swiper-slide key={blog._id}>
@@ -79,9 +117,7 @@ const Blog = () => {
                       <h2 className='text-lg font-medium'>
                         {blog?.title}
                       </h2>
-                      <p className='text-base font-light tracking-wide text-left'>
-                        {blog?.description?.split(" ").length > 10 ? `${blog.description.split(" ").splice(0, 10).join(" ")} ...` : `${blog?.description}`}
-                      </p>
+                      <LimitedWordsParagraph html={blog?.description} maxWords={13} />
                     </div>
                     <div className='flex gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-3 w-fit font-bold text-lg self-end'>
                       <div className='flex justify-between items-center gap-x-2'>
@@ -104,37 +140,6 @@ const Blog = () => {
         <BsFillArrowRightCircleFill size={40} className='text-blue-400'/>
       </button>
       </div>
-      {/* <div className='grid grid-cols-3 gap-5'>
-        { 
-          blogs.map((blog)=>(
-            <div key={blog._id} className='flex flex-col items-center justify-between gap-y-2 border-2 border-[#00000033] rounded-xl p-3 xl:max-h-[400px]'>
-              <div className='h-[50%]'>
-                <img src={blog?.image} alt="blog_image" loading='lazy' className='h-full w-auto rounded-md'/>
-              </div>
-              <div className='flex flex-col justify-between gap-y-3 h-[50%] w-full'>
-                <div className='flex flex-col gap-y-1'>
-                  <h2 className='text-lg font-medium'>
-                    {blog?.title}
-                  </h2>
-                  <p className='text-lg font-light tracking-wide text-left'>
-                    {blog?.description?.split(" ").length > 10 ? `${blog.description.split(" ").splice(0, 10).join(" ")} ...` : `${blog?.description}`}
-                  </p>
-                </div>
-                <div className='flex gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-3 w-fit font-bold text-lg self-end'>
-                  <div className='flex justify-between items-center gap-x-2'>
-                    <FaRegEye />
-                    {blog?.likes}
-                  </div>
-                  <div className='flex justify-between items-center gap-x-2'>
-                    <PiShareFat />
-                    {blog?.share}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div> */}
     </div>
 
   )

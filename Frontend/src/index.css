@@ -25,3 +25,13 @@ code {
   margin: 0;
   -moz-appearance: textfield;
 }
+
+.blog-list-style-type ul {
+  list-style: disc;
+  margin-left: 15px;
+}
+
+.blog-list-style-type ol {
+  list-style: decimal;
+  margin-left: 15px;
+}
