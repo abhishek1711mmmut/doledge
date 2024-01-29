@@ -11,82 +11,23 @@ const Blog = () => {
 
   const {setLoading} = useContext(contextAuth);
 
-  let [blogs, setBolgs] = useState([
-    {
-        "_id": "65b20d3c8e9fa4251d6b42c9",
-        "title": "Unlocking new ond",
-        "description": "Explore the",
-        "image": "https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b20e348e9fa4251d6b42d3",
-        "title": "Unlocking Power and",
-        "description": "Explore the MERN",
-        "image": "https://img.ap7am.com/bimg/cr-2024012465b1227aed30d.jpg",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b20ec58e9fa4251d6b42da",
-        "title": "Hey , New blog on the wa",
-        "description": "This is the updated description",
-        "image": "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b2164ce4325d571c41d3dd",
-        "title": "Unlocking Pwerwerower and Versatility: The MERN Stack",
-        "description": "Explwerwerore the MERN (MongoDB, Express.js, React, Node.js) stack, a dynamic and powerful technology stack, seamlessly integrating database, server, and client-side development. With MERN, developers can build scalable, efficient, and modern web applications, harnessing the synergy of these cutting-edge technologies.",
-        "image": "https://www.boardinfinity.com/blog/content/images/2023/01reertertMern.png",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b218a2e4847c52cf32d241",
-        "title": "Unlsdfsdfocking Pwerwerower and Versatility: The MERN Stack",
-        "description": "Expsdfsdflwerwerore the MERN (MongoDB, Express.js, React, Node.js) stack, a dynamic and powerful technology stack, seamlessly integrating database, server, and client-side development. With MERN, developers can build scalable, efficient, and modern web applications, harnessing the synergy of these cutting-edge technologies.",
-        "image": "https://static.toiimg.com/thumb/msid-107068752,imgsize-34448,width-400,resizemode-4/107068752.jpg",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b218ace4847c52cf32d244",
-        "title": "sfsdfsdf Pwerwerower and Versatility: The MERN Stack",
-        "description": "sdfsdfsdf the MERN (MongoDB, Express.js, React, Node.js) stack, a dynamic and powerful technology stack, seamlessly integrating database, server, and client-side development. With MERN, developers can build scalable, efficient, and modern web applications, harnessing the synergy of these cutting-edge technologies.",
-        "image": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-980x653.jpg",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    },
-    {
-        "_id": "65b23523fe9c8453357ccaf0",
-        "title": "New",
-        "description": "new",
-        "image": "https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "likes": 0,
-        "share": 0,
-        "comments": [],
-        "__v": 0
-    }
-]);
+  let [blogs, setBolgs] = useState([]);
 
   const swiperRef = useRef(null);
 
   useEffect(() => {
+    setLoading(true);
+    axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
+    .then(async(response) => {
+      const blogs = await response.data.data.blogs;
+      setBolgs(blogs);
+      setLoading(false);
+    })
+    .catch(err => {
+      console.log(err);
+      setLoading(false);
+    });
+
     register();
     const params = {
       breakpoints: {
@@ -112,20 +53,6 @@ const Blog = () => {
     Object.assign(swiperRef.current, params);
     swiperRef.current.initialize();
   }, []);
-  
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
-  //   .then(response => {
-  //     const blogs = response.data.data.blogs;
-  //     setBolgs(blogs);
-  //     setLoading(false);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //     setLoading(false);
-  //   });
-  // }, [])
 
   return (
     
