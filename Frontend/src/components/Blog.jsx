@@ -18,8 +18,8 @@ const Blog = () => {
   useEffect(() => {
     setLoading(true);
     axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/home/data`, {withCredentials: true})
-    .then(async(response) => {
-      const blogs = await response.data.data.blogs;
+    .then(response => {
+      const blogs = response.data.data.blogs;
       setBolgs(blogs);
       setLoading(false);
     })
@@ -44,11 +44,7 @@ const Blog = () => {
           spaceBetween: "0"
         }
       },
-      navigation:{
-        nextEl: '.review-swiper-button-next',
-        prevEl: '.review-swiper-button-prev',
-      },
-      loop:true
+      navigation:true
     };
     Object.assign(swiperRef.current, params);
     swiperRef.current.initialize();
@@ -95,16 +91,11 @@ const Blog = () => {
 
   return (
     
-    <div className='w-[80%] md:w-[78%] max-w-[1500px] mx-auto my-10 flex flex-col gap-y-10 blog-list-style-type' style={{fontFamily:'inter'}}>
+    <div className='w-[80%] md:w-[70%] max-w-[1500px] mx-auto my-10 flex flex-col gap-y-10 blog-list-style-type' style={{fontFamily:'inter'}}>
       <h1 className='text-4xl font-bold text-center'>
         Latest Blogs
       </h1>
-      <div className='flex justify-between gap-x-3'>
-      <button className='review-swiper-button-prev h-fit w-fit self-center'>
-        <BsFillArrowLeftCircleFill size={40} className='text-blue-400'/>
-      </button>
-      <div className='w-[90%] mx-auto'>
-        <swiper-container init="false" ref={swiperRef}>  
+      <swiper-container init="false" ref={swiperRef}>  
           {
             blogs.map((blog)=>(
               <swiper-slide key={blog._id}>
@@ -134,12 +125,7 @@ const Blog = () => {
               </swiper-slide>
             ))
           }
-        </swiper-container>
-      </div>
-      <button className='review-swiper-button-next h-fit w-fit self-center'>
-        <BsFillArrowRightCircleFill size={40} className='text-blue-400'/>
-      </button>
-      </div>
+      </swiper-container>
     </div>
 
   )

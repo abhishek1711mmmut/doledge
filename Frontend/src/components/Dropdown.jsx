@@ -72,10 +72,11 @@ const Dropdown = (props) => {
           { title: "Text Resume", link: "Text-Resume-Entry-Level" },
           { title: "Visual Resume", link: "Visual-Resume-Entry-Level" },
           { title: "Resume Quality Score", link: "Resume-Quality-Score" },
+          { title: "Cover Letter", link: "Cover-Letter" },
         ]}
       />
       <Dropdown
-        title="International Resume"
+        title="International Services"
         items={[
           {
             title: "International Resume",
@@ -100,9 +101,8 @@ const Dropdown = (props) => {
           {title:'Interview Preparation', link:'Interview-Preparation'},
           {title:'Job Alert On Mail and SMS',link:'Job-Alert-On-Mail-And-SMS'},
           // {title:'Top Management Profile', link:'Top-Management-Profile'},
-          {title:'Profile Update', link:'Profile-Update'},
+          // {title:'Profile Update', link:'Profile-Update'},
           {title:'Personal Portfolio', link:'Personal-Portfolio'},
-          { title: "Cover Letter", link: "Cover-Letter" },
           { title: "Combos Highlights", link: "Combos-Highlights" },
           ]}
       />
@@ -121,6 +121,7 @@ const Dropdown = (props) => {
           // { title: "Web Screening Services", link: "Web-Screening-Services" },
         ]}
       />
+      
     </>
   );
 };
