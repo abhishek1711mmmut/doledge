@@ -3,17 +3,16 @@ import axios from 'axios'
 import contextAuth from '../ContextAPI/ContextAuth';
 import { FaRegEye } from "react-icons/fa6";
 import { PiShareFat } from "react-icons/pi";
-import { register } from 'swiper/element/bundle';
-import 'swiper/css';
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Blog = () => {
 
   const {setLoading} = useContext(contextAuth);
 
-  let [blogs, setBolgs] = useState([]);
-
-  const swiperRef = useRef(null);
+  let [blogs, setBolgs] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -27,27 +26,6 @@ const Blog = () => {
       console.log(err);
       setLoading(false);
     });
-
-    register();
-    const params = {
-      breakpoints: {
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: "5%"
-        },
-        720: {
-          slidesPerView: 2,
-          spaceBetween: "5%"
-        },
-        540: {
-          slidesPerView: 1,
-          spaceBetween: "0"
-        }
-      },
-      navigation:true
-    };
-    Object.assign(swiperRef.current, params);
-    swiperRef.current.initialize();
   }, []);
   
   const LimitedWordsParagraph = ({ html, maxWords }) => {
@@ -86,46 +64,108 @@ const Blog = () => {
       paragraph.appendChild(tempDiv);
     }, [html, maxWords]);
   
-    return <div ref={paragraphRef} className='text-left list-disc'/>;
+    return <div ref={paragraphRef} className='text-left list-disc max-sm:text-sm'/>;
+  };
+
+  function SampleNextArrow(props) {
+    const { className, onClick } = props;
+    
+    return (
+      <button
+        onClick={onClick}
+        className={`${className.includes("slick-disabled") ? "opacity-40" : ""}`}
+        disabled={className.includes("slick-disabled")}
+      >
+        <BsFillArrowRightCircleFill  className='text-blue-500 text-[30px] md:text-[40px]'/>
+      </button>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { currentSlide, onClick } = props;
+    return (
+      <button
+        onClick={onClick}
+        className={`${currentSlide==0 && "opacity-40"}`}
+        disabled={currentSlide==0}
+      >
+        <BsFillArrowLeftCircleFill className='text-blue-500 text-[30px] md:text-[40px]'/>
+      </button>
+    );
+  }
+
+  
+
+  const responsive=[
+    {
+      breakpoint: 1800,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+      }
+    }
+  ]
+
+  const settings = {
+    slidesToShow: 4,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    className:"!flex !justify-between !items-center !gap-x-3 !p-1 w-[95%] lg:w-[80%] !max-w-[1500px] !mx-auto",
+    responsive: responsive,
+    infinite: false,
   };
 
   return (
     
-    <div className='w-[80%] md:w-[70%] max-w-[1500px] mx-auto my-10 flex flex-col gap-y-10 blog-list-style-type' style={{fontFamily:'inter'}}>
+    <div className='my-10 flex flex-col gap-y-10 blog-list-style-type w-full' style={{fontFamily:'inter'}}>
       <h1 className='text-4xl font-bold text-center'>
         Latest Blogs
       </h1>
-      <swiper-container init="false" ref={swiperRef}>  
+
+      { blogs !==false &&
+        <Slider {...settings}>
           {
-            blogs.map((blog)=>(
-              <swiper-slide key={blog._id}>
-                <div className='flex flex-col items-center justify-between border-2 w-full 2xl:w-[90%] border-[#00000033] rounded-xl p-3 h-[400px]'>
-                  <div className='h-[50%]'>
-                    <img src={blog?.image} alt="blog_image" loading='lazy' className='h-full rounded-md'/>
+            blogs.map(blog=>(
+              <div key={blog._id} className='flex flex-col items-center justify-between border-2 w-full border-[#00000033] rounded-xl p-3 max-sm:h-[350px] h-[400px]'>
+                <div className='h-[50%]'>
+                  <img src={blog?.image} alt="blog_image" loading='lazy' className='h-full mx-auto rounded-md'/>
+                </div>
+                <div className='flex flex-col justify-between h-[50%] pt-2 w-full'>
+                  <div className='flex flex-col gap-y-1'>
+                    <h2 className='text-base md:text-lg font-medium'>
+                      {blog?.title}
+                    </h2>
+                    <LimitedWordsParagraph html={blog?.description} maxWords={13} />
                   </div>
-                  <div className='flex flex-col justify-between h-[50%] w-full'>
-                    <div className='flex flex-col gap-y-1'>
-                      <h2 className='text-lg font-medium'>
-                        {blog?.title}
-                      </h2>
-                      <LimitedWordsParagraph html={blog?.description} maxWords={13} />
+                  <div className='flex gap-x-5 lg:gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-2 lg:px-3 w-fit md:w-[50%] font-bold text-base md:text-lg self-end'>
+                    <div className='flex justify-between items-center gap-x-2 mx-auto'>
+                      <FaRegEye />
+                      {blog?.likes}
                     </div>
-                    <div className='flex gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-3 w-fit font-bold text-lg self-end'>
-                      <div className='flex justify-between items-center gap-x-2'>
-                        <FaRegEye />
-                        {blog?.likes}
-                      </div>
-                      <div className='flex justify-between items-center gap-x-2'>
-                        <PiShareFat />
-                        {blog?.share}
-                      </div>
+                    <div className='flex justify-between items-center gap-x-2 mx-auto'>
+                      <PiShareFat />
+                      {blog?.share}
                     </div>
                   </div>
                 </div>
-              </swiper-slide>
+              </div>
             ))
           }
-      </swiper-container>
+        </Slider>
+      }
     </div>
 
   )
