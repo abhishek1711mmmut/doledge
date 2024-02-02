@@ -320,7 +320,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Address Check (Physical){" "}
@@ -343,7 +343,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Address Check (Digital){" "}
@@ -366,7 +366,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Previous Employment
@@ -389,7 +389,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Education Verification
@@ -412,7 +412,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Current Employment
@@ -435,7 +435,7 @@ const EmployeeVerification = () => {
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px 0",
+                        padding: "20px 0",
                       }}
                     >
                       Drug Test (5 Panel)
