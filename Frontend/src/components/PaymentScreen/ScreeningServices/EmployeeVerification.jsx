@@ -537,7 +537,7 @@ const EmployeeVerification = () => {
                 icon={faCircle}
                 style={{ color: "#F58634", fontSize: "25px" }}
               />
-              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left text-left">
+              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Enhanced Productivity
               </h2>
             </div>
