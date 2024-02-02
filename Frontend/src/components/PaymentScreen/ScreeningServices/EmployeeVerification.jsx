@@ -481,7 +481,7 @@ const EmployeeVerification = () => {
           </h1>
         </div>
 
-        <div className=" w-[92%] lg:w-[70%] max-w-[1500px] basis-2/3 flex  flex-row flex-wrap xl:flex-row max-xl:gap-y-10 max-xl:items-center p-3 sm:p-5 m-4 mx-auto items-center border-2 border-gray-200 rounded-xl">
+        <div className=" w-[92%] lg:w-[70%] max-w-[1500px] basis-2/3 flex  flex-row flex-wrap xl:flex-row max-xl:gap-y-10 max-xl:items-center max-sm:p-3  sm:p-5 m-4 mx-auto lg:p-8 lg:pt-10 items-center border-2 border-gray-200 rounded-xl">
           <div className=" h-auto mx-auto xl:basis-1/2">
             <img
               className="w-[100%] xl:w-[80%] mx-auto"
