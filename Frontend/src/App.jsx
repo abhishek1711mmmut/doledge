@@ -39,12 +39,11 @@ import PersonalPortfolio from './components/PaymentScreen/CareerGrowth/PersonalP
 import CoverLetter from './components/PaymentScreen/CareerGrowth/CoverLetter';
 import EmployeeVerification from './components/PaymentScreen/ScreeningServices/EmployeeVerification';
 import ComboResume from './components/PaymentScreen/ScreeningServices/ComboResume';
-import ResumeCritique from './components/PaymentScreen/ScreeningServices/ResumeCritique';
 import ResumeQualityScore from './components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore';
+import ResumeCritique from "./components/PaymentScreen/ResumeWriting/ResumeCritique";
 
 // import COntactus from './components/Contactus'
 import SocialProfiler from './components/PaymentScreen/International/SocialProfiler';
-
 
 
 // import TextEntryResumeref from './components/PaymentScreen/ResumeWriting/TextResume/TextResumeref';
@@ -160,7 +159,7 @@ function App() {
                   <Route path="/Personal-Portfolio" element={<PersonalPortfolio/>} />
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
                   <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
-                  <Route path="/Web-Screening-Services" element={<ResumeCritique/>} />
+                  <Route path="/Resume-Critique" element={<ResumeCritique/>} />
                   <Route path="/Combo-resume-services" element={<ComboResume/>} />
                   <Route path='/Document-Verification' element={<DocumentVerification/>}/>
                   <Route path="/socialprofiler" element={<SocialProfiler/>} />
