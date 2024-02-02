@@ -68,13 +68,11 @@ const Blog = () => {
   };
 
   function SampleNextArrow(props) {
-    const { className, onClick } = props;
+    const { onClick } = props;
     
     return (
       <button
         onClick={onClick}
-        className={`${className.includes("slick-disabled") ? "opacity-40" : ""}`}
-        disabled={className.includes("slick-disabled")}
       >
         <BsFillArrowRightCircleFill  className='text-blue-500 text-[30px] md:text-[40px]'/>
       </button>
@@ -82,12 +80,10 @@ const Blog = () => {
   }
   
   function SamplePrevArrow(props) {
-    const { currentSlide, onClick } = props;
+    const {  onClick } = props;
     return (
       <button
         onClick={onClick}
-        className={`${currentSlide==0 && "opacity-40"}`}
-        disabled={currentSlide==0}
       >
         <BsFillArrowLeftCircleFill className='text-blue-500 text-[30px] md:text-[40px]'/>
       </button>
@@ -115,6 +111,9 @@ const Blog = () => {
       breakpoint: 767,
       settings: {
         slidesToShow: 1,
+        arrows:false,
+        dots:true,
+        dotsClass:"slick-dots !m-0"
       }
     }
   ]
@@ -125,7 +124,10 @@ const Blog = () => {
     prevArrow: <SamplePrevArrow />,
     className:"!flex !justify-between !items-center !gap-x-3 !p-1 w-[95%] lg:w-[80%] !max-w-[1500px] !mx-auto",
     responsive: responsive,
-    infinite: false,
+    infinite: true,
+    autoplay: true,
+    swipeToSlide: true,
+    pauseOnHover: true,
   };
 
   return (

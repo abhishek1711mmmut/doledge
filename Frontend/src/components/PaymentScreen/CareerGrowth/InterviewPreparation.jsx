@@ -53,6 +53,7 @@ const InterviewPreparation = () => {
               </h1>
 
               <form className="flex flex-col gap-4 text-center justify-evenly text-base sm:text-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] py-4 md:py-5 rounded-xl lg:rounded-none">
+                <div className="h-2"></div>
                 <div className="mt-3 mb-3 p-4 bg-[#D9D9D9] ">
                   <p className="text-3xl font-medium md:text-4xl lg:text-3xl text-center">
                     {" "}
