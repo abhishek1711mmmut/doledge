@@ -17,7 +17,6 @@ const EmployeeVerification = () => {
   let newPrice = price;
 
   const handleChange = (e) => {
-    e.preventDefault();
     e.target.checked && setPrice((newPrice += parseInt(e.target.value)));
 
     !e.target.checked && setPrice((newPrice -= parseInt(e.target.value)));
