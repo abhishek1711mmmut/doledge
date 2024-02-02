@@ -7,6 +7,8 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { FormControl, FormControlLabel, Checkbox } from "@mui/material";
 import Footer from "./../../Footer";
+import { FaRegCircle } from "react-icons/fa";
+
 const EmployeeVerification = () => {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -492,61 +494,43 @@ const EmployeeVerification = () => {
 
           <div className="xl:basis-1/2 self-stretch flex flex-col justify-between w-auto max-xl:w-fit bg-white mx-auto items-around xl:pl-10 max-xl:items-start">
             {/* 1. */}
-            <div className="flex  pr-5 mb-4 w-fit">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+            <div className="flex  pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
               <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Risk Mitigation
               </h2>
             </div>
             {/* 2. */}
-            <div className="flex pr-5 mb-4 w-fit">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
               <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Workplace Security
               </h2>
             </div>
             {/* 3. */}
-            <div className="flex pr-5 mb-4 w-fit">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
               <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Legal Compliance
               </h2>
             </div>
             {/* 4. */}
             <div className="flex pr-5 mb-4 w-fit">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+              <FaRegCircle color="#F58634" size={30} className="" />
               <h2 className="text-xl  text-start xl:text-3xl pl-7 xl:pl-10">
                 Protect Company Reputation
               </h2>
             </div>
             {/* 5. */}
-            <div className="flex pr-5 mb-4 w-fit">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
               <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Enhanced Productivity
               </h2>
             </div>
             {/* 6. */}
-            <div className="flex pr-5  mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
+            <div className="flex pr-5  mb-4 items-center">
+              <FaRegCircle color="#F58634" size={25} />
               <h2 className="text-xl xl:text-3xl pl-7 xl:pl-10">
                 Prevent Fraud
               </h2>
