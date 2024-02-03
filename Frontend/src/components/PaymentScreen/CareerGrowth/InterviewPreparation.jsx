@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useTheme } from "@mui/material";
-import Blog from "./../../Blog";
-import Footer from "./../../Footer";
-import Image from "./../../../images/JobSearch1.png";
 import Contactus from "../../Contactus";
 import BgImage from "../../../images/Rectangle119.svg";
 

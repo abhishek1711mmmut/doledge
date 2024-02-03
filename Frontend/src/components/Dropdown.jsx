@@ -73,6 +73,7 @@ const Dropdown = (props) => {
           { title: "Visual Resume", link: "Visual-Resume-Entry-Level" },
           { title: "Resume Critique", link: "Resume-Critique" },
           { title: "Resume Quality Score", link: "Resume-Quality-Score" },
+          { title: "Combo Resume Pack", link: "Combo-Resume-Pack" },
           { title: "Cover Letter", link: "Cover-Letter" },
         ]}
       />
@@ -106,8 +107,9 @@ const Dropdown = (props) => {
           },
           // {title:'Top Management Profile', link:'Top-Management-Profile'},
           // {title:'Profile Update', link:'Profile-Update'},
-          { title: "Personal Portfolio", link: "Personal-Portfolio" },
           { title: "Combos Highlights", link: "Combos-Highlights" },
+          { title: "Social Profiler", link: "Social-Profiler" },
+          { title: "Personal Portfolio", link: "Personal-Portfolio" },
         ]}
       />
       <Dropdown
@@ -117,11 +119,11 @@ const Dropdown = (props) => {
             title: "Employee Background Verification",
             link: "Employee-Background-Verification",
           },
+          { title: "Document Verification", link: "Document-Verification" },
           {
             title: "Profile Check & Investigation",
             link: "Profile-Check-&-Investigation",
           },
-          { title: "Document Verification", link: "Document-Verification" },
           // { title: "Web Screening Services", link: "Web-Screening-Services" },
         ]}
       />

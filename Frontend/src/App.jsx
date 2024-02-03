@@ -160,9 +160,9 @@ function App() {
                   <Route path="/Cover-Letter" element={<CoverLetter/>} />
                   <Route path="/Employee-Background-Verification" element={<EmployeeVerification/>} />
                   <Route path="/Resume-Critique" element={<ResumeCritique/>} />
-                  <Route path="/Combo-resume-services" element={<ComboResume/>} />
+                  <Route path="/Combo-Resume-Pack" element={<ComboResume/>} />
                   <Route path='/Document-Verification' element={<DocumentVerification/>}/>
-                  <Route path="/socialprofiler" element={<SocialProfiler/>} />
+                  <Route path="/Social-Profiler" element={<SocialProfiler/>} />
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   <Route path="/Combos-Highlights" element={<CombosHighlights />} />
                   
