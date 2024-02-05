@@ -30,7 +30,7 @@ const Login = () => {
             updatedInputs[type].isValid = false;
         } else updatedInputs[type].isValid = true;
     } else {
-        if(value.length <= 8 || value.length >= 20){
+        if(value.length < 8 || value.length > 20){
             updatedInputs[type].isValid = false;
         } else updatedInputs[type].isValid = true;
     }
