@@ -3,11 +3,11 @@ const { validationResult } = require("express-validator");
 //! Save user details for get a callback
 const saveContactDetails = async (req, res) => {
   try {
-    const { name, email, phoneNumber } = req.body;
+    const { name, email, phoneNumber, Query } = req.body;
     const validationErrors = validationResult(req);
 
-     // Check inputs validation
-     if (!validationErrors.isEmpty()) {
+    // Check inputs validation
+    if (!validationErrors.isEmpty()) {
       const errors = validationErrors.array().map((error) => error.msg);
       return res.status(400).json({
         status: "failed",
@@ -16,20 +16,19 @@ const saveContactDetails = async (req, res) => {
       });
     }
 
-
     if (!name || !email || !phoneNumber) {
       return res.status(400).json({
         status: "failed",
-        message: "All fields are required",
+        message: "name,email,phoneNumber fields are required",
       });
     }
 
-    const existingContact = await ContactUs.findOne({ email });
+    const existingContact = await ContactUs.findOne({$or:[{email:email},{phoneNumber:phoneNumber}]});
 
     if (existingContact) {
       return res.status(400).json({
         status: "failed",
-        message:`Dear ${name}, we already have your contact details in our database. We will contact you soon.`,
+        message: `Dear ${name}, we already have your contact details in our database. We will contact you soon.`,
       });
     }
 
@@ -37,6 +36,7 @@ const saveContactDetails = async (req, res) => {
       name,
       email,
       phoneNumber,
+      Query,
     });
 
     await newContact.save();
@@ -46,7 +46,7 @@ const saveContactDetails = async (req, res) => {
       message: ` dear ${name} your Contact details saved successfully we will get back to you`,
     });
   } catch (error) {
-    console.log("Error in saving contact details" + error);
+    console.log("Error in saving contact details" + error.message);
     return res.status(500).json({
       status: "failed",
       message: "Error in saving contact details",

@@ -5,7 +5,7 @@ const Resume = require("../model/resume");
 const Product = require("../model/product");
 
 exports.getHomeData = async (req, res, next) => {
-  console.log("home data");
+  // console.log("home data");
   try {
     const services = await Service.find({});
 

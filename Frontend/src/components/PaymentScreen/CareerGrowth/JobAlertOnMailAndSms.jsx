@@ -2,50 +2,84 @@ import React, { useState } from "react";
 import iconarrow from "../../../images/image 112.png";
 import image from "../../../images/image 113.png";
 import image1 from "../../../images/image 114.png";
-import image2 from "../../../images/image 66.png";
 import image3 from "../../../images/image 99.png";
-import Blog from "../../Blog";
-import Footer from "../../Footer";
 import Contactus from "../../Contactus";
+import axios from "axios";
 
 function JobAlertOnMailAndSms() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phoneNo: "",
-  });
-
-  const { name, email, phoneNo } = formData;
-
-  const handleOnChange = (e) => {
-    if (
-      e.target.type === "number" &&
-      e.target.value.length > e.target.maxLength
-    ) {
-      e.target.value = e.target.value.slice(0, e.target.maxLength);
-    }
-    setFormData((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }));
+  //checkbox
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  // const [priceData, setPriceData] = useState([]);
+  // const [serviceId, setServiceId] = useState("");
+  const [planId, setPlanId] = useState("");
+  // const [selectedServiceId, updateselectedseriuceid] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [priceData, setPriceData] = useState([]);
+  const [serviceId, setServiceId] = useState("");
+  const [selectedServiceId, setSelectedServiceId] = useState("");
+  const handleRadioChange = (option) => {
+    setSelectedOption(option);
   };
 
-  const [price, setPrice] = useState(0);
-
-  const handleCheckBoxChange = (e) => {
-    e.target.checked
-      ? setPrice((prev) => prev + parseInt(e.target.value))
-      : setPrice((prev) => prev - parseInt(e.target.value));
-  };
-
-  const submitContactFormData = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-  };
+    if (!selectedOption) {
+      console.error("Please select an option before buying.");
+      return;
+    }
 
-  const handlePriceAssistant = () => {
-    console.log("price", price);
-  };
+// Make a request to store the selected plan
+try {
+  // Make a request to store the selected plan
+  responseSelect = await axios.post(
+    "http://localhost:8800/api/jobService/select-job-service-option",
+    { serviceId, planId: selectedPlanId }
+  );
+
+  // Check if 'data' property exists in the response object
+  const responseData = responseSelect && responseSelect.data;
+
+  // Handle the response from the server if needed
+  if (responseData) {
+    console.log("Server Response (Select Job Service):", responseData);
+
+    // Now, make a request to add the selected plan to the cart
+    const responseAddToCart = await axios.post(
+      `http://localhost:8800/api/job/add-to-job-service-cart`,
+      {
+        selectedServiceId: serviceId,
+        selectedPlanId: planId,
+      }
+    );
+
+    // Check if 'data' property exists in the response object
+    const responseCartData = responseAddToCart && responseAddToCart.data;
+
+    // Handle the response from the server if needed
+    if (responseCartData) {
+      console.log("Server Response (Add to Cart):", responseCartData);
+
+      // You can reset the selected plan state after successful submission if needed
+      setSelectedPlan(null);
+
+      // Display an alert or other feedback to the user
+      alert("Package bought successfully");
+    } else {
+      console.error("Error adding to cart. Response:", responseAddToCart);
+    }
+  } else {
+    console.error(
+      "Error selecting job service option. Response:",
+      responseSelect
+    );
+  }
+} catch (error) {
+  console.error("Error sending data to the server:", error);
+}
+   
+
+  
+}; 
 
   return (
     <>
@@ -146,26 +180,41 @@ function JobAlertOnMailAndSms() {
                     <h1 className='font-medium text-base pr-5 sm:pr-0 mx-auto sm:text-2xl md:text-base lg:text-xs xl:text-xl xl:leading-[43px] w-52 break-words sm:w-full'>
                     Job alert on mail and message
                     </h1>
-                    <div className='flex flex-col max-auto items-start justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-3 xl:p-4 rounded-lg'style={{fontFamily:'Poppins'}}>
-                        <div className='flex justify-start items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
-                            <input type="checkbox" name="input1" id="input1" value="8999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input1" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>3 Months Rs. 1699/-</label>
-                        </div>
-                        <div className='flex justify-start max-auto items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
-                            <input type="checkbox" name="input2" id="input2" value="17999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input2" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>6 Months Rs. 2799/-</label>
-                        </div>
-                        <div className='flex justify-start max-auto items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
-                            <input type="checkbox" name="input3" id="input3" value="28999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
-                            <label htmlFor="input3" className='text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer'>12 Months Rs. 4299/-</label>
-                        </div>
-                        <em className='self-center md:text-base text-xs'>
-                            (*Applicable Taxes may apply)
-                        </em>
-                    </div>
-                    <button className='bg-[#F58634] font-semibold  md:text-lg lg:text-2xl leading-[38px] text-[#FFF8F8] flex justify-center items-center px-3 md:py-1 rounded-xl mx-auto' onClick={handlePriceAssistant}>
-                        Buy Now
-                    </button>
+                    <form className='flex flex-col max-auto items-start justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-3 xl:p-4 rounded-lg'style={{fontFamily:'Poppins'}}>
+                       
+                    </form>
+                    {priceData.map((plan) => (
+                  <div
+                    key={plan._id}
+                    className="flex justify-start items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3"
+                  >
+                    <input
+                      type="radio"
+                      name="selectedPlan"
+                      id={plan._id}
+                      value={plan._id}
+                      checked={selectedPlan && selectedPlan._id === plan._id}
+                      onChange={() => handleRadioChange(plan)}
+                      className="lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer"
+                    />
+                    <label
+                      htmlFor={plan._id}
+                      className="text-xs sm:text-lg md:text-base lg:text-lg xl:text-xl text-left lg:font-medium lg:leading-[43px] cursor-pointer"
+                    >
+                      {plan.durationMonths} Months - Rs. {plan.price}
+                    </label>
+                  </div>
+                ))}
+                <em className="self-center md:text-base text-xs">
+                  (*Applicable Taxes may apply)
+                </em>
+                <button
+                  className="bg-[#F58634] font-semibold  md:text-lg lg:text-2xl leading-[38px] text-[#FFF8F8] flex justify-center items-center px-3 md:py-1 rounded-xl mx-auto"
+                  onClick={handleSubmit}
+                >
+                  Buy Now
+                </button>
+
                 </div>
             </div>  
           </div>

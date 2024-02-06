@@ -4,12 +4,12 @@ const contactUsController = require("../controller/contactUs");
 
 const validate = require("../middlewares/validation");
 
-const contactValidationRules = [validate.name, validate.email, validate.tel];
+// const contactValidationRules = [validate.name, validate.email, validate.tel];
 
 // Save user details for contact
 router.post(
   "/get-a-callback",
-  contactValidationRules,
+  // contactValidationRules,
   contactUsController.saveContactDetails
 );
 

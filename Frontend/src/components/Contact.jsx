@@ -1,6 +1,46 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import axios from 'axios';
+
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    Query:"",
+  });
+
+  const { name, email, phoneNumber,Query } = formData;
+
+  const handleOnChange = (e) => {
+    if (
+      e.target.type === "number" &&
+      e.target.value.length > e.target.maxLength
+    ) {
+      e.target.value = e.target.value.slice(0, e.target.maxLength);
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const submitContactFormData = (e) => {
+    e.preventDefault();
+    console.log(formData);
+     
+    axios.post("http://localhost:8800/api/contact-us/get-a-callback",formData)
+    .then(response=>{
+      console.log(response);
+      e.target.reset();
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+   
+    
+  };
+
   return (
   <div className="flex justify-center w-[80%] md:w-[70%] max-w-[1500px] mx-auto">
     <div className="py-4 md:flex flex-row items-stretch justify-center rounded-lg-gray-200 w-full">
@@ -21,14 +61,18 @@ const Contact = () => {
       <div className="w-[100%] text-left">
         <h4 className="font-extrabold text-2xl ">CONTACT US</h4>
         <p style={{fontFamily:"monospace"}} className="text-sm text-gray-700 mb-4">Our executive will get in touch with you soon</p>
-        <form>
+        <form onSubmit={submitContactFormData}>
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Name<span className="text-red-500">*</span>
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name" 
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleOnChange} 
             type="text"
+            required
             placeholder="Type your name here"
           />
 
@@ -38,7 +82,11 @@ const Contact = () => {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
+            name="email"
+            value={email}
+            onChange={handleOnChange}
             type="email"
+            required
             placeholder="Type your email ID"
           />
 
@@ -48,7 +96,11 @@ const Contact = () => {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="mobile"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={handleOnChange}
             type="tel"
+            required
             placeholder="Type your mobile number"
           />
 
@@ -58,13 +110,16 @@ const Contact = () => {
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="query"
+            name="Query"
+            value={Query}
+            onChange={handleOnChange}
             placeholder="e.g., I am interested"
             rows="4"
           ></textarea>
 
           <button
             className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline"
-            type="button"
+            type="submit" 
           >
             CALL ME BACK
           </button>
