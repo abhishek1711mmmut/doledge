@@ -64,6 +64,7 @@ import DocumentVerification from "./components/PaymentScreen/ScreeningServices/D
 import Contactus from "./components/Contactus";
 import JobAlertOnMailAndSms from "./components/PaymentScreen/CareerGrowth/JobAlertOnMailAndSms";
 import CombosHighlights from "./components/PaymentScreen/CareerGrowth/CombosHighlights";
+import toast from "react-hot-toast";
 
 function App() {
   let [user, setUser] = useState({});
@@ -101,6 +102,7 @@ function App() {
     setUser({});
     setToken("");
     loadingHandler(false);
+    toast.success("Logged Out");
   };
 
   const errorHandler = (error) => {

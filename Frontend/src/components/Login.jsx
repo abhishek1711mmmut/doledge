@@ -5,6 +5,7 @@ import InputElement from "../UI/InputElement/InputElement";
 import axios from "axios";
 import contextAuth from "../ContextAPI/ContextAuth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,14 +26,14 @@ const Login = () => {
     let value = event.target.value;
     let updatedInputs = { ...inputs };
 
-    if(type == "email") {
-        if(!value.includes("@gmail.com")){
-            updatedInputs[type].isValid = false;
-        } else updatedInputs[type].isValid = true;
+    if (type == "email") {
+      if (!value.includes("@gmail.com")) {
+        updatedInputs[type].isValid = false;
+      } else updatedInputs[type].isValid = true;
     } else {
-        if(value.length < 8 || value.length > 20){
-            updatedInputs[type].isValid = false;
-        } else updatedInputs[type].isValid = true;
+      if (value.length < 8 || value.length > 20) {
+        updatedInputs[type].isValid = false;
+      } else updatedInputs[type].isValid = true;
     }
 
     updatedInputs[type].value = value;
@@ -70,10 +71,12 @@ const Login = () => {
         if (data.status == "success") {
           Auth.login(data.user, data.token);
           Auth.loadingHandler(false);
+          toast.success("Login Successful");
           navigate("/");
         } else {
           Auth.loadingHandler(false);
           Auth.errorHandler({ message: data.error, type: data.type });
+          toast.error("Login Failed");
           // console.log(response.data)
         }
       })
