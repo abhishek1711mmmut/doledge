@@ -6,8 +6,10 @@ import CompleteProfile from "./CompleteProfile";
 import Profile from "./Profile";
 import contextAuth from "../ContextAPI/ContextAuth";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const navigate=useNavigate();
     const Auth = useContext(contextAuth);
     let [user, setUser] = useState({});
     let [percentage, setPercentage] = useState(0);
@@ -86,7 +88,8 @@ const Dashboard = () => {
                                 <div className="w-[20%] ml-2"><FontAwesomeIcon icon={faUser}/></div>
                                 <div>My Profile</div>
                             </li>
-                            <li className="flex flex-row w-[200px] lg:w-[70%]">
+                            
+                            <li className="flex flex-row w-[200px] lg:w-[70%]" onClick={() => navigate(-1)}>
                                 <div className="w-[20%] ml-2"><FontAwesomeIcon icon={faArrowLeft}/></div>
                                 <div>Go Back</div>
                             </li>

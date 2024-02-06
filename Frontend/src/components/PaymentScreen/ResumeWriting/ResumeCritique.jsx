@@ -1,56 +1,23 @@
-import React, { useState } from "react";
-import { useTheme } from "@mui/material";
-import Blog from "./../../Blog";
-import Footer from "./../../Footer";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import Image from "./../../../images/JobSearch1.png";
 import "@fontsource/sintony";
+import Contactus from "../../Contactus";
 
 const ResumeCritique = () => {
-  const theme = useTheme();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phoneNo: "",
-  });
-
-  const { name, email, phoneNo } = formData;
-  const handleOnChange = (e) => {
-    if (
-      e.target.type === "number" &&
-      e.target.value.length > e.target.maxLength
-    ) {
-      e.target.value = e.target.value.slice(0, e.target.maxLength);
-    }
-    setFormData((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const submitContactFormData = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
-
   return (
     <>
-      <div className="w-full h-auto mx-auto">
+      <div className="w-full h-auto mx-auto" style={{ fontFamily: "inter" }}>
         {/*  First Section */}
-        <div className="w-full flex flex-col md:flex lg:flex-row">
-          <div className="bg-[#F58634] w-[100%] flex justify-center flex-col pt-4 sm:pt-0 lg:w-[50%]">
-            <div className=" w-[100%] sm:w-[90%] 2xl:w-[80%] text-left  px-5 p-3 pb-5 mt-2">
-              <div className="text-black text-4xl xl:text-5xl font-medium leading-[45px] lg:leading-[55px]">
+        <div className="flex flex-col md:flex lg:flex-row mx-auto max-w-[2000px] w-full">
+          <div className="bg-[#F58634] w-[100%] flex justify-center flex-col pt-4 sm:pt-0 lg:w-[45%]">
+            <div className=" w-[100%] sm:w-[90%] text-left  px-5 p-3 pb-5 mt-2">
+              <div className="text-black text-3xl font-semibold leading-[38px]">
                 Unlock Your Potential with Professional Resume Critique Services{" "}
               </div>
             </div>
 
-            <p
-              className=" w-[100%] md:w-[90%] xl:w-[80%] 2xl:w-[75%] text-[#FFFFFF] font-bold text-[1.3rem] text-justify px-5  lg:tracking-widest xl:[word-spacing:5px] pb-4 sm:pb-0 "
-              style={{ fontFamily: "Sintony" }}
-            >
+            <p className=" w-[100%] md:w-[90%]  text-[#FFFFFF] font-semibold text-xl text-justify px-5  lg:tracking-wide pb-4 sm:pb-0 ">
               Elevate your career prospects with personalized feedback on
               formatting, content, and strategic presentation. Secure your dream
               job with a standout resume.
@@ -59,7 +26,7 @@ const ResumeCritique = () => {
 
           <div
             className="w-full flex justify-center
-        lg:w-[50%]"
+            lg:w-[55%]"
           >
             <img
               src={require("./../../../images/ScreeningServices/CoverImage.jpg")}
@@ -71,11 +38,11 @@ const ResumeCritique = () => {
 
         {/*  Second Section  */}
 
-        <div className="p-1 md:mt-4">
-          <div className="flex flex-col lg:flex-row gap-y-5 lg:gap-x-5 w-full lg:my-10 mb-8">
+        <div className="p-1 md:mt-4 w-[95%] lg:w-[70%] max-w-[1500px] mx-auto">
+          <div className="flex flex-col lg:flex-row gap-y-5 lg:gap-x-5 justify-between w-full lg:my-10 mb-8">
             {/* left part */}
-            <div className="w-full lg:w-[60%] xl:w-[50%] flex flex-col gap-y-10  py-3 lg:py-10  ">
-              <p className="text-[1.7rem] text-justify  text-black leading-8 lg:leading-10 xl:tracking-wide lg:p-10 lg:[word-spacing:12px] px-5 py-3">
+            <div className="w-full lg:w-[60%]  flex flex-col gap-y-10  py-3 lg:py-10  ">
+              <p className="max-sm:text-lg text-[28px] text-justify  text-black leading-8 lg:leading-[45px] xl:leading-[53px] px-2 py-3">
                 Investing in a professional resume critique service provides
                 valuable insights and transforms your resume into a powerful
                 tool for career success. Invest in Doledge Resume Critique
@@ -84,13 +51,14 @@ const ResumeCritique = () => {
               </p>
             </div>
 
-            <div className="w-[70%] sm:w-[50%] mx-auto lg:w-[25%] flex flex-col gap-y-5 lg:gap-y-2">
-              <h1 className="text-3xl md:text-4xl lg:text-3xl text-center">
+            {/* right part */}
+            <div className="w-[70%] sm:w-[37%] mx-auto flex flex-col gap-y-5 lg:gap-y-5">
+              <h1 className="text-2xl lg:text-3xl text-center md:leading-[53px]">
                 Resume Critique Service
               </h1>
 
               <form className="flex flex-col gap-4 text-center justify-evenly text-base sm:text-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] py-4 md:py-5 rounded-xl lg:rounded-none">
-                <div className="mb-3 mt-3  p-4 bg-[#D9D9D9] ">
+                <div className="mt-4  p-4 bg-[#D9D9D9] ">
                   <p className="text-3xl font-medium md:text-4xl lg:text-3xl text-center">
                     {" "}
                     Rs. 2199/-
@@ -108,9 +76,9 @@ const ResumeCritique = () => {
         {/* section 3 */}
         <div className="pt-4">
           <h1 className="bg-[#62B01E9C] font-semibold sm:text-lg md:text-2xl lg:text-3xl py-3">
-            Benefits of Doledge Job Search Assistant Services
+            Benefits of Doledge Resume Critique Services
           </h1>
-          <table className="table table-bordered table-striped table-auto !w-[70%] mx-auto my-10">
+          <table className="table table-bordered table-striped table-auto !w-[70%] max-w-[1500px] mx-auto my-10">
             <thead>
               <tr>
                 <th
@@ -272,13 +240,13 @@ const ResumeCritique = () => {
 
         {/*   Unlocling Career Success */}
         <div className="mt-12">
-          <h1 className="font-semibold sm:text-lg md:text-2xl lg:text-3xl p-2">
+          <h1 className="font-semibold text-lg md:text-2xl lg:text-3xl p-2 my-4">
             Unlocking Career Success: The Crucial Role of Resume Critique
             Services
           </h1>
-          <div className="text-center m-2">
-            <div className="flex flex-col items-center lg:justify-center lg:flex-row gap-10 xl:gap-8 w-full mx-auto p-5">
-              <div className="flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
+          <div className="text-center">
+            <div className="flex flex-col items-center lg:justify-center lg:flex-row lg:items-stretch gap-10 xl:gap-8 min-[1900px]:gap-x-14 w-full lg:w-[70%] max-w-[1500px] mx-auto">
+              <div className="flex flex-col gap-2 p-3 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
                 <img
                   src={require("./../../../images/ScreeningServices/1.jpg")}
                   alt=""
@@ -286,16 +254,16 @@ const ResumeCritique = () => {
                   height={100}
                   className="mx-auto"
                 />
-                <h1 className="font-medium text-[#000000] text-3xl p-2">
+                <h1 className="font-medium text-[#000000] text-2xl p-2">
                   Expert Assessment
                 </h1>
-                <p className="text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-7">
+                <p className="text-[18px]  text-[#000000] lg:px-2">
                   Receive a comprehensive analysis of your resume by industry
                   experts for valuable insights.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
+              <div className="flex flex-col gap-2 p-3 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
                 <img
                   src={require("./../../../images/ScreeningServices/3.jpg")}
                   alt=""
@@ -303,16 +271,16 @@ const ResumeCritique = () => {
                   height={100}
                   className="mx-auto"
                 />
-                <h1 className="font-medium text-[#000000] text-3xl p-2">
+                <h1 className="font-medium text-[#000000] text-2xl p-2">
                   Improved Visibility
                 </h1>
-                <p className="text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-7">
+                <p className="text-[18px]  text-[#000000] lg:px-2">
                   Enhance your resume's visibility to recruiters, increasing
                   your chances of being shortlisted.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
+              <div className="flex flex-col gap-2 p-3 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[300px] rounded-xl">
                 <img
                   src={require("./../../../images/ScreeningServices/2.jpg")}
                   alt=""
@@ -320,10 +288,10 @@ const ResumeCritique = () => {
                   height={100}
                   className="mx-auto mb-4"
                 />
-                <h1 className="font-medium text-[#000000] text-3xl p-2">
+                <h1 className="font-medium text-[#000000] text-[23px] p-1">
                   Professional Formatting
                 </h1>
-                <p className="text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-7">
+                <p className="text-[18px]  text-[#000000]  lg:px-2">
                   Elevate the visual appeal of your resume with expert advice on
                   layout and design.
                 </p>
@@ -334,16 +302,16 @@ const ResumeCritique = () => {
 
         {/* Premium Services Section  */}
         <div className="pt-7">
-          <h1 className="bg-[#F58634] font-semibold sm:text-lg md:text-2xl lg:text-3xl py-3">
+          <h1 className="bg-[#F58634] font-semibold text-lg md:text-2xl lg:text-3xl py-3 my-5">
             Doledge Premium Services
           </h1>
-          <div className="my-6 text-center m-2 ">
-            <div className="flex flex-col items-center lg:justify-center lg:flex-row gap-10  w-full mx-auto p-5 ">
-              <div className="flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[350px] rounded-xl">
-                <h1 className="font-medium text-[#000000] text-3xl p-2">
+          <div className="my-6 text-center m-2 w-[95%] lg:w-[70%] max-w-[1500px] mx-auto">
+            <div className="flex flex-col items-center lg:justify-center lg:items-stretch lg:flex-row gap-10  w-full mx-auto">
+              <div className="flex flex-col gap-2 p-3 md:py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full md:min-h-[350px] rounded-xl">
+                <h1 className="font-medium text-[#000000] max-sm:text-xl text-2xl p-2 text-left">
                   Highlight Your Resume
                 </h1>
-                <p className="text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-7">
+                <p className="text-lg md:text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-3 text-left">
                   Attract recruiters' attention with a standout resume,
                   increasing your chances of landing interviews. Let our service
                   spotlight your strengths, ensuring your application stands out
@@ -351,11 +319,11 @@ const ResumeCritique = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-2 p-3 py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full min-h-[350px] rounded-xl">
-                <h1 className="font-medium text-[#000000] text-3xl p-2">
+              <div className="flex flex-col gap-2 p-3 md:py-5 shadow-[rgba(0,_0,_0,_0.14)_0px_0px_10px] w-[85%] sm:w-[70%] md:w-[50%] xl:w-full md:min-h-[350px] rounded-xl">
+                <h1 className="font-medium text-[#000000] max-sm:text-xl text-2xl p-2 text-left">
                   Job Search Assistant
                 </h1>
-                <p className="text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-7">
+                <p className="text-lg md:text-xl  text-[#000000] leading-8 lg:leading-10 tracking-wide lg:p-3 text-left">
                   Receive tailored job recommendations, refine your search
                   criteria, and stay organized with application tracking. Let
                   our assistant guide you towards your ideal career
@@ -366,95 +334,7 @@ const ResumeCritique = () => {
           </div>
         </div>
 
-        {/* Contact us */}
-        <div className="flex flex-col md:flex-row justify-evenly gap-2 my-5 w-[90%] mx-auto border-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl">
-          {/* left part */}
-          <div className="p-3 w-full">
-            <h1 className="font-inter font-semibold text-2xl">
-              Talk to our experts
-            </h1>
-            <img src={Image} alt="" className="hidden md:block mx-auto" />
-          </div>
-          {/* right part */}
-          <div className="flex flex-col justify-evenly items-center w-full p-3 gap-y-4 md:gap-2">
-            <div className="flex flex-col justify-center items-start md:items-center">
-              <h1 className="font-inter font-semibold text-2xl">Contact Us</h1>
-              <p
-                className="text-lg md:text-base lg:text-xl font-light"
-                style={{ fontFamily: "inter" }}
-              >
-                Our executive will contact your shortly
-              </p>
-            </div>
-            <form
-              onSubmit={submitContactFormData}
-              className="flex flex-col gap-2 w-full sm:w-[90%] md:w-[80%]"
-            >
-              <div className="flex flex-col items-start gap-2">
-                <label
-                  htmlFor="name"
-                  className="font-inter font-semibold max-[500px]:text-xl text-2xl"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={handleOnChange}
-                  placeholder="Enter your name here"
-                  required
-                  className="px-4 py-2 outline-none border-2 rounded-lg w-full"
-                />
-              </div>
-              <div className="flex flex-col items-start gap-2">
-                <label
-                  htmlFor="email"
-                  className="font-inter font-semibold  max-[500px]:text-xl text-2xl"
-                >
-                  Email Id
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={handleOnChange}
-                  placeholder="Enter your email here"
-                  required
-                  className="px-4 py-2 outline-none border-2 rounded-lg w-full"
-                />
-              </div>
-              <div className="flex flex-col items-start gap-2">
-                <label
-                  htmlFor="phoneNo"
-                  className="font-inter font-semibold  max-[500px]:text-xl text-2xl"
-                >
-                  Phone Number
-                </label>
-                <div className="flex justify-center items-center gap-2 w-full">
-                  <p className="p-2 border-2 rounded-lg">+91</p>
-                  <input
-                    type="number"
-                    name="phoneNo"
-                    maxLength={10}
-                    value={phoneNo}
-                    onChange={handleOnChange}
-                    placeholder="Enter your phone number"
-                    required
-                    className="px-4 py-2 outline-none border-2 rounded-lg w-full hide-arrow"
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="!bg-[#F58634] text-white py-2 mt-3 rounded-xl font-inter font-semibold text-lg flex justify-center items-center mx-auto w-[70%]"
-              >
-                Call Me Back
-              </button>
-            </form>
-          </div>
-        </div>
+        <Contactus />
 
         {/* <Blog /> */}
 

@@ -4,47 +4,40 @@ import Blog from "./../../Blog";
 import { Card, Typography, Button, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FormControl, FormControlLabel, Checkbox } from "@mui/material";
 import Footer from "./../../Footer";
-const EmployeeVerification = () => {
+import { FaRegCircle } from "react-icons/fa";
 
+const EmployeeVerification = () => {
   const theme = useTheme();
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   const [price, setPrice] = React.useState(0);
 
-  let newPrice =price;
+  let newPrice = price;
 
   const handleChange = (e) => {
+    e.target.checked && setPrice((newPrice += parseInt(e.target.value)));
 
+    !e.target.checked && setPrice((newPrice -= parseInt(e.target.value)));
+  };
+
+  const BuyNow = (e) => {
     e.preventDefault();
-   (e.target.checked &&  setPrice(newPrice += parseInt(e.target.value) ));
-      
-
-   (!e.target.checked  && setPrice(newPrice -= parseInt(e.target.value )));
-  }
-   
-
-const BuyNow = (e) =>{
-  e.preventDefault();
-  // Total Price
+    // Total Price
     alert("Total Price" + price);
     // navigate("/buy");
-}
-
+  };
 
   return (
-    <div className="w-full h-auto mx-auto pt-2">
-
-
+    <div className="w-full max-w-[1800px] h-auto mx-auto pt-2">
       {/* Section-1  */}
       <div>
-      <img
+        <img
           src={require("./../../../images/ScreeningServices/EmpVerHeading.png")}
           alt="Verification"
           className=" object-cover  w-full h-auto relative"
         />
-  
       </div>
 
       <div className="pt-8 mx-auto">
@@ -57,19 +50,19 @@ const BuyNow = (e) =>{
             fontFamily: "Poppins",
           }}
         >
-          <div className="text-white tracking-wider font-[900] text-center  self-center max-w-[970px] max-md:max-w-full justify-center  xl:text-[1.8rem] ">
+          <div
+            className="text-white tracking-wider font-[900] text-center  self-center max-w-[970px] max-md:max-w-full justify-center  xl:text-[1.8rem] "
+            style={{ fontFamily: "poppins" }}
+          >
             Pre-Employment Background Check Solutions
           </div>
         </div>
       </div>
 
-
-
-
-{/*  Section-2 -->  Details of Employee Background  Verification  */}
-<div className="w-[92%] h-auto flex flex-col mx-auto mt-2  lg:flex-row">
-        <div className="basis-3/4 lg:basis-3/5 h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 p-10 2xl:p-1">
-          <div className="basis-1/2">
+      {/*  Section-2 -->  Details of Employee Background  Verification  */}
+      <div className="w-[92%] lg:w-[70%] max-w-[1500px] h-auto flex flex-col mx-auto mt-2  lg:flex-row">
+        <div className="basis-3/4 lg:basis-4/5 h-auto flex flex-col  xl:flex-row  border-5 border-gray-200 rounded-xl items-center m-1 xl:m-10 max-sm:p-3 p-10 2xl:p-1">
+          <div className="basis-[42%]">
             <img
               className="w-full items-center"
               src={require("./../../../images/ScreeningServices/PeopleImage.jpg")}
@@ -77,8 +70,11 @@ const BuyNow = (e) =>{
             />
           </div>
 
-          <div className="basis-1/2   w-auto text-justify m-2  [word-spacing:2px]">
-            <p className=" text-xl xl:text-[1.45rem] text-black leading-8 lg:leading-10 tracking-wide  lg:p-5">
+          <div className="basis-[58%]   w-auto text-justify m-2">
+            <p
+              className=" text-xl xl:text-xl lg:p-5 tracking-wide !leading-[47px]"
+              style={{ fontFamily: "poppins" }}
+            >
               Employee background verification is a vital component of the
               hiring process, offering numerous benefits to employers. This
               process not only safeguards your organization but also minimizes
@@ -87,11 +83,9 @@ const BuyNow = (e) =>{
           </div>
         </div>
 
-
-
         {/*       flex-basis 1/5 area  */}
 
-        <div className="basis-1/5 lg:m-20  mx-auto w-full gap-3 h-auto bg-white flex  flex-row flex-wrap  md:flex-col items-justify ">
+        <div className="basis-1/5 lg:basis-2/5  mx-auto w-full gap-3 h-auto bg-white flex  flex-row flex-wrap  md:flex-col items-justify ">
           {/* 1. */}
           <div className="flex pr-5 items-center justify-end mx-auto">
             <img
@@ -126,26 +120,22 @@ const BuyNow = (e) =>{
             />
 
             <h2 className="text-lg  xl:text-2xl  pl-6 xl:pl-10">
-            
               Legal Records
             </h2>
           </div>
         </div>
       </div>
 
-
-
-
       {/*   What Can be Checked Section (Flex)  */}
 
-      <div className="p-auto h-auto mt-4 w-full flex flex-wrap flex-col items-center text-center ">
-        <div className="text-white bg-[#1C8254] tracking-widest leading-7 font-extrabold w-[max-content] mx-auto h-auto  flex flex-wrap flex-col items-center text-2xl xl:text-4xl p-[30px] m-1  rounded-2xl ">
+      <div className="p-auto h-auto mt-4 w-full flex flex-wrap flex-col items-center text-center lg:mb-10">
+        <div className="text-white bg-[#1C8254] tracking-widest leading-7 font-extrabold w-[max-content] mx-auto h-auto  flex flex-wrap flex-col items-center text-2xl xl:text-4xl p-3 sm:p-[30px] m-1  rounded-2xl ">
           <p>What Can Be checked ?</p>
         </div>
 
-        <div className="w-[100%]  2xl:w-[83%] flex flex-wrap justify-evenly">
+        <div className="w-[100%]  md:w-[70%] grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5 place-items-center">
           {/* 1 */}
-          <div className="w-45 2xl:w-56 flex flex-col  items-center m-6 lg:m-14 lg:ml-20">
+          <div className="w-45 2xl:w-56 flex flex-col justify-center items-center">
             <img
               className="w-38 h-auto m-3 p-3 lg:m-5 2xl:p-4"
               src={require("./../../../images/ScreeningServices/Home.jpg")}
@@ -158,7 +148,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 2 */}
-          <div className="w-45  2xl:w-56 flex flex-col items-center m-6 lg:m-14 lg:ml-20 ">
+          <div className="w-45  2xl:w-56 flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto m-3 p-3 lg:m-5 2xl:p-4 "
               src={require("./../../../images/ScreeningServices/ID.jpg")}
@@ -171,7 +161,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 3 */}
-          <div className="w-45 2xl:w-56  flex flex-col items-center m-6 lg:m-14 lg:ml-20 ">
+          <div className="w-45 2xl:w-56  flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto m-2 p-2 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/Edu.jpg")}
@@ -183,7 +173,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 4 */}
-          <div className="w-45  2xl:w-56  flex flex-col items-center m-6 lg:m-14 lg:ml-20  ">
+          <div className="w-45  2xl:w-56  flex flex-col items-center justify-center ">
             <img
               className="w-38 h-auto m-2 p-2 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/Emp.jpg")}
@@ -195,7 +185,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 5 */}
-          <div className="w-45 2xl:w-56  flex flex-col items-center m-6  lg:m-14 lg:ml-20 ">
+          <div className="w-45 2xl:w-56  flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto  p-2 m-2 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/Network.jpg")}
@@ -207,7 +197,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 6 */}
-          <div className="w-45  2xl:w-56  flex flex-col items-center m-6 lg:m-14 lg:ml-20 ">
+          <div className="w-45  2xl:w-56  flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto p-2  m-3 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/Legal.jpg")}
@@ -219,7 +209,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 7 */}
-          <div className="w-45  2xl:w-56 flex flex-col items-center m-6 lg:m-14 lg:ml-20 ">
+          <div className="w-45  2xl:w-56 flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto p-2 m-2 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/DB.jpg")}
@@ -231,7 +221,7 @@ const BuyNow = (e) =>{
           </div>
 
           {/* 8 */}
-          <div className="w-45 2xl:w-56  flex flex-col items-center m-6 lg:m-14 lg:ml-20 ">
+          <div className="w-45 2xl:w-56  flex flex-col items-center justify-center">
             <img
               className="w-38 h-auto  p-2 m-2 lg:m-4 2xl:p-3 "
               src={require("./../../../images/ScreeningServices/Credit.png")}
@@ -246,8 +236,8 @@ const BuyNow = (e) =>{
 
       {/*   Flex Box  */}
 
-      <div className="w-full h-auto flex flex-col lg:flex-row mx-auto items-center  ">
-        <div className="basis-2/5 p-2 m-1 mx-auto items-center ">
+      <div className="w-full h-auto flex flex-col lg:flex-row mx-auto items-center lg:items-stretch lg:w-[70%] max-w-[1500px]">
+        <div className="basis-1/2 mx-auto items-center">
           <Card
             className="w-[90%] mx-auto bg-[#F0EFF5]  md:h-[max-content]  "
             style={{
@@ -276,7 +266,7 @@ const BuyNow = (e) =>{
             />
 
             <div className=" w-auto text-justify m-2 [word-spacing:10px]">
-              <p className=" text-xl  text-black leading-8 lg:leading-10 tracking-wide lg:p-5">
+              <p className=" text-xl  text-black leading-8 lg:leading-9 tracking-wide lg:px-3">
                 Background checks involve a meticulous examination of a
                 candidate's history. Employers collect personal details,
                 including consent forms, for criminal, employment, and education
@@ -289,9 +279,9 @@ const BuyNow = (e) =>{
           </Card>
         </div>
 
-        <div className="basis-2/5 p-2 m-1 mx-auto items-center ">
+        <div className="basis-1/2 mx-auto items-center">
           <Card
-            className=" xl:w-[90%] mx-auto bg-[#000000]  md:h-[max-content] "
+            className=" xl:w-[90%] h-full mx-auto bg-[#000000]  md:h-[max-content] "
             style={{
               marginTop: "2rem",
               backgroundColor: "rgba(251, 251, 251, 1)",
@@ -319,10 +309,11 @@ const BuyNow = (e) =>{
                 padding: "20px",
                 justifyContent: "space-between",
               }}
+              className=""
             >
               <FormControlLabel
                 value="3299"
-                control={<Checkbox  onChange={handleChange}/>}
+                control={<Checkbox onChange={handleChange} />}
                 label={
                   <div>
                     <Typography
@@ -330,10 +321,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                    
                       Address Check (Physical){" "}
                       <span className="text-black text-bold ml-1">
                         Rs. 3299/-
@@ -354,10 +344,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                    
                       Address Check (Digital){" "}
                       <span className="text-black text-bold ml-6">
                         Rs. 2199/-
@@ -370,7 +359,7 @@ const BuyNow = (e) =>{
 
               <FormControlLabel
                 value="8990"
-                control={<Checkbox  onChange={handleChange} />}
+                control={<Checkbox onChange={handleChange} />}
                 label={
                   <div>
                     <Typography
@@ -378,10 +367,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                    
                       Previous Employment
                       <span className="text-black text-bold ml-12">
                         Rs. 8990/-
@@ -402,10 +390,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                      
                       Education Verification
                       <span className="text-black text-bold ml-11">
                         Rs. 9200/-
@@ -426,10 +413,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                      
                       Current Employment
                       <span className="text-black text-bold ml-14">
                         Rs. 6900/-
@@ -450,10 +436,9 @@ const BuyNow = (e) =>{
                         fontSize: "20px",
                         fontFamily: "Poppins",
                         fontWeight: "600",
-                        padding: "25px",
+                        padding: "20px 0",
                       }}
                     >
-                      
                       Drug Test (5 Panel)
                       <span className="text-black text-bold ml-20">
                         Rs. 8799/-
@@ -474,6 +459,9 @@ const BuyNow = (e) =>{
                   fontWeight: "600",
                   borderRadius: "10px",
                   width: "max-content",
+                  padding: "10px 20px",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
                 onClick={BuyNow}
               >
@@ -485,95 +473,64 @@ const BuyNow = (e) =>{
         </div>
       </div>
 
-
-
-
-
-
-
       {/* Background Verification check Points  */}
 
-      <div className="m-3">
+      <div className="m-3 font-light" style={{ fontFamily: "poppins" }}>
         <div className="w-full h-auto mx-auto ">
-          
-          <h1 className="text-[#000000] text-center text-2xl font-normal">
-            
+          <h1 className="text-[#000000] text-center text-2xl lg:text-3xl font-normal">
             Importance of Employee Background Verification Check
           </h1>
         </div>
 
-        <div className=" w-[92%]  basis-2/3 flex  flex-row flex-wrap xl:flex-row p-5 m-4 mx-auto items-center border-2 border-gray-200 rounded-xl">
-          <div className=" h-auto mx-auto">
+        <div className=" w-[92%] lg:w-[70%] max-w-[1500px] basis-2/3 flex  flex-row flex-wrap xl:flex-row max-xl:gap-y-10 max-xl:items-center max-sm:p-3  sm:p-5 m-4 mx-auto lg:p-8 lg:pt-10 items-center border-2 border-gray-200 rounded-xl">
+          <div className=" h-auto mx-auto xl:basis-1/2">
             <img
-              className="w-[100%] mx-auto"
+              className="w-[100%] xl:w-[80%] mx-auto"
               src={require("./../../../images/ScreeningServices/BackgroundVerification.jpg")}
               alt=" Background Verification "
             />
           </div>
 
-          <div className="basis-4/5 xl:basis-1/3  xl:m-20  w-auto h-auto bg-white mx-auto items-around ">
+          <div className="xl:basis-1/2 self-stretch flex flex-col justify-between w-auto max-xl:w-fit bg-white mx-auto items-around xl:pl-10 max-xl:items-start">
             {/* 1. */}
-            <div className="flex  pr-5 mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
-              
+            <div className="flex  pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
+              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Risk Mitigation
               </h2>
             </div>
             {/* 2. */}
-            <div className="flex pr-5 mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
-                
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
+              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Workplace Security
               </h2>
             </div>
             {/* 3. */}
-            <div className="flex pr-5 mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
-                
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
+              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Legal Compliance
               </h2>
             </div>
             {/* 4. */}
-            <div className="flex pr-5 mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl  text-start  xl:text-2xl pl-7 xl:pl-10">
-                
+            <div className="flex pr-5 mb-4 w-fit">
+              <FaRegCircle color="#F58634" size={30} className="" />
+              <h2 className="text-xl  text-start xl:text-3xl pl-7 xl:pl-10">
                 Protect Company Reputation
               </h2>
             </div>
             {/* 5. */}
-            <div className="flex pr-5 mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl  xl:text-2xl pl-7 xl:pl-10">
+            <div className="flex pr-5 mb-4 w-fit items-center">
+              <FaRegCircle color="#F58634" size={25} />
+              <h2 className="text-xl  xl:text-3xl pl-7 xl:pl-10 text-left">
                 Enhanced Productivity
               </h2>
             </div>
             {/* 6. */}
-            <div className="flex pr-5  mb-4">
-              <FontAwesomeIcon
-                icon={faCircle}
-                style={{ color: "#F58634", fontSize: "25px" }}
-              />
-              <h2 className="text-xl xl:text-2xl pl-7 xl:pl-10">
-          
+            <div className="flex pr-5  mb-4 items-center">
+              <FaRegCircle color="#F58634" size={25} />
+              <h2 className="text-xl xl:text-3xl pl-7 xl:pl-10">
                 Prevent Fraud
               </h2>
             </div>
