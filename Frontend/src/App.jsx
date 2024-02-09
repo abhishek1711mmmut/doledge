@@ -34,6 +34,7 @@ import CoverLetter from "./components/PaymentScreen/CareerGrowth/CoverLetter";
 import EmployeeVerification from "./components/PaymentScreen/ScreeningServices/EmployeeVerification";
 import ComboResume from "./components/PaymentScreen/ScreeningServices/ComboResume";
 import ResumeQualityScore from "./components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore";
+import ResumeQualityReport from "./components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityReport";
 import ResumeCritique from "./components/PaymentScreen/ResumeWriting/ResumeCritique";
 
 // import COntactus from './components/Contactus'
@@ -156,6 +157,10 @@ function App() {
             path="/resume-quality-score"
             element={<ResumeQualityScore />}
           />
+            <Route
+              path="/resume-quality-report"
+              element={<ResumeQualityReport />}
+              />
           <Route
             path="/International-Resume-Entry-Level"
             element={<InternationalTextEntry />}

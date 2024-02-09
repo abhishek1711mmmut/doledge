@@ -299,4 +299,4 @@ const JobSearchAssistant3 = () => {
     )
 }
 
-export default JobSearchAssistant3
+export default JobSearchAssistant3;
