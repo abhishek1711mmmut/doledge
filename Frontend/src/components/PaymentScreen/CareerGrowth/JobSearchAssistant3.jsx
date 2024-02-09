@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import bgImage from '../../../images/bgJobSearch.png'
+import Image from '../../../images/JobSearch1.png'
 import Image2 from '../../../images/JobSearch2.png'
 import Image3 from '../../../images/JobSearch3.png'
 import Image4 from '../../../images/JobSearch4.png'
@@ -34,7 +36,7 @@ const JobSearchAssistant3 = () => {
   return (
     <div>
         {/* Hero section */}
-        <div className="relative bg-[url('./images/bgJobSearch.png')] bg-cover max-[300px]:h-[350px] h-[300px] md:h-[400px] xl:h-[430px]">
+        <div className={`relative bg-[url(${bgImage})] bg-cover max-[300px]:h-[350px] h-[300px] md:h-[400px] xl:h-[430px]`}>
            <div className='flex justify-around items-center mx-auto pt-3 max-w-[1500px]'>
                 <div className='flex flex-col justify-center items-center gap-y-4 md:gap-y-8 w-[90%] md:w-[40%]'>
                     <h1 className='font-medium text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[38px] lg:leading-[40px] xl:leading-[43px] tracking-wider'>
@@ -290,7 +292,7 @@ const JobSearchAssistant3 = () => {
             <Contactus/>
 
             {/* blog */}
-            <Blog/>
+            {/* <Blog/> */}
 
             {/* footer */}
             {/* <Footer/> */}

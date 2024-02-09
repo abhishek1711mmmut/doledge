@@ -323,7 +323,7 @@ const VisualEntry = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
       {/* <Footer/> */}

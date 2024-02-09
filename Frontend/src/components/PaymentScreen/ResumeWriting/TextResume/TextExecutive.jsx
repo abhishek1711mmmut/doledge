@@ -323,7 +323,7 @@ const TextExecutive = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
       {/* <Footer/> */}

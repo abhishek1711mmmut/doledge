@@ -359,7 +359,7 @@ function JobAlertOnMailAndSms() {
        <Contactus/>
        
         {/* Bolg */}
-        <Blog />
+        {/* <Blog /> */}
         
         {/* Footer */}
         {/* <Footer /> */}

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "@fontsource/sintony";
 import Contactus from "../../Contactus";
-import Blog from "../../Blog";
 
 const ResumeCritique = () => {
   return (
@@ -337,7 +336,7 @@ const ResumeCritique = () => {
 
         <Contactus />
 
-        <Blog />
+        {/* <Blog /> */}
 
         {/* <Footer /> */}
       </div>

@@ -242,7 +242,6 @@ const SocialProfiler = () => {
       {/* Contacts */}
 
       <Contactus />
-      <Blog/>
     </div>
   );
 };

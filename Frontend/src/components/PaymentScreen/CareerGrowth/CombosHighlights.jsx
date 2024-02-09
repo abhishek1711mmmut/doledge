@@ -227,7 +227,6 @@ const CombosHighlights = () => {
 
       {/********************  Contact us *************************/}
       <Contactus/>
-      <Blog/>
     </div>
   );
 };

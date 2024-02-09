@@ -31,7 +31,7 @@ const Login = () => {
         updatedInputs[type].isValid = false;
       } else updatedInputs[type].isValid = true;
     } else {
-      if (value.length < 1) {
+      if (value.length < 8 || value.length > 20) {
         updatedInputs[type].isValid = false;
       } else updatedInputs[type].isValid = true;
     }
@@ -117,8 +117,8 @@ const Login = () => {
               field={"password"}
               type={"password"}
               label={"Password"}
-              placeholder={"Enter you password"}
-              error={""}
+              placeholder={"Create a password for your account"}
+              error={"Password must be between 8-20 characters long."}
               value={inputs.password.value}
               valid={inputs.password.isValid}
               onChange={changeHandler}

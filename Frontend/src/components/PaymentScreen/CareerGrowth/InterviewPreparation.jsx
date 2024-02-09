@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "@mui/material";
 import Contactus from "../../Contactus";
-import Blog from "../../Blog";
+import BgImage from "../../../images/Rectangle119.svg";
 
 const InterviewPreparation = () => {
   const theme = useTheme();
@@ -12,7 +12,7 @@ const InterviewPreparation = () => {
         {/* Section 1 */}
         <div className="flex flex-col lg:flex-row  h-full 2xl:h-[330px] lg:max-h-[500px]">
           <div
-            className="bg-[url('./images/Rectangle119.svg')] bg-cover bg-center flex flex-col gap-4 md:gap-y-8 justify-center lg:text-left h-full py-10 pb-16 lg:h-full w-full items-center"
+            className={`bg-[url(${BgImage})] bg-cover bg-center flex flex-col gap-4 md:gap-y-8 justify-center lg:text-left h-full py-10 pb-16 lg:h-full w-full items-center`}
           >
             <div
               className="w-full max-w-[1000px] mx-auto flex flex-col gap-y-5"
@@ -175,7 +175,7 @@ const InterviewPreparation = () => {
         {/* Contact us */}
         <Contactus />
 
-        <Blog />
+        {/* <Blog /> */}
 
         {/* <Footer /> */}
       </div>

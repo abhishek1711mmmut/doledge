@@ -327,7 +327,7 @@ const VisualExecutive = () => {
 
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
 
       {/* Footer */}
       {/* <Footer/> */}
