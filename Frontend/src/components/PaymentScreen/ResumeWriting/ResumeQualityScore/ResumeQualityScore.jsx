@@ -15,7 +15,7 @@ const ResumeQualityScore = () => {
       <div>
         {/* blue image div */}
         <div className={`mx-auto`}>
-          <div className="bg-[url('./images/qualityScoreBg.jpg')] bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" >
+          <div className="bg-[url('./images/QualityScoreBg.jpg')] bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" >
           </div>
           <div className=' mx-auto sm:w-[90%] xl:w-fit relative pt-4'>
             {/* header */}
