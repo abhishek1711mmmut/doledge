@@ -47,7 +47,7 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faCartShopping} />
               {
                 cart > 0 &&
-                <span className='absolute -top-1 -right-2 bg-orange-500 text-xs w-5 h-5 font-medium flex justify-center items-center animate-bounce rounded-full text-white'>{cart}</span>
+                <span className='absolute -top-2 -right-2 bg-orange-500 text-xs w-4 h-4 font-medium flex justify-center items-center rounded-full text-white'>{cart}</span>
               }
             </div>
             {/* <div className='ml-2'>Cart</div> */}
