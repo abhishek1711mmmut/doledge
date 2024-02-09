@@ -5,7 +5,6 @@ import { MyDropzone } from './Dropzone'
 import work1 from '../../../../images/work1.png'
 import work2 from '../../../../images/work2.png'
 import work3 from '../../../../images/work3.png'
-import Footer from '../../../Footer'
 import Blog from '../../../Blog'
 
 
@@ -15,7 +14,7 @@ const ResumeQualityScore = () => {
       <div>
         {/* blue image div */}
         <div className={`mx-auto`}>
-          <div className="bg-[url('./images/qualityScoreBg.jpg')] bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" >
+          <div className="bg-[url('/src/images/qualityScoreBg.jpg')] bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" >
           </div>
           <div className=' mx-auto sm:w-[90%] xl:w-fit relative pt-4'>
             {/* header */}
@@ -86,7 +85,7 @@ const ResumeQualityScore = () => {
         </div>
 
       </div>
-        <Blog/>
+      <Blog />
 
     </div>
   )
