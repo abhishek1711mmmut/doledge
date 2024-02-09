@@ -15,6 +15,7 @@ import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Blog from '../../Blog'
 import Footer from '../../Footer'
 import Contactus from '../../Contactus'
+import bgImage from '../../../images/bgJobSearch.png'
 
 const JobSearchAssistant3 = () => {
 
@@ -34,7 +35,7 @@ const JobSearchAssistant3 = () => {
     return (
         <div>
             {/* Hero section */}
-            <div className="relative bg-[url('/src/images/bgJobSearch.png')] bg-cover max-[300px]:h-[350px] h-[300px] md:h-[400px] xl:h-[430px]">
+            <div className="relative bg-cover max-[300px]:h-[350px] h-[300px] md:h-[400px] xl:h-[430px]" style={{ backgroundImage: `url(${bgImage})` }}>
                 <div className='flex justify-around items-center mx-auto pt-3 max-w-[1500px]'>
                     <div className='flex flex-col justify-center items-center gap-y-4 md:gap-y-8 w-[90%] md:w-[40%]'>
                         <h1 className='font-medium text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[38px] lg:leading-[40px] xl:leading-[43px] tracking-wider'>
