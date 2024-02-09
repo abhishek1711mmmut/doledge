@@ -34,6 +34,7 @@ import CoverLetter from "./components/PaymentScreen/CareerGrowth/CoverLetter";
 import EmployeeVerification from "./components/PaymentScreen/ScreeningServices/EmployeeVerification";
 import ComboResume from "./components/PaymentScreen/ScreeningServices/ComboResume";
 import ResumeQualityScore from "./components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityScore";
+import ResumeQualityReport from "./components/PaymentScreen/ResumeWriting/ResumeQualityScore/ResumeQualityReport";
 import ResumeCritique from "./components/PaymentScreen/ResumeWriting/ResumeCritique";
 
 // import COntactus from './components/Contactus'
@@ -188,6 +189,91 @@ function App() {
             path="/Visual-Resume-International-Executive-Level"
             element={<InternationalVisualExecutive />}
           />
+    <contextAuth.Provider
+      value={{
+        user,
+        token,
+        login,
+        logout,
+        error,
+        errorHandler,
+        loading,
+        setLoading,
+        loadingHandler,
+      }}
+    >
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          {error && <Modal error={error.message} type={error.type} />}
+          {loading && <Spinner />}
+          <Routes>
+            {/* <Route path="/Contact-us" element={<Contactus/>} /> */}
+            {/* <Route path="/redirect" element={<Redirect/>} /> */}
+            {/* <Route path="/Text-Resume-Entry-Levelref" element={<TextEntryResumeref/>} /> */}
+            <Route path="/Text-Resume-Entry-Level" element={<TextEntry />} />
+            <Route path="/Text-Resume-Middle-Level" element={<TextMiddle />} />
+            <Route path="/Text-Resume-Senior-Level" element={<TextSenior />} />
+            <Route
+              path="/Text-Resume-Executive-Level"
+              element={<TextExecutive />}
+            />
+            <Route
+              path="/Visual-Resume-Entry-Level"
+              element={<VisualEntry />}
+            />
+            <Route
+              path="/Visual-Resume-Middle-Level"
+              element={<VisualMiddle />}
+            />
+            <Route
+              path="/Visual-Resume-Senior-Level"
+              element={<VisualSenior />}
+            />
+            <Route
+              path="/Visual-Resume-Executive-Level"
+              element={<VisualExecutive />}
+            />
+            <Route
+              path="/resume-quality-score"
+              element={<ResumeQualityScore />}
+            />
+              <Route
+              path="/resume-quality-report"
+              element={<ResumeQualityReport />}
+            />
+            <Route
+              path="/International-Resume-Entry-Level"
+              element={<InternationalTextEntry />}
+            />
+            <Route
+              path="/International-Resume-Middle-Level"
+              element={<InternationalTextMiddle />}
+            />
+            <Route
+              path="/International-Resume-Senior-Level"
+              element={<InternationalTextSenior />}
+            />
+            <Route
+              path="/International-Resume-Executive-Level"
+              element={<InternationalTextExecutive />}
+            />
+            <Route
+              path="/Visual-Resume-International-Entry-Level"
+              element={<InternationalVisualEntry />}
+            />
+            <Route
+              path="/Visual-Resume-International-Middle-Level"
+              element={<InternationalVisualMiddle />}
+            />
+            <Route
+              path="/Visual-Resume-International-Senior-Level"
+              element={<InternationalVisualSenior />}
+            />
+            <Route
+              path="/Visual-Resume-International-Executive-Level"
+              element={<InternationalVisualExecutive />}
+            />
 
           <Route
             path="/Zap-Your-Resume-International"
