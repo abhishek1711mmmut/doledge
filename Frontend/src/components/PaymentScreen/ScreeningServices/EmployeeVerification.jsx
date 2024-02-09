@@ -538,7 +538,7 @@ const EmployeeVerification = () => {
         </div>
       </div>
 
-      {/* <Blog /> */}
+      <Blog />
 
       {/* <Footer /> */}
     </div>

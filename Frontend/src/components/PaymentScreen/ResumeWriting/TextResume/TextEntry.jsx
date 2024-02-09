@@ -296,11 +296,13 @@ const TextEntry = () => {
         <h1 className='text-[33px] leading-[42px] font-medium'>Resume Delivery Time</h1>
         <div className='my-10'>
           <table className='mx-auto w-[90%]'>
-            <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px] h-16'>
-              <th>Resume Variant</th>
-              <th className='border-l-2 border-r-2'>First Version</th>
-              <th>Final Delivery</th>
-            </tr>
+            <thead>
+              <tr className='border-2 border-black text-sm md:text-xl lg:text-[26px] h-16'>
+                <th>Resume Variant</th>
+                <th className='border-l-2 border-r-2'>First Version</th>
+                <th>Final Delivery</th>
+              </tr>
+            </thead>
             <tbody className='text-xs md:text-lg lg:text-[26px]'>
               <tr className='border-2 border-black h-12'>
                 <td>Regular</td>
@@ -324,7 +326,7 @@ const TextEntry = () => {
 
 
       {/* Blog */}
-      {/* <Blog/> */}
+      <Blog/>
 
       {/* Footer */}
       {/* <Footer/> */}

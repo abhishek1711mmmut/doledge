@@ -205,7 +205,7 @@ const ZapResume = () => {
         <Contactus/>
 
         {/* Bolg */}
-        {/* <Blog/> */}
+        <Blog/>
 
         {/* Footer */}
         {/* <Footer/> */}

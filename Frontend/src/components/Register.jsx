@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import contextAuth from "../ContextAPI/ContextAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const Auth = useContext(contextAuth);
@@ -130,6 +131,7 @@ const Register = () => {
         if (data.status == "success") {
           navigate("/login");
           Auth.loadingHandler(false);
+          toast.success("Signup Successful")
         } else {
           Auth.loadingHandler(false);
           Auth.errorHandler({ message: data.error, type: data.type });
@@ -143,6 +145,7 @@ const Register = () => {
         });
         Auth.loadingHandler(false);
         console.log(err);
+        toast.error("Signup Failed")
       });
   };
 

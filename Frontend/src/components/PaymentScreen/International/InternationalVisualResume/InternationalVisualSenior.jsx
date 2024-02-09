@@ -324,7 +324,7 @@ const InternationalVisualEntry = () => {
 
 
       {/* Blog */}
-      {/* <Blog/> */}
+      <Blog/>
 
       {/* Footer */}
       {/* <Footer/> */}

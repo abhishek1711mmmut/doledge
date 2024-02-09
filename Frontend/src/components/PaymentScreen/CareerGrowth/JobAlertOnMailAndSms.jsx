@@ -465,7 +465,7 @@ try {
        <Contactus/>
        
         {/* Bolg */}
-        {/* <Blog /> */}
+        <Blog />
         
         {/* Footer */}
         {/* <Footer /> */}
