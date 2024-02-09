@@ -7,7 +7,6 @@ import Contactus from "../../Contactus";
 import axios from "axios";
 
 function JobAlertOnMailAndSms() {
-<<<<<<< HEAD
   //checkbox
   const [selectedPlan, setSelectedPlan] = useState(null);
   // const [priceData, setPriceData] = useState([]);
@@ -81,7 +80,6 @@ try {
 
   
 }; 
-=======
 
   const [price, setPrice] = useState(0);
 
@@ -94,7 +92,6 @@ try {
   const handlePriceAssistant = () => {
     console.log("price", price);
   };
->>>>>>> 8d7c5bbe0a077f7722bb5996dd6115d76157b9f5
 
   return (
     <div style={{fontFamily:'inter'}}>
@@ -196,7 +193,6 @@ try {
                     <h1 className='w-full font-medium text-base sm:pr-0 mx-auto sm:text-xl lg:text-xl xl:text-2xl xl:leading-[43px] break-words sm:w-full'>
                     Job alert on mail and message
                     </h1>
-<<<<<<< HEAD
                     <form className='flex flex-col max-auto items-start justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-3 xl:p-4 rounded-lg'style={{fontFamily:'Poppins'}}>
                        
                     </form>
@@ -232,7 +228,6 @@ try {
                   Buy Now
                 </button>
 
-=======
                     <div className='w-[70%] md:w-[80%] lg:w-full xl:w-[80%] mx-auto flex flex-col max-auto max-sm:items-center items-start 2xl:pl-[5%] min-[1800px]:pl-[10%] justify-center gap-y-2 sm:gap-y-3 md:gap-y-2 xl:gap-y-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] max-xl:p-4 xl:px-4 xl:py-8 rounded-lg' style={{fontFamily:'Poppins'}}>
                         <div className='flex justify-start items-center gap-x-1 sm:gap-x-8 md:gap-x-4 lg:gap-x-8 sm:ml-3 md:ml-0 lg:ml-2 xl:ml-5 max-[500px]:p-1 max-[500px]:gap-x-3'>
                             <input type="checkbox" name="input1" id="input1" value="8999" onChange={handleCheckBoxChange} className='lg:w-5 lg:h-5 md:h-4 md:w-4 sm:w-5 sm:h-5 cursor-pointer'/>
@@ -253,7 +248,6 @@ try {
                           Buy Now
                         </button>
                     </div>
->>>>>>> 8d7c5bbe0a077f7722bb5996dd6115d76157b9f5
                 </div>
             </div>  
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import bgImage from "../../../images/bgJobSearch.png";
 import Image from "../../../images/JobSearch1.png";
 import Image2 from "../../../images/JobSearch2.png";
@@ -16,8 +16,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Contactus from "../../Contactus";
 import axios from "axios";
+import contextAuth from "../../../ContextAPI/ContextAuth";
 
 const JobSearchAssistant3 = () => {
+  const {token} = useContext(contextAuth);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [priceData, setPriceData] = useState([]);
   const [serviceId, setServiceId] = useState("");
@@ -56,6 +58,9 @@ const JobSearchAssistant3 = () => {
           {
             selectedServiceId: serviceId,
             selectedPlanId: planId,
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` }
           }
         );
 

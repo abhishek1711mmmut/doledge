@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, Typography, Button, Box } from "@mui/material";
 import {
   FormControl,
@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import contextAuth from "../../../ContextAPI/ContextAuth";
 
 export default function BuyNowServiceCard() {
+  const {token} = useContext(contextAuth);
   const [selectedValue, setSelectedValue] = useState("");
   const [optionPrice, setoptionPrice] = useState(0);
   const [includeCoverLetter, setIncludeCoverLetter] = useState(false);
@@ -29,7 +31,7 @@ export default function BuyNowServiceCard() {
 
         if (status === "success" && services.length > 0) {
           const visualResumeService = services.find(
-            (service) => service.serviceId === "newwwt test"
+            (service) => service.serviceId === "visual-resume"
           );
 
           if (visualResumeService) {
@@ -146,12 +148,16 @@ export default function BuyNowServiceCard() {
       {
         selectedServiceId,
         selectedPlanId: selectedOptionId,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` }
       }
+
     );
 
     console.log("Response from add to cart:", response2.data);
 
-    // Handle the responses as needed
+    
   } catch (error) {
     console.error("Error handling buy now:", error);
     // Handle errors, e.g., display an error message to the user
