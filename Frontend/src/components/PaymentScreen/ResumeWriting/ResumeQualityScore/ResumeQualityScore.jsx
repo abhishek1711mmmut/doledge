@@ -6,7 +6,7 @@ import work1 from '../../../../images/work1.png'
 import work2 from '../../../../images/work2.png'
 import work3 from '../../../../images/work3.png'
 import Blog from '../../../Blog'
-
+import bgImage from '../../../../images/QualityScoreBg.jpg'
 
 const ResumeQualityScore = () => {
   return (
@@ -14,7 +14,7 @@ const ResumeQualityScore = () => {
       <div>
         {/* blue image div */}
         <div className={`mx-auto`}>
-          <div className="bg-[url('../src/images/QualityScoreBg.jpg')] bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]">
+          <div className="bg-no-repeat !w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" style={{ backgroundImage: `url(${bgImage})` }}>
           </div>
           <div className=' mx-auto sm:w-[90%] xl:w-fit relative pt-4'>
             {/* header */}
