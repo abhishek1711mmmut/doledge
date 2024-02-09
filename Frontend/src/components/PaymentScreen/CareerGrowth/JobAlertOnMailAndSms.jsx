@@ -5,6 +5,7 @@ import image1 from "../../../images/image 114.png";
 import image3 from "../../../images/image 99.png";
 import Contactus from "../../Contactus";
 import axios from "axios";
+import Blog from "../../Blog";
 
 function JobAlertOnMailAndSms() {
   //checkbox
