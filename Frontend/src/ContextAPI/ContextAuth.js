@@ -1,15 +1,5 @@
 import { createContext } from "react";
 
-const contextAuth = createContext({
-    user: {},
-    token: '',
-    error: {},
-    loading: false,
-    setLoading:{},
-    login: () => {},
-    logout: () => {},
-    errorHandler: () => {},
-    loadingHandler: () => {},
-})
+const contextAuth = createContext();
 
 export default contextAuth;

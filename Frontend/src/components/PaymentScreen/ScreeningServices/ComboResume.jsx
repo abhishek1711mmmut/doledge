@@ -408,6 +408,7 @@ const ComboResume = () => {
 
       {/* Contact us */}
       <Contactus />
+      <Blog />
     </div>
   );
 };

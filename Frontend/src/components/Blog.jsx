@@ -13,43 +13,24 @@ import "slick-carousel/slick/slick-theme.css";
 import { toast } from "react-hot-toast";
 
 const Blog = () => {
-  const { setLoading } = useContext(contextAuth);
+  const { setLoading, blogs, setBlogs } = useContext(contextAuth);
 
-  let [blogs, setBlogs] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/blogs`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        // const blogs = response.blogs;
-        setBlogs(response?.data?.blogs);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  }, []);
-
-  const likeBlog = async (blogId) => {
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_PRO_URL}/api/blogs/${blogId}/like`
-      );
-      const allBlogs = [...blogs];
-      for (let i = 0; i < allBlogs.length; i++) {
-        if (allBlogs[i]._id == blogId) {
-          allBlogs[i] = response?.data?.data;
-        }
-      }
-      setBlogs(allBlogs);
-    } catch (error) {
-      console.log("LIKE_BLOG API ERROR............", error);
-    }
-  };
+  // const likeBlog = async (blogId) => {
+  //   try {
+  //     const response = await axios.post(
+  //       `${process.env.REACT_APP_SERVER_PRO_URL}/api/blogs/${blogId}/like`
+  //     );
+  //     const allBlogs = [...blogs];
+  //     for (let i = 0; i < allBlogs.length; i++) {
+  //       if (allBlogs[i]._id == blogId) {
+  //         allBlogs[i] = response?.data?.data;
+  //       }
+  //     }
+  //     setBlogs(allBlogs);
+  //   } catch (error) {
+  //     console.log("LIKE_BLOG API ERROR............", error);
+  //   }
+  // };
 
   const shareBlog = async (blogId) => {
     try {
@@ -63,7 +44,7 @@ const Blog = () => {
         }
       }
       setBlogs(allBlogs);
-        navigator.clipboard.writeText(
+      navigator.clipboard.writeText(
         window.location.toString() + `blogs/${blogId}`
       );
       toast.success("Link Copied to Clipboard");

@@ -352,7 +352,7 @@ const HighlightResume = () => {
             <Contactus />
 
             {/* Blog */}
-            {/* <Blog/> */}
+            <Blog/>
 
             {/* Footer */}
             {/* <Footer/> */}

@@ -16,9 +16,11 @@ import id5 from "../../../images/DocumentVerification/id5.png";
 import Contactus from "../../Contactus";
 import contextAuth from "../../../ContextAPI/ContextAuth";
 import { useNavigate } from "react-router-dom";
+import Blog from "../../Blog";
 
 const DocumentVerification = () => {
   const { token } = useContext(contextAuth);
+
   const navigate = useNavigate();
   const [price, setPrice] = useState(0);
 
@@ -345,7 +347,7 @@ const DocumentVerification = () => {
 
       <Contactus />
 
-      {/* <Blog/> */}
+      <Blog />
 
       {/* <Footer/> */}
     </div>
