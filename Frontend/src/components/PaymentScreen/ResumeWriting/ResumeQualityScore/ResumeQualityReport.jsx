@@ -2,7 +2,7 @@ import React from 'react'
 import { FaArrowRight, FaFileAlt , FaAddressBook} from "react-icons/fa";
 import ReactSpeedometer from "react-d3-speedometer";
 import { FaFileCirclePlus } from 'react-icons/fa6'
-
+import bgImage from '../../../../images/QualityScoreBg.jpg';
 
 
 const ResumeQualityReport = () => {
@@ -12,7 +12,7 @@ let  score =  Math.floor((Math.random() * 50) + 20);
         <div>
             {/* blue image div */}
             <div className={`mx-auto`}>
-              <div className={`bg-[url('./images/QualityScoreBg.jpg')] bg-no-repeat w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]`}>
+              <div className="bg-no-repeat w-full absolute left-[50%] translate-x-[-50%] h-[300px] max-w-[1900px]" style={{ backgroundImage: `url(${bgImage})` }}>
               </div>
               <div className=' mx-auto sm:w-[90%] xl:w-fit relative pt-4'>
                   {/* header */}
