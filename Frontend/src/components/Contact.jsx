@@ -29,7 +29,7 @@ const Contact = () => {
     e.preventDefault();
     console.log(formData);
      
-    axios.post("process.env.REACT_APP_SERVER_PRO_URL/api/contact-us/get-a-callback",formData)
+    axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/contact-us/get-a-callback`,formData)
     .then(response=>{
       console.log(response);
       e.target.reset();

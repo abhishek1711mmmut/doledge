@@ -27,7 +27,7 @@ const Register = () => {
     console.log("button clicked");
     try {
       const response = await axios.post(
-        "process.env.REACT_APP_SERVER_PRO_URL/api/auth/login",
+        `${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/login`,
         {
           email: user.email,
           password: user.password,
@@ -117,12 +117,12 @@ const Register = () => {
 
   const handleGoogleAuth  = async (e) => {
     e.preventDefault();
-    window.location.href = "process.env.REACT_APP_SERVER_PRO_URL/api/google"
+    window.location.href = `${process.env.REACT_APP_SERVER_PRO_URL}/api/google`
   };
 
   const handleFacebookAuth  = async (e) => {
     e.preventDefault();
-    window.location.href = "process.env.REACT_APP_SERVER_PRO_URL/api/facebook"
+    window.location.href = `${process.env.REACT_APP_SERVER_PRO_URL}/api/facebook`
   };
 
 
