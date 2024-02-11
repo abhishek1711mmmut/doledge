@@ -132,7 +132,7 @@ const HighlightResume = () => {
             const jwtToken = localStorage.getItem("token");
 
             //! aading items to the cart
-            const addToCartResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/add-to-cart`, {
+            const addToCartResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`, {
                 selectedServiceId: serviceId,
                 selectedPlanId: selectedPlanId
             }, {
