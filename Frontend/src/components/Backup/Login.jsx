@@ -25,7 +25,7 @@ const Login = () => {
     console.log("button clicked");
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/login",
+        "process.env.REACT_APP_SERVER_PRO_URL/api/auth/login",
         {
           email: user.email,
           password: user.password,
@@ -77,7 +77,7 @@ const Login = () => {
     console.log("button clicked");
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/signup",
+        "process.env.REACT_APP_SERVER_PRO_URL/api/auth/signup",
         {
           firstName: user1.firstName,
           lastName: user1.lastName,
@@ -114,12 +114,12 @@ const Login = () => {
 
   const handleGoogleAuth  = async (e) => {
     e.preventDefault();
-    window.location.href = "http://localhost:8800/api/socialauth/g"
+    window.location.href = "process.env.REACT_APP_SERVER_PRO_URL/api/socialauth/g"
   };
 
   const handleFacebookAuth  = async (e) => {
     e.preventDefault();
-    window.location.href = "http://localhost:8800/api/socialauth/f"
+    window.location.href = "process.env.REACT_APP_SERVER_PRO_URL/api/socialauth/f"
   };
 
 

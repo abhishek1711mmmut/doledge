@@ -33,7 +33,7 @@ function JobAlertOnMailAndSms() {
 try {
   // Make a request to store the selected plan
   responseSelect = await axios.post(
-    "http://localhost:8800/api/jobService/select-job-service-option",
+    "process.env.REACT_APP_SERVER_PRO_URL/api/jobService/select-job-service-option",
     { serviceId, planId: selectedPlanId }
   );
 
@@ -46,7 +46,7 @@ try {
 
     // Now, make a request to add the selected plan to the cart
     const responseAddToCart = await axios.post(
-      `http://localhost:8800/api/job/add-to-job-service-cart`,
+      `process.env.REACT_APP_SERVER_PRO_URL/api/job/add-to-job-service-cart`,
       {
         selectedServiceId: serviceId,
         selectedPlanId: planId,

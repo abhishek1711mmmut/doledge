@@ -27,7 +27,7 @@ export default function DoledgeBenefits({prices}) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8800/api/resumeService/services"
+          "process.env.REACT_APP_SERVER_PRO_URL/api/resumeService/services"
         );
         console.log("this is from get 1",response.data);
         const { status, message, services } = response.data;
@@ -137,7 +137,7 @@ export default function DoledgeBenefits({prices}) {
       
   
       const response = await axios.post(
-        "http://localhost:8800/api/resumeService/select-service-option",
+        "process.env.REACT_APP_SERVER_PRO_URL/api/resumeService/select-service-option",
         {
           serviceId: selectedServiceId,
           optionId: selectedOptionId,
@@ -147,7 +147,7 @@ export default function DoledgeBenefits({prices}) {
       console.log("Response from post:", response.data);
       // Next, make the API call to add to cart
     const response2 = await axios.post(
-      "http://localhost:8800/api/Resume/add-to-cart",
+      "process.env.REACT_APP_SERVER_PRO_URL/api/Resume/add-to-cart",
       {
         selectedServiceId,
         selectedPlanId: selectedOptionId,
