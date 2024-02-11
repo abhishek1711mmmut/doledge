@@ -6,6 +6,7 @@ import axios from "axios";
 import contextAuth from "../ContextAPI/ContextAuth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { GoogleLogin } from '@react-oauth/google';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -47,14 +48,6 @@ const Login = () => {
     else setOverAllValid(false);
   };
 
-  const googleLoginHandler = () => {
-    event.preventDefault();
-    window.open(
-      `${process.env.REACT_APP_SERVER_PRO_URL}/signin/google`,
-      "_self"
-    );
-  };
-
   const submitFormHanadler = (event) => {
     event.preventDefault();
     Auth.loadingHandler(true);
@@ -83,10 +76,30 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
 
+  const googleLogin = async (credential) => {
+    Auth.loadingHandler(true);
+    try {
+      const res = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/auth/google`, {
+        credential,
+      })
+      // console.log('GOOGLE LOGIN API RESPONSE.........', res);
+      if (res.data.status !== "success") {
+        Auth.errorHandler({ message: res.data.error, type: res.data.type });
+        throw new Error(res.data.error);
+      }
+      toast.success("Login Successful");
+      Auth.login(res.data.user, res.data.token);
+      navigate("/");
+    } catch (error) {
+      console.log("ERROR IN GOOGLE SIGNIN.......", error)
+      toast.error("Login Failed");
+    }
+    Auth.loadingHandler(false);
+  }
+
   return (
     <div className="Register w-full flex flex-col justify-center items-center">
       <form
-        onSubmit={submitFormHanadler}
         className="reg-form w-[85%] flex flex-col py-4 px-4 m-5 
             sm:w-[80%]
             md:w-[70%]
@@ -96,11 +109,11 @@ const Login = () => {
         <h4 className="mb-5 mt-1 text-left">Find a job & grow your career</h4>
         <div
           className="w-full flex flex-col
-                sm:flex-row sm:justify-center sm:items-center"
+                md:flex-row md:justify-around max-md:items-center max-md:gap-y-4 gap-x-2"
         >
           <div
             className="w-[100%] mr-3
-                    sm:w-[70%]"
+                    md:w-[60%]"
           >
             <InputElement
               field={"email"}
@@ -123,45 +136,45 @@ const Login = () => {
               valid={inputs.password.isValid}
               onChange={changeHandler}
             />
+
+            {/* Submit Button */}
+            <div className="submitWrapper flex flex-col text-left mt-2">
+              <p className="gray13px">
+                By clicking Sign in, you agree to the Terms and Conditions & Privacy
+                Policy of Doledge.com
+              </p>
+              <button
+                className="submit text-left mt-2"
+                disabled={overAllValid ? false : true}
+                style={{ backgroundColor: !overAllValid && "#ccc" }}
+                onClick={submitFormHanadler}
+              >
+                Sign in
+              </button>
+            </div>
           </div>
+
+          <div className="flex md:flex-col justify-center items-center md:gap-6 max-md:w-[80%] md:w-5 md:h-48 mx-auto ">
+            <hr className="w-full md:rotate-90 md:w-16" />
+            <p className="p-2 text-lg text-gray-500 bg-white">or</p>
+            <hr className="w-full md:rotate-90 md:w-16" />
+          </div>
+
           {/* Google Register */}
-          <div
-            className="google-container flex justify-center text-center items-center w-[270px] p-2 m-2
-                    sm:flex-col sm:w-[30%] sm:m-0 sm:p-0 sm:mb-3 sm:h-[160px]"
-          >
-            <h6 className="font-bold mt-1 mr-2 sm:mt-0 sm:mr-0 sm:mb-2">
-              Continue With
-            </h6>
-            <button
-              className="google flex flex-row"
-              onClick={googleLoginHandler}
-            >
-              <div>
-                <img
-                  className="w-[20px] [h-20px] mr-2 mt-0.5"
-                  src={require("../images/google-48.png")}
-                />
-              </div>
-              <div>Goolge</div>
-            </button>
+          <div className="md:translate-y-[26%]">
+            <GoogleLogin
+              onSuccess={credentialResponse => {
+                googleLogin(credentialResponse.credential)
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              shape="pill"
+            />
           </div>
         </div>
 
-        {/* Submit Button */}
-        <div className="submitWrapper flex flex-col text-left mt-2">
-          <p className="gray13px">
-            By clicking Sign in, you agree to the Terms and Conditions & Privacy
-            Policy of Doledge.com
-          </p>
-          <button
-            type="submit"
-            className="submit text-left mt-2"
-            disabled={overAllValid ? false : true}
-            style={{ backgroundColor: !overAllValid && "#ccc" }}
-          >
-            Sign in
-          </button>
-        </div>
+
       </form>
     </div>
   );

@@ -61,6 +61,7 @@ import JobAlertOnMailAndSms from "./components/PaymentScreen/CareerGrowth/JobAle
 import CombosHighlights from "./components/PaymentScreen/CareerGrowth/CombosHighlights";
 import toast from "react-hot-toast";
 import Cart from "./components/Cart";
+import { googleLogout } from '@react-oauth/google';
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
 
   const logout = () => {
     loadingHandler(true);
+    googleLogout();
     localStorage.removeItem("userID");
     localStorage.removeItem("email");
     localStorage.removeItem("userName");

@@ -127,8 +127,8 @@ const Navbar = () => {
                       </Link>
                     </li> */}
                   <li className="user-info flex flex-row justify-center items-center rounded-[25px]" style={{ position: 'relative', border: '1px solid #ccc' }}>
-                    {Auth.user.picture ? <div className='w-[51px] h-[50px] rounded-[50%] overflow-hidden m-0'>
-                      <img src={Auth.user.picture} style={{ objectFit: 'contain' }} />
+                    {Auth.user.picture ? <div className='w-[51px] h-[50px] overflow-hidden m-0'>
+                      <img src={Auth.user.picture} style={{ objectFit: 'contain' }} className='rounded-full' />
                     </div>
                       : <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16" >
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
