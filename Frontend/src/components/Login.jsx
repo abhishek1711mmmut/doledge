@@ -170,6 +170,7 @@ const Login = () => {
                 console.log('Login Failed');
               }}
               shape="pill"
+              useOneTap
             />
           </div>
         </div>
