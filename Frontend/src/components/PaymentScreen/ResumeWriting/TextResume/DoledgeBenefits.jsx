@@ -372,7 +372,7 @@ export default function DoledgeBenefits({ prices }) {
                                   textAlign: 'left'
                                 }}
                               >
-                                <span className="text-blue-900">
+                                <span>
                                   {option.optionName}
                                 </span>{" "}
                                 - Rs. {option.optionPrice}
