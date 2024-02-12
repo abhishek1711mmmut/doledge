@@ -141,14 +141,14 @@ const Blog = () => {
   ];
 
   const settings = {
-    slidesToShow: 4,
+    slidesToShow: 3,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className:
       "!flex !justify-between !items-center !gap-x-3 !p-1 w-[95%] lg:w-[80%] !max-w-[1500px] !mx-auto",
     responsive: responsive,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     swipeToSlide: true,
     pauseOnHover: true,
   };
@@ -176,13 +176,13 @@ const Blog = () => {
                 />
               </div>
               <div className="flex flex-col justify-between h-[50%] pt-2 w-full">
-                <div className="flex flex-col gap-y-1">
+                <div className="flex flex-col gap-y-1 text-center">
                   <h2 className="text-base md:text-lg font-medium">
                     {blog?.title}
                   </h2>
                   <LimitedWordsParagraph
                     html={blog?.description}
-                    maxWords={13}
+                    maxWords={17}
                   />
                 </div>
                 <div className="flex gap-x-5 lg:gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-2 lg:px-3 w-fit md:w-[50%] font-bold text-base md:text-lg self-end">
