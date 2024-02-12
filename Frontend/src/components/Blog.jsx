@@ -176,7 +176,7 @@ const Blog = () => {
                 />
               </div>
               <div className="flex flex-col justify-between h-[50%] pt-2 w-full">
-                <div className="flex flex-col gap-y-1">
+                <div className="flex flex-col gap-y-1 text-center">
                   <h2 className="text-base md:text-lg font-medium">
                     {blog?.title}
                   </h2>
