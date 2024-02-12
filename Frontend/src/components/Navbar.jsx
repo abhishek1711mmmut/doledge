@@ -88,11 +88,6 @@ const Navbar = () => {
                 </Link>
               </li>
               <Dropdown />
-              <li className="nav-item">
-                <Link className="nav-link" to='/value-packs'>
-                  Value Packs
-                </Link>
-              </li>
             </ul>
           </div>
 

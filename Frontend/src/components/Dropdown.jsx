@@ -15,14 +15,12 @@ const Dropdown = (props) => {
 
     return (
       <li
-        className={`${
-          props.type == "sideBar" ? null : "nav-item-home"
-        } nav-item  z-10`}
+        className={`${props.type == "sideBar" ? null : "nav-item-home"
+          } nav-item  z-10`}
       >
         <div
-          className={`${
-            props.type == "sideBar" ? "nav-link-sidebar" : "nav-link"
-          } cursor-pointer`}
+          className={`${props.type == "sideBar" ? "nav-link-sidebar" : "nav-link"
+            } cursor-pointer`}
           onClick={props.type == "sideBar" ? handlerHeight : null}
         >
           <div className={`${props.type == "sideBar" && "title"}`}>{title}</div>
@@ -43,11 +41,10 @@ const Dropdown = (props) => {
         </div>
         {isOpen && (
           <div
-            className={`${
-              props.type == "sideBar"
+            className={`${props.type == "sideBar"
                 ? "sidebar-alignment sidebar-dropdown-content"
                 : "home-alignment home-dropdown-content"
-            } min-[900px]:max-[1372px]:mt-4`}
+              } min-[900px]:max-[1372px]:mt-4`}
             style={{
               height: height ? "auto" : "0px",
               visibility: height ? "visible" : "hidden",
@@ -73,7 +70,7 @@ const Dropdown = (props) => {
           { title: "Visual Resume", link: "Visual-Resume-Entry-Level" },
           { title: "Resume Critique", link: "Resume-Critique" },
           { title: "Resume Quality Score", link: "Resume-Quality-Score" },
-          { title: "Combo Resume Pack", link: "Combo-Resume-Pack" },
+
           { title: "Cover Letter", link: "Cover-Letter" },
         ]}
       />
@@ -107,7 +104,7 @@ const Dropdown = (props) => {
           },
           // {title:'Top Management Profile', link:'Top-Management-Profile'},
           // {title:'Profile Update', link:'Profile-Update'},
-          { title: "Combos Highlights", link: "Combos-Highlights" },
+
           { title: "Social Profiler", link: "Social-Profiler" },
           { title: "Personal Portfolio", link: "Personal-Portfolio" },
         ]}
@@ -125,6 +122,13 @@ const Dropdown = (props) => {
             link: "Profile-Check-&-Investigation",
           },
           // { title: "Web Screening Services", link: "Web-Screening-Services" },
+        ]}
+      />
+      <Dropdown
+        title="Value Packs"
+        items={[
+          { title: "Combo Resume Pack", link: "Combo-Resume-Pack" },
+          { title: "Combos Highlights", link: "Combos-Highlights" },
         ]}
       />
     </>
