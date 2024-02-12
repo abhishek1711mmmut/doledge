@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import Image1 from '../../../images/HighlightImage.png'
 import Image2 from '../../../images/HighlightImageS4Img2.png'
-import Image3 from '../../../images/HighlightSection5.png'
 import Image4 from '../../../images/HighlightTip1.png'
 import Image5 from '../../../images/HighlightTip2.png'
 import Image6 from '../../../images/HighlightTip3.png'
+import freeUsr from '../../../images/freeUsr.png'
+import paidUsr from '../../../images/paidUsr.png'
 import Blog from '../../Blog'
-import Footer from '../../Footer'
 import Contactus from '../../Contactus'
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -329,8 +329,19 @@ const HighlightResume = () => {
             </section>
 
             {/* how your profile look to recruiter - image */}
-            <div className='lg:w-[70%] max-w-[1500px] mx-auto'>
-                <img src={Image3} alt="" className='w-full mx-auto p-5 pt-2 pb-4' />
+            <div className='lg:w-[70%] max-w-[1500px] mx-auto flex flex-col gap-y-3 max-md:my-4 md:my-10'>
+                <div>
+                    <p className='text-left md:text-xl ml-12 font-medium' style={{ fontFamily: 'inter' }}>
+                        How recruiter views paid profiles
+                    </p>
+                    <img src={paidUsr} alt="" className='max-sm:w-[95%] w-full mx-auto' />
+                </div>
+                <div>
+                    <p className='text-left md:text-xl ml-12 font-medium' style={{ fontFamily: 'inter' }}>
+                        How recruiter views free profiles
+                    </p>
+                    <img src={freeUsr} alt="" className='max-sm:w-[95%] w-full mx-auto' />
+                </div>
             </div>
 
             {/* To get the best out of a Profile Highlighter service, consider the following tips */}
@@ -352,7 +363,7 @@ const HighlightResume = () => {
             <Contactus />
 
             {/* Blog */}
-            <Blog/>
+            <Blog />
 
             {/* Footer */}
             {/* <Footer/> */}
