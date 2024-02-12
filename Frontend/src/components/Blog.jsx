@@ -182,7 +182,7 @@ const Blog = () => {
                   </h2>
                   <LimitedWordsParagraph
                     html={blog?.description}
-                    maxWords={13}
+                    maxWords={15}
                   />
                 </div>
                 <div className="flex gap-x-5 lg:gap-x-10 border-2 border-[#00000026] bg-[#F8F8F8] rounded-2xl px-2 lg:px-3 w-fit md:w-[50%] font-bold text-base md:text-lg self-end">
