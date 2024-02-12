@@ -141,14 +141,14 @@ const Blog = () => {
   ];
 
   const settings = {
-    slidesToShow: 4,
+    slidesToShow: 3,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className:
       "!flex !justify-between !items-center !gap-x-3 !p-1 w-[95%] lg:w-[80%] !max-w-[1500px] !mx-auto",
     responsive: responsive,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     swipeToSlide: true,
     pauseOnHover: true,
   };
