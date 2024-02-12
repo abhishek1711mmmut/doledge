@@ -15,8 +15,8 @@ import contextAuth from "../../../../ContextAPI/ContextAuth";
 
 
 // import Slide from 'react-reveal/Slide';
-export default function DoledgeBenefits({prices}) {
-  const {token} = useContext(contextAuth);
+export default function DoledgeBenefits({ prices }) {
+  const { token } = useContext(contextAuth);
   const [selectedValue, setSelectedValue] = useState("");
   const [optionPrice, setoptionPrice] = useState(0);
   const [includeCoverLetter, setIncludeCoverLetter] = useState(false);
@@ -29,7 +29,7 @@ export default function DoledgeBenefits({prices}) {
         const response = await axios.get(
           `${process.env.REACT_APP_SERVER_PRO_URL}/api/resumeService/services`
         );
-        console.log("this is from get 1",response.data);
+        console.log("this is from get 1", response.data);
         const { status, message, services } = response.data;
 
         if (status === "success" && services.length > 0) {
@@ -43,7 +43,7 @@ export default function DoledgeBenefits({prices}) {
             const option = visualResumeService.options[0];
             setOptionId(option._id);
             setoptionPrice(option.optionPrice);
-            console.log("this is from get 2",response.data);
+            console.log("this is from get 2", response.data);
           } else {
             console.error("Visual Resume Service not found");
           }
@@ -53,8 +53,8 @@ export default function DoledgeBenefits({prices}) {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-      console.log("options",options)
-      
+      console.log("options", options)
+
     };
 
     fetchData();
@@ -62,25 +62,25 @@ export default function DoledgeBenefits({prices}) {
   useEffect(() => {
     console.log("Selected Value:", selectedValue);
   }, [selectedValue]);
-  
+
   useEffect(() => {
     console.log("Option Price:", optionPrice);
   }, [optionPrice]);
-  
+
   useEffect(() => {
     console.log("Include Cover Letter:", includeCoverLetter);
   }, [includeCoverLetter]);
-  
+
   useEffect(() => {
     console.log("New Price:", optionPrice);
   }, [optionPrice]);
-  
+
 
   const handleChange = (event) => {
     const selectedOption = options.find(
       (option) => option.optionId === event.target.value
     );
-  
+
     if (selectedOption) {
       setSelectedValue(selectedOption.optionId);
       setOptionId(selectedOption._id);
@@ -88,24 +88,24 @@ export default function DoledgeBenefits({prices}) {
     } else {
       console.error("Selected option not found:", event.target.value);
     }
-  
+
     // console.log("Selected Option:", selectedOption);
     // console.log("Selected Value:", selectedValue);
     // console.log("Option Price:", optionPrice);
   };
-  
+
   const handleCoverLetterChange = (event) => {
     const coverLetterPrice = 500;
     let newPrice = 0; // Initialize newPrice
-    
+
     // Find the selected option
     const selectedOption = options.find(
       (option) => option.optionId === selectedValue
     );
-  
+
     if (selectedOption) {
       newPrice = selectedOption.optionPrice; // Set newPrice to the price of the selected option
-  
+
       // Adjust the price based on the inclusion of a cover letter
       if (event.target.checked) {
         newPrice += coverLetterPrice;
@@ -113,29 +113,29 @@ export default function DoledgeBenefits({prices}) {
         // If the cover letter is unchecked, set the price back to the base option price
         newPrice = selectedOption.optionPrice;
       }
-  
+
       setIncludeCoverLetter(event.target.checked);
       setoptionPrice(newPrice);
     } else {
       console.error("Selected option not found:", selectedValue);
     }
-  
+
     console.log("Selected Option:", selectedOption);
     console.log("Include Cover Letter:", includeCoverLetter);
     console.log("New Price:", newPrice);
     console.log("Option Price:", optionPrice);
   };
-  
+
   const handleBuyNow = async () => {
     try {
       const selectedServiceId = serviceId;
       const selectedOptionId = optionId;
-      
-  
+
+
       console.log("Selected Service ID:", selectedServiceId);
       console.log("Selected Option ID:", selectedOptionId);
-      
-  
+
+
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_PRO_URL}/api/resumeService/select-service-option`,
         {
@@ -143,34 +143,34 @@ export default function DoledgeBenefits({prices}) {
           optionId: selectedOptionId,
         }
       );
-  
+
       console.log("Response from post:", response.data);
       // Next, make the API call to add to cart
-    const response2 = await axios.post(
-      `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
-      {
-        selectedServiceId,
-        selectedPlanId: selectedOptionId,
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }
+      const response2 = await axios.post(
+        `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
+        {
+          selectedServiceId,
+          selectedPlanId: selectedOptionId,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
 
-    );
+      );
 
-    console.log("Response from add to cart:", response2.data);
+      console.log("Response from add to cart:", response2.data);
 
-    
-  } catch (error) {
-    console.error("Error handling buy now:", error);
-    // Handle errors, e.g., display an error message to the user
-  }
+
+    } catch (error) {
+      console.error("Error handling buy now:", error);
+      // Handle errors, e.g., display an error message to the user
+    }
   };
-  
-  
 
 
-  
+
+
+
 
   const location = useLocation();
   const ResumeType = location.pathname.includes("Visual") ? "Visual" : "Text";
@@ -181,16 +181,16 @@ export default function DoledgeBenefits({prices}) {
     <div className="main flex flex-col md:ml-20 md:mr-20 w-[93%] lg:w-[80%] xl:w-[70%] max-w-[1500px] mx-auto">
       <div className="div w-[100%] flex justify-center align-center mt-5">
 
-         {/* <div className="flex justify-center align-center bg-green-500">
+        {/* <div className="flex justify-center align-center bg-green-500">
       Click me
     </div> */}
-      <div className='bg-[#9DD49B] w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
-        Doledge Benefits
-      </div>
+        <div className='bg-[#9DD49B] w-[250px] h-[60px] md:w-[400px] md:h-[100px] rounded-xl text-2xl md:text-4xl leading-10 flex justify-center items-center'>
+          Doledge Benefits
+        </div>
 
       </div>
 
-    
+
 
 
 
@@ -198,16 +198,16 @@ export default function DoledgeBenefits({prices}) {
 
       <div className="flex flex-col xl:flex-row justify-center items-center xl:justify-between xl:items-stretch gap-x-2 mt-5 w-full mx-auto">
         <div className="flex flex-col justify-center items-start  xl:w-[60%]">
-         
 
-          <div className="text-black text-base md:text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300,  textAlign:'center' }}>
-            
+
+          <div className="text-black text-base md:text-xl max-w-screen-sm md:max-w-full lg:max-w-2xl py-2 rounded-lg self-start text-center font-semibold mb-2 mx-auto" style={{ fontFamily: 'Poppins', fontWeight: 300, textAlign: 'center' }}>
+
             Benefits of buying Text Resume service from Doledge
           </div>
 
           <table className="table table-striped table-bordered table-auto">
             <thead>
-              <tr>  
+              <tr>
                 <th scope="col" className="text-center !bg-[#4472c4] !text-white">Doledge Benefits</th>
                 <th scope="col" className="text-center !bg-[#4472c4] !text-white">Free Resume</th>
                 <th scope="col" className="text-center !bg-[#4472c4] !text-white" >Doledge Text Resume</th>
@@ -286,80 +286,53 @@ export default function DoledgeBenefits({prices}) {
         </div>
 
         {serviceId && optionId && (
-      <div className="justify-content-center xl:flex lg:w-[55%] xl:w-[40%] py-2">
-        <div className="div flex flex-col">
-          <div
-            className="mx-auto text-black text-lg sm:text-xl max-w-screen-sm md:max-w-full self-start text-center font-semibold md:mb-2"
-            style={{ fontFamily: "Poppins", fontWeight: 300 }}
-          >
-            Buy {ResumeType} Resume Services
-          </div>
-          <Card className="md:mt-1 md:w-[100%] my-2 h-full">
-            <div className="bg-white max-xl:h-6 xl:h-[10%]"></div>
-            <Typography
-              component="div"
-              gutterBottom
-              style={{
-                background: "#D2D2D263",
-                fontSize: 26,
-                color: "#444",
-                padding: "7px 0",
-                fontWeight: "500",
-              }}
-            >
-              Rs. {optionPrice}*
-              <p
-                className="inclTxt"
-                style={{
-                  lineHeight: 1,
-                  fontSize: "11px",
-                  marginBottom: "5px",
-                  fontWeight: "500",
-                }}
+          <div className="justify-content-center xl:flex lg:w-[55%] xl:w-[40%] py-2">
+            <div className="div flex flex-col">
+              <div
+                className="mx-auto text-black text-lg sm:text-xl max-w-screen-sm md:max-w-full self-start text-center font-semibold md:mb-2"
+                style={{ fontFamily: "Poppins", fontWeight: 300 }}
               >
-                *Applicable taxes may apply
-              </p>
-            </Typography>
-            <FormControl component="fieldset" sx={{ paddingX: "20px" }}>
-              <RadioGroup
-                aria-label="options"
-                name="options"
-                value={selectedValue}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value=""
-                  control={
-                    <Checkbox
-                      checked={includeCoverLetter}
-                      onChange={handleCoverLetterChange}
-                    />
-                  }
-                  label={
-                    <div>
-                      <Typography
-                        style={{
-                          fontSize: "15px",
-                          fontFamily: "Poppins",
-                          fontWeight: "400",
-                        }}
-                      >
-                        {" "}
-                        Including Cover letter{" "}
-                      </Typography>
-                    </div>
-                  }
-                  labelPlacement="end"
-                />
-                {options.map((option) => (
-                  <div key={option._id}>
-                    <hr className="w-full" />
+                Buy {ResumeType} Resume Services
+              </div>
+              <Card className="md:mt-1 md:w-[100%] my-2 h-full">
+                <div className="bg-white max-xl:h-6 xl:h-[10%]"></div>
+                <Typography
+                  component="div"
+                  gutterBottom
+                  style={{
+                    background: "#D2D2D263",
+                    fontSize: 26,
+                    color: "#444",
+                    padding: "7px 0",
+                    fontWeight: "500",
+                  }}
+                >
+                  Rs. {optionPrice}*
+                  <p
+                    className="inclTxt"
+                    style={{
+                      lineHeight: 1,
+                      fontSize: "11px",
+                      marginBottom: "5px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    *Applicable taxes may apply
+                  </p>
+                </Typography>
+                <FormControl component="fieldset" sx={{ paddingX: "20px" }}>
+                  <RadioGroup
+                    aria-label="options"
+                    name="options"
+                    value={selectedValue}
+                    onChange={handleChange}
+                  >
                     <FormControlLabel
-                      value={option.optionId}
+                      value=""
                       control={
-                        <Radio
-                          checked={selectedValue === option.optionId}
-                          onChange={handleChange}
+                        <Checkbox
+                          checked={includeCoverLetter}
+                          onChange={handleCoverLetterChange}
                         />
                       }
                       label={
@@ -371,35 +344,63 @@ export default function DoledgeBenefits({prices}) {
                               fontWeight: "400",
                             }}
                           >
-                            <span className="text-blue-900">
-                              {option.optionName}
-                            </span>{" "}
-                            - Rs. {option.optionPrice}
+                            {" "}
+                            Including Cover letter{" "}
                           </Typography>
                         </div>
                       }
                       labelPlacement="end"
                     />
-                  </div>
-                ))}
-              </RadioGroup>
-            </FormControl>
-            {serviceId && optionId && (
-              <Box sx={{ textAlign: "center", padding: "10px" }}>
-                <Button
-                  type="submit"
-                  onClick={handleBuyNow}
-                  variant="contained"
-                  style={{ backgroundColor: "rgba(245, 134, 52, 1)" }}
-                >
-                  Buy Now
-                </Button>
-              </Box>
-            )}
-          </Card>
-        </div>
-      </div>
-      )}
+                    <hr className="w-full mb-2" />
+                    {options.map((option) => (
+                      <div key={option._id} className="flex">
+                        <FormControlLabel
+                          value={option.optionId}
+                          control={
+                            <Radio
+                              checked={selectedValue === option.optionId}
+                              onChange={handleChange}
+                            />
+                          }
+                          label={
+                            <div>
+                              <Typography
+                                style={{
+                                  fontSize: "15px",
+                                  fontFamily: "Poppins",
+                                  fontWeight: "400",
+                                  textAlign: 'left'
+                                }}
+                              >
+                                <span className="text-blue-900">
+                                  {option.optionName}
+                                </span>{" "}
+                                - Rs. {option.optionPrice}
+                              </Typography>
+                            </div>
+                          }
+                          labelPlacement="end"
+                        />
+                      </div>
+                    ))}
+                  </RadioGroup>
+                </FormControl>
+                {serviceId && optionId && (
+                  <Box sx={{ textAlign: "center", padding: "10px" }}>
+                    <Button
+                      type="submit"
+                      onClick={handleBuyNow}
+                      variant="contained"
+                      style={{ backgroundColor: "rgba(245, 134, 52, 1)" }}
+                    >
+                      Buy Now
+                    </Button>
+                  </Box>
+                )}
+              </Card>
+            </div>
+          </div>
+        )}
 
       </div>
 
@@ -424,7 +425,7 @@ export default function DoledgeBenefits({prices}) {
                 fontSize: 20,
                 fontFamily: 'Poppins',
                 fontWeight: '500',
-                marginTop:'-15px'
+                marginTop: '-15px'
               }}>
                 <SiSpeedtest className='mx-auto w-[33px] h-[28px]' />
                 {/* <FontAwesomeIcon icon={faGaugeSimpleHigh} style={{ color: "royalblue", fontSize: 24 }} /> <br /> */}
@@ -438,10 +439,10 @@ export default function DoledgeBenefits({prices}) {
                 fontSize: 20,
                 fontFamily: 'Poppins',
                 fontWeight: '500',
-                marginTop:'-15px'
+                marginTop: '-15px'
               }}>
-                <img src={icon1} alt="" width={30} height={30} className='mx-auto '/>
-                
+                <img src={icon1} alt="" width={30} height={30} className='mx-auto ' />
+
 
                 Affordability</div>
               <p style={{ fontSize: 12, fontWeight: 400 }}>cost-effective solutions for modernizing job applications</p>
@@ -453,7 +454,7 @@ export default function DoledgeBenefits({prices}) {
                 fontWeight: '500'
               }}>
                 {/* <FontAwesomeIcon icon={faGaugeSimpleHigh} style={{ color: "royalblue", fontSize: 24 }} /> <br /> */}
-                <img src={icon2} width={30} height={30} alt="" className='mx-auto'/>
+                <img src={icon2} width={30} height={30} alt="" className='mx-auto' />
                 Expert <br />Guidance</div>
               <p style={{ fontSize: 12, fontWeight: 400 }}>Helping clients make a lasting impression</p>
             </div>
