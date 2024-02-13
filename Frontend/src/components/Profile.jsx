@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import InputElement from "../UI/InputElement/InputElement";
 import SelectionCard from "../UI/Card/SelectionCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faLock, faPaperclip, faTrash, faUnlock } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faLock,faPaperclip, faTrash, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const Profile = (props) => {
