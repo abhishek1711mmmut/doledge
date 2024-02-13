@@ -95,7 +95,7 @@ const Cart = () => {
                       )}
                       <div className="flex justify-between max-sm:flex-col max-sm:items-start max-sm:gap-y-1">
                         <button className="text-sm text-blue-600">
-                          Change delivery option
+                          Edit
                         </button>
                         <button
                           className="text-sm text-red-500"
