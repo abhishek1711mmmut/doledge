@@ -7,9 +7,10 @@ import {
   Checkbox,
   RadioGroup,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import contextAuth from "../../../ContextAPI/ContextAuth";
+import toast from "react-hot-toast";
 
 export default function BuyNowServiceCard() {
   const { token } = useContext(contextAuth);
@@ -19,6 +20,8 @@ export default function BuyNowServiceCard() {
   const [serviceId, setServiceId] = useState(null);
   const [optionId, setOptionId] = useState("");
   const [options, setOptions] = useState([]);
+  const serviceType = " Visual Resume Service";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,8 +53,7 @@ export default function BuyNowServiceCard() {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-      console.log("options", options)
-
+      console.log("options", options);
     };
 
     fetchData();
@@ -71,7 +73,6 @@ export default function BuyNowServiceCard() {
   useEffect(() => {
     console.log("New Price:", optionPrice);
   }, [optionPrice]);
-
 
   const handleChange = (event) => {
     const selectedOption = options.find(
@@ -128,10 +129,8 @@ export default function BuyNowServiceCard() {
       const selectedServiceId = serviceId;
       const selectedOptionId = optionId;
 
-
       console.log("Selected Service ID:", selectedServiceId);
       console.log("Selected Option ID:", selectedOptionId);
-
 
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_PRO_URL}/api/resumeService/select-service-option`,
@@ -142,26 +141,44 @@ export default function BuyNowServiceCard() {
       );
 
       console.log("Response from post:", response.data);
-      // Next, make the API call to add to cart
-      const response2 = await axios.post(
-        `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
-        {
-          selectedServiceId,
-          selectedPlanId: selectedOptionId,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
 
+
+
+       // Adding Cart  Items
+      const data = {
+        serviceType,
+        service: {
+          id: selectedServiceId,
+          name: serviceType,
+        },
+        plan: {
+          id: selectedOptionId,
+          price: optionPrice,
+        },
+      };
+
+     
+
+      const addToCartRes = await axios.post(
+        `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
+        data,
+        { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );
 
-      console.log("Response from add to cart:", response2.data);
+      const responseCartData = addToCartRes.data;
+      if (!responseCartData) {
+        throw new Error("Error occurred while adding to Cart");
+      } else {
+        console.log("Server Response (Add to Cart):", responseCartData);
+        toast.success("Package added to cart successfully");
+        setSelectedValue(null);
+        navigate("/cart");
+      }
     } catch (error) {
       console.error("Error handling buy now:", error);
       // Handle errors, e.g., display an error message to the user
     }
   };
-
 
   //   const handleBuyNow = async () => {
   //   try {
@@ -180,8 +197,6 @@ export default function BuyNowServiceCard() {
   //     console.error("Error selecting service option:", error);
   //   }
   // };
-
-
 
   const location = useLocation();
   const ResumeType = location.pathname.includes("Visual") ? "Visual" : "Text";
@@ -274,10 +289,8 @@ export default function BuyNowServiceCard() {
                                 fontWeight: "400",
                               }}
                             >
-                              <span>
-                                {option.optionName}
-                              </span>{" "}
-                              - Rs. {option.optionPrice}
+                              <span>{option.optionName}</span> - Rs.{" "}
+                              {option.optionPrice}
                             </Typography>
                           </div>
                         }
