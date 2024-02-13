@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ResumeHighlighter from '../../../images/ResumeHighlight.jpg'
 import image1 from '../../../images/Vector1.jpg'
 import image2 from '../../../images/Vector2.jpg'
@@ -8,15 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import Image1 from '../../../images/HighlightImage.png'
 import Image2 from '../../../images/HighlightImageS4Img2.png'
+import Image3 from '../../../images/HighlightSection5.png'
 import Image4 from '../../../images/HighlightTip1.png'
 import Image5 from '../../../images/HighlightTip2.png'
 import Image6 from '../../../images/HighlightTip3.png'
+import Blog from '../../Blog'
 import freeUsr from '../../../images/freeUsr.png'
 import paidUsr from '../../../images/paidUsr.png'
-import Blog from '../../Blog'
 import Contactus from '../../Contactus'
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import contextAuth from '../../../ContextAPI/ContextAuth'
+import { useNavigate } from 'react-router-dom';
 
 const HighlightResume = () => {
 
@@ -89,17 +92,19 @@ const HighlightResume = () => {
     const [displayPlans, setDisplayPlans] = useState([]);
     const [selectedPlanId, setSelectedPlanId] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [planPrice,setPlanPrice]= useState();
+    const [planDurMonths,setPlanDurMonths]= useState();
 
+    const serviceType = "Highlight Profile Service";
+    const navigate = useNavigate();
+    const {token} = useContext(contextAuth);
 
-    const handleRadioChange = (e, serviceId, planId) => {
+    const handleRadioChange = (e, serviceId, planId,planPrice,planDurMonths) => {
         setSelectedPlan(e.target.value);
         setServiceId(serviceId);
         setSelectedPlanId(planId);
-
-        // console.log("****** HandleRadio button ********")
-        // console.log('Selected Package Price :', e.target.value);
-        // console.log('Selected Service ID:', serviceId);
-        // console.log('Selected Plan ID:', planId);
+        setPlanPrice(planPrice);
+        setPlanDurMonths(planDurMonths);
     }
 
     const handleSubmit = async (e) => {
@@ -111,12 +116,7 @@ const HighlightResume = () => {
             setLoading(false);
             return;
         }
-        // console.log("****** Handle submit ********")
-        // console.log('Submitted Package Price :', selectedPlan);
-        // console.log('Submitted Service ID:', serviceId);
-        // console.log('Submitted Plan ID:', selectedPlanId);
-
-        //! storing the serviceid and planid to the select highlight resume opyion
+    
         try {
             const selectPlanResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/highlightresume/select-highlight-resume-option`, {
                 serviceId,
@@ -124,49 +124,67 @@ const HighlightResume = () => {
             });
 
             const responseData = selectPlanResponse.data;
-            // console.log("Server Response (Select Highlight Resume):", responseData);
+            console.log("Server Response (Select Highlight Resume):", responseData);
             if (!responseData) {
                 throw new Error("Error in selecting highlight resume option")
             }
 
-            const jwtToken = localStorage.getItem("token");
 
-            //! aading items to the cart
-            const addToCartResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`, {
-                selectedServiceId: serviceId,
-                selectedPlanId: selectedPlanId
-            }, {
-                headers: {
-                    Authorization: `Bearer ${jwtToken}`
-                }
-            });
+            const data = {
+                serviceType,
+                service: {
+                    id:serviceId,
+                    name:serviceType
+                },
+                plan: {
+                    id:selectedPlanId,
+                    price:planPrice,
+                    durationMonths:planDurMonths
+                },
+              };
+            //   console.log(data);
+            //   Adding Items to the Cart
+            
+            const addToCartRes = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,data,
+          { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
 
-            const responseCartData = addToCartResponse.data;
+    );
+
+            const responseCartData = addToCartRes.data;
             if (!responseCartData) {
                 throw new Error("Error occurred while adding to Cart");
             } else {
-                // console.log("Server Response (Add to Cart):", responseCartData);
+                console.log("Server Response (Add to Cart):", responseCartData);
                 toast.success("Package added to cart successfully");
                 setSelectedPlan(null);
+                navigate("/cart");
             }
 
 
-            //! Creating and placing order
-            const createOrderResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/order/create`, {
-                cartId: responseCartData.cartId,
-                cartType: "ResumeHighlightCart"
-            });
+          
+            //  Creating and placing order
+
+            // const OrdData = {
+            //     cartId: responseCartData.cart._id,
+            //     cartType: "ResumeHighlightCart"
+            // }
+            // const createOrderResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/order/create`, OrdData,
+            //  {
+            //     withCredentials: true, headers: { Authorization: `Bearer ${token}` }}
+            // );
             // console.log("Create Order Response", createOrderResponse);
 
-            const orderData = createOrderResponse.data;
-            // console.log(orderData);
+            // const orderData = createOrderResponse.data;
+        
 
-            if (orderData.success) {
-                toast.success("Order placed successfully");
-            } else {
-                throw new Error(orderData.message || "Failed to place order");
-            }
+            // if (orderData.success) {
+            //     toast.success("Order placed successfully");
+            // } else {
+            //     throw new Error(orderData.message || "Failed to place order");
+            // }
+
         } catch (error) {
+
             console.error("Error occurred during API requests:", error);
             toast.error(error.message || "Error occurred during API requests");
         } finally {
@@ -179,33 +197,25 @@ const HighlightResume = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_PRO_URL}/api/highlightresume/highlight-resumes`);
-                const { status, message, highlightResumes } = response.data;
-                // console.log("Fetched API Response Data", response.data);
+                const { status,  highlightResumes } = response.data;
 
                 if (status === 'success' && highlightResumes.length > 0) {
                     const showSelectedService = highlightResumes[0];
                     setServiceId(showSelectedService._id);
                     setDisplayPlans(showSelectedService.plans);
 
-                    // console.log("Highlight Resumes array", highlightResumes);
-                    // console.log("Ye wali service show hogi package par", showSelectedService);
-                    // console.log("Service Id  :", showSelectedService._id);
-                    // console.log("Displaying Plans :", showSelectedService.plans);
 
                 } else {
-                    // console.error('Failed to fetch highlight resumes');
                     throw new Error('Failed to fetch highlight resumes');
                 }
             } catch (error) {
                 toast.error("Error fetching highlight resumes");
-                // console.error('Error fetching highlight resumes:', error);
             } finally {
                 setLoading(false);
             }
         }
         fetchData();
     }, []);
-
 
 
 
@@ -269,7 +279,7 @@ const HighlightResume = () => {
                                         name="buyPackage"
                                         id={`duration-${plan.durationMonths}`}
                                         value={plan.price}
-                                        onChange={(e) => handleRadioChange(e, serviceId, plan._id)}
+                                        onChange={(e) => handleRadioChange(e, serviceId, plan._id, plan.price,plan.durationMonths)}
                                         checked={selectedPlan === plan.price.toString()}
                                         className='w-5 h-5 ml-[15%] sm:ml-[20%] lg:ml-8 2xl:ml-12 cursor-pointer'
                                     />
@@ -363,7 +373,7 @@ const HighlightResume = () => {
             <Contactus />
 
             {/* Blog */}
-            <Blog />
+            <Blog/>
 
             {/* Footer */}
             {/* <Footer/> */}
