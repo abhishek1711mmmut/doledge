@@ -15,6 +15,7 @@ const Cart = () => {
   const [totalAmount, setTotalAmount] = useState();
   const { setCart } = useContext(contextAuth);
   const [cpnCode, setCpnCode] = useState("");
+  const gst = 858;
 
   useEffect(() => {
     getCartItems();
@@ -125,7 +126,7 @@ const Cart = () => {
                   </div>
                   <div className="flex justify-between">
                     <p>Estimated GST</p>
-                    <p>₹ 858</p>
+                    <p>₹ {gst}</p>
                   </div>
                 </div>
               </div>
@@ -133,7 +134,7 @@ const Cart = () => {
               <div className="flex flex-col gap-y-8 border-t-2 pt-3">
                 <div className="flex justify-between font-bold">
                   <p>Total Payable Amount</p>
-                  <p>₹ {totalAmount}</p>
+                  <p>₹ {totalAmount + gst}</p>
                 </div>
                 <button className="bg-orange-500 text-white font-semibold px-3 py-2 rounded-lg flex justify-center items-center">
                   CONTINUE
