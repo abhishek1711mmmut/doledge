@@ -70,10 +70,10 @@ const CoverLetter = () => {
                             Doledge Sample Cover Letters
                         </h1>
                         <div className='grid md:grid-cols-2 gap-x-24 gap-y-16 mx-auto p-5 shadow-[4.0px_8.0px_16px_rgba(0,0,0,0.20),-4.0px_-4.0px_16px_rgba(0,0,0,0.20)] border rounded max-[700px]:w-[90%] max-md:w-[80%]'>
-                            <img src={resume1} alt="" loading='lazy' />
-                            <img src={resume2} alt="" loading='lazy' />
-                            <img src={resume3} alt="" loading='lazy' />
-                            <img src={resume4} alt="" loading='lazy' />
+                            <img src={resume1} alt="" loading='lazy' className='border' />
+                            <img src={resume2} alt="" loading='lazy' className='border' />
+                            <img src={resume3} alt="" loading='lazy' className='border' />
+                            <img src={resume4} alt="" loading='lazy' className='border' />
                         </div>
                     </div>
                 </div>
