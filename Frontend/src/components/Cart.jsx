@@ -92,7 +92,7 @@ const Cart = () => {
                       {item.service.name}
                     </h2>
                     <p className="text-left text-sm">
-                      {item.plan.durationMonths} Months{" "}
+                      {item.plan?.durationMonths} Months{" "}
                     </p>
                     <div className="flex justify-between max-sm:flex-col max-sm:items-start max-sm:gap-y-1">
                       <button className="text-sm text-blue-600">

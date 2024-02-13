@@ -140,7 +140,7 @@ const HighlightResume = () => {
                     durationMonths:planDurMonths
                 },
               };
-              console.log(data);
+            //   console.log(data);
             //   Adding Items to the Cart
             
             const addToCartRes = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,data,
@@ -161,24 +161,24 @@ const HighlightResume = () => {
           
             //  Creating and placing order
 
-            const OrdData = {
-                cartId: responseCartData.cart._id,
-                cartType: "ResumeHighlightCart"
-            }
-            const createOrderResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/order/create`, OrdData,
-             {
-                withCredentials: true, headers: { Authorization: `Bearer ${token}` }}
-            );
-            console.log("Create Order Response", createOrderResponse);
+            // const OrdData = {
+            //     cartId: responseCartData.cart._id,
+            //     cartType: "ResumeHighlightCart"
+            // }
+            // const createOrderResponse = await axios.post(`${process.env.REACT_APP_SERVER_PRO_URL}/api/order/create`, OrdData,
+            //  {
+            //     withCredentials: true, headers: { Authorization: `Bearer ${token}` }}
+            // );
+            // console.log("Create Order Response", createOrderResponse);
 
-            const orderData = createOrderResponse.data;
+            // const orderData = createOrderResponse.data;
         
 
-            if (orderData.success) {
-                toast.success("Order placed successfully");
-            } else {
-                throw new Error(orderData.message || "Failed to place order");
-            }
+            // if (orderData.success) {
+            //     toast.success("Order placed successfully");
+            // } else {
+            //     throw new Error(orderData.message || "Failed to place order");
+            // }
 
         } catch (error) {
 
