@@ -30,7 +30,7 @@ export default function Component() {
             </div>
             <div class="flex-grow border-r pl-5 pr-4">
               <h1 class="flex items-center space-x-2 text-2xl font-semibold">
-                Sarthak Khare
+                Rakesh Ranjan
               </h1>
               <p class="flex items-center space-x-2 text-sm text-gray-500">
                 Profile last updated - Today
@@ -56,11 +56,11 @@ export default function Component() {
             <div class="flex-grow pl-4">
               <div class="flex items-center space-x-2">
                <CallIcon fontSize="10" className="text-orange-500"/>
-                <span>9696923378</span>
+                <span>8484848484</span>
               </div>
               <div class="flex items-center space-x-2 mt-2">
                <MailIcon fontSize="10" className="text-orange-500"/>
-                <span>sarthakkhare945@gmail.com</span>
+                <span>rajansharma@gmail.com</span>
               </div>
             </div>
           </div>
