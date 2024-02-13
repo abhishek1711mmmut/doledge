@@ -7,6 +7,7 @@ import icon1 from "../../../../images/Icons/1.jpg";
 import icon2 from "../../../../images/Icons/2.jpg";
 import toast from "react-hot-toast";
 
+
 import { Card, Typography, Button, Box } from "@mui/material";
 import {
   FormControl,
@@ -15,7 +16,7 @@ import {
   Checkbox,
   RadioGroup,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import contextAuth from "../../../../ContextAPI/ContextAuth";
 const serviceType = "Text Resume Service";
@@ -29,6 +30,7 @@ export default function DoledgeBenefits({ prices }) {
   const [serviceId, setServiceId] = useState(null);
   const [optionId, setOptionId] = useState("");
   const [options, setOptions] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -174,6 +176,7 @@ export default function DoledgeBenefits({ prices }) {
         console.log("Server Response (Add to Cart):", responseCartData);
         toast.success("Package added to cart successfully");
         setSelectedValue(null);
+        navigate("/cart");
       }
     } catch (error) {
       console.error("Error handling buy now:", error);

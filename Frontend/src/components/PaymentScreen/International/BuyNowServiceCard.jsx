@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Card, Typography, Button, Box } from '@mui/material';
 import { FormControl, FormControlLabel, Radio, Checkbox, RadioGroup } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import contextAuth from "../../../ContextAPI/ContextAuth";
 import toast from "react-hot-toast";
+
 
 export default function BuyNowServiceCard() {
   const { token } = useContext(contextAuth)
@@ -15,6 +16,7 @@ export default function BuyNowServiceCard() {
   const [optionId, setOptionId] = useState("");
   const [options, setOptions] = useState([]);
   const serviceType = "International Visual  Resume Service";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -164,6 +166,7 @@ export default function BuyNowServiceCard() {
         console.log("Server Response (Add to Cart):", responseCartData);
         toast.success("Package added to cart successfully");
         setSelectedValue(null);
+        navigate("/cart");
       }
 
     } catch (error) {

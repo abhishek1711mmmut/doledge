@@ -19,6 +19,7 @@ import Contactus from '../../Contactus'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import contextAuth from '../../../ContextAPI/ContextAuth'
+import { useNavigate } from 'react-router-dom';
 
 const HighlightResume = () => {
 
@@ -95,6 +96,7 @@ const HighlightResume = () => {
     const [planDurMonths,setPlanDurMonths]= useState();
 
     const serviceType = "Highlight Profile Service";
+    const navigate = useNavigate();
     const {token} = useContext(contextAuth);
 
     const handleRadioChange = (e, serviceId, planId,planPrice,planDurMonths) => {
@@ -155,6 +157,7 @@ const HighlightResume = () => {
                 console.log("Server Response (Add to Cart):", responseCartData);
                 toast.success("Package added to cart successfully");
                 setSelectedPlan(null);
+                navigate("/cart");
             }
 
 

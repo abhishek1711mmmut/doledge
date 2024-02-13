@@ -7,7 +7,7 @@ import {
   Checkbox,
   RadioGroup,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import contextAuth from "../../../ContextAPI/ContextAuth";
 import toast from "react-hot-toast";
@@ -21,6 +21,7 @@ export default function BuyNowServiceCard() {
   const [optionId, setOptionId] = useState("");
   const [options, setOptions] = useState([]);
   const serviceType = " Visual Resume Service";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -171,6 +172,7 @@ export default function BuyNowServiceCard() {
         console.log("Server Response (Add to Cart):", responseCartData);
         toast.success("Package added to cart successfully");
         setSelectedValue(null);
+        navigate("/cart");
       }
     } catch (error) {
       console.error("Error handling buy now:", error);
