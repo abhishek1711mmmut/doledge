@@ -4,6 +4,7 @@ import { FormControl, FormControlLabel, Radio, Checkbox, RadioGroup } from '@mui
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
 import contextAuth from "../../../ContextAPI/ContextAuth";
+import toast from "react-hot-toast";
 
 export default function BuyNowServiceCard() {
   const { token } = useContext(contextAuth)
@@ -13,7 +14,7 @@ export default function BuyNowServiceCard() {
   const [serviceId, setServiceId] = useState(null);
   const [optionId, setOptionId] = useState("");
   const [options, setOptions] = useState([]);
-
+  const serviceType = "International Visual  Resume Service";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -136,22 +137,34 @@ export default function BuyNowServiceCard() {
         }
       );
 
-      console.log("Response from post:", response.data);
-      // Next, make the API call to add to cart
-      const response2 = await axios.post(
-        `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
-        {
-          selectedServiceId,
-          selectedPlanId: selectedOptionId,
+
+      // Adding Cart Items
+      const data = {
+        serviceType,
+        service: {
+          id: selectedServiceId,
+          name: serviceType,
         },
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
+        plan: {
+          id: selectedOptionId,
+          price: optionPrice,
+        },
+      };
+      
 
+      const addToCartRes = await axios.post(
+        `${process.env.REACT_APP_SERVER_PRO_URL}/api/cart/add-to-cart`,
+        data,
+        { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );
-
-      console.log("Response from add to cart:", response2.data);
-
+      const responseCartData = addToCartRes.data;
+      if (!responseCartData) {
+        throw new Error("Error occurred while adding to Cart");
+      } else {
+        console.log("Server Response (Add to Cart):", responseCartData);
+        toast.success("Package added to cart successfully");
+        setSelectedValue(null);
+      }
 
     } catch (error) {
       console.error("Error handling buy now:", error);
