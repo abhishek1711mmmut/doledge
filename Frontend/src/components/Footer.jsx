@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
       <div className="w-[100%] flex flex-col gap-y-4">
-        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
+        <hr className="h-[2px] text border-gray-400 bg-gray-400" />
         {/* Payment Section */}
         <div className="md:w-[70%] max-w-[1500px] mx-auto flex flex-col md:flex-row justify-evenly items-center max-md:p-1">
           <div className="flex flex-col w-full md:w-[60%]">
@@ -38,15 +38,15 @@ const Footer = () => {
           </div>
 
           <div className="flex justify-center items-center md:gap-4 bg-white max-sm:p-1">
-            <img src={payment1} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] !bg-white border-r-2"/>
-            <img src={payment2} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-2 "/>
-            <img src={payment3} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white px-2 border-r-2 border-l-2"/>
-            <img src={payment4} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-3 border-r-2"/>
-            <img src={payment5} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white"/>
+            <img src={payment1} alt="" loading="lazy" className="h-[60px] w-[70px] sm:w-[90px] !bg-white border-r-2" />
+            <img src={payment2} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-2 " />
+            <img src={payment3} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white px-2 border-r-2 border-l-2" />
+            <img src={payment4} alt="" loading="lazy" className="h-[60px] w-[80px] sm:w-[90px] bg-white pr-3 border-r-2" />
+            <img src={payment5} alt="" loading="lazy" className="h-[60px] w-[70px] sm:w-[90px] bg-white" />
           </div>
         </div>
 
-        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
+        <hr className="h-[2px] text border-gray-400 bg-gray-400" />
 
         {/* Footer Information */}
         <div className="flex flex-row justify-evenly items-center px-0 pt-4 w-[70%] max-w-[1500px] mx-auto">
@@ -186,7 +186,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="h-[2px] text border-gray-400 bg-gray-400"/>
+        <hr className="h-[2px] text border-gray-400 bg-gray-400" />
 
         {/* Social Networks */}
         <div className="flex justify-center items-center py-2">
