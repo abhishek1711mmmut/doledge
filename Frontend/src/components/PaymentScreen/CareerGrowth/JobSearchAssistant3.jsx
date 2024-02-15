@@ -17,7 +17,7 @@ import Footer from '../../Footer'
 import Contactus from '../../Contactus'
 import bgImage from '../../../images/bgJobSearch.png'
 
-const JobSearchAssistant3 = () => {
+const JobSearchAssistant3 = () => { 
 
     const [price, setPrice] = useState(0);
 
