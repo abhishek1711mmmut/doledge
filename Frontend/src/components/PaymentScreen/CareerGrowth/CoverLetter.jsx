@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import BgImage from '../../../images/coverletterBanner.png'
 import resume1 from '../../../images/resume1.png'
 import resume2 from '../../../images/resume2.png'
@@ -8,9 +8,36 @@ import Contactus from '../../Contactus'
 import Blog from '../../Blog'
 import image1 from '../../../images/image 167.png'
 import icon from '../../../images/image 168.png'
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
 
 
 const CoverLetter = () => {
+
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        register();
+        // Object with parameters
+        const params = {
+            pagination: {
+                clickable: true,
+                dynamicBullets: true,
+            },
+            centeredSlides: true,
+            autoplay: true,
+            loop: true,
+            // navigation
+        };
+
+        // Assign it to swiper element
+        Object.assign(swiperRef.current, params);
+
+        // initialize swiper
+        swiperRef.current.initialize();
+    }, []);
+
     return (
         <div className='flex flex-col gap-y-8' style={{ fontFamily: 'inter' }}>
             {/* hero section */}
@@ -69,11 +96,13 @@ const CoverLetter = () => {
                         <h1 className='border-[3px] border-[#00000033] w-fit mx-auto  text-2xl sm:text-3xl font-bold max-sm:px-3 sm:px-10 md:px-20 py-6 rounded-xl'>
                             Doledge Sample Cover Letters
                         </h1>
-                        <div className='grid md:grid-cols-2 gap-x-24 gap-y-16 mx-auto p-5 shadow-[4.0px_8.0px_16px_rgba(0,0,0,0.20),-4.0px_-4.0px_16px_rgba(0,0,0,0.20)] border rounded max-[700px]:w-[90%] max-md:w-[80%]'>
-                            <img src={resume1} alt="" loading='lazy' className='border' />
-                            <img src={resume2} alt="" loading='lazy' className='border' />
-                            <img src={resume3} alt="" loading='lazy' className='border' />
-                            <img src={resume4} alt="" loading='lazy' className='border' />
+                        <div className=''>
+                            <swiper-container init="false" ref={swiperRef}>
+                                <swiper-slide><img src={resume1} alt="" loading='lazy' className='border max-w-[80%] mx-auto max-h-[900px]' /></swiper-slide>
+                                <swiper-slide><img src={resume2} alt="" loading='lazy' className='border max-w-[80%] mx-auto max-h-[900px]' /></swiper-slide>
+                                <swiper-slide><img src={resume3} alt="" loading='lazy' className='border max-w-[80%] mx-auto max-h-[900px]' /></swiper-slide>
+                                <swiper-slide><img src={resume4} alt="" loading='lazy' className='border max-w-[80%] mx-auto max-h-[900px]' /></swiper-slide>
+                            </swiper-container>
                         </div>
                     </div>
                 </div>
